@@ -1,0 +1,161 @@
+# Depth of myometrial invasion in endometrial carcinoma, expressed entirely as
+# configuration. Label values are CAP's verbatim response options (CAP
+# Endometrium protocol, posting date December 2024, Note F), so a reviewer who
+# owns the clinical definition can audit this file without reading any code.
+#
+# Nothing here is referenced by name from the extraction code. A different CAP
+# field is a different task file, not a code change. See docs/cap-mapping.md for
+# how these values map onto the 2023 protocol and onto TCGA-era report wording.
+name: endo_myometrial_invasion
+
+label:
+  field: myometrial_invasion
+  values:
+    # CAP: "Not applicable" -- no myometrium available to assess.
+    - not_applicable
+    # CAP: "Not identified" -- myometrium assessed, no invasion found.
+    - not_identified
+    # CAP: "Present, inner half (less than 50%)"  -> pT1a / FIGO 2009 IA
+    - present_inner_half
+    # CAP: "Present, outer half (greater than or equal to 50%)" -> pT1b / IB
+    - present_outer_half
+    # CAP: "Cannot be determined (explain)"
+    - cannot_be_determined
+
+confidence_values: [high, medium, low]
+
+citation_groups:
+  # Rows that establish depth or absence of invasion.
+  - name: depth_evidence
+  # Rows that establish what was resected. Without myometrium there is nothing
+  # to measure, so the specimen is part of the contract rather than context.
+  - name: specimen_evidence
+  # Rows that contradict the chosen value, including superseded reports.
+  - name: counterevidence
+  # A labelled view of depth_evidence: the subset that states an actual fraction,
+  # percentage, or "full thickness" rather than describing invasion loosely.
+  # Constrained to be a subset so a quantified claim cannot cite rows that were
+  # never offered as depth evidence at all.
+  - name: quantified_depth
+    must_be_subset_of: [depth_evidence]
+
+disjoint:
+  - [depth_evidence, counterevidence]
+
+# Any answer -- including cannot_be_determined -- must show the rows it read.
+evidence_groups: [depth_evidence, specimen_evidence]
+
+extra_fields:
+  - name: specimen_type
+    values:
+      - hysterectomy
+      - biopsy_or_curettage_only
+      - other_or_not_stated
+  - name: depth_basis
+    values:
+      - explicit_fraction_or_percentage
+      - descriptive_full_thickness
+      - descriptive_other
+      - none_stated
+  - name: adenomyosis_origin
+    values:
+      - stated
+      - suspected
+      - not_mentioned
+
+list_fields: [unresolved_conflicts]
+
+rules:
+  # --- Definite depth answers -------------------------------------------------
+  - signature: depth_evidence_missing
+    message: a definite myometrial invasion value requires model-visible depth citations
+    when_label: [not_identified, present_inner_half, present_outer_half]
+    require_group: depth_evidence
+
+  - signature: depth_requires_hysterectomy
+    message: depth of myometrial invasion is only assessable on a hysterectomy specimen
+    when_label: [not_identified, present_inner_half, present_outer_half]
+    require_field:
+      field: specimen_type
+      values: [hysterectomy]
+
+  # --- Not applicable ---------------------------------------------------------
+  - signature: not_applicable_requires_nonhysterectomy
+    message: not_applicable requires a specimen with no myometrium to assess
+    when_label: [not_applicable]
+    require_field:
+      field: specimen_type
+      values: [biopsy_or_curettage_only, other_or_not_stated]
+
+  - signature: not_applicable_specimen_uncited
+    message: not_applicable requires direct citations for what was resected
+    when_label: [not_applicable]
+    require_group: specimen_evidence
+
+  # --- Quantified claims ------------------------------------------------------
+  - signature: quantified_basis_uncited
+    message: an explicit fraction or percentage requires quantified_depth citations
+    when_field:
+      field: depth_basis
+      values: [explicit_fraction_or_percentage]
+    require_group: quantified_depth
+
+  # --- Adenomyosis ------------------------------------------------------------
+  # CAP Note F: where invasion appears to arise from adenomyosis and the deepest
+  # point is in the outer half, ICCR and ISGyP recommend pT1b with a comment. A
+  # claim that consequential has to be grounded in cited rows.
+  - signature: adenomyosis_origin_uncited
+    message: an adenomyosis origin claim requires depth citations
+    when_field:
+      field: adenomyosis_origin
+      values: [stated, suspected]
+    require_group: depth_evidence
+
+instructions: |
+  Determine the depth of myometrial invasion for this patient's endometrial
+  carcinoma, using CAP's response options exactly as written.
+
+  Anchor on the definitive hysterectomy pathology report. Depth is estimated
+  from the endomyometrial junction to the deepest point of invasion, expressed
+  relative to the total myometrial thickness. Inner half means less than 50%
+  (pT1a / FIGO 2009 IA); outer half means greater than or equal to 50%
+  (pT1b / IB). Answer not_identified when the myometrium was assessed and no
+  invasion was found, and not_applicable only when no myometrium was resected at
+  all -- a biopsy or curettage alone cannot establish depth.
+
+  Apply these measurement rules from the protocol's explanatory note:
+  - In exophytic tumors and endometrial polyps, exclude the exophytic component
+    when assessing myometrial thickness.
+  - Do not assess depth at the cornu, where the wall is thin, unless the tumor
+    entirely involves the cornu and / or the serosa.
+  - If the deepest invasion is in the lower uterine segment, estimate depth as
+    you would in the corpus.
+  - Where the tumor infiltrates a leiomyoma and that is the deepest invasion,
+    include that portion in the depth and include the leiomyoma in the
+    thickness.
+  - Where invasion appears to arise from adenomyosis and the deepest point lies
+    in the outer half, report outer half and record adenomyosis_origin.
+  - Foci of lymphatic / vascular invasion must NOT be used to decide inner
+    versus outer half. The MELF pattern is easily mistaken for LVI; a MELF focus
+    is myometrial invasion, an LVI focus is not.
+
+  These reports are OCR'd scans written between roughly 2000 and 2013, so they
+  predate this protocol's wording. Treat "full thickness", "transmural", or
+  "invades to serosa" as outer half. Treat a stated fraction ("3 of 12 mm",
+  "less than one third") as the quantified basis. Where OCR has plainly garbled
+  a decisive number, prefer cannot_be_determined over a guess, and cite the row
+  that is unreadable.
+
+  Answer cannot_be_determined when the source cannot settle depth on a resected
+  uterus -- for example a fragmented specimen, cautery artifact, or a report
+  that only stages without describing invasion -- and cite the rows that show
+  why.
+
+  Complete these targeted checks before submitting:
+  1. identify what was resected, and whether myometrium is present;
+  2. locate the definitive hysterectomy diagnosis, not a frozen section or
+     prior biopsy;
+  3. find any explicit fraction, percentage, or full-thickness statement;
+  4. confirm the depth statement is not actually describing LVI;
+  5. check for a conflicting or superseded report, including a frozen-section
+     impression that the final diagnosis revised.
