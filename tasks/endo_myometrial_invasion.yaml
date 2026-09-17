@@ -1,24 +1,55 @@
 # Depth of myometrial invasion in endometrial carcinoma, expressed entirely as
 # configuration. Label values are CAP's verbatim response options (CAP
-# Endometrium protocol, posting date December 2024, Note F), so a reviewer who
-# owns the clinical definition can audit this file without reading any code.
+# Endometrium protocol, posting date June 2022, version 4.3.0.0, Note E), so a
+# reviewer who owns the clinical definition can audit this file without reading
+# any code.
+#
+# VERSION ANCHOR CHANGED 2026-09-15: this contract was previously written against
+# the December 2024 protocol (v5.1.0.0, Note F). It now follows June 2022 so that
+# it matches the human hand-read template, which is also June 2022. Both sides of
+# a human-versus-model comparison must be on one protocol version, or a
+# disagreement cannot be told apart from a version artifact.
+#
+# The two versions are NOT interchangeable here. June 2022 asks the depth
+# question in two parts; December 2024 folds it into one:
+#
+#   June 2022 (this file)          December 2024
+#   ---------------------          -------------
+#   Myometrial Invasion            Myometrial Invasion
+#     Not identified                 Not identified
+#     Present                        Present, inner half (less than 50%)
+#       Depth of Myometrial Invasion Present, outer half (>= 50%)
+#       Myometrial Thickness           +Specify Percentage
+#       Percentage of Myometrial     Cannot be determined (explain)
+#         Invasion                   Not applicable
+#     Cannot be determined
+#     Not applicable
+#
+# So inner-half versus outer-half is a SUB-ELEMENT here, not a label value. The
+# label answers "is there invasion"; `myometrial_invasion_percent` answers "how
+# deep". Both are required for a downstream FIGO IA/IB call, and the rules below
+# make the model answer the second whenever it answers `present` to the first.
+# This also makes the task's fields line up one-to-one with the columns of
+# /net/spaces/annawoodard/annawoodard/endometrial-project/data/cap2022jun_extraction_template.csv.
 #
 # Nothing here is referenced by name from the extraction code. A different CAP
 # field is a different task file, not a code change. See docs/cap-mapping.md for
-# how these values map onto the 2023 protocol and onto TCGA-era report wording.
+# how these values map onto other protocol versions and onto TCGA-era wording.
 name: endo_myometrial_invasion
 
 label:
   field: myometrial_invasion
+  # CAP June 2022, "Myometrial Invasion (Note E)" -- the four parent response
+  # options, verbatim. Three of these look like "no answer" and only
+  # `not_identified` is a clinical negative; never pool them (CLAUDE.md § 5).
   values:
     # CAP: "Not applicable" -- no myometrium available to assess.
     - not_applicable
     # CAP: "Not identified" -- myometrium assessed, no invasion found.
     - not_identified
-    # CAP: "Present, inner half (less than 50%)"  -> pT1a / FIGO 2009 IA
-    - present_inner_half
-    # CAP: "Present, outer half (greater than or equal to 50%)" -> pT1b / IB
-    - present_outer_half
+    # CAP: "Present" -- invasion found. Depth comes from
+    # `myometrial_invasion_percent`, which the rules below then require.
+    - present
     # CAP: "Cannot be determined (explain)"
     - cannot_be_determined
 
@@ -39,6 +70,18 @@ citation_groups:
   - name: quantified_depth
     must_be_subset_of: [depth_evidence]
 
+# Evidence and counterevidence must be different LINES. They may sit in the same
+# row -- with one combined report per patient there is only one row, so the
+# anchor that makes this meaningful is the line, not the row.
+#
+# History worth knowing: this constraint was briefly removed when the source
+# became one row per patient, because a row-level citation gave a
+# self-contradicting report nowhere to put the contradiction. Line-level
+# citations restored it. A report that says "56%" on one line and "superficial
+# half" on another can now cite both, disjointly, and be checked.
+#
+# Requires `retrieval.number_lines: true` in the run config. With numbering off,
+# citations are row-level again and this constraint becomes unsatisfiable.
 disjoint:
   - [depth_evidence, counterevidence]
 
@@ -51,30 +94,75 @@ extra_fields:
       - hysterectomy
       - biopsy_or_curettage_only
       - other_or_not_stated
+
+  # CAP June 2022, "Percentage of Myometrial Invasion", a sub-element of
+  # "Present". This is the field that carries the FIGO IA/IB boundary, so on this
+  # protocol version it is where the project's primary target actually lives.
+  #
+  # CAP offers "Specify Percentage: ___%" alongside the two estimates. A task
+  # label cannot hold a free number, so an explicitly stated percentage is
+  # recorded as whichever half it falls in, and the FACT that a number was given
+  # is recorded separately in `depth_basis`. Nothing is lost and nothing is
+  # invented: the two fields together reconstruct the CAP response.
+  - name: myometrial_invasion_percent
+    values:
+      # CAP: "Estimated to be less than 50%" -> pT1a / FIGO 2009 IA
+      - less_than_50
+      # CAP: "Estimated to be 50% or greater" -> pT1b / FIGO 2009 IB
+      - fifty_or_greater
+      # CAP: "Cannot be determined (explain)" -- invasion is present, but the
+      # text will not settle which half. Distinct from `not_applicable` below.
+      - cannot_be_determined
+      # No CAP counterpart, and deliberately so: CAP simply omits this
+      # sub-element unless the parent is "Present". A task answer must fill every
+      # field, so this is the value that means "the parent was not Present".
+      - not_applicable
+
+  # How the depth claim is grounded. Carries the distinction June 2022 draws
+  # between "Specify Percentage" (a number) and "Estimated to be ..." (a
+  # judgement), which `myometrial_invasion_percent` alone cannot express.
   - name: depth_basis
     values:
-      - explicit_fraction_or_percentage
-      - descriptive_full_thickness
+      - explicit_fraction_or_percentage   # CAP "Specify Percentage", or depth+thickness in mm
+      - estimated_without_number          # CAP "Estimated to be less than 50% / 50% or greater"
+      - descriptive_full_thickness        # "full thickness", "transmural", "invades to serosa"
       - descriptive_other
       - none_stated
-  - name: adenomyosis_origin
+
+  # CAP June 2022 carries "+Adenomyosis" as its own data element (Not identified /
+  # Present, uninvolved by carcinoma / Present, involved by carcinoma / Cannot be
+  # determined). It is reproduced here, rather than in a task of its own, because
+  # Note E makes it decisive FOR DEPTH on this protocol version -- see the
+  # instructions below. Replaces the December-2024-era `adenomyosis_origin`.
+  - name: adenomyosis_relation
     values:
-      - stated
-      - suspected
       - not_mentioned
+      # CAP: "Present, uninvolved by carcinoma"
+      - present_uninvolved_by_carcinoma
+      # CAP: "Present, involved by carcinoma". Note E: carcinoma involving
+      # adenomyosis foci should NOT be interpreted as invasive carcinoma.
+      - present_involved_by_carcinoma
+      # Note E's hard case: myoinvasive carcinoma encountered ONLY in foci of
+      # adenomyosis involved by carcinoma, where depth is measured from the
+      # adenomyotic focus rather than from the endomyometrial junction.
+      - invasion_within_adenomyosis
+      - cannot_be_determined
 
 list_fields: [unresolved_conflicts]
 
 rules:
   # --- Definite depth answers -------------------------------------------------
+  # `present` and `not_identified` are the two values that assert the myometrium
+  # was assessed. Both therefore need depth citations and a specimen that had
+  # myometrium in it.
   - signature: depth_evidence_missing
     message: a definite myometrial invasion value requires model-visible depth citations
-    when_label: [not_identified, present_inner_half, present_outer_half]
+    when_label: [not_identified, present]
     require_group: depth_evidence
 
   - signature: depth_requires_hysterectomy
     message: depth of myometrial invasion is only assessable on a hysterectomy specimen
-    when_label: [not_identified, present_inner_half, present_outer_half]
+    when_label: [not_identified, present]
     require_field:
       field: specimen_type
       values: [hysterectomy]
@@ -92,6 +180,34 @@ rules:
     when_label: [not_applicable]
     require_group: specimen_evidence
 
+  # --- The inner/outer half question ------------------------------------------
+  # New on this protocol version, and the load-bearing rule of the file. Because
+  # June 2022 moves inner-versus-outer out of the label and into a sub-element,
+  # `present` on its own is a strictly weaker answer than the old
+  # `present_inner_half` / `present_outer_half` were. This rule stops it being
+  # used as a way to avoid the depth question: answering `present` forces a
+  # commitment to a half, or an explicit cannot_be_determined for the sub-element.
+  - signature: invasion_percent_unresolved
+    message: invasion recorded as present requires a percentage of myometrial invasion
+    when_label: [present]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [less_than_50, fifty_or_greater, cannot_be_determined]
+
+  # The inverse guard. oncotrace rules cannot require a LABEL value from a field
+  # condition (`require_field` names an extra field only), so a half-percentage
+  # asserted under a non-`present` label cannot be refused directly. Requiring a
+  # hysterectomy closes the case that actually matters: a fraction of myometrial
+  # thickness is not measurable on a specimen with no myometrium.
+  - signature: invasion_percent_requires_hysterectomy
+    message: a stated fraction of myometrial thickness requires a hysterectomy specimen
+    when_field:
+      field: myometrial_invasion_percent
+      values: [less_than_50, fifty_or_greater]
+    require_field:
+      field: specimen_type
+      values: [hysterectomy]
+
   # --- Quantified claims ------------------------------------------------------
   - signature: quantified_basis_uncited
     message: an explicit fraction or percentage requires quantified_depth citations
@@ -101,55 +217,88 @@ rules:
     require_group: quantified_depth
 
   # --- Adenomyosis ------------------------------------------------------------
-  # CAP Note F: where invasion appears to arise from adenomyosis and the deepest
-  # point is in the outer half, ICCR and ISGyP recommend pT1b with a comment. A
-  # claim that consequential has to be grounded in cited rows.
-  - signature: adenomyosis_origin_uncited
-    message: an adenomyosis origin claim requires depth citations
+  # Note E treats adenomyosis as capable of CHANGING the depth answer, in the
+  # opposite direction from the December 2024 protocol. Either consequential
+  # value has to be grounded in cited rows.
+  - signature: adenomyosis_relation_uncited
+    message: an adenomyosis finding that bears on depth requires depth citations
     when_field:
-      field: adenomyosis_origin
-      values: [stated, suspected]
+      field: adenomyosis_relation
+      values: [present_involved_by_carcinoma, invasion_within_adenomyosis]
     require_group: depth_evidence
 
 instructions: |
   Determine the depth of myometrial invasion for this patient's endometrial
   carcinoma, using CAP's response options exactly as written.
 
-  Anchor on the definitive hysterectomy pathology report. Depth is estimated
-  from the endomyometrial junction to the deepest point of invasion, expressed
-  relative to the total myometrial thickness. Inner half means less than 50%
-  (pT1a / FIGO 2009 IA); outer half means greater than or equal to 50%
-  (pT1b / IB). Answer not_identified when the myometrium was assessed and no
-  invasion was found, and not_applicable only when no myometrium was resected at
-  all -- a biopsy or curettage alone cannot establish depth.
+  Answer in two parts, because this protocol version asks in two parts. The
+  label records whether invasion is present at all: not_identified when the
+  myometrium was assessed and no invasion was found, present when invasion was
+  found, and not_applicable only when no myometrium was resected at all -- a
+  biopsy or curettage alone cannot establish depth. Then, whenever the label is
+  present, myometrial_invasion_percent records how deep: less_than_50 (pT1a /
+  FIGO 2009 IA) or fifty_or_greater (pT1b / IB). Set that field to
+  cannot_be_determined if invasion is clearly present but the text will not
+  settle which half, and to not_applicable only when the label itself is not
+  present.
+
+  Anchor on the definitive hysterectomy pathology report. Depth is measured from
+  the endomyometrial junction to the deepest point of invasion, expressed
+  relative to the total myometrial thickness.
 
   Apply these measurement rules from the protocol's explanatory note:
+  - The endomyometrial junction is often irregular. Where it is unclear, look
+    for compressed, non-neoplastic endometrial glands at the nearby junction or
+    at the base of the tumor.
+  - Carcinoma involving foci of adenomyosis must NOT be interpreted as invasive
+    carcinoma. Record that as adenomyosis_relation
+    present_involved_by_carcinoma.
+  - Absent adenomyosis uninvolved by tumor elsewhere in the specimen, treat a
+    diagnosis of adenomyosis involved by adenocarcinoma with caution.
+  - Where myoinvasive carcinoma is encountered ONLY in foci of adenomyosis
+    involved by carcinoma, measure the distance from the adenomyotic focus to
+    the deepest area of invasion -- not from the endomyometrial junction. The
+    protocol's worked example: a 2 mm focus of myoinvasion extending from a
+    focus of adenomyosis in the deep myometrium is still less than 50%
+    invasion, FIGO stage IA. Record adenomyosis_relation as
+    invasion_within_adenomyosis.
+  - In a MELF (microcystic, elongated and fragmented) pattern, desmoplasia alone
+    is not a criterion for measuring depth; measure to the deepest extent at
+    which malignant cells are present.
+  - Lymphatic / vascular invasion must NOT be used to measure depth. Only
+    carcinoma infiltrating the myometrium is measured. A MELF focus is
+    myometrial invasion; an LVI focus is not.
   - In exophytic tumors and endometrial polyps, exclude the exophytic component
-    when assessing myometrial thickness.
-  - Do not assess depth at the cornu, where the wall is thin, unless the tumor
-    entirely involves the cornu and / or the serosa.
-  - If the deepest invasion is in the lower uterine segment, estimate depth as
-    you would in the corpus.
-  - Where the tumor infiltrates a leiomyoma and that is the deepest invasion,
-    include that portion in the depth and include the leiomyoma in the
-    thickness.
-  - Where invasion appears to arise from adenomyosis and the deepest point lies
-    in the outer half, report outer half and record adenomyosis_origin.
-  - Foci of lymphatic / vascular invasion must NOT be used to decide inner
-    versus outer half. The MELF pattern is easily mistaken for LVI; a MELF focus
-    is myometrial invasion, an LVI focus is not.
+    when assessing myometrial thickness. (This version states the rule only in
+    the schematic accompanying the note, not in its prose.)
+
+  This patient's source is a SINGLE row holding their whole report: every page of
+  the scan stitched in order, with page boundaries marked as "===== PAGE n ====="
+  and the total length in REPORT_CHARS. Read that row in full with one exact
+  read before searching -- search returns only the first match of a phrase per
+  row, so on a combined report it will hide later mentions.
+
+  The exact read shows REPORT_TEXT with a line number on every line. Cite the
+  specific lines you are relying on: give field "REPORT_TEXT" and the line
+  number, not the row alone. Cite the line that carries the decisive wording,
+  not the heading above it. Because depth_evidence and counterevidence must be
+  different lines, a report that contradicts itself is recorded by citing each
+  claim on its own line.
 
   These reports are OCR'd scans written between roughly 2000 and 2013, so they
   predate this protocol's wording. Treat "full thickness", "transmural", or
-  "invades to serosa" as outer half. Treat a stated fraction ("3 of 12 mm",
-  "less than one third") as the quantified basis. Where OCR has plainly garbled
-  a decisive number, prefer cannot_be_determined over a guess, and cite the row
-  that is unreadable.
+  "invades to serosa" as fifty_or_greater with depth_basis
+  descriptive_full_thickness. Treat a stated fraction ("3 of 12 mm", "less than
+  one third") as explicit_fraction_or_percentage, and record the half it falls
+  in. Treat unquantified wording that still commits to a half ("superficial
+  half", "inner half") as estimated_without_number. Where OCR has plainly
+  garbled a decisive number, prefer cannot_be_determined over a guess, and cite
+  the line that is unreadable.
 
-  Answer cannot_be_determined when the source cannot settle depth on a resected
-  uterus -- for example a fragmented specimen, cautery artifact, or a report
-  that only stages without describing invasion -- and cite the rows that show
-  why.
+  Answer cannot_be_determined at the label when the source cannot settle whether
+  the myometrium was invaded on a resected uterus -- for example a fragmented
+  specimen, cautery artifact, or a report that only stages without describing
+  invasion -- and cite the rows that show why.
 
   Complete these targeted checks before submitting:
   1. identify what was resected, and whether myometrium is present;
@@ -157,5 +306,7 @@ instructions: |
      prior biopsy;
   3. find any explicit fraction, percentage, or full-thickness statement;
   4. confirm the depth statement is not actually describing LVI;
-  5. check for a conflicting or superseded report, including a frozen-section
+  5. establish whether any invasion is arising within adenomyosis, since that
+     changes how depth is measured;
+  6. check for a conflicting or superseded report, including a frozen-section
      impression that the final diagnosis revised.
