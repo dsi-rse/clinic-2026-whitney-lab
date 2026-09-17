@@ -56,36 +56,33 @@ label:
 confidence_values: [high, medium, low]
 
 citation_groups:
-  # Rows that establish depth or absence of invasion.
+  # Quotes that establish depth or absence of invasion.
   - name: depth_evidence
-  # Rows that establish what was resected. Without myometrium there is nothing
-  # to measure, so the specimen is part of the contract rather than context.
+  # Quotes that establish what was resected. Without myometrium there is
+  # nothing to measure, so the specimen is part of the contract, not context.
   - name: specimen_evidence
-  # Rows that contradict the chosen value, including superseded reports.
+  # Quotes that contradict the chosen value, including superseded reports.
   - name: counterevidence
   # A labelled view of depth_evidence: the subset that states an actual fraction,
   # percentage, or "full thickness" rather than describing invasion loosely.
-  # Constrained to be a subset so a quantified claim cannot cite rows that were
-  # never offered as depth evidence at all.
+  # Constrained to be a subset so a quantified claim cannot cite passages that
+  # were never offered as depth evidence at all.
   - name: quantified_depth
     must_be_subset_of: [depth_evidence]
 
-# Evidence and counterevidence must be different LINES. They may sit in the same
-# row -- with one combined report per patient there is only one row, so the
-# anchor that makes this meaningful is the line, not the row.
+# Evidence and counterevidence must be different PASSAGES. They may sit in the
+# same document, and usually do: a citation is a half-open character range into
+# one document's text, and two spans conflict only where they overlap. So a
+# report that says "56%" in one sentence and "superficial half" in another cites
+# both, disjointly, and the contradiction is recorded rather than resolved
+# silently.
 #
-# History worth knowing: this constraint was briefly removed when the source
-# became one row per patient, because a row-level citation gave a
-# self-contradicting report nowhere to put the contradiction. Line-level
-# citations restored it. A report that says "56%" on one line and "superficial
-# half" on another can now cite both, disjointly, and be checked.
-#
-# Requires `retrieval.number_lines: true` in the run config. With numbering off,
-# citations are row-level again and this constraint becomes unsatisfiable.
+# This constraint is what makes a self-contradicting report visible at all. It
+# needs no configuration: character ranges are how oncotrace addresses evidence.
 disjoint:
   - [depth_evidence, counterevidence]
 
-# Any answer -- including cannot_be_determined -- must show the rows it read.
+# Any answer -- including cannot_be_determined -- must quote what it rests on.
 evidence_groups: [depth_evidence, specimen_evidence]
 
 extra_fields:
@@ -272,18 +269,17 @@ instructions: |
     when assessing myometrial thickness. (This version states the rule only in
     the schematic accompanying the note, not in its prose.)
 
-  This patient's source is a SINGLE row holding their whole report: every page of
-  the scan stitched in order, with page boundaries marked as "===== PAGE n ====="
-  and the total length in REPORT_CHARS. Read that row in full with one exact
-  read before searching -- search returns only the first match of a phrase per
-  row, so on a combined report it will hide later mentions.
+  This patient's source is ONE document holding their whole report: every page
+  of the scan stitched in order, with page boundaries marked as
+  "===== PAGE n =====". The inventory gives its length in document_chars. These
+  reports are short -- a median of about 6,400 characters -- so read the whole
+  document before reasoning, rather than deciding from search snippets.
 
-  The exact read shows REPORT_TEXT with a line number on every line. Cite the
-  specific lines you are relying on: give field "REPORT_TEXT" and the line
-  number, not the row alone. Cite the line that carries the decisive wording,
-  not the heading above it. Because depth_evidence and counterevidence must be
-  different lines, a report that contradicts itself is recorded by citing each
-  claim on its own line.
+  A citation is a verbatim quote from that document, and every quote must be
+  inside a range you actually read. Quote the sentence that carries the decisive
+  wording, not the heading above it. Because depth_evidence and counterevidence
+  must be different passages, a report that contradicts itself is recorded by
+  quoting each claim separately.
 
   These reports are OCR'd scans written between roughly 2000 and 2013, so they
   predate this protocol's wording. Treat "full thickness", "transmural", or
@@ -292,13 +288,13 @@ instructions: |
   one third") as explicit_fraction_or_percentage, and record the half it falls
   in. Treat unquantified wording that still commits to a half ("superficial
   half", "inner half") as estimated_without_number. Where OCR has plainly
-  garbled a decisive number, prefer cannot_be_determined over a guess, and cite
-  the line that is unreadable.
+  garbled a decisive number, prefer cannot_be_determined over a guess, and
+  quote the passage that is unreadable.
 
   Answer cannot_be_determined at the label when the source cannot settle whether
   the myometrium was invaded on a resected uterus -- for example a fragmented
   specimen, cautery artifact, or a report that only stages without describing
-  invasion -- and cite the rows that show why.
+  invasion -- and quote the text that shows why.
 
   Complete these targeted checks before submitting:
   1. identify what was resected, and whether myometrium is present;
