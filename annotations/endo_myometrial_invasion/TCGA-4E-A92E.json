@@ -1,0 +1,62 @@
+{
+ "created": "2026-09-24T19:26:03+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-4E-A92E",
+     "end": 3978,
+     "start": 3960,
+     "text": "Focal adenomyosis."
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "none_stated"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-4E-A92E",
+     "end": 3915,
+     "start": 3825,
+     "text": "There is no evidence of tumor invasion into underlying myometrium in the examined\nsections"
+    }
+   ],
+   "value": "not_identified"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-4E-A92E",
+     "end": 3863,
+     "start": 3834,
+     "text": "no evidence of tumor invasion"
+    }
+   ],
+   "value": "not_applicable"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-4E-A92E",
+     "end": 3728,
+     "start": 3657,
+     "text": "Uterus and cervix with bilateral fallopian tubes and ovaries, resection"
+    }
+   ],
+   "value": "other_or_not_stated"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "resection only?\nalso not sure if focal adenomyosis means relating to carcinoma or not\nGoogle search said involved means that adenomyosis co-occurs with carcinoma but other detailed reports mention how there can be cancer still, but uninvolved adenomyosis"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-4E-A92E",
+ "updated": "2026-09-26T19:13:35+00:00"
+}

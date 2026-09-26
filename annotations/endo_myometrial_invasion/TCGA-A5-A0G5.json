@@ -1,0 +1,55 @@
+{
+ "created": "2026-09-26T19:09:26+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G5",
+     "end": 2274,
+     "start": 2166,
+     "text": "80% of the uterine wall thickness (maximum depth of invasion 19 cm in an area\nwhere wall thickness is 23 cm)"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G5",
+     "end": 2200,
+     "start": 2087,
+     "text": "Myometrial invasion by carcinoma is present and involves slightly greater than\n80% of the uterine wall thickness "
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G5",
+     "end": 1712,
+     "start": 1675,
+     "text": "UTERUS, TOTAL ABDOMINAL HYSTERECTOMY:"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0G5",
+ "updated": "2026-09-26T19:10:10+00:00"
+}

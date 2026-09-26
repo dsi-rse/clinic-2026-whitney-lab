@@ -1,0 +1,61 @@
+{
+ "created": "2026-09-24T19:38:59+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-5B-A90C",
+     "end": 2667,
+     "start": 2600,
+     "text": "Specify depth of invasion: 0.4 cm\nSpecify myometrial thickness: 1.5"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-5B-A90C",
+     "end": 2633,
+     "start": 2562,
+     "text": "MYOMETRIAL INVASION:\nInvasion present\nSpecify depth of invasion: 0.4 cm"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-5B-A90C",
+     "end": 1953,
+     "start": 1923,
+     "text": "PROCEDURE:\nSimple hysterectomy"
+    },
+    {
+     "document": "TCGA-5B-A90C",
+     "end": 2034,
+     "start": 1986,
+     "text": "SPECIMEN INTEGRITY:\nIntact hysterectomy specimen"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "0.5/1.4"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-5B-A90C",
+ "updated": "2026-09-26T20:31:08+00:00"
+}

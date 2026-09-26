@@ -1,0 +1,69 @@
+{
+ "created": "2026-09-26T20:50:35+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GH",
+     "end": 1110,
+     "start": 1050,
+     "text": "-Myometrium shows leiomyoma, calcified and focal adenomyosis"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GH",
+     "end": 823,
+     "start": 783,
+     "text": "thickness of myometrial invasion is 5 mm"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GH",
+     "end": 769,
+     "start": 723,
+     "text": "The tumor invades less then half of myometrium"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GH",
+     "end": 903,
+     "start": 722,
+     "text": "-The tumor invades less then half of myometrium\n-The maximal thickness of myometrial invasion is 5 mm\n-The thickness of the myometrium in the area of maximal tumor\ninvasion is 15 mm"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GH",
+     "end": 597,
+     "start": 491,
+     "text": "UTERUS WITH BILATERAL TUBES AND OVARIES, TOTAL ABDOMINAL\nHYSTERECTOMY WITH BILATERAL SALPINGOOOPHORECTOMY:"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "5/15, 30% invasion"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GH",
+ "updated": "2026-09-26T20:51:49+00:00"
+}

@@ -1,0 +1,75 @@
+{
+ "created": "2026-09-26T19:10:36+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 1360,
+     "start": 1297,
+     "text": "Adenomyosis with and without secondary involvement by\ncarcinoma"
+    }
+   ],
+   "value": "present_uninvolved_by_carcinoma"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 1054,
+     "start": 1023,
+     "text": "greater than 50% (about 65-70%)"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 613,
+     "start": 583,
+     "text": "Primary uterine adenocarcinoma"
+    },
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 1084,
+     "start": 966,
+     "text": "Myometrial invasion by carcinoma is present and\ninvolves greater than 50% (about 65-70%) of the\nuterine wall thickness"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 1116,
+     "start": 1023,
+     "text": "greater than 50% (about 65-70%) of the\nuterine wall thickness in the deepest area of invasion"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G9",
+     "end": 579,
+     "start": 475,
+     "text": "UTERUS, FALLOPIAN TUBES, AND OVARIES, TOTAL ABDOMINAL\nHYSTERECTOMY AND UNILATERAL SALPINGO-OOPHORECTOMY "
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0G9",
+ "updated": "2026-09-26T20:29:57+00:00"
+}

@@ -1,0 +1,69 @@
+{
+ "created": "2026-09-26T20:24:34+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GB",
+     "end": 1706,
+     "start": 1695,
+     "text": "Adenomyosis"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GB",
+     "end": 1203,
+     "start": 1156,
+     "text": "-Tumor invades >50% of the myometrial thickness"
+    }
+   ],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GB",
+     "end": 1155,
+     "start": 997,
+     "text": "-Tumor measures approximately 14.0 x 7.7 cm in surface area and replaces almost all of\nthe anterior and posterior endometrium\n-Tumor is exophytic and invasive"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GB",
+     "end": 1203,
+     "start": 1156,
+     "text": "-Tumor invades >50% of the myometrial thickness"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GB",
+     "end": 895,
+     "start": 856,
+     "text": "UTERUS AND CERVIX (TOTAL HYSTERECTOMY):"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GB",
+ "updated": "2026-09-26T20:26:29+00:00"
+}

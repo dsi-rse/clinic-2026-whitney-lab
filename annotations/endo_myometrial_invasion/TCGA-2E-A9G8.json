@@ -1,0 +1,55 @@
+{
+ "created": "2026-09-23T17:24:11+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-2E-A9G8",
+     "end": 2769,
+     "start": 2715,
+     "text": "Depth of invasion: 0.5 cm\nMyometrial thickness: 1.4 cm"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-2E-A9G8",
+     "end": 2740,
+     "start": 2694,
+     "text": "Myometrial Invasion:\nDepth of invasion: 0.5 cm"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-2E-A9G8",
+     "end": 1171,
+     "start": 1078,
+     "text": "Uterus, cervix, bilateral tubes and ovaries, hysterectomy and bilateral salpingo-oophorectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "unsure if invasion percent is = to 0.5/1.4; if so, less than 50% would be the percent invasion label"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-2E-A9G8",
+ "updated": "2026-09-26T20:31:21+00:00"
+}

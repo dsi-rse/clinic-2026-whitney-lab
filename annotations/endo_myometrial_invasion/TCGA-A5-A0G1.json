@@ -1,0 +1,74 @@
+{
+ "created": "2026-09-25T18:31:14+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 673,
+     "start": 622,
+     "text": "Focal invasion into the very superficial myometrium"
+    },
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 1936,
+     "start": 1832,
+     "text": "At the base of the polypoid lesion there is focal\ninvasion of tumor into the very superficial myometrium"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 2002,
+     "start": 1938,
+     "text": "maximum\ndepth far less than one- fourth the myometrial thickness"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 547,
+     "start": 516,
+     "text": "UTERUS (abdominal hysterectomy)"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 775,
+     "start": 764,
+     "text": "Adenomyosis"
+    },
+    {
+     "document": "TCGA-A5-A0G1",
+     "end": 2214,
+     "start": 2104,
+     "text": "with tubular, cystic, and some ciliated metaplastic glands\nAdenomyosis, focally cystic, and several leiomyomas"
+    }
+   ],
+   "value": "adenomyosis mentioned but unsure if related to carcinoma"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0G1",
+ "updated": "2026-09-25T18:33:29+00:00"
+}
