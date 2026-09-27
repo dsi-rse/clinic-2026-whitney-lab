@@ -1,0 +1,81 @@
+{
+ "created": "2026-09-27T03:50:33+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 2135,
+     "start": 2122,
+     "text": " Adenomyosis."
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 1382,
+     "start": 1321,
+     "text": "(at 12:00 lower\nuterine segment, 4.0/4.0 cm = 100 & invasion)"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 1320,
+     "start": 1274,
+     "text": "Myometrial Invasion: d 50% myometrial invasion"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 1320,
+     "start": 1295,
+     "text": "d 50% myometrial invasion"
+    },
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 1382,
+     "start": 1354,
+     "text": "4.0/4.0 cm = 100 & invasion)"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 972,
+     "start": 888,
+     "text": "C. Uterus, cervix, bilateral ovaries and fallopian tubes\n(radical hysterectomy+ BSO)"
+    },
+    {
+     "document": "TCGA-A5-A2K7",
+     "end": 4992,
+     "start": 4824,
+     "text": "Specimen C is labeled as \"uterus, cervix, bilateral tubes and\novaries F/S\" and consists of one piece of uterus, cervix and\nbilateral adnexa, weighing 243 grams in total"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A2K7",
+ "updated": "2026-09-27T03:53:32+00:00"
+}

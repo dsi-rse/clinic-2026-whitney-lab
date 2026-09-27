@@ -1,0 +1,81 @@
+{
+ "created": "2026-09-26T23:02:42+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 859,
+     "start": 818,
+     "text": "involving 78 of\nmyometrial wall thickness"
+    },
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 876,
+     "start": 859,
+     "text": " (0.1 cm /1.4 cm)"
+    }
+   ],
+   "value": "descriptive_other"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 817,
+     "start": 774,
+     "text": "Tumor shows superficial myometrial invasion"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 876,
+     "start": 818,
+     "text": "involving 78 of\nmyometrial wall thickness (0.1 cm /1.4 cm)"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 688,
+     "start": 646,
+     "text": "A. Uterus and cervix (hysterectomy, 85 gm)"
+    },
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 2259,
+     "start": 2040,
+     "text": "Part A is labeled \"uterus and cervix\" and consists of a uterus\nand cervix with attached adnexa, previously opened, laterally on\nthe right side. The specimen weighs 85 grams and measures\n10.5 X 7.5 X 4.5 cm in aggregate."
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GW",
+     "end": 876,
+     "start": 774,
+     "text": "Tumor shows superficial myometrial invasion involving 78 of\nmyometrial wall thickness (0.1 cm /1.4 cm)"
+    }
+   ],
+   "value": "I am uncertain what \"78\" means in this scenario, this report appears to have 6 pages-- not 4"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GW",
+ "updated": "2026-09-27T03:17:54+00:00"
+}

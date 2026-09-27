@@ -1,0 +1,61 @@
+{
+ "created": "2026-09-27T03:30:22+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OK",
+     "end": 1848,
+     "start": 1801,
+     "text": "involves the full-thickness\nof the uterine wall"
+    }
+   ],
+   "value": "descriptive_full_thickness"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OK",
+     "end": 1796,
+     "start": 1753,
+     "text": "Myometrial invasion by carcinoma is present"
+    },
+    {
+     "document": "TCGA-A5-A1OK",
+     "end": 5741,
+     "start": 5656,
+     "text": "Myometrial Invasion:\nTumor extends through the entire uterine wall to serosal\nsurface"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OK",
+     "end": 1531,
+     "start": 1491,
+     "text": "G. UTERUS, TOTAL ABDOMINAL HYSTERECTOMY:"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A1OK",
+ "updated": "2026-09-27T03:32:38+00:00"
+}

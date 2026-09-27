@@ -1,0 +1,68 @@
+{
+ "created": "2026-09-27T03:01:55+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0RA",
+     "end": 2095,
+     "start": 2025,
+     "text": "involves greater than 50% of the\nuterine wall thickness (about 75-80%)"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0RA",
+     "end": 983,
+     "start": 926,
+     "text": "Myometrial Invasion:\nGreater than 50% myometrial invasion"
+    },
+    {
+     "document": "TCGA-A5-A0RA",
+     "end": 2020,
+     "start": 1990,
+     "text": "Myometrial invasion is present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0RA",
+     "end": 2095,
+     "start": 2001,
+     "text": "invasion is present and involves greater than 50% of the\nuterine wall thickness (about 75-80%)"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0RA",
+     "end": 1607,
+     "start": 1543,
+     "text": "A. UTERUS, FALLOPIAN TUBES, AND OVARIES, LAPAROSCOPIC\n-ASSISTED)"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0RA",
+ "updated": "2026-09-27T03:17:31+00:00"
+}

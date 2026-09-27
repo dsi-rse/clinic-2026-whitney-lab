@@ -1,0 +1,87 @@
+{
+ "created": "2026-09-27T03:07:12+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 3152,
+     "start": 3081,
+     "text": "Adenomyosis, focal, involving less than 50% of the myometrial thickness"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 2261,
+     "start": 2224,
+     "text": "Myometrial Invasion:\nInvasion present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 2296,
+     "start": 2262,
+     "text": "Less than 50% myometrial invasion\n"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 693,
+     "start": 597,
+     "text": "A. UTERUS, CERVIX, AND BILATERAL ADNEXA, TOTAL HYSTERECTOMY AND\nBILATERAL SALPINGO-OOPHORECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 1865,
+     "start": 1837,
+     "text": "Total abdominal hysterectomy"
+    },
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 1951,
+     "start": 1923,
+     "text": "Intact hysterectomy specimen"
+    },
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 4146,
+     "start": 4076,
+     "text": "subsequently fixed in formalin is an intact\n62.5 gm total hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0VP",
+     "end": 2352,
+     "start": 2296,
+     "text": "Comment(s): Minimal superficial invasion, less than 1\nmm"
+    }
+   ],
+   "value": "minimal superficial, but still invasion"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0VP",
+ "updated": "2026-09-27T03:11:28+00:00"
+}

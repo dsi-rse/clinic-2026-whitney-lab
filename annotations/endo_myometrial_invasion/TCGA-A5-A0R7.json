@@ -1,0 +1,62 @@
+{
+ "created": "2026-09-26T23:56:51+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R7",
+     "end": 1276,
+     "start": 1233,
+     "text": "(Icm invasion with wall thickness 2.5\ncm. )"
+    }
+   ],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R7",
+     "end": 1276,
+     "start": 1147,
+     "text": "Tumor is seen extending into the deep myometrium involving 40%\nof the myometrial wall (Icm invasion with wall thickness 2.5\ncm. )"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R7",
+     "end": 1276,
+     "start": 1233,
+     "text": "(Icm invasion with wall thickness 2.5\ncm. )"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R7",
+     "end": 1096,
+     "start": 1059,
+     "text": "Uterus (total abdominal hysterectomy)"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0R7",
+ "updated": "2026-09-27T02:56:18+00:00"
+}

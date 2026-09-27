@@ -1,0 +1,68 @@
+{
+ "created": "2026-09-26T21:56:15+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GQ",
+     "end": 1259,
+     "start": 1246,
+     "text": "- Adenomyosis"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GQ",
+     "end": 1205,
+     "start": 1126,
+     "text": "Endometrioid adenocarcinoma myoinvasive to approximately one-half of myometrium"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GQ",
+     "end": 1205,
+     "start": 1169,
+     "text": "approximately one-half of myometrium"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GQ",
+     "end": 855,
+     "start": 824,
+     "text": "UTERUS AND CERVIX, HYSTERECTOMY"
+    },
+    {
+     "document": "TCGA-A5-A0GQ",
+     "end": 2715,
+     "start": 2538,
+     "text": "Labeled with the patient's name, labeled \"uterus and cervix\", and received in formalin is a 39.6 gram hysterectomy\nspecimen consisting of a previously posteriorly opened uterus."
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "adenomyosis mentioned but I am uncertain how it relates to tumor"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GQ",
+ "updated": "2026-09-26T21:58:07+00:00"
+}

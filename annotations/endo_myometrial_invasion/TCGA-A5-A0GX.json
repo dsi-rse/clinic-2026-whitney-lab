@@ -1,0 +1,74 @@
+{
+ "created": "2026-09-26T23:14:14+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 1520,
+     "start": 1453,
+     "text": "Secondary involvement of adenomyosis and an adenomyoma by carcinoma"
+    }
+   ],
+   "value": "present_involved_by_carcinoma"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 1196,
+     "start": 1141,
+     "text": "there\nis minimal superficial invasion of the myometrium"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 1280,
+     "start": 1170,
+     "text": "invasion of the myometrium in the uterine corpus\nby adenocarcinoma (involving less than 10% of the myometrium)"
+    },
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 6866,
+     "start": 6712,
+     "text": "Upon sectioning the uterus, there is slight induration in a few foci of the\nsuperficial myometrium suggestive of possible superficial myometrial invasion."
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 649,
+     "start": 548,
+     "text": "UTERUS, FALLOPIAN TUBES AND OVARIES, TOTAL ABDOMINAL HYSTERECTOMY\nAND BILATERAL SALPINGO-OOPHORECTOMY"
+    },
+    {
+     "document": "TCGA-A5-A0GX",
+     "end": 5438,
+     "start": 5302,
+     "text": "Operating Room for\nintraoperative frozen section, is a 200 gram supracervical hysterectomy and bilateral salpingo-oophorectomy\nspecimen."
+    }
+   ],
+   "value": ""
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GX",
+ "updated": "2026-09-26T23:16:17+00:00"
+}

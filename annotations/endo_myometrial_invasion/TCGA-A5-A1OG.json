@@ -1,0 +1,74 @@
+{
+ "created": "2026-09-27T03:21:06+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 926,
+     "start": 872,
+     "text": "(depth of\ninvasion 0.7 cm/1.0 cm myometrial thickness)"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 808,
+     "start": 741,
+     "text": "Tumor involves the fundus and anterior and posterior uterine corpus"
+    },
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 847,
+     "start": 811,
+     "text": "Myometrial invasion greater than 50%"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 871,
+     "start": 811,
+     "text": "Myometrial invasion greater than 50% of myometrial thickness"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 668,
+     "start": 563,
+     "text": "D. UTERUS, CERVIX, BILATERAL FALLOPIAN TUBES AND OVARIES (HYSTERECTOMY,\nBILATERAL SALPINGO-OOPHORECTOMY):"
+    },
+    {
+     "document": "TCGA-A5-A1OG",
+     "end": 5722,
+     "start": 5577,
+     "text": "received fresh from the operating room is a 150 gram specimen consisting of a previously opened uterus\nwith attached fallopian tubes and ovaries."
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A1OG",
+ "updated": "2026-09-27T03:22:36+00:00"
+}

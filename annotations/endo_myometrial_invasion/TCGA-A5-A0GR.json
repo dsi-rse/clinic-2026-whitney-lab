@@ -1,0 +1,76 @@
+{
+ "created": "2026-09-26T21:58:35+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 853,
+     "start": 793,
+     "text": "Cervix: Chronic inflammation; no tumor present\n- Adenomyosis"
+    }
+   ],
+   "value": "present_uninvolved_by_carcinoma"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 776,
+     "start": 723,
+     "text": "superficial invasion of the myometrium\n(depth 1.0 mm)"
+    }
+   ],
+   "value": ""
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 776,
+     "start": 705,
+     "text": " there is minimal superficial invasion of the myometrium\n(depth 1.0 mm)"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 743,
+     "start": 715,
+     "text": "minimal superficial invasion"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 2065,
+     "start": 1877,
+     "text": "Operating Room for\nintraoperative frozen and subsequently fixed in formalin is a 120 gram total hysterectomy specimen with attached\nright adnexa and left portion of possible fallopian tube"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GR",
+     "end": 7433,
+     "start": 7382,
+     "text": "No obvious myometrial invasion on gross examination"
+    }
+   ],
+   "value": "note on page 4 mentions no myometrial invasion, conflicting with statement from page 1"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GR",
+ "updated": "2026-09-26T22:01:02+00:00"
+}

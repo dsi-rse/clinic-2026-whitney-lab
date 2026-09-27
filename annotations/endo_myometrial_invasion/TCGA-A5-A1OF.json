@@ -1,0 +1,67 @@
+{
+ "created": "2026-09-27T03:19:06+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OF",
+     "end": 1178,
+     "start": 1128,
+     "text": "Depth of invasion: 2 mm\nMyometrial thickness 15 mm"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OF",
+     "end": 1127,
+     "start": 1100,
+     "text": "Myometrial Invasion Present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A1OF",
+     "end": 619,
+     "start": 553,
+     "text": "A: Uterus, Cervix, bilateral tubes IT\\ ovaries, ( Frozen section\n)"
+    },
+    {
+     "document": "TCGA-A5-A1OF",
+     "end": 2943,
+     "start": 2823,
+     "text": "Specimen A is labeled as \"Uterus, cervix, bilateral tubes IT\\\novaries (F/S) \", consists of uterus, cervix, and bilateral"
+    },
+    {
+     "document": "TCGA-A5-A1OF",
+     "end": 2788,
+     "start": 2752,
+     "text": "The specimen is submitted in 6 parts"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A1OF",
+ "updated": "2026-09-27T03:20:44+00:00"
+}

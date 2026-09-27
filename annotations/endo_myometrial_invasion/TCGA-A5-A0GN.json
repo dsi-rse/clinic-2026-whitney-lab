@@ -1,0 +1,61 @@
+{
+ "created": "2026-09-26T21:38:40+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GN",
+     "end": 1017,
+     "start": 974,
+     "text": "Invasion: Myometrial invasion present (56%)"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GN",
+     "end": 1017,
+     "start": 995,
+     "text": "invasion present (56%)"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GN",
+     "end": 766,
+     "start": 754,
+     "text": "HYSTERECTOMY"
+    },
+    {
+     "document": "TCGA-A5-A0GN",
+     "end": 4403,
+     "start": 4201,
+     "text": " with the patient's name, labeled \"uterus, cervix\", and received fresh in the Operating Room for\nintraoperative consultation and subsequently fixed in formalin is a 120 gram total hysterectomy specimen."
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GN",
+ "updated": "2026-09-26T21:39:39+00:00"
+}

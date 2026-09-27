@@ -1,0 +1,99 @@
+{
+ "created": "2026-09-27T02:58:16+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 5113,
+     "start": 5063,
+     "text": "-Adenomyosis with and without involvement by tumor"
+    }
+   ],
+   "value": "present_uninvolved_by_carcinoma"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 2955,
+     "start": 2897,
+     "text": "TUMOR SIZE: GREATEST DIMENSION: 13.5CM MYOMETRIAL INVASION"
+    }
+   ],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 4606,
+     "start": 4562,
+     "text": "-Myometrial invasion by\ncarcinoma is present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 2970,
+     "start": 2936,
+     "text": "MYOMETRIAL INVASION: LESS THAN 50%"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 2630,
+     "start": 2609,
+     "text": "SUBTOTAL HYSTERECTOMY"
+    },
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 2350,
+     "start": 2335,
+     "text": "UTERUS (FROZEN)"
+    },
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 2565,
+     "start": 2485,
+     "text": "SPECIMEN TYPE: UTERUS RIGHT OVARY LEFT OVARY RIGHT FALLOPIAN TUBE LEFT FALLOPIAN"
+    },
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 5272,
+     "start": 5191,
+     "text": "D. UTERUS, INCLUDING LOWER UTERINE SEGMENT AND ENDOCERVIX, PARTIAL\nTRACHELECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 4220,
+     "start": 4182,
+     "text": "C. UTERUS, SUPRACERVICAL HYSTERECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-A0R9",
+     "end": 9829,
+     "start": 9644,
+     "text": "C. UTERUS (FROZEN) Labeled with patient's name, labeled \"uterus (frozen)\", and received fresh in the\nOperating Room for intraoperative frozen section, and subsequently fixed in formalin"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0R9",
+ "updated": "2026-09-27T03:00:44+00:00"
+}

@@ -1,0 +1,48 @@
+{
+ "created": "2026-09-26T21:35:01+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "none_stated"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GJ",
+     "end": 2051,
+     "start": 1984,
+     "text": "EC is confined to endometrium involving only superficial myometrium"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "not_applicable"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A0GJ",
+     "end": 682,
+     "start": 662,
+     "text": "E. UTERUS\nAND CERVIX"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": "uncertain if superficial equates to invasion"
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A0GJ",
+ "updated": "2026-09-26T21:36:21+00:00"
+}

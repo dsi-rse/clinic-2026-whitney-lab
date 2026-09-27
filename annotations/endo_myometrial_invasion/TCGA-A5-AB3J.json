@@ -1,0 +1,80 @@
+{
+ "created": "2026-09-27T04:01:12+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 4427,
+     "start": 4373,
+     "text": "Myometrial Invasion:\nLess than 50% myometrial invasion"
+    }
+   ],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 1405,
+     "start": 1366,
+     "text": "Superficial myometrial invasion present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 4427,
+     "start": 4394,
+     "text": "Less than 50% myometrial invasion"
+    },
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 10568,
+     "start": 10501,
+     "text": "Myometrial invasion:\nPresent, less than 50% of myometrial thickness"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 1114,
+     "start": 1074,
+     "text": "C. UTERUS, TOTAL ABDOMINAL HYSTERECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 9673,
+     "start": 9637,
+     "text": "Specimen type:\nSubtotal hysterectomy"
+    },
+    {
+     "document": "TCGA-A5-AB3J",
+     "end": 9920,
+     "start": 9811,
+     "text": "Received:\nfresh for intraoperative consultation and subsequently fixed in\nformalin\nSpecimen integrity:\nIntact"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-AB3J",
+ "updated": "2026-09-27T04:03:13+00:00"
+}

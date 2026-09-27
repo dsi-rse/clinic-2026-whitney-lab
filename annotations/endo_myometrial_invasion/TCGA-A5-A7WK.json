@@ -1,0 +1,86 @@
+{
+ "created": "2026-09-27T03:58:15+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 1479,
+     "start": 1393,
+     "text": "Adenomyosis, multifocal, Involving inner and outer halves of the muscular\nuterine wall"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "none_stated"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 1134,
+     "start": 1082,
+     "text": "Minimal superficial myometrial invasion by carcinoma"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 1207,
+     "start": 1102,
+     "text": "myometrial invasion by carcinoma is present and\ninvolves much less than 50% of the uterine wall thickness"
+    },
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 5379,
+     "start": 5325,
+     "text": "Myometrial Invasion:\nLess than 50% myometrial invasion"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 832,
+     "start": 666,
+     "text": "A. UTERUS, FALLOPIAN TUBES AND OVARIES, LAPAROSCOPIC-ASSISTED VAGINAL\nHYSTERECTOMY (SUPRACERVICAL HYSTERECTOMY PLUS CERVICECTOMY) AND\nBILATERAL SALPINGO-OOPHORECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 6888,
+     "start": 6786,
+     "text": "Total hysterectomy (supracervical hysterectomy plus\ncervicectomy) and bilateral salpingo-oophorectorny"
+    },
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 4913,
+     "start": 4865,
+     "text": "Specimen integrity:\nIntact hysterectomy specimen"
+    },
+    {
+     "document": "TCGA-A5-A7WK",
+     "end": 4827,
+     "start": 4774,
+     "text": "Procedure:\nLaparoscopic-assisted vaginal hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A7WK",
+ "updated": "2026-09-27T04:00:57+00:00"
+}

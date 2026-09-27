@@ -1,0 +1,61 @@
+{
+ "created": "2026-09-27T03:47:45+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K4",
+     "end": 5804,
+     "start": 5749,
+     "text": "The lesion is 2.2 cm from the outer wall of the uterus."
+    }
+   ],
+   "value": "descriptive_other"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K4",
+     "end": 5747,
+     "start": 5692,
+     "text": "lesion reveals possible\ninvasion through the myometrium"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [],
+   "value": "cannot_be_determined"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "TCGA-A5-A2K4",
+     "end": 1190,
+     "start": 1153,
+     "text": "F. UTERUS/CERVIX, TOTAL HYSTERECTOMY:"
+    },
+    {
+     "document": "TCGA-A5-A2K4",
+     "end": 5291,
+     "start": 5156,
+     "text": "Labeled with the patient's name, labeled \"uterus/cervix\", and received in formalin is a 75 gram previously opened\nhysterectomy specimen"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v1",
+ "status": "complete",
+ "unit": "TCGA-A5-A2K4",
+ "updated": "2026-09-27T03:49:04+00:00"
+}
