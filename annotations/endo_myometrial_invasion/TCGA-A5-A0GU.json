@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 2889,
-     "start": 2761,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 2705,
+     "source": "pathology_report",
+     "start": 2577,
      "text": "Cut\nsection reveals that the tumor appears to involve the inner one-third of the myometrium and does not show any deep\ninvasion."
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 800,
-     "start": 737,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 617,
+     "source": "pathology_report",
+     "start": 554,
      "text": "Myometrial Invasion: Tumor extending 0.5 cm into the myometrium"
     }
    ],
@@ -30,15 +32,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 856,
-     "start": 764,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 673,
+     "source": "pathology_report",
+     "start": 581,
      "text": "extending 0.5 cm into the myometrium which measures 2.8\ncm in maximum thickness (inner half)"
     },
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 2852,
-     "start": 2818,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 2668,
+     "source": "pathology_report",
+     "start": 2634,
      "text": " inner one-third of the myometrium"
     }
    ],
@@ -47,15 +51,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 541,
-     "start": 456,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 358,
+     "source": "pathology_report",
+     "start": 273,
      "text": "UTERUS, FALLOPIAN TUBES AND OVARIES, HYSTERECTOMY AND BILATERAL\nSALPINGO-OOPHORECTOMY"
     },
     {
-     "document": "TCGA-A5-A0GU",
-     "end": 1869,
-     "start": 1585,
+     "document": "B284E409-4AC1-45E5-9133-39659987D7F9",
+     "end": 1686,
+     "source": "pathology_report",
+     "start": 1402,
      "text": "Labeled with the patient's name, labeled \"uterus bilateral tubes and ovaries\", received fresh in the Operating Room\nfor intraoperative frozen consultation and subsequently fixed in formalin is a 110 gram, 6.7 x 5.0 x 4.3 cm total\nhysterectomy specimen with attached bilateral adnexae."
     }
    ],
@@ -66,8 +72,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GU",
  "updated": "2026-09-26T22:03:38+00:00"

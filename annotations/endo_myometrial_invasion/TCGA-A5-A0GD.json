@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GD",
-     "end": 1260,
-     "start": 1217,
+     "document": "44561792-F2F8-42F7-B697-5D7752F8430E",
+     "end": 1077,
+     "source": "pathology_report",
+     "start": 1034,
      "text": "estimated myometrial invasion less than 20%"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GD",
-     "end": 1104,
-     "start": 1034,
+     "document": "44561792-F2F8-42F7-B697-5D7752F8430E",
+     "end": 921,
+     "source": "pathology_report",
+     "start": 851,
      "text": "Very superficial myometrial invasion by the endometrial\nadenocarcinoma"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GD",
-     "end": 1328,
-     "start": 1217,
+     "document": "44561792-F2F8-42F7-B697-5D7752F8430E",
+     "end": 1145,
+     "source": "pathology_report",
+     "start": 1034,
      "text": "estimated myometrial invasion less than 20% or less than\n1/4 of total myometrial thickness in multiple sections"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GD",
-     "end": 630,
-     "start": 529,
+     "document": "44561792-F2F8-42F7-B697-5D7752F8430E",
+     "end": 447,
+     "source": "pathology_report",
+     "start": 346,
      "text": "UTERUS, FALLOPIAN TUBES AND OVARIES, TOTAL ABDOMINAL HYSTERECTOMY\nAND BILATERAL SALPINGO-OOPHORECTOMY"
     }
    ],
@@ -54,8 +58,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GD",
  "updated": "2026-09-26T20:29:16+00:00"

@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GM",
-     "end": 1885,
-     "start": 1870,
+     "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A",
+     "end": 1702,
+     "source": "pathology_report",
+     "start": 1687,
      "text": "50% inner\nthird"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GM",
-     "end": 1846,
-     "start": 1803,
+     "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A",
+     "end": 1663,
+     "source": "pathology_report",
+     "start": 1620,
      "text": "Myometrial invasion by carcinoma is present"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GM",
-     "end": 1915,
-     "start": 1847,
+     "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A",
+     "end": 1732,
+     "source": "pathology_report",
+     "start": 1664,
      "text": "and involves less than 50% inner\nthird of the muscular uterine wall)"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GM",
-     "end": 1376,
-     "start": 1340,
+     "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A",
+     "end": 1193,
+     "source": "pathology_report",
+     "start": 1157,
      "text": "UTERUS, TOTAL ABDOMINAL HYSTERECTOMY"
     }
    ],
@@ -54,8 +58,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GM",
  "updated": "2026-09-26T21:37:29+00:00"

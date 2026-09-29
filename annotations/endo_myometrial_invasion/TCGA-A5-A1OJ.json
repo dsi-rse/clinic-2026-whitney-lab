@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 1626,
-     "start": 1493,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 1443,
+     "source": "pathology_report",
+     "start": 1310,
      "text": "There is secondary involvement of adenomyosis deeper in the uterine wall,\nwithin the outer half of wall about 0.85 cm from the serosa"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 1443,
-     "start": 1396,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 1260,
+     "source": "pathology_report",
+     "start": 1213,
      "text": "invasion by carcinoma, involving less than 10% "
     }
    ],
@@ -26,15 +28,17 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 1417,
-     "start": 1373,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 1234,
+     "source": "pathology_report",
+     "start": 1190,
      "text": "Superficial myometrial invasion by carcinoma"
     },
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 8267,
-     "start": 8102,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 8080,
+     "source": "pathology_report",
+     "start": 7915,
      "text": "The tumor involves\nthe uterine fundus, anterior and posterior lower uterine segments and also involves portions of the\nanterior and posterior lower uterine segments."
     }
    ],
@@ -43,15 +47,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 1490,
-     "start": 1419,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 1307,
+     "source": "pathology_report",
+     "start": 1236,
      "text": "involving less than 10% of the\nof the uterine wall thickness is present"
     },
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 4288,
-     "start": 4234,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 4103,
+     "source": "pathology_report",
+     "start": 4049,
      "text": "Myometrial Invasion:\nLess than 50% myometrial invasion"
     }
    ],
@@ -60,21 +66,24 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 926,
-     "start": 890,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 743,
+     "source": "pathology_report",
+     "start": 707,
      "text": "UTERUS, TOTAL ABDOMINAL HYSTERECTOMY"
     },
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 3694,
-     "start": 3652,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 3510,
+     "source": "pathology_report",
+     "start": 3468,
      "text": "Total abdominal hysterectomy and bilateral"
     },
     {
-     "document": "TCGA-A5-A1OJ",
-     "end": 3768,
-     "start": 3740,
+     "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+     "end": 3584,
+     "source": "pathology_report",
+     "start": 3556,
      "text": "Intact hysterectomy specimen"
     }
    ],
@@ -85,8 +94,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A1OJ",
  "updated": "2026-09-27T03:28:19+00:00"

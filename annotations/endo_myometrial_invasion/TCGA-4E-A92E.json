@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-4E-A92E",
-     "end": 3978,
-     "start": 3960,
+     "document": "BC43D6CA-235C-4217-BF72-F33B089C532B",
+     "end": 3793,
+     "source": "pathology_report",
+     "start": 3775,
      "text": "Focal adenomyosis."
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-4E-A92E",
-     "end": 3915,
-     "start": 3825,
+     "document": "BC43D6CA-235C-4217-BF72-F33B089C532B",
+     "end": 3730,
+     "source": "pathology_report",
+     "start": 3640,
      "text": "There is no evidence of tumor invasion into underlying myometrium in the examined\nsections"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-4E-A92E",
-     "end": 3863,
-     "start": 3834,
+     "document": "BC43D6CA-235C-4217-BF72-F33B089C532B",
+     "end": 3678,
+     "source": "pathology_report",
+     "start": 3649,
      "text": "no evidence of tumor invasion"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-4E-A92E",
-     "end": 3728,
-     "start": 3657,
+     "document": "BC43D6CA-235C-4217-BF72-F33B089C532B",
+     "end": 3543,
+     "source": "pathology_report",
+     "start": 3472,
      "text": "Uterus and cervix with bilateral fallopian tubes and ovaries, resection"
     }
    ],
@@ -54,8 +58,13 @@
    "value": "resection only?\nalso not sure if focal adenomyosis means relating to carcinoma or not\nGoogle search said involved means that adenomyosis co-occurs with carcinoma but other detailed reports mention how there can be cancer still, but uninvolved adenomyosis"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-4E-A92E",
  "updated": "2026-09-26T19:13:35+00:00"

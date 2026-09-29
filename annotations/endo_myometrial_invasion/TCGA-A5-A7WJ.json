@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 763,
-     "start": 752,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 580,
+     "source": "pathology_report",
+     "start": 569,
      "text": "Adenomyosis"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 2244,
-     "start": 2192,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 2060,
+     "source": "pathology_report",
+     "start": 2008,
      "text": "Depth of invasion: 0.2cm\nMyometrial thickness: 1.7cm"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 2191,
-     "start": 2154,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 2007,
+     "source": "pathology_report",
+     "start": 1970,
      "text": "Myometrial Invasion:\nInvasion present"
     }
    ],
@@ -37,9 +40,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 2278,
-     "start": 2245,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 2094,
+     "source": "pathology_report",
+     "start": 2061,
      "text": "Less than 50% myometrial invasion"
     }
    ],
@@ -48,15 +52,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 3052,
-     "start": 2995,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 2867,
+     "source": "pathology_report",
+     "start": 2810,
      "text": "A. UTERUS, CERVIX, BILATERAL FALLOPIAN THIFES AND OVARIES"
     },
     {
-     "document": "TCGA-A5-A7WJ",
-     "end": 3202,
-     "start": 3132,
+     "document": "402A6ED4-B9EC-43A0-B47C-A0B95282678D",
+     "end": 3017,
+     "source": "pathology_report",
+     "start": 2947,
      "text": "Specimen type:\nTotal hysterectomy and bilateral salpingo-cophorectorny"
     }
    ],
@@ -67,8 +73,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A7WJ",
  "updated": "2026-09-27T03:58:04+00:00"

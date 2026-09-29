@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 1520,
-     "start": 1453,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 1337,
+     "source": "pathology_report",
+     "start": 1270,
      "text": "Secondary involvement of adenomyosis and an adenomyoma by carcinoma"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 1196,
-     "start": 1141,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 1013,
+     "source": "pathology_report",
+     "start": 958,
      "text": "there\nis minimal superficial invasion of the myometrium"
     }
    ],
@@ -30,15 +32,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 1280,
-     "start": 1170,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 1097,
+     "source": "pathology_report",
+     "start": 987,
      "text": "invasion of the myometrium in the uterine corpus\nby adenocarcinoma (involving less than 10% of the myometrium)"
     },
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 6866,
-     "start": 6712,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 6681,
+     "source": "pathology_report",
+     "start": 6527,
      "text": "Upon sectioning the uterus, there is slight induration in a few foci of the\nsuperficial myometrium suggestive of possible superficial myometrial invasion."
     }
    ],
@@ -47,15 +51,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 649,
-     "start": 548,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 466,
+     "source": "pathology_report",
+     "start": 365,
      "text": "UTERUS, FALLOPIAN TUBES AND OVARIES, TOTAL ABDOMINAL HYSTERECTOMY\nAND BILATERAL SALPINGO-OOPHORECTOMY"
     },
     {
-     "document": "TCGA-A5-A0GX",
-     "end": 5438,
-     "start": 5302,
+     "document": "AE5229ED-8906-4D55-9B11-4E8E214D6446",
+     "end": 5253,
+     "source": "pathology_report",
+     "start": 5117,
      "text": "Operating Room for\nintraoperative frozen section, is a 200 gram supracervical hysterectomy and bilateral salpingo-oophorectomy\nspecimen."
     }
    ],
@@ -66,8 +72,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GX",
  "updated": "2026-09-26T23:16:17+00:00"

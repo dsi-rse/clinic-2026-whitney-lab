@@ -12,15 +12,17 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0R6",
-     "end": 849,
-     "start": 776,
+     "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F",
+     "end": 666,
+     "source": "pathology_report",
+     "start": 593,
      "text": "Myometrial invasion: > 50% (1.4 cm invasion out of 1.7 cm\nfull thickness)"
     },
     {
-     "document": "TCGA-A5-A0R6",
-     "end": 2021,
-     "start": 1970,
+     "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F",
+     "end": 1837,
+     "source": "pathology_report",
+     "start": 1786,
      "text": "Papillary serous carcinoma with myometrial\ninvasion"
     }
    ],
@@ -29,9 +31,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0R6",
-     "end": 849,
-     "start": 776,
+     "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F",
+     "end": 666,
+     "source": "pathology_report",
+     "start": 593,
      "text": "Myometrial invasion: > 50% (1.4 cm invasion out of 1.7 cm\nfull thickness)"
     }
    ],
@@ -40,9 +43,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0R6",
-     "end": 728,
-     "start": 633,
+     "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F",
+     "end": 545,
+     "source": "pathology_report",
+     "start": 450,
      "text": "terus, bilateral ovaries and fallopian tubes, (Hysterectomy\nand bilateral salpingooophorectomy)"
     }
    ],
@@ -53,8 +57,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0R6",
  "updated": "2026-09-26T23:19:16+00:00"

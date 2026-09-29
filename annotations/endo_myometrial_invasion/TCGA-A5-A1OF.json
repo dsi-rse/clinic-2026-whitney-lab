@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OF",
-     "end": 1178,
-     "start": 1128,
+     "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+     "end": 995,
+     "source": "pathology_report",
+     "start": 945,
      "text": "Depth of invasion: 2 mm\nMyometrial thickness 15 mm"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OF",
-     "end": 1127,
-     "start": 1100,
+     "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+     "end": 944,
+     "source": "pathology_report",
+     "start": 917,
      "text": "Myometrial Invasion Present"
     }
    ],
@@ -34,21 +36,24 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OF",
-     "end": 619,
-     "start": 553,
+     "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+     "end": 436,
+     "source": "pathology_report",
+     "start": 370,
      "text": "A: Uterus, Cervix, bilateral tubes IT\\ ovaries, ( Frozen section\n)"
     },
     {
-     "document": "TCGA-A5-A1OF",
-     "end": 2943,
-     "start": 2823,
+     "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+     "end": 2759,
+     "source": "pathology_report",
+     "start": 2639,
      "text": "Specimen A is labeled as \"Uterus, cervix, bilateral tubes IT\\\novaries (F/S) \", consists of uterus, cervix, and bilateral"
     },
     {
-     "document": "TCGA-A5-A1OF",
-     "end": 2788,
-     "start": 2752,
+     "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+     "end": 2604,
+     "source": "pathology_report",
+     "start": 2568,
      "text": "The specimen is submitted in 6 parts"
     }
    ],
@@ -59,8 +64,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A1OF",
  "updated": "2026-09-27T03:20:44+00:00"

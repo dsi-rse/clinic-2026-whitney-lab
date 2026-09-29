@@ -12,9 +12,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LP",
-     "end": 2909,
-     "start": 2852,
+     "document": "A20CDB07-D90C-42B7-AE0A-254E27C6153B",
+     "end": 2725,
+     "source": "pathology_report",
+     "start": 2668,
      "text": "Myometrial Invasion:\nGreater than 50% myometrial invasion"
     }
    ],
@@ -23,9 +24,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LP",
-     "end": 2909,
-     "start": 2873,
+     "document": "A20CDB07-D90C-42B7-AE0A-254E27C6153B",
+     "end": 2725,
+     "source": "pathology_report",
+     "start": 2689,
      "text": "Greater than 50% myometrial invasion"
     }
    ],
@@ -34,15 +36,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LP",
-     "end": 1422,
-     "start": 1310,
+     "document": "A20CDB07-D90C-42B7-AE0A-254E27C6153B",
+     "end": 1239,
+     "source": "pathology_report",
+     "start": 1127,
      "text": "K. UTERUS, CERVIX, RIGHT AND LEFT FALLOPIAN TUBES AND OVARIES,\nHYSTERECTOMY WITH BILATERAL SALPINGO-OOPHORECTOMY"
     },
     {
-     "document": "TCGA-A5-A3LP",
-     "end": 6579,
-     "start": 6475,
+     "document": "A20CDB07-D90C-42B7-AE0A-254E27C6153B",
+     "end": 6393,
+     "source": "pathology_report",
+     "start": 6289,
      "text": "subsequently placed in formalin is a 174 gram hysterectomy and bilateral salpingo-\noophorectomy specimen"
     }
    ],
@@ -53,8 +57,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A3LP",
  "updated": "2026-09-27T03:57:09+00:00"

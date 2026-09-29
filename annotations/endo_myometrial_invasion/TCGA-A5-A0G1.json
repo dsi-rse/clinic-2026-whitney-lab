@@ -12,15 +12,17 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 673,
-     "start": 622,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 490,
+     "source": "pathology_report",
+     "start": 439,
      "text": "Focal invasion into the very superficial myometrium"
     },
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 1936,
-     "start": 1832,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 1753,
+     "source": "pathology_report",
+     "start": 1649,
      "text": "At the base of the polypoid lesion there is focal\ninvasion of tumor into the very superficial myometrium"
     }
    ],
@@ -29,9 +31,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 2002,
-     "start": 1938,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 1819,
+     "source": "pathology_report",
+     "start": 1755,
      "text": "maximum\ndepth far less than one- fourth the myometrial thickness"
     }
    ],
@@ -40,9 +43,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 547,
-     "start": 516,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 364,
+     "source": "pathology_report",
+     "start": 333,
      "text": "UTERUS (abdominal hysterectomy)"
     }
    ],
@@ -51,23 +55,30 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 775,
-     "start": 764,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 592,
+     "source": "pathology_report",
+     "start": 581,
      "text": "Adenomyosis"
     },
     {
-     "document": "TCGA-A5-A0G1",
-     "end": 2214,
-     "start": 2104,
+     "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+     "end": 2030,
+     "source": "pathology_report",
+     "start": 1920,
      "text": "with tubular, cystic, and some ciliated metaplastic glands\nAdenomyosis, focally cystic, and several leiomyomas"
     }
    ],
    "value": "adenomyosis mentioned but unsure if related to carcinoma"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0G1",
  "updated": "2026-09-25T18:33:29+00:00"

@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GG",
-     "end": 1411,
-     "start": 1378,
+     "document": "6867E576-1020-41D7-BC18-25160FE17F81",
+     "end": 1228,
+     "source": "pathology_report",
+     "start": 1195,
      "text": "less than 10% of the uterine wall"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GG",
-     "end": 1367,
-     "start": 1296,
+     "document": "6867E576-1020-41D7-BC18-25160FE17F81",
+     "end": 1184,
+     "source": "pathology_report",
+     "start": 1113,
      "text": "Minimal (focal) superficial myometrial invasion by carcinoma\nis present"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GG",
-     "end": 1421,
-     "start": 1368,
+     "document": "6867E576-1020-41D7-BC18-25160FE17F81",
+     "end": 1238,
+     "source": "pathology_report",
+     "start": 1185,
      "text": "involving less than 10% of the uterine wall\nthickness"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GG",
-     "end": 948,
-     "start": 849,
+     "document": "6867E576-1020-41D7-BC18-25160FE17F81",
+     "end": 765,
+     "source": "pathology_report",
+     "start": 666,
      "text": "UTERUS, LEFT FALLOPIAN TUBE AND OVARY, TOTAL ABDOMINAL\nHYSTERECTOMY AND LEFT SALPINGO-OOPHORECTOMY:"
     }
    ],
@@ -54,8 +58,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GG",
  "updated": "2026-09-26T20:50:02+00:00"

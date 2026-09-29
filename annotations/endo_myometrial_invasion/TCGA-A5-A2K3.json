@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K3",
-     "end": 1243,
-     "start": 1230,
+     "document": "D38D2FD4-78EF-4F49-976E-529055A6D9A9",
+     "end": 1060,
+     "source": "pathology_report",
+     "start": 1047,
      "text": "- Adenomyosis"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K3",
-     "end": 970,
-     "start": 934,
+     "document": "D38D2FD4-78EF-4F49-976E-529055A6D9A9",
+     "end": 787,
+     "source": "pathology_report",
+     "start": 751,
      "text": "No myometrial invasion is identified"
     }
    ],
@@ -34,15 +36,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K3",
-     "end": 791,
-     "start": 687,
+     "document": "D38D2FD4-78EF-4F49-976E-529055A6D9A9",
+     "end": 608,
+     "source": "pathology_report",
+     "start": 504,
      "text": "E. CERVIX, UTERUS, TUBES AND OVARIES, TOTAL ABDOMINAL HYSTERECTOMY\nWITH BILATERAL SALPINGO-OOPHORECTOMY:"
     },
     {
-     "document": "TCGA-A5-A2K3",
-     "end": 3480,
-     "start": 3388,
+     "document": "D38D2FD4-78EF-4F49-976E-529055A6D9A9",
+     "end": 3296,
+     "source": "pathology_report",
+     "start": 3204,
      "text": "subsequently fixed in formalin is a 75 gram specimen consisting of a\nprevious incised uterus"
     }
    ],
@@ -53,8 +57,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A2K3",
  "updated": "2026-09-27T03:36:36+00:00"

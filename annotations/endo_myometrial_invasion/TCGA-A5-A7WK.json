@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 1479,
-     "start": 1393,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 1296,
+     "source": "pathology_report",
+     "start": 1210,
      "text": "Adenomyosis, multifocal, Involving inner and outer halves of the muscular\nuterine wall"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 1134,
-     "start": 1082,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 951,
+     "source": "pathology_report",
+     "start": 899,
      "text": "Minimal superficial myometrial invasion by carcinoma"
     }
    ],
@@ -30,15 +32,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 1207,
-     "start": 1102,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 1024,
+     "source": "pathology_report",
+     "start": 919,
      "text": "myometrial invasion by carcinoma is present and\ninvolves much less than 50% of the uterine wall thickness"
     },
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 5379,
-     "start": 5325,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 5194,
+     "source": "pathology_report",
+     "start": 5140,
      "text": "Myometrial Invasion:\nLess than 50% myometrial invasion"
     }
    ],
@@ -47,27 +51,31 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 832,
-     "start": 666,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 649,
+     "source": "pathology_report",
+     "start": 483,
      "text": "A. UTERUS, FALLOPIAN TUBES AND OVARIES, LAPAROSCOPIC-ASSISTED VAGINAL\nHYSTERECTOMY (SUPRACERVICAL HYSTERECTOMY PLUS CERVICECTOMY) AND\nBILATERAL SALPINGO-OOPHORECTOMY:"
     },
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 6888,
-     "start": 6786,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 6702,
+     "source": "pathology_report",
+     "start": 6600,
      "text": "Total hysterectomy (supracervical hysterectomy plus\ncervicectomy) and bilateral salpingo-oophorectorny"
     },
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 4913,
-     "start": 4865,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 4729,
+     "source": "pathology_report",
+     "start": 4681,
      "text": "Specimen integrity:\nIntact hysterectomy specimen"
     },
     {
-     "document": "TCGA-A5-A7WK",
-     "end": 4827,
-     "start": 4774,
+     "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+     "end": 4643,
+     "source": "pathology_report",
+     "start": 4590,
      "text": "Procedure:\nLaparoscopic-assisted vaginal hysterectomy"
     }
    ],
@@ -78,8 +86,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A7WK",
  "updated": "2026-09-27T04:00:57+00:00"

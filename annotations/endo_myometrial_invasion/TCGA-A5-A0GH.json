@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GH",
-     "end": 1110,
-     "start": 1050,
+     "document": "8E29A939-5581-4176-B19E-14076F17726B",
+     "end": 927,
+     "source": "pathology_report",
+     "start": 867,
      "text": "-Myometrium shows leiomyoma, calcified and focal adenomyosis"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GH",
-     "end": 823,
-     "start": 783,
+     "document": "8E29A939-5581-4176-B19E-14076F17726B",
+     "end": 640,
+     "source": "pathology_report",
+     "start": 600,
      "text": "thickness of myometrial invasion is 5 mm"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GH",
-     "end": 769,
-     "start": 723,
+     "document": "8E29A939-5581-4176-B19E-14076F17726B",
+     "end": 586,
+     "source": "pathology_report",
+     "start": 540,
      "text": "The tumor invades less then half of myometrium"
     }
    ],
@@ -37,9 +40,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GH",
-     "end": 903,
-     "start": 722,
+     "document": "8E29A939-5581-4176-B19E-14076F17726B",
+     "end": 720,
+     "source": "pathology_report",
+     "start": 539,
      "text": "-The tumor invades less then half of myometrium\n-The maximal thickness of myometrial invasion is 5 mm\n-The thickness of the myometrium in the area of maximal tumor\ninvasion is 15 mm"
     }
    ],
@@ -48,9 +52,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GH",
-     "end": 597,
-     "start": 491,
+     "document": "8E29A939-5581-4176-B19E-14076F17726B",
+     "end": 414,
+     "source": "pathology_report",
+     "start": 308,
      "text": "UTERUS WITH BILATERAL TUBES AND OVARIES, TOTAL ABDOMINAL\nHYSTERECTOMY WITH BILATERAL SALPINGOOOPHORECTOMY:"
     }
    ],
@@ -61,8 +66,13 @@
    "value": "5/15, 30% invasion"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GH",
  "updated": "2026-09-26T20:51:49+00:00"

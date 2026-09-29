@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GP",
-     "end": 893,
-     "start": 828,
+     "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+     "end": 710,
+     "source": "pathology_report",
+     "start": 645,
      "text": "focal superficial myoinvasion (less than 1/3 of inner\nmyometrium)"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GP",
-     "end": 894,
-     "start": 795,
+     "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+     "end": 711,
+     "source": "pathology_report",
+     "start": 612,
      "text": "Endometrioid adenocarcinoma with focal superficial myoinvasion (less than 1/3 of inner\nmyometrium) "
     }
    ],
@@ -30,15 +32,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GP",
-     "end": 893,
-     "start": 858,
+     "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+     "end": 710,
+     "source": "pathology_report",
+     "start": 675,
      "text": "(less than 1/3 of inner\nmyometrium)"
     },
     {
-     "document": "TCGA-A5-A0GP",
-     "end": 4700,
-     "start": 4643,
+     "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+     "end": 4515,
+     "source": "pathology_report",
+     "start": 4458,
      "text": "Only focal posterior superficial myometrial invasion seen"
     }
    ],
@@ -47,9 +51,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GP",
-     "end": 589,
-     "start": 492,
+     "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+     "end": 406,
+     "source": "pathology_report",
+     "start": 309,
      "text": "UTERUS, BILATERAL TUBE AND OVARIES, TOTAL ABDOMINAL HYSTERECTOMY,\nBILATERAL SALPINGO-OOPHORECTOMY"
     }
    ],
@@ -60,8 +65,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GP",
  "updated": "2026-09-26T21:55:59+00:00"

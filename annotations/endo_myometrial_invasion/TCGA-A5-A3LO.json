@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 1356,
-     "start": 1327,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 1173,
+     "source": "pathology_report",
+     "start": 1144,
      "text": "Focal superficial adenomyosis"
     }
    ],
@@ -15,21 +16,24 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 1050,
-     "start": 986,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 867,
+     "source": "pathology_report",
+     "start": 803,
      "text": "(maximum\ndepth of invasion: 1.5 cm/myometrial thickness: 2.3 cm)"
     },
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 3867,
-     "start": 3815,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 3682,
+     "source": "pathology_report",
+     "start": 3630,
      "text": "Depth of invasion: 1.5cm\nMyometrial thickness: 2.3cm"
     },
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 7031,
-     "start": 6966,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 6845,
+     "source": "pathology_report",
+     "start": 6780,
      "text": "There is myometrial invasion of up to 3/4 of the myometrial\nwall."
     }
    ],
@@ -38,9 +42,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 3814,
-     "start": 3777,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 3629,
+     "source": "pathology_report",
+     "start": 3592,
      "text": "Myometrial Invasion:\nInvasion present"
     }
    ],
@@ -49,15 +54,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 985,
-     "start": 925,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 802,
+     "source": "pathology_report",
+     "start": 742,
      "text": "Myometrial invasion greater than 50% of myometrial thickness"
     },
     {
-     "document": "TCGA-A5-A3LO",
-     "end": 3904,
-     "start": 3868,
+     "document": "2AB1F28D-151D-4AFE-807A-9F98B48C51CE",
+     "end": 3719,
+     "source": "pathology_report",
+     "start": 3683,
      "text": "Greater than 50% myometrial invasion"
     }
    ],
@@ -72,8 +79,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A3LO",
  "updated": "2026-09-27T03:55:16+00:00"

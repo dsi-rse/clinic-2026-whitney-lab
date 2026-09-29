@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K5",
-     "end": 3379,
-     "start": 3332,
+     "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+     "end": 3195,
+     "source": "pathology_report",
+     "start": 3148,
      "text": "Adenomyosis with focal involvement by carcinoma"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K5",
-     "end": 3272,
-     "start": 3229,
+     "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+     "end": 3088,
+     "source": "pathology_report",
+     "start": 3045,
      "text": "Myometrial invasion by carcinoma is present"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K5",
-     "end": 3329,
-     "start": 3277,
+     "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+     "end": 3145,
+     "source": "pathology_report",
+     "start": 3093,
      "text": "involves less than 50% of\nthe uterine wall thickness"
     }
    ],
@@ -41,15 +44,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K5",
-     "end": 8321,
-     "start": 8247,
+     "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+     "end": 8134,
+     "source": "pathology_report",
+     "start": 8060,
      "text": "subsequently fixed in formalin, is a 357 gram total hysterectomy specimen."
     },
     {
-     "document": "TCGA-A5-A2K5",
-     "end": 2911,
-     "start": 2871,
+     "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+     "end": 2727,
+     "source": "pathology_report",
+     "start": 2687,
      "text": "H. UTERUS, TOTAL ABDOMINAL HYSTERECTOMY:"
     }
    ],
@@ -60,8 +65,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A2K5",
  "updated": "2026-09-27T03:50:16+00:00"

@@ -12,9 +12,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GE",
-     "end": 826,
-     "start": 697,
+     "document": "7686A445-554F-43EF-BE79-6EA5E5C4DB21",
+     "end": 643,
+     "source": "pathology_report",
+     "start": 514,
      "text": "A rare microscopic focus of possible early myometrial invasion\nis noted in foci where the myometrium measures 2.2 cm in\nthickness"
     }
    ],
@@ -27,9 +28,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GE",
-     "end": 613,
-     "start": 511,
+     "document": "7686A445-554F-43EF-BE79-6EA5E5C4DB21",
+     "end": 430,
+     "source": "pathology_report",
+     "start": 328,
      "text": "UTERUS, BILATERAL TUBES AND OVARIES (TOTAL ABDOMINAL HYSTERECTOMY\nAND BILATERAL SALPINGO-OOPHORECTOMY)"
     }
    ],
@@ -40,8 +42,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GE",
  "updated": "2026-09-26T20:34:56+00:00"

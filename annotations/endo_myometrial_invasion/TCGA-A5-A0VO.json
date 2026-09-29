@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 1461,
-     "start": 1409,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 1278,
+     "source": "pathology_report",
+     "start": 1226,
      "text": "Depth of invasion: 0.7cm\nMyometrial thickness: 1.1cm"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 1408,
-     "start": 1371,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 1225,
+     "source": "pathology_report",
+     "start": 1188,
      "text": "Myometrial Invasion:\nInvasion present"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 1498,
-     "start": 1462,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 1315,
+     "source": "pathology_report",
+     "start": 1279,
      "text": "Greater than 50% myometrial invasion"
     }
    ],
@@ -41,21 +44,24 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 2450,
-     "start": 2323,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 2266,
+     "source": "pathology_report",
+     "start": 2139,
      "text": "A. UTERUS, FALLOPIAN TUBES AND OVARIES, ROBOTIC-ASSISTED LAPRASCOPIC-\nVAGINAL HYSTERECTOMY AND BILATERAL SALPINGO-OOPHORECTOMY:"
     },
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 1074,
-     "start": 1032,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 891,
+     "source": "pathology_report",
+     "start": 849,
      "text": "Laparoscopic-assisted vaginal hysterectomy"
     },
     {
-     "document": "TCGA-A5-A0VO",
-     "end": 4266,
-     "start": 4216,
+     "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+     "end": 4081,
+     "source": "pathology_report",
+     "start": 4031,
      "text": "formalin is a 160 gram, supracervical\nhysterectomy"
     }
    ],
@@ -66,8 +72,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0VO",
  "updated": "2026-09-27T03:08:43+00:00"

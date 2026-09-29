@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0RA",
-     "end": 2095,
-     "start": 2025,
+     "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+     "end": 1911,
+     "source": "pathology_report",
+     "start": 1841,
      "text": "involves greater than 50% of the\nuterine wall thickness (about 75-80%)"
     }
    ],
@@ -19,15 +20,17 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0RA",
-     "end": 983,
-     "start": 926,
+     "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+     "end": 800,
+     "source": "pathology_report",
+     "start": 743,
      "text": "Myometrial Invasion:\nGreater than 50% myometrial invasion"
     },
     {
-     "document": "TCGA-A5-A0RA",
-     "end": 2020,
-     "start": 1990,
+     "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+     "end": 1836,
+     "source": "pathology_report",
+     "start": 1806,
      "text": "Myometrial invasion is present"
     }
    ],
@@ -36,9 +39,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0RA",
-     "end": 2095,
-     "start": 2001,
+     "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+     "end": 1911,
+     "source": "pathology_report",
+     "start": 1817,
      "text": "invasion is present and involves greater than 50% of the\nuterine wall thickness (about 75-80%)"
     }
    ],
@@ -47,9 +51,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0RA",
-     "end": 1607,
-     "start": 1543,
+     "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+     "end": 1423,
+     "source": "pathology_report",
+     "start": 1359,
      "text": "A. UTERUS, FALLOPIAN TUBES, AND OVARIES, LAPAROSCOPIC\n-ASSISTED)"
     }
    ],
@@ -60,8 +65,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0RA",
  "updated": "2026-09-27T03:17:31+00:00"

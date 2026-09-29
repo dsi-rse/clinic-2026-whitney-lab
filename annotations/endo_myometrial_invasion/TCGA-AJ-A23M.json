@@ -8,15 +8,17 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-AJ-A23M",
-     "end": 1516,
-     "start": 1421,
+     "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+     "end": 1332,
+     "source": "pathology_report",
+     "start": 1237,
      "text": "(8.0 mm\ninvasion depth into 9.0 mm myometrial thickness, located in\nthe lower uterine segment)."
     },
     {
-     "document": "TCGA-AJ-A23M",
-     "end": 3625,
-     "start": 3476,
+     "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+     "end": 3440,
+     "source": "pathology_report",
+     "start": 3291,
      "text": " There is a focal area of almost complete full\nthickness invasion into the underlying myometrium\napproximately 2.0 cm into a 2.2 cm thick myometrium."
     }
    ],
@@ -25,9 +27,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-AJ-A23M",
-     "end": 1420,
-     "start": 1371,
+     "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+     "end": 1236,
+     "source": "pathology_report",
+     "start": 1187,
      "text": "Tumor invades greater than one-half of myometrium"
     }
    ],
@@ -36,9 +39,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-AJ-A23M",
-     "end": 1476,
-     "start": 1421,
+     "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+     "end": 1292,
+     "source": "pathology_report",
+     "start": 1237,
      "text": "(8.0 mm\ninvasion depth into 9.0 mm myometrial thickness"
     }
    ],
@@ -47,9 +51,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-AJ-A23M",
-     "end": 1279,
-     "start": 1255,
+     "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+     "end": 1095,
+     "source": "pathology_report",
+     "start": 1071,
      "text": "A. Uterus, hysterectomy:"
     }
    ],
@@ -60,8 +65,13 @@
    "value": "one part is \"8.0 mm invasion depth into 9.0 mm\" and the other is \"2.0 cm into a 2.2 cm thick myometrium\""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-AJ-A23M",
  "updated": "2026-09-27T04:05:33+00:00"

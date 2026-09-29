@@ -8,15 +8,17 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 1274,
-     "start": 1236,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 1091,
+     "source": "pathology_report",
+     "start": 1053,
      "text": "(full thickness involvement to serosa)"
     },
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 2570,
-     "start": 2493,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 2386,
+     "source": "pathology_report",
+     "start": 2309,
      "text": "Tumor extends through the entire uterine wall to serosal\nMyometrial Invasion:"
     }
    ],
@@ -25,21 +27,24 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 1235,
-     "start": 1157,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 1052,
+     "source": "pathology_report",
+     "start": 974,
      "text": "Diffusely superficial and deep myoinvasion by high grade serous\nadenocarcinoma"
     },
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 2160,
-     "start": 2108,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 1976,
+     "source": "pathology_report",
+     "start": 1924,
      "text": "Total abdominal hysterectomy and bilateral salpingo-"
     },
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 2213,
-     "start": 2185,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 2029,
+     "source": "pathology_report",
+     "start": 2001,
      "text": "Intact hysterectomy specimen"
     }
    ],
@@ -52,9 +57,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A1OH",
-     "end": 822,
-     "start": 780,
+     "document": "AAF1B591-1A0D-48D2-BF59-95B0D605950A",
+     "end": 639,
+     "source": "pathology_report",
+     "start": 597,
      "text": "C. UTERUS WITH CERVIX, TOTAL HYSTERECTOMY:"
     }
    ],
@@ -65,8 +71,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A1OH",
  "updated": "2026-09-27T03:24:46+00:00"

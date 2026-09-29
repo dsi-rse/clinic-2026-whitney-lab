@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-5S-A9Q8",
-     "end": 2486,
-     "start": 2434,
+     "document": "3F89A501-BE16-4E08-9846-41B4BBDDFCF9",
+     "end": 2303,
+     "source": "pathology_report",
+     "start": 2251,
      "text": "3.0 cm out of a total\nmyometrial thickness of 6.5 cm"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-5S-A9Q8",
-     "end": 2486,
-     "start": 2367,
+     "document": "3F89A501-BE16-4E08-9846-41B4BBDDFCF9",
+     "end": 2303,
+     "source": "pathology_report",
+     "start": 2184,
      "text": "Sectioning\nshows apparent invasion of the myometrium to a depth of 3.0 cm out of a total\nmyometrial thickness of 6.5 cm"
     }
    ],
@@ -34,9 +36,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-5S-A9Q8",
-     "end": 1724,
-     "start": 1507,
+     "document": "3F89A501-BE16-4E08-9846-41B4BBDDFCF9",
+     "end": 1541,
+     "source": "pathology_report",
+     "start": 1324,
      "text": "\"Uterus, Cervix, Left Tube and Ovary\". The specimen is received in formalin\ndesignated \"Uterus, Cervix, Left Tube and Ovary\" and consists of an enlarged, distorted\nuterus with attached cervix\nand attached left adnexa."
     }
    ],
@@ -47,8 +50,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-5S-A9Q8",
  "updated": "2026-09-26T20:31:03+00:00"

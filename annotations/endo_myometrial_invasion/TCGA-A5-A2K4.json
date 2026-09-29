@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K4",
-     "end": 5804,
-     "start": 5749,
+     "document": "CB29CD1C-584B-42EA-BF1D-11B6DF8EA756",
+     "end": 5619,
+     "source": "pathology_report",
+     "start": 5564,
      "text": "The lesion is 2.2 cm from the outer wall of the uterus."
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K4",
-     "end": 5747,
-     "start": 5692,
+     "document": "CB29CD1C-584B-42EA-BF1D-11B6DF8EA756",
+     "end": 5562,
+     "source": "pathology_report",
+     "start": 5507,
      "text": "lesion reveals possible\ninvasion through the myometrium"
     }
    ],
@@ -34,15 +36,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K4",
-     "end": 1190,
-     "start": 1153,
+     "document": "CB29CD1C-584B-42EA-BF1D-11B6DF8EA756",
+     "end": 1007,
+     "source": "pathology_report",
+     "start": 970,
      "text": "F. UTERUS/CERVIX, TOTAL HYSTERECTOMY:"
     },
     {
-     "document": "TCGA-A5-A2K4",
-     "end": 5291,
-     "start": 5156,
+     "document": "CB29CD1C-584B-42EA-BF1D-11B6DF8EA756",
+     "end": 5106,
+     "source": "pathology_report",
+     "start": 4971,
      "text": "Labeled with the patient's name, labeled \"uterus/cervix\", and received in formalin is a 75 gram previously opened\nhysterectomy specimen"
     }
    ],
@@ -53,8 +57,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A2K4",
  "updated": "2026-09-27T03:49:04+00:00"

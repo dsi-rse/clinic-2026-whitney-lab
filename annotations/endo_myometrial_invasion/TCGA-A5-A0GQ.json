@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GQ",
-     "end": 1259,
-     "start": 1246,
+     "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+     "end": 1076,
+     "source": "pathology_report",
+     "start": 1063,
      "text": "- Adenomyosis"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GQ",
-     "end": 1205,
-     "start": 1126,
+     "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+     "end": 1022,
+     "source": "pathology_report",
+     "start": 943,
      "text": "Endometrioid adenocarcinoma myoinvasive to approximately one-half of myometrium"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GQ",
-     "end": 1205,
-     "start": 1169,
+     "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+     "end": 1022,
+     "source": "pathology_report",
+     "start": 986,
      "text": "approximately one-half of myometrium"
     }
    ],
@@ -41,15 +44,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GQ",
-     "end": 855,
-     "start": 824,
+     "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+     "end": 672,
+     "source": "pathology_report",
+     "start": 641,
      "text": "UTERUS AND CERVIX, HYSTERECTOMY"
     },
     {
-     "document": "TCGA-A5-A0GQ",
-     "end": 2715,
-     "start": 2538,
+     "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+     "end": 2531,
+     "source": "pathology_report",
+     "start": 2354,
      "text": "Labeled with the patient's name, labeled \"uterus and cervix\", and received in formalin is a 39.6 gram hysterectomy\nspecimen consisting of a previously posteriorly opened uterus."
     }
    ],
@@ -60,8 +65,13 @@
    "value": "adenomyosis mentioned but I am uncertain how it relates to tumor"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GQ",
  "updated": "2026-09-26T21:58:07+00:00"

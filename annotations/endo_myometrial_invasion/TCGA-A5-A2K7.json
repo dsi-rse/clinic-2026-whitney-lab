@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 2135,
-     "start": 2122,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 1951,
+     "source": "pathology_report",
+     "start": 1938,
      "text": " Adenomyosis."
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 1382,
-     "start": 1321,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 1199,
+     "source": "pathology_report",
+     "start": 1138,
      "text": "(at 12:00 lower\nuterine segment, 4.0/4.0 cm = 100 & invasion)"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 1320,
-     "start": 1274,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 1137,
+     "source": "pathology_report",
+     "start": 1091,
      "text": "Myometrial Invasion: d 50% myometrial invasion"
     }
    ],
@@ -37,15 +40,17 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 1320,
-     "start": 1295,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 1137,
+     "source": "pathology_report",
+     "start": 1112,
      "text": "d 50% myometrial invasion"
     },
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 1382,
-     "start": 1354,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 1199,
+     "source": "pathology_report",
+     "start": 1171,
      "text": "4.0/4.0 cm = 100 & invasion)"
     }
    ],
@@ -54,15 +59,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 972,
-     "start": 888,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 789,
+     "source": "pathology_report",
+     "start": 705,
      "text": "C. Uterus, cervix, bilateral ovaries and fallopian tubes\n(radical hysterectomy+ BSO)"
     },
     {
-     "document": "TCGA-A5-A2K7",
-     "end": 4992,
-     "start": 4824,
+     "document": "1880F604-34C9-4B58-92DC-D67C7E656E3B",
+     "end": 4806,
+     "source": "pathology_report",
+     "start": 4638,
      "text": "Specimen C is labeled as \"uterus, cervix, bilateral tubes and\novaries F/S\" and consists of one piece of uterus, cervix and\nbilateral adnexa, weighing 243 grams in total"
     }
    ],
@@ -73,8 +80,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A2K7",
  "updated": "2026-09-27T03:53:32+00:00"

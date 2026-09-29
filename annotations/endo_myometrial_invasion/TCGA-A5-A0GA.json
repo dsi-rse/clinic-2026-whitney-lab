@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GA",
-     "end": 818,
-     "start": 787,
+     "document": "36A4F391-2F46-4896-8E53-223202E42A38",
+     "end": 635,
+     "source": "pathology_report",
+     "start": 604,
      "text": "invasive, depth 12.0 of 26.0\nmm"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GA",
-     "end": 802,
-     "start": 731,
+     "document": "36A4F391-2F46-4896-8E53-223202E42A38",
+     "end": 619,
+     "source": "pathology_report",
+     "start": 548,
      "text": "Endometrial adenocarcinoma, endometrioid type, grade 3, invasive, depth"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GA",
-     "end": 818,
-     "start": 797,
+     "document": "36A4F391-2F46-4896-8E53-223202E42A38",
+     "end": 635,
+     "source": "pathology_report",
+     "start": 614,
      "text": "depth 12.0 of 26.0\nmm"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GA",
-     "end": 4248,
-     "start": 4076,
+     "document": "36A4F391-2F46-4896-8E53-223202E42A38",
+     "end": 4063,
+     "source": "pathology_report",
+     "start": 3891,
      "text": "Labeled with the patient's name, labeled \"uterus and cervix\", and received fresh for gross consultation and\nsubsequently fixed in formalin is a total hysterectomy specimen "
     }
    ],
@@ -52,17 +56,23 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GA",
-     "end": 5981,
-     "start": 5873,
+     "document": "36A4F391-2F46-4896-8E53-223202E42A38",
+     "end": 5796,
+     "source": "pathology_report",
+     "start": 5688,
      "text": "The muscular uterine wall has a maximum thickness of 2.9 cm. The uninvolved myometrium is pink-tan\nand firm."
     }
    ],
    "value": "mentions the myometrium is uninvolved"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GA",
  "updated": "2026-09-26T20:29:32+00:00"

@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 853,
-     "start": 793,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 670,
+     "source": "pathology_report",
+     "start": 610,
      "text": "Cervix: Chronic inflammation; no tumor present\n- Adenomyosis"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 776,
-     "start": 723,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 593,
+     "source": "pathology_report",
+     "start": 540,
      "text": "superficial invasion of the myometrium\n(depth 1.0 mm)"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 776,
-     "start": 705,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 593,
+     "source": "pathology_report",
+     "start": 522,
      "text": " there is minimal superficial invasion of the myometrium\n(depth 1.0 mm)"
     }
    ],
@@ -37,9 +40,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 743,
-     "start": 715,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 560,
+     "source": "pathology_report",
+     "start": 532,
      "text": "minimal superficial invasion"
     }
    ],
@@ -48,9 +52,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 2065,
-     "start": 1877,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 1881,
+     "source": "pathology_report",
+     "start": 1693,
      "text": "Operating Room for\nintraoperative frozen and subsequently fixed in formalin is a 120 gram total hysterectomy specimen with attached\nright adnexa and left portion of possible fallopian tube"
     }
    ],
@@ -59,17 +64,23 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GR",
-     "end": 7433,
-     "start": 7382,
+     "document": "009B5049-74B7-49B8-8B64-28184A3ACA2B",
+     "end": 7247,
+     "source": "pathology_report",
+     "start": 7196,
      "text": "No obvious myometrial invasion on gross examination"
     }
    ],
    "value": "note on page 4 mentions no myometrial invasion, conflicting with statement from page 1"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GR",
  "updated": "2026-09-26T22:01:02+00:00"

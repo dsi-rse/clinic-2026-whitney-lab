@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G2",
-     "end": 4473,
-     "start": 4314,
+     "document": "A3CD42AF-D356-415B-958D-D14D7AC52693",
+     "end": 4289,
+     "source": "pathology_report",
+     "start": 4130,
      "text": "The tumor extends into\nthe right posterior myometrium to within 0.5 cm of the serosa The\nanterior endomyometrial wall averages 1.4 cm and the posterior 1.5\ncm."
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G2",
-     "end": 4473,
-     "start": 4313,
+     "document": "A3CD42AF-D356-415B-958D-D14D7AC52693",
+     "end": 4289,
+     "source": "pathology_report",
+     "start": 4129,
      "text": " The tumor extends into\nthe right posterior myometrium to within 0.5 cm of the serosa The\nanterior endomyometrial wall averages 1.4 cm and the posterior 1.5\ncm."
     }
    ],
@@ -34,9 +36,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G2",
-     "end": 597,
-     "start": 564,
+     "document": "A3CD42AF-D356-415B-958D-D14D7AC52693",
+     "end": 414,
+     "source": "pathology_report",
+     "start": 381,
      "text": "Endometrium/Uterus (hysterectomy)"
     }
    ],
@@ -47,8 +50,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0G2",
  "updated": "2026-09-26T20:30:49+00:00"

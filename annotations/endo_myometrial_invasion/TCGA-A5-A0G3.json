@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G3",
-     "end": 1561,
-     "start": 1550,
+     "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29",
+     "end": 1378,
+     "source": "pathology_report",
+     "start": 1367,
      "text": "Adenomyosis"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G3",
-     "end": 4167,
-     "start": 4080,
+     "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29",
+     "end": 3983,
+     "source": "pathology_report",
+     "start": 3896,
      "text": "Cut sections reveal invasion of tumor into the superficial one-third of the\nmyometrium."
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G3",
-     "end": 4166,
-     "start": 4127,
+     "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29",
+     "end": 3982,
+     "source": "pathology_report",
+     "start": 3943,
      "text": "superficial one-third of the\nmyometrium"
     }
    ],
@@ -41,9 +44,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0G3",
-     "end": 725,
-     "start": 632,
+     "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29",
+     "end": 542,
+     "source": "pathology_report",
+     "start": 449,
      "text": "UTERUS, BILATERAL FALLOPIAN TUBES AND OVARIES (HYSTERECTOMY,\nBILATERAL SALPINGO-OOPHORECTOMY)"
     }
    ],
@@ -54,8 +58,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0G3",
  "updated": "2026-09-26T19:12:48+00:00"

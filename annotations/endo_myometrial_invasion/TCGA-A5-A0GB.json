@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GB",
-     "end": 1706,
-     "start": 1695,
+     "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+     "end": 1523,
+     "source": "pathology_report",
+     "start": 1512,
      "text": "Adenomyosis"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GB",
-     "end": 1203,
-     "start": 1156,
+     "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+     "end": 1020,
+     "source": "pathology_report",
+     "start": 973,
      "text": "-Tumor invades >50% of the myometrial thickness"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GB",
-     "end": 1155,
-     "start": 997,
+     "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+     "end": 972,
+     "source": "pathology_report",
+     "start": 814,
      "text": "-Tumor measures approximately 14.0 x 7.7 cm in surface area and replaces almost all of\nthe anterior and posterior endometrium\n-Tumor is exophytic and invasive"
     }
    ],
@@ -37,9 +40,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GB",
-     "end": 1203,
-     "start": 1156,
+     "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+     "end": 1020,
+     "source": "pathology_report",
+     "start": 973,
      "text": "-Tumor invades >50% of the myometrial thickness"
     }
    ],
@@ -48,9 +52,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GB",
-     "end": 895,
-     "start": 856,
+     "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+     "end": 712,
+     "source": "pathology_report",
+     "start": 673,
      "text": "UTERUS AND CERVIX (TOTAL HYSTERECTOMY):"
     }
    ],
@@ -61,8 +66,13 @@
    "value": ""
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GB",
  "updated": "2026-09-26T20:26:29+00:00"

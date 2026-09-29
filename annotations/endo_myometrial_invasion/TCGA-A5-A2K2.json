@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 1137,
-     "start": 1077,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 954,
+     "source": "pathology_report",
+     "start": 894,
      "text": "Secondary involvement of adenomyosis by carcinoma is\npresent"
     }
    ],
@@ -15,9 +16,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 9403,
-     "start": 9345,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 9217,
+     "source": "pathology_report",
+     "start": 9159,
      "text": "Maximum\nmyometrial thickness in the uterus is about 2.2 cm"
     }
    ],
@@ -26,9 +28,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 1183,
-     "start": 1140,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 1000,
+     "source": "pathology_report",
+     "start": 957,
      "text": "Myometrial invasion by carcinoma is present"
     }
    ],
@@ -37,9 +40,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 1240,
-     "start": 1188,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 1057,
+     "source": "pathology_report",
+     "start": 1005,
      "text": "involves less than 50% of the uterine wall thickness"
     }
    ],
@@ -48,15 +52,17 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 599,
-     "start": 497,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 416,
+     "source": "pathology_report",
+     "start": 314,
      "text": "UTERUS, FALLOPIAN TUBES, AND OVARIES, TOTAL ABDOMINAL\nHYSTERECTOMY AND BILATERAL SALPINGO-OOPHORECTOMY"
     },
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 6576,
-     "start": 6524,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 6391,
+     "source": "pathology_report",
+     "start": 6339,
      "text": "fixed in formalin is an 80.5\ngram total hysterectomy"
     }
    ],
@@ -65,17 +71,23 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A2K2",
-     "end": 9343,
-     "start": 9220,
+     "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+     "end": 9157,
+     "source": "pathology_report",
+     "start": 9034,
      "text": "in the\nposterior corpus reveal a slightly irregular mucosal-myometrial\ninterface, but no definite underlying invasive tumor"
     }
    ],
    "value": "no invasive tumor posterior side"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A2K2",
  "updated": "2026-09-27T03:35:04+00:00"

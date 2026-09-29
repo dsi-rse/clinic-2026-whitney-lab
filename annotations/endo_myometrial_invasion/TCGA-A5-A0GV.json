@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 1592,
-     "start": 1581,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 1409,
+     "source": "pathology_report",
+     "start": 1398,
      "text": "Adenomyosis"
     }
    ],
@@ -19,15 +20,17 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 813,
-     "start": 773,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 630,
+     "source": "pathology_report",
+     "start": 590,
      "text": "Myometrial invasion by tumor is present "
     },
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 7675,
-     "start": 7626,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 7490,
+     "source": "pathology_report",
+     "start": 7441,
      "text": "Possible superficial invasion, defer to permanent"
     }
    ],
@@ -36,9 +39,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 862,
-     "start": 773,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 679,
+     "source": "pathology_report",
+     "start": 590,
      "text": "Myometrial invasion by tumor is present superficially (less than 50% of wall is\ninvolved)"
     }
    ],
@@ -47,9 +51,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 3318,
-     "start": 3171,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 3134,
+     "source": "pathology_report",
+     "start": 2987,
      "text": "Operating Room for frozen section and subsequently fixed in formalin, is a 68 gram total hysterectomy and bilateral\nsalpingo-oophorectomy specimen."
     }
    ],
@@ -58,17 +63,23 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A0GV",
-     "end": 7710,
-     "start": 7678,
+     "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+     "end": 7525,
+     "source": "pathology_report",
+     "start": 7493,
      "text": "No deep myometrial invasion seen"
     }
    ],
    "value": "superficial invasion"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0GV",
  "updated": "2026-09-26T23:02:28+00:00"

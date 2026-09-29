@@ -4,9 +4,10 @@
   "adenomyosis_relation": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 3152,
-     "start": 3081,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 2968,
+     "source": "pathology_report",
+     "start": 2897,
      "text": "Adenomyosis, focal, involving less than 50% of the myometrial thickness"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 2261,
-     "start": 2224,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 2077,
+     "source": "pathology_report",
+     "start": 2040,
      "text": "Myometrial Invasion:\nInvasion present"
     }
    ],
@@ -30,9 +32,10 @@
   "myometrial_invasion_percent": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 2296,
-     "start": 2262,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 2112,
+     "source": "pathology_report",
+     "start": 2078,
      "text": "Less than 50% myometrial invasion\n"
     }
    ],
@@ -41,27 +44,31 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 693,
-     "start": 597,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 510,
+     "source": "pathology_report",
+     "start": 414,
      "text": "A. UTERUS, CERVIX, AND BILATERAL ADNEXA, TOTAL HYSTERECTOMY AND\nBILATERAL SALPINGO-OOPHORECTOMY:"
     },
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 1865,
-     "start": 1837,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 1681,
+     "source": "pathology_report",
+     "start": 1653,
      "text": "Total abdominal hysterectomy"
     },
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 1951,
-     "start": 1923,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 1767,
+     "source": "pathology_report",
+     "start": 1739,
      "text": "Intact hysterectomy specimen"
     },
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 4146,
-     "start": 4076,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 3961,
+     "source": "pathology_report",
+     "start": 3891,
      "text": "subsequently fixed in formalin is an intact\n62.5 gm total hysterectomy"
     }
    ],
@@ -70,17 +77,23 @@
   "unresolved_conflicts": {
    "spans": [
     {
-     "document": "TCGA-A5-A0VP",
-     "end": 2352,
-     "start": 2296,
+     "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+     "end": 2168,
+     "source": "pathology_report",
+     "start": 2112,
      "text": "Comment(s): Minimal superficial invasion, less than 1\nmm"
     }
    ],
    "value": "minimal superficial, but still invasion"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-A5-A0VP",
  "updated": "2026-09-27T03:11:28+00:00"

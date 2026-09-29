@@ -8,9 +8,10 @@
   "depth_basis": {
    "spans": [
     {
-     "document": "TCGA-2E-A9G8",
-     "end": 2769,
-     "start": 2715,
+     "document": "921E6140-A03E-4FBD-9FB8-554AE96FD16C",
+     "end": 2585,
+     "source": "pathology_report",
+     "start": 2531,
      "text": "Depth of invasion: 0.5 cm\nMyometrial thickness: 1.4 cm"
     }
    ],
@@ -19,9 +20,10 @@
   "myometrial_invasion": {
    "spans": [
     {
-     "document": "TCGA-2E-A9G8",
-     "end": 2740,
-     "start": 2694,
+     "document": "921E6140-A03E-4FBD-9FB8-554AE96FD16C",
+     "end": 2556,
+     "source": "pathology_report",
+     "start": 2510,
      "text": "Myometrial Invasion:\nDepth of invasion: 0.5 cm"
     }
    ],
@@ -34,9 +36,10 @@
   "specimen_type": {
    "spans": [
     {
-     "document": "TCGA-2E-A9G8",
-     "end": 1171,
-     "start": 1078,
+     "document": "921E6140-A03E-4FBD-9FB8-554AE96FD16C",
+     "end": 988,
+     "source": "pathology_report",
+     "start": 895,
      "text": "Uterus, cervix, bilateral tubes and ovaries, hysterectomy and bilateral salpingo-oophorectomy"
     }
    ],
@@ -47,8 +50,13 @@
    "value": "unsure if invasion percent is = to 0.5/1.4; if so, less than 50% would be the percent invasion label"
   }
  },
+ "migrated": {
+  "at": "2026-09-29T19:12:54+00:00",
+  "by": "scripts/migrate_annotations_to_store.py",
+  "from": "traceview_annotation_v1"
+ },
  "project": "endo_myometrial_invasion",
- "schema": "traceview_annotation_v1",
+ "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-2E-A9G8",
  "updated": "2026-09-26T20:31:21+00:00"
