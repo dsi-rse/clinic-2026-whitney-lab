@@ -1,66 +1,58 @@
-# oncotrace-bench
+# Whitney Lab clinical extraction benchmark
 
-## Project Background
+Evaluate how reliably [OncoTrace](https://github.com/uchicago-dsi/oncotrace)
+extracts clinical labels from pathology reports, whether its citations support
+those labels, and what retrieval adds compared with reading the whole record.
+We start with TCGA endometrial cancer reports; RadGraph is a possible additional
+dataset later in the quarter.
 
-Building a medical imaging dataset needs an outcome label for every patient,
-and that label almost always lives in free text: a pathology report, a
-progress note, a treatment plan. Because that text is protected patient data,
-any system that reads it has to run an open-weight model on the institution's
-own hardware. [OncoTrace](https://github.com/uchicago-dsi/oncotrace) does
-that: a locally served model extracts structured labels from clinical
-documents and must quote the passage each label rests on. Trace View, its
-companion viewer, shows a reviewer the label, the cited text, and what the
-model searched for and read.
+## Getting started
 
-Several recent systems attach source passages to extracted labels, but the
-field has not measured whether those passages mean what they appear to mean.
-Does the cited text support the label? Did the model rely on it? Does the
-system abstain when the record does not say? When is an agent that searches
-a record selectively worth its cost compared with reading the whole record?
+1. Follow [student setup](docs/student-setup.md) for Claude Code, both skills
+   collections, and one Python 3.12 environment for analysis and the OncoTrace client.
+   Follow the [clinic Python guidelines](docs/PYTHON_DEVELOPMENT_GUIDELINES.md)
+   and set `DATA_DIR` in your ignored `.env`.
+2. Follow [OncoTrace's synthetic first-run recipe](https://github.com/uchicago-dsi/oncotrace#getting-started),
+   reusing that client environment. Each student runs the smoke test and inspects
+   their own three patient records.
+3. Use [config/endometrial.yaml](config/endometrial.yaml) for your endometrial run.
+   It points to the existing shared report store and roster, and attaches to the
+   lab's GLM-5.3-Flash server. Check input access and obtain the active server's
+   endpoint/job details from the mentor. Follow [OncoTrace's running guide](https://github.com/uchicago-dsi/oncotrace/blob/main/docs/running.md)
+   for validation, running on the server's compute node, and producing outputs.
+4. Give your run its own output directory. Check progress against the roster;
+   546 records can include unanswered cases. Start analysis while the run proceeds.
 
-## Project Goals
+The clinic config has no serving block: use an existing endpoint rather than
+`--serve`. A different model or dataset path requires a personal config.
 
-Build a public, reproducible benchmark for evidence-grounded clinical
-extraction from openly available corpora that already carry expert reference
-labels and evidence spans; evaluate OncoTrace against it alongside rule-based,
-supervised, and one-shot baselines with abstention and cost accounted for;
-use Trace View to sort failures into their causes; and fix what the benchmark
-exposes, testing every change as a paired experiment on held-out data.
+## Endometrial starting point
 
-This repository holds the converters, task definitions, run configs, analysis
-and write-ups. It releases no restricted text: credentialed corpora are
-referenced by ID only. General improvements to the extraction tool go to
-OncoTrace itself by pull request.
+[Mariam Hassan](https://github.com/marihassan) developed the initial adaptation
+and annotated 50 patients. Her authorship is preserved in the imported Git history.
+See [the import record](docs/endometrial-data.md) for source commits, input paths,
+and reference limitations.
 
-## Usage
+| Artifact | Location |
+|---|---|
+| Myometrial-invasion task | [tasks/endo_myometrial_invasion.yaml](tasks/endo_myometrial_invasion.yaml) |
+| Protocol definitions | [CAP mapping](docs/cap-mapping.md) |
+| Reference annotations | [annotations/endo_myometrial_invasion/](annotations/endo_myometrial_invasion/) |
+| Run config | [config/endometrial.yaml](config/endometrial.yaml) |
 
+Reports and run outputs stay outside Git. Annotations contain saved evidence
+excerpts from the TCGA reports. These 50 medical-student annotations are a
+reference for development, with 45 from one tissue source site; they are not an
+independently adjudicated test set. Keep invasion, depth, clinical indeterminacy,
+and pipeline noncompletion separate in evaluation.
 
+## Working here
 
+Reusable analysis code goes in `src/oncotrace_bench/`, command-line scripts in
+`scripts/`, and short exploratory notebooks in `notebooks/`. Keep code readable,
+review it with the TA or mentor, and document runnable scripts. General extraction
+improvements belong in OncoTrace; dataset-specific analysis belongs here.
 
-
-
-## Repository Structure
-
-### oncotrace_bench
-Project python code
-
-### scripts
-Runnable Python scripts. Each script should be listed and described here.
-
-### notebooks
-Contains short, clean notebooks to demonstrate analysis.
-
-### output
-Should contain work product generated by the analysis. Keep in mind that results should (generally) be excluded from the git repository.
-
-## Working with Coding Agents
-
-Shared course instructions live in [AGENTS.md](AGENTS.md). [CLAUDE.md](CLAUDE.md) points Claude Code to the same instructions.
-
-To add your own preferences and environment details, run this once from the repo root:
-
-```bash
-cp agents.local.example.md agents.local.md
-```
-
-Edit `agents.local.md` for your experience, preferred tools, and environment. Both agent instruction files tell agents to read it when present. Git ignores this personal file, so each student can customize their own checkout while keeping the shared course rules.
+Read [AGENTS.md](AGENTS.md) before using a coding agent. Copy
+`agents.local.example.md` to ignored `agents.local.md` for personal preferences.
+Student-written code requires permission before an agent changes it.
