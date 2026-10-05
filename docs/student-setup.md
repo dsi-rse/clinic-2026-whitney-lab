@@ -87,12 +87,50 @@ site's Slurm rules for builds and inference. Use your own output directories and
 review the agent's commands and code. Read the shared repo instructions before starting;
 keep personal preferences in ignored `agents.local.md`.
 
+## Shared model weights
+
+Reuse these existing checkpoints rather than downloading a copy per student:
+
+| Use | Model | Shared path |
+|---|---|---|
+| Synthetic smoke example | Qwen3-30B-A3B-Instruct-2507 | `/net/spaces/annawoodard/annawoodard/oncotrace-dsi/weights/Qwen3-30B-A3B-Instruct-2507` |
+| Endometrial run | GLM-5.3-Flash | `/net/spaces/annawoodard/annawoodard/oncotrace-dsi/weights/GLM-5.3-Flash-stripe8` |
+
+These directories require membership in the cluster's `annawoodard` group.
+From your own account, confirm you can read each model's `config.json` and
+`model.safetensors.index.json`. Report a permission error to Anna before proceeding.
+All indexed shards were present and nonempty when checked on October 5, 2026:
+16 for Qwen and 62 for GLM. The `-stripe8` suffix is part of the GLM path.
+
+When attaching to the lab's server, use its endpoint and served model name;
+the server owns the weights path. If you are starting an approved personal
+server, set `serving.model_root` to the appropriate shared path, following the
+[DSI serving instructions](https://github.com/uchicago-dsi/oncotrace/blob/main/docs/dsi-cluster.md#setting-up-as-a-new-student).
+Keep your caches and sockets in your own account's paths. The clinic endometrial
+config attaches to GLM; changing models requires a matched personal config.
+
+## Run TraceView
+
+Every student starts TraceView and opens their own synthetic smoke run.
+Follow [TraceView's read-only launch recipe](https://github.com/uchicago-dsi/oncotrace/blob/main/viewer/README.md#read-only-review-on-a-cluster)
+using the student/client interpreter. Forward the port in your own VS Code
+session and inspect the three patients' labels, source passages, and tool traces.
+Then open your endometrial run with the clinic's
+`tasks/endo_myometrial_invasion.yaml` contract, rather than its run config.
+
+Use read-only mode for these tasks. Inspect inherited annotations separately
+in your clinic checkout; do not edit Mariam's references. TraceView's automated
+view can inspect runs as they produce completed records. A working launch means
+you can open a patient and its source/trace, rather than only seeing a server URL.
+
 ## Talk through OncoTrace with your agent
 
 After your smoke test, spend 20–30 minutes asking your agent how OncoTrace works.
 Have it read the README and inspect the existing open-source implementation and
-synthetic examples. Ask follow-up questions until you can walk through one
-patient's extraction yourself. Check one explanation against the code or trace.
+synthetic examples. Open your own run in TraceView and use its source and
+trajectory views for the conversation. Ask follow-up questions until you can
+walk through one patient's extraction yourself. Check one explanation against
+the code or trace.
 
 For the meeting, be ready to explain what the system returns, what a task contract
 defines, what inventory/search/read/submit do, how citations are checked, how

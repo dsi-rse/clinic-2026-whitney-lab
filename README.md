@@ -14,7 +14,9 @@ dataset later in the quarter.
    and set `DATA_DIR` in your ignored `.env`.
 2. Follow [OncoTrace's synthetic first-run recipe](https://github.com/uchicago-dsi/oncotrace#getting-started),
    reusing that client environment. Each student runs the smoke test and inspects
-   their own three patient records.
+   their own three patient records in [TraceView](docs/student-setup.md#run-traceview).
+   Use the [shared weights](docs/student-setup.md#shared-model-weights) when serving;
+   check access from your own account.
 3. Use [config/endometrial.yaml](config/endometrial.yaml) for your endometrial run.
    It points to the existing shared report store and roster, and attaches to the
    lab's GLM-5.3-Flash server. Check input access and obtain the active server's
