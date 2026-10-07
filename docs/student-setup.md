@@ -89,26 +89,31 @@ keep personal preferences in ignored `agents.local.md`.
 
 ## Shared model weights
 
-While project-directory access is being repaired, use the temporary scratch
-copies below rather than downloading a copy per student. Both copies are ready;
-`READY.json` in the scratch directory records completion and group access.
+Use the shared checkpoints in the OncoTrace project space rather than
+downloading a copy per student. `READY.json` beside them records verification
+and current locations.
 
 | Use | Model | Shared path |
 |---|---|---|
-| Synthetic smoke example | Qwen3-30B-A3B-Instruct-2507 | `/net/spaces/scratch/annawoodard-oncotrace-weights-20261007/Qwen3-30B-A3B-Instruct-2507` |
-| Endometrial run | GLM-5.3-Flash | `/net/spaces/scratch/annawoodard-oncotrace-weights-20261007/GLM-5.3-Flash-stripe8` |
+| Synthetic smoke example | Qwen3-30B-A3B-Instruct-2507 | `/net/spaces/annawoodard/oncotrace/weights/Qwen3-30B-A3B-Instruct-2507` |
+| Endometrial run | GLM-5.3-Flash | `/net/spaces/annawoodard/oncotrace/weights/GLM-5.3-Flash-stripe8` |
 
-These copies have read-only named group ACLs for `__karczmar` (GID `31007`).
+Project access requires `__oncotrace` (GID `4000004`). The checkpoints are
+read-only for this group. If you were recently added, reconnect SSH/VS Code
+and check `id` in the new session. Retained `__karczmar` ACLs on the weights
+do not grant traversal through the root-owned project directory; ask Anna
+about missing project membership rather than changing permissions yourself.
 From your own account, confirm you can read each model's `config.json` and
 `model.safetensors.index.json`. Report a permission error to Anna before proceeding.
 All 100 copied files matched the originals by SHA-256 on October 7, 2026,
-including 16 Qwen shards and 62 GLM shards. Manifests are in the scratch
-directory's `transfer/` folder. The `-stripe8` suffix is part of the GLM path.
+including 16 Qwen shards and 62 GLM shards. Original verification manifests
+are in `weights/transfer/`; `weights/relocation/` records the verified move.
+The `-stripe8` suffix is part of the GLM path.
 
-Scratch is temporary and not backed up. The original checkpoints remain under
+The original checkpoints remain under
 `/net/spaces/annawoodard/annawoodard/oncotrace-dsi/weights/`, with their existing
-`annawoodard` group permissions. Anna will provide permanent paths after the
-admin ticket is resolved.
+`annawoodard` group permissions. Transfer and relocation records accompany the
+project copies; use the project paths above in personal serving configs.
 
 When attaching to the lab's server, use its endpoint and served model name;
 the server owns the weights path. If you are starting an approved personal
