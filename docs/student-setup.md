@@ -122,6 +122,31 @@ server, set `serving.model_root` to the appropriate shared path, following the
 Keep your caches and sockets in your own account's paths. The clinic endometrial
 config attaches to GLM; changing models requires a matched personal config.
 
+## Shared endometrial data
+
+The roster and pathology reports are read-only for `__oncotrace`, in the same
+project space as the model weights:
+
+```text
+/net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv
+/net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
+```
+
+Use these paths in your personal copy of `config/endometrial.yaml`. Older
+configs may point into Anna's private project directory. From your own account,
+check access without printing report contents:
+
+```bash
+id
+test -r /net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv && echo "roster readable"
+test -r /net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl && echo "reports readable"
+```
+
+If `__oncotrace` is missing from `id`, reconnect SSH/VS Code after membership is
+added. Report any remaining permission error to Anna. Keep new run outputs in
+your own directory. See [data provenance](endometrial-data.md) for the original
+source and copy verification.
+
 ## Run TraceView
 
 Every student starts TraceView and opens their own synthetic smoke run.

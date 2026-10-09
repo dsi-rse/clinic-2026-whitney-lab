@@ -3,12 +3,12 @@
 # This client config attaches to an existing GLM server with --base-url.
 task: ../tasks/endo_myometrial_invasion.yaml
 mode: agentic
-roster: /net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/roster_ucec.csv
+roster: /net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv
 roster_column: unit
 
 sources:
   - name: pathology_report
-    path: /net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/documents/ucec_pathology_report.jsonl
+    path: /net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
 
 model:
   served_name: glm-5.3-flash

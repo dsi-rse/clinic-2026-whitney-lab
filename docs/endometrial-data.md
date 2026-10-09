@@ -27,9 +27,18 @@ The source checkout remains available as historical context.
 The [run config](../config/endometrial.yaml) points at these existing read-only inputs:
 
 ```text
-/net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/roster_ucec.csv
-/net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/documents/ucec_pathology_report.jsonl
+/net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv
+/net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
 ```
+
+These copies are readable by the `__oncotrace` group (GID `4000004`). If you
+were recently added, reconnect SSH/VS Code and check `id` in the new session.
+On October 9, 2026, both copies were checked against the originals by SHA-256;
+they match exactly. `manifest.json`, `SHA256SUMS`, and `README.md` in the shared
+data directory record the transfer and verification. The unchanged originals
+remain under
+`/net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/`,
+where parent directories require the older `annawoodard` group.
 
 The store contains 546 documents for 546 patients across 31 tissue source sites.
 Mariam's recorded GDC cohort has 560 cases; missing report delivery accounts for

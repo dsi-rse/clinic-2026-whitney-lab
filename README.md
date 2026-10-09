@@ -18,8 +18,9 @@ dataset later in the quarter.
    Use the [shared weights](docs/student-setup.md#shared-model-weights) when serving;
    check access from your own account.
 3. Use [config/endometrial.yaml](config/endometrial.yaml) for your endometrial run.
-   It points to the existing shared report store and roster, and attaches to the
-   lab's GLM-5.3-Flash server. Check input access and obtain the active server's
+   It points to the [shared report store and roster](docs/student-setup.md#shared-endometrial-data),
+   readable by `__oncotrace`, and attaches to the lab's GLM-5.3-Flash server.
+   Update the input paths in older personal configs and obtain the active server's
    endpoint/job details from the mentor. Follow [OncoTrace's running guide](https://github.com/uchicago-dsi/oncotrace/blob/main/docs/running.md)
    for validation, running on the server's compute node, and producing outputs.
 4. Give your run its own output directory. Check progress against the roster;
