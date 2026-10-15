@@ -30,6 +30,7 @@ def main() -> None:
         default=Path.home() / "oncotrace",
         help="OncoTrace clone that holds viewer/ (TraceView)",
     )
+    parser.add_argument("--out-dir", type=Path, help="also write confidence.csv here")
     args = parser.parse_args()
 
     add_traceview_to_path(args.oncotrace.expanduser())
@@ -37,6 +38,9 @@ def main() -> None:
         args.run.expanduser(), args.task, args.annotations, args.project
     )
     print(table.to_string(index=False))
+    if args.out_dir:
+        args.out_dir.mkdir(parents=True, exist_ok=True)
+        table.to_csv(args.out_dir / "confidence.csv", index=False)
 
 
 if __name__ == "__main__":
