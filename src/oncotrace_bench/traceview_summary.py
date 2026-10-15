@@ -155,3 +155,85 @@ def confidence_table(
     frame = frame[["confidence", "patients", *scoring.ROW_ORDER]]
     frame.loc[len(frame)] = ["total", *frame.drop(columns="confidence").sum()]
     return frame
+
+
+def load_views(run_dir: Path, task_yaml: Path) -> list:
+    """Load every record in a run through TraceView, in unit order."""
+    import records as traceview
+
+    tasks, _, _ = traceview.load_tasks([task_yaml])
+    return traceview.load_run(run_dir, tasks)
+
+
+def refusal_counts(view: object) -> Counter:
+    """Count how often each refusal signature was recorded for one patient."""
+    events = view.record.get("events") or []
+    return Counter(
+        e.get("signature") for e in events if e.get("kind") == "recoverable_error"
+    )
+
+
+def refusal_summary(views: list) -> pd.DataFrame:
+    """Group refusals by signature: patients affected and refusals recorded.
+
+    Splits the patients into those that went on to an accepted answer and those
+    that did not, so a refusal that is routinely recovered from can be told
+    apart from one that ends a run.
+    """
+    rows: dict[str, dict[str, int]] = {}
+    for view in views:
+        for signature, count in refusal_counts(view).items():
+            row = rows.setdefault(
+                signature,
+                {"patients": 0, "refusals": 0, "answered": 0, "no_answer": 0},
+            )
+            row["patients"] += 1
+            row["refusals"] += count
+            row["answered" if view.answered else "no_answer"] += 1
+    frame = pd.DataFrame.from_dict(rows, orient="index")
+    frame = frame.sort_values("patients", ascending=False)
+    return frame.rename_axis("signature").reset_index()
+
+
+def find_units(
+    views: list,
+    answered: bool | None = None,
+    reason: str | None = None,
+    signature: str | None = None,
+    cut_off: bool = False,
+) -> pd.DataFrame:
+    """List patients to open in TraceView, filtered by what happened to them.
+
+    `answered` keeps accepted (True) or unanswered (False) patients; `reason`
+    keeps one recorded stop reason; `signature` keeps patients refused with that
+    signature at least once; `cut_off` keeps patients with a reply that hit the
+    completion-token cap, answered or not. Filters combine with AND.
+    """
+    rows = []
+    for view in views:
+        refusals = refusal_counts(view)
+        if answered is not None and view.answered != answered:
+            continue
+        if reason and view.reason != reason:
+            continue
+        if signature and signature not in refusals:
+            continue
+        if cut_off and not view.truncated:
+            continue
+        rows.append(
+            {
+                "unit": view.unit,
+                "outcome": view.reason if not view.answered else "answered",
+                "label": view.label,
+                "confidence": view.confidence,
+                "model_calls": view.model_calls,
+                "refusals": sum(refusals.values()),
+                "cut_off_replies": view.truncated,
+            }
+        )
+    frame = pd.DataFrame(
+        rows,
+        columns=["unit", "outcome", "label", "confidence", "model_calls",
+                 "refusals", "cut_off_replies"],
+    )
+    return frame.sort_values(["refusals", "unit"], ascending=[False, True])

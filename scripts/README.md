@@ -39,3 +39,24 @@ clone's `viewer/scoring.py`, via `--oncotrace`).
 PYTHONPATH=src python scripts/confidence_table.py \
   --run /path/to/run --task tasks/endo_myometrial_invasion.yaml
 ```
+
+#### `find_patients.py`
+
+Lists patients to open in TraceView, filtered by what happened to them. Fills
+two gaps in TraceView's filters: patients with a reply cut off at the token cap
+(answered or not), and refusals grouped by signature. Filters combine with AND.
+
+```bash
+# which refusals happened, how many patients each affected, and how many recovered
+PYTHONPATH=src python scripts/find_patients.py --run RUN --task TASK --summary
+# unanswered patients stopped by the call budget
+PYTHONPATH=src python scripts/find_patients.py --run RUN --task TASK --no-answer \
+  --reason model_call_budget_exhausted
+# answered patients with a cut-off reply, or anyone refused with one signature
+PYTHONPATH=src python scripts/find_patients.py --run RUN --task TASK --answered --cut-off
+PYTHONPATH=src python scripts/find_patients.py --run RUN --task TASK \
+  --refused-with citation_quote_not_found
+```
+
+Open a listed patient by choosing it in TraceView's Units tab. `--out file.csv`
+saves the table.
