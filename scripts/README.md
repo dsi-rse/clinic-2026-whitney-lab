@@ -27,3 +27,15 @@ PYTHONPATH=src python scripts/inspect_patients.py \
   --run /path/to/run --task tasks/endo_myometrial_invasion.yaml \
   --units TCGA-A5-A0GP TCGA-A5-A0GE
 ```
+
+#### `confidence_table.py`
+
+Matches the run's patients to the human annotations by ID and counts agreement
+by the model's confidence (high, medium, low), plus patients with no answer.
+Uses TraceView's `score_run` and `agreement_by_confidence` (from the OncoTrace
+clone's `viewer/scoring.py`, via `--oncotrace`).
+
+```bash
+PYTHONPATH=src python scripts/confidence_table.py \
+  --run /path/to/run --task tasks/endo_myometrial_invasion.yaml
+```

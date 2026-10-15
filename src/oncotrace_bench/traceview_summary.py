@@ -122,3 +122,36 @@ def trajectory_facts(view: object) -> dict:
         "max_completion_tokens": view.max_completion,
         "last_event": events[-1].get("kind") if events else None,
     }
+
+
+def confidence_table(
+    run_dir: Path, task_yaml: Path, annotations_dir: Path, project: str
+) -> pd.DataFrame:
+    """Agreement with the human reference, grouped by the model's confidence.
+
+    Patients are matched to annotations by ID. Each row counts, for one
+    confidence value: patients whose label matches (correct), differs (wrong),
+    asserts a value where the human said not applicable or cannot be
+    determined (over_committed), and patients with no answer (abstained).
+    Uses TraceView's `score_run` and `agreement_by_confidence`; the latter is
+    in the OncoTrace clone's viewer/scoring.py.
+    """
+    import annotate
+    import records as traceview
+    import scoring
+
+    tasks, _, _ = traceview.load_tasks([task_yaml])
+    task = next(iter(tasks.values()))
+    views = traceview.load_run(run_dir, tasks)
+    reference = annotate.reference_for(annotations_dir, project, task.label_field)
+    development = annotate.development_units(annotations_dir, project) or frozenset()
+
+    scored = scoring.score_run(views, reference, task.label_values, development)
+    table = scoring.agreement_by_confidence(scored.rows, task.confidence_values)
+
+    frame = pd.DataFrame(
+        [{"confidence": name, **counts} for name, counts in table]
+    ).rename(columns={"n": "patients"})
+    frame = frame[["confidence", "patients", *scoring.ROW_ORDER]]
+    frame.loc[len(frame)] = ["total", *frame.drop(columns="confidence").sum()]
+    return frame
