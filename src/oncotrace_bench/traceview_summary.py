@@ -86,3 +86,39 @@ def _count_frame(counts: Counter, order: tuple[str, ...], total: int) -> pd.Data
     frame = pd.DataFrame(rows, columns=["value", "patients"])
     frame.loc[len(frame)] = ["total", total]
     return frame
+
+
+def trajectory_facts(view: object) -> dict:
+    """Summarize one patient's recorded steps without any report text.
+
+    Uses TraceView's already-loaded record. Only counts, tool names, refusal
+    signatures, and character offsets are returned, so the result is safe to
+    paste into notes (report text, quotes, and rationales are protected).
+    """
+    events = view.record.get("events") or []
+    refusals = [e for e in events if e.get("kind") == "recoverable_error"]
+    quote_lengths = [
+        (e.get("diagnostics") or {}).get("quote_chars")
+        for e in refusals
+        if e.get("signature") == "citation_quote_not_found"
+    ]
+    windows = [
+        (w["start"], w["end"]) for found in view.windows.values() for w in found
+    ]
+    return {
+        "unit": view.unit,
+        "outcome": view.reason if not view.answered else "answered",
+        "label": view.label,
+        "confidence": view.confidence,
+        "steps": view.shape,
+        "model_calls": view.model_calls,
+        "document_chars": view.document_chars,
+        "read_windows": windows,
+        "chars_read": view.chars_read,
+        "refusals": Counter(e.get("signature") for e in refusals),
+        "single_char_quotes": sum(length == 1 for length in quote_lengths),
+        "not_found_quotes": len(quote_lengths),
+        "truncated_replies": view.truncated,
+        "max_completion_tokens": view.max_completion,
+        "last_event": events[-1].get("kind") if events else None,
+    }
