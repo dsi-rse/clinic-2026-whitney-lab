@@ -59,3 +59,5 @@ improvements belong in OncoTrace; dataset-specific analysis belongs here.
 Read [AGENTS.md](AGENTS.md) before using a coding agent. Copy
 `agents.local.example.md` to ignored `agents.local.md` for personal preferences.
 Student-written code requires permission before an agent changes it.
+
+See [scripts/README.md](scripts/README.md) for runnable scripts, including `outcome_table.py`, which summarizes a run's outcomes using TraceView.
