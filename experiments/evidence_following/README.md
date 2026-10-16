@@ -12,14 +12,14 @@ No report, rationale, or annotation text appears here. Patients are TCGA IDs, an
 
 **Model and harness:**
 - GLM-5.3-Flash, agentic mode, run with oncotrace `e901b3f`.
-- Task contract: [`tasks/endo_myometrial_invasion.yaml`](../tasks/endo_myometrial_invasion.yaml). Config: `config/endometrial.yaml` with temperature 0.
+- Task contract: [`tasks/endo_myometrial_invasion.yaml`](../../tasks/endo_myometrial_invasion.yaml). Config: `config/endometrial.yaml` with temperature 0.
 
 **Runs:**
 - Original run: 376 of the 546 roster patients, including all 50 annotated patients.
 - Experiment runs: 5 more, each on its own server start.
 
 **Reference annotations:**
-- 50 patients in [`annotations/`](../annotations/endo_myometrial_invasion/), from one annotator and not adjudicated.
+- 50 patients in [`annotations/`](../../annotations/endo_myometrial_invasion/), from one annotator and not adjudicated.
 - 45 of the 50 come from one tissue source site (TCGA-A5).
 
 ## Part 1: what the existing run shows
@@ -43,7 +43,7 @@ No report, rationale, or annotation text appears here. Patients are TCGA IDs, an
 
 ### Five annotated patients
 
-Every citation in all 345 answered records opens at the right words in TraceView (`scripts/check_traceview_citations.py`).
+Every citation in all 345 answered records opens at the right words in TraceView (`check_traceview_citations.py`).
 
 | Patient | Field (reference → run) | Run's depth citations | Matches the annotated passage? | Conflicting text |
 |---|---|---|---|---|
@@ -91,20 +91,41 @@ Every citation in all 345 answered records opens at the right words in TraceView
 - The edits were drafted with Claude and haven't had mentor review.
 - Changing *every* statement consistently is the easiest version of the test.
 
-## Reproducing
+## What's in this folder
 
-The scripts are listed in [`scripts/README.md`](../scripts/README.md). Inputs and outputs that hold report text stay in the workspace (`$ONCOTRACE_WORKSPACE/analysis/issue8/`), never in Git.
+Everything for this experiment lives here. Inputs and outputs that hold report text stay in the private workspace (`$ONCOTRACE_WORKSPACE/analysis/issue8/`), never in Git.
 
-| Step | Script |
-|---|---|
-| Compare a run with the annotations | `scripts/evidence_alignment.py` |
-| Explain no-answers and refusals | `scripts/triage_no_answers.py` |
-| Inventory depth passages for edit design | `scripts/evidence_inventory.py` |
-| Check citations open in TraceView | `scripts/check_traceview_citations.py` |
-| Make edited report copies | `scripts/report_edits.py` |
-| Compare arms (original, reruns, edits) | `scripts/compare_arms.py` |
+| File | What it does | Writes |
+|---|---|---|
+| `records.py` | Shared loader for runs, annotations and reports, plus span-overlap helpers. Not run directly. | – |
+| `evidence_alignment.py` | Compares a run with the annotations: field agreement, cited vs annotated passages, how much was read before answering | `alignment_annotated.csv`, `alignment_spans.csv`, `reading_coverage_run.csv` |
+| `triage_no_answers.py` | Classifies each `no_answer` and checks whether refusals changed answers | `no_answer_triage.csv`, `refusals_run.csv` |
+| `evidence_inventory.py` | Adds citation and edit-feasibility facts to the hand-curated passage list | `evidence_inventory.json`, `edit_candidates.csv` |
+| `check_traceview_citations.py` | Confirms each citation is highlighted at the right words in a running TraceView | prints only |
+| `report_edits.py` | Builds an edited report copy for one arm from a hand-written spec | `inputs/<arm>/` (private) |
+| `compare_arms.py` | Lines up each patient's answer across the original run, the reruns and the edit arms | `arm_comparison.csv`, `control_noise.csv` |
 
-Each arm ran with the original config. Only `roster:` (and, for edit arms, the source `path:`) changed, and each arm used a fresh run folder.
+Run them from the repo root. Each takes `--help`, and its docstring explains the method:
+
+```bash
+P=experiments/evidence_following
+python $P/evidence_alignment.py
+python $P/triage_no_answers.py
+python $P/evidence_inventory.py
+python $P/check_traceview_citations.py --port 8742 --units TCGA-A5-A2K2 TCGA-A5-A0GQ   # TraceView must be running
+python $P/report_edits.py template --arm flip --units TCGA-A5-A0GI TCGA-A5-A0GM       # then fill in replacements
+python $P/report_edits.py apply --arm flip
+python $P/compare_arms.py \
+    --controls runs/2026-10-13_issue8_s1_control runs/2026-10-13_issue8_s2_control runs/2026-10-13_issue8_s3_control \
+    --arm flip=runs/2026-10-13_issue8_flip --arm reword=runs/2026-10-13_issue8_reword
+```
+
+Defaults point at the issue 8 workspace. Set `ONCOTRACE_WORKSPACE` to use your own.
+
+**Running an arm:**
+- Use the original run config, changing only `roster:` and, for edit arms, the source `path:` (to `inputs/<arm>/ucec_pathology_report.jsonl`).
+- Give each arm a fresh, empty run folder. OncoTrace skips any patient that already has a record, even when the report was edited.
+- Rosters must not be empty: an empty roster means the whole store.
 
 ## Next
 

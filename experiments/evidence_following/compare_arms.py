@@ -1,15 +1,25 @@
-"""Compare answers across experiment arms: original, control repeats, and edits.
+r"""Compare an experiment's arms: original run, control repeats, and edit arms.
 
 Each arm is a run folder of the same patients. For every patient, this lines
 up the answer (status, label, percent) in each arm, says whether an edit arm
 moved the answer to the expected value, and, for edit arms, whether the run's
 depth citations landed on the edited passages (using the arm's `edits.json`).
+
+    python experiments/evidence_following/compare_arms.py \
+        --controls runs/2026-10-13_issue8_s1_control runs/2026-10-13_issue8_s2_control \
+        --arm flip=runs/2026-10-13_issue8_flip --arm reword=runs/2026-10-13_issue8_reword
+
+Run folders are relative to the workspace. Writes `arm_comparison.csv` (edited
+patients) and `control_noise.csv` (every control patient) to the analysis
+folder and prints both. Only IDs, labels, and counts are written.
 """
 
+import argparse
 import json
 from pathlib import Path
 
-from oncotrace_bench.records import load_run, overlap
+import pandas as pd
+from records import ANALYSIS_DIR, DEFAULT_RUN, WORKSPACE, load_run, overlap
 
 FIELDS = ["myometrial_invasion", "myometrial_invasion_percent"]
 FLIPPED = {"less_than_50": "fifty_or_greater", "fifty_or_greater": "less_than_50"}
@@ -103,3 +113,40 @@ def noise_rows(original: Path, controls: list[Path]) -> list[dict]:
         row["n_answered"] = sum(a[0] == "answered" for a in answers)
         rows.append(row)
     return rows
+
+
+def main() -> None:
+    """Build and print the comparison tables."""
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--original", type=Path, default=DEFAULT_RUN)
+    parser.add_argument("--controls", type=Path, nargs="+", required=True)
+    parser.add_argument("--arm", action="append", default=[], help="NAME=RUN_DIR")
+    parser.add_argument("--inputs", type=Path, default=ANALYSIS_DIR / "inputs")
+    parser.add_argument("--out-dir", type=Path, default=ANALYSIS_DIR)
+    args = parser.parse_args()
+
+    controls = [WORKSPACE / path for path in args.controls]
+    arms = {}
+    for item in args.arm:
+        name, _, path = item.partition("=")
+        arms[name] = WORKSPACE / path
+
+    noise = pd.DataFrame(noise_rows(args.original, controls))
+    noise.to_csv(args.out_dir / "control_noise.csv", index=False)
+    print(noise.to_string(index=False))
+    print(
+        f"\npatients with more than one distinct answer: "
+        f"{(noise['distinct_answers'] > 1).sum()} of {len(noise)}\n"
+    )
+
+    if arms:
+        table = pd.DataFrame(compare_arms(args.original, controls, arms, args.inputs))
+        table.to_csv(args.out_dir / "arm_comparison.csv", index=False)
+        print(table.to_string(index=False))
+        for name in arms:
+            hits = table[f"{name}_as_expected"].sum()
+            print(f"{name}: {hits} of {len(table)} patients answered as expected")
+
+
+if __name__ == "__main__":
+    main()

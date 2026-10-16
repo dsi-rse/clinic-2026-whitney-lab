@@ -2,7 +2,7 @@
 
 Start TraceView on the run first (see docs/student-setup.md), then run, e.g.:
 
-    python scripts/check_traceview_citations.py --port 8742 \
+    python experiments/evidence_following/check_traceview_citations.py --port 8742 \
         --units TCGA-A5-A2K2 TCGA-A5-A0GQ
 
 For each unit, the script asks the running viewer for its page, collects the
@@ -18,7 +18,7 @@ import re
 import urllib.request
 from pathlib import Path
 
-from oncotrace_bench.records import DEFAULT_RUN, REPORTS_PATH, load_reports, load_run
+from records import DEFAULT_RUN, REPORTS_PATH, load_reports, load_run
 
 CITATION_GROUPS = [
     "depth_evidence",
