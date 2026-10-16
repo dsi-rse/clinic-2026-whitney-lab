@@ -42,6 +42,7 @@ and reference limitations.
 | Protocol definitions | [CAP mapping](docs/cap-mapping.md) |
 | Reference annotations | [annotations/endo_myometrial_invasion/](annotations/endo_myometrial_invasion/) |
 | Run config | [config/endometrial.yaml](config/endometrial.yaml) |
+| Evidence-following results and scripts (issue #8) | [docs/evidence-following.md](docs/evidence-following.md), [scripts/README.md](scripts/README.md) |
 
 Reports and run outputs stay outside Git. Annotations contain saved evidence
 excerpts from the TCGA reports. These 50 medical-student annotations are a
