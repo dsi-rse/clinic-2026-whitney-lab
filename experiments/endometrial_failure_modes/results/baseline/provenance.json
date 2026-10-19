@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-19T15:29:03+00:00",
+  "python": "3.12.15",
+  "inputs": {
+    "run": "/home/helenawu/oncotrace-work/runs/endometrial_glm53_20261012",
+    "task": "/home/helenawu/clinic-2026-whitney-lab/tasks/endo_myometrial_invasion.yaml",
+    "roster": "/net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv",
+    "annotations": "/home/helenawu/clinic-2026-whitney-lab/annotations",
+    "project": "endo_myometrial_invasion"
+  },
+  "task_sha256": "587d59a920e4f649c9a2edf16546ab84daf3f5586b419f393e34a7346971dcfc",
+  "counts": {
+    "run_records": 498,
+    "roster": 546,
+    "annotations_total": 50,
+    "annotations_matched": 50
+  },
+  "oncotrace": {
+    "path": "/home/helenawu/oncotrace",
+    "commit": "3ba37b4704599b56d25c1c01e21ae3daccecee01",
+    "branch": "main",
+    "uncommitted_files": [
+      "docs/results.md",
+      "tasks/pcr_endpoint_smoke_glm53_dsi.yaml",
+      "viewer/README.md",
+      "viewer/app.py",
+      "viewer/scoring.py"
+    ]
+  },
+  "clinic_repo": {
+    "path": "/home/helenawu/clinic-2026-whitney-lab",
+    "commit": "cf9d63f61e5d1d518de95df87cb6906cff2106c2",
+    "branch": "hw/Investigate_answers",
+    "uncommitted_files": []
+  }
+}

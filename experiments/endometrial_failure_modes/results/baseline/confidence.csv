@@ -1,0 +1,6 @@
+confidence,patients,correct,wrong,over_committed,abstained
+high,46,44,0,2,0
+medium,1,1,0,0,0
+low,0,0,0,0,0
+none,3,0,0,0,3
+total,50,45,0,2,3
