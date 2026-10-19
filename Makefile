@@ -24,3 +24,15 @@ endif
 open-ssh-login-node:
 	code --remote ssh-remote+fe.ds ~/oncotrace-bench
 
+
+# Run the endometrial failure-modes experiment on one OncoTrace run.
+# Usage: make endometrial-failure-modes RUN=/path/to/run LABEL=baseline
+# Each LABEL gets its own folder under experiments/endometrial_failure_modes/results/.
+endometrial-failure-modes:
+ifndef RUN
+	$(error RUN must be set to an OncoTrace run folder)
+endif
+ifndef LABEL
+	$(error LABEL must be set to a new name for this result set)
+endif
+	PYTHONPATH=src python experiments/endometrial_failure_modes/run_experiment.py --run $(RUN) --label $(LABEL)

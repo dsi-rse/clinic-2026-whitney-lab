@@ -71,9 +71,8 @@ No code in this repo changes; it is a config value.
 
 ## Output location
 
-- This proposal: `docs/failure-test-proposal.md` on `hw/Investigate_answers`
-  (PR #11).
+- This proposal: `experiments/endometrial_failure_modes/findings/failure-test-proposal.md`.
 - The test's records, if approved, go in a new run folder outside Git, for
   example `~/oncotrace-work/runs/endometrial_glm53_trunc32k/`. The completed
-  run's records are never edited. Summarize them with
-  `scripts/outcome_table.py` and `scripts/inspect_patients.py`.
+  run's records are never edited. Summarize them by running the experiment
+  again with a new label (see the experiment's README).

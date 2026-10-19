@@ -51,8 +51,9 @@ and pipeline noncompletion separate in evaluation.
 
 ## Working here
 
-Reusable analysis code goes in `src/oncotrace_bench/`, command-line scripts in
-`scripts/`, and short exploratory notebooks in `notebooks/`. Keep code readable,
+Each experiment is a self-contained folder in `experiments/<name>/`. Only general
+helpers that teammates can reuse go in `src/oncotrace_bench/`; other command-line
+scripts go in `scripts/`, and short exploratory notebooks in `notebooks/`. Keep code readable,
 review it with the TA or mentor, and document runnable scripts. General extraction
 improvements belong in OncoTrace; dataset-specific analysis belongs here.
 
@@ -60,4 +61,6 @@ Read [AGENTS.md](AGENTS.md) before using a coding agent. Copy
 `agents.local.example.md` to ignored `agents.local.md` for personal preferences.
 Student-written code requires permission before an agent changes it.
 
-See [scripts/README.md](scripts/README.md) for runnable scripts, including `outcome_table.py`, which summarizes a run's outcomes using TraceView.
+Experiments live in [experiments/](experiments/). Start with
+[endometrial_failure_modes](experiments/endometrial_failure_modes/README.md): why OncoTrace
+sometimes gives no answer, and whether its confidence tells us anything.

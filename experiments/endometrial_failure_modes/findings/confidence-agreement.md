@@ -1,7 +1,7 @@
 # Does the model's confidence track agreement with the annotations?
 
 Run `endometrial_glm53_20261012`, label `myometrial_invasion`, matched by patient
-ID to Mariam Hassan's 50 annotations (`scripts/confidence_table.py`). All 50
+ID to Mariam Hassan's 50 annotations (`run_experiment.py`, `results/<label>/confidence.csv`). All 50
 have a record in the run.
 
 | Confidence | Patients | Correct | Wrong | Over-committed | No answer |

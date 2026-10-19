@@ -2,7 +2,7 @@
 
 Run: `endometrial_glm53_20261012` (498 of 546 records at inspection time).
 Facts below come from TraceView's loaded records via
-`scripts/inspect_patients.py`. Only counts, tool names, refusal signatures and
+`run_experiment.py` (see `results/<label>/patients.md`). Only counts, tool names, refusal signatures and
 character offsets are recorded; report text and quotes are protected.
 Step key: I=inventory R=read $=submit !=refused ?=reply with no tool call x=no answer.
 
