@@ -1,0 +1,101 @@
+{
+  "created_utc": "2026-10-19T19:45:07+00:00",
+  "python": "3.11.17",
+  "inputs": {
+    "agentic": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-12_endometrial_agentic",
+    "one_shot": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-16_endometrial_one_shot",
+    "task": "/home/yuxuang/clinic-2026-whitney-lab/tasks/endo_myometrial_invasion.yaml",
+    "annotations": "/home/yuxuang/clinic-2026-whitney-lab/annotations",
+    "project": "endo_myometrial_invasion"
+  },
+  "task_sha256": "587d59a920e4f649c9a2edf16546ab84daf3f5586b419f393e34a7346971dcfc",
+  "counts": {
+    "agentic_records": 546,
+    "one_shot_records": 546,
+    "matched_patients": 546,
+    "scored": {
+      "invasion": 50,
+      "depth": 50
+    },
+    "held_out_development_patients": 0
+  },
+  "agentic_run_provenance": {
+    "commit": "e901b3f572275e755499375551eca6da60f30680",
+    "config_sha256": "9f602a295c040740242e6d6361cee10936d0bb055ae732de8cb18c5579ddd882",
+    "contracts": {
+      "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746": 546
+    },
+    "label_counts": {
+      "cannot_be_determined": 6,
+      "no_answer": 43,
+      "not_identified": 48,
+      "present": 449
+    },
+    "label_field": "myometrial_invasion",
+    "labels_sha256": "5eaa1cedda5baa0ea6ad1edd714715f7cbf0a5fdffb51e245d44c3ee3dcc916e",
+    "mode": "agentic",
+    "model": "glm-5.3-flash",
+    "schema_version": "oncotrace_label_table_v2",
+    "task": "endo_myometrial_invasion",
+    "temperature": 0.0,
+    "timings": {
+      "endpoint_seconds": null,
+      "extract_seconds": 5742.8,
+      "job_id": "2175608",
+      "model_load_seconds": 125.945424,
+      "node": "r001",
+      "schema": "oncotrace_timings_v1",
+      "seconds_per_unit": 10.52,
+      "units_completed": 546
+    },
+    "unit_count": 546
+  },
+  "one_shot_run_provenance": {
+    "commit": "e901b3f572275e755499375551eca6da60f30680",
+    "config_sha256": "b214436831460d781ccde7585f879dc8213f476c68200f0d99396d06c9e2bdfb",
+    "contracts": {
+      "30ba8acfebf7f14a810a08eed8deeb0a386308c11761220ba1061b4fa8c60a24": 546
+    },
+    "label_counts": {
+      "cannot_be_determined": 7,
+      "no_answer": 50,
+      "not_identified": 47,
+      "present": 442
+    },
+    "label_field": "myometrial_invasion",
+    "labels_sha256": "fe96903aac96024236ee09bcaab164ebbd3ba7036a59f023c9c3b6c167cc2a91",
+    "mode": "one_shot",
+    "model": "glm-5.3-flash",
+    "schema_version": "oncotrace_label_table_v2",
+    "task": "endo_myometrial_invasion",
+    "temperature": 0.0,
+    "timings": {
+      "endpoint_seconds": null,
+      "extract_seconds": 2153.4,
+      "job_id": "2178423",
+      "model_load_seconds": 132.297241,
+      "node": "r003",
+      "schema": "oncotrace_timings_v1",
+      "seconds_per_unit": 3.94,
+      "units_completed": 546
+    },
+    "unit_count": 546
+  },
+  "oncotrace": {
+    "path": "/home/yuxuang/oncotrace",
+    "commit": "7a1cfcac8ac2591d25f19aecc7e3ca6da079cf6a",
+    "branch": "yuxuang/paired-compare",
+    "uncommitted_files": [
+      "OncoTrace_pipeline.docx"
+    ]
+  },
+  "clinic_repo": {
+    "path": "/home/yuxuang/clinic-2026-whitney-lab",
+    "commit": "6083f2ba1224a4a973cea64afa8b31268ab3e304",
+    "branch": "yuxuang/one-shot-comparison",
+    "uncommitted_files": [
+      "config/endometrial_yuxuang_one_shot_local.yaml",
+      "experiments/"
+    ]
+  }
+}
