@@ -3,30 +3,22 @@
 Reports, run records, and annotations all hold protected text. Functions here
 return that text so it can be sliced by offset, but scripts that use them
 should write only patient IDs, offsets, and labels to anything shared.
+
+Nothing here is specific to one experiment; any analysis of an OncoTrace run
+on the endometrial data can use it.
 """
 
 import json
-import os
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent.parent
 
-# Read-only inputs for the endometrial study.
+# Read-only inputs for the endometrial study, readable by the __oncotrace group.
 REPORTS_PATH = Path(
     "/net/spaces/annawoodard/oncotrace/data/endometrial/documents/"
     "ucec_pathology_report.jsonl"
 )
 ANNOTATIONS_DIR = REPO_ROOT / "annotations" / "endo_myometrial_invasion"
-
-# Student workspace for run outputs and text-bearing analysis outputs. Set
-# ONCOTRACE_WORKSPACE to use your own; the default is where the issue 8 runs live.
-WORKSPACE = Path(
-    os.environ.get(
-        "ONCOTRACE_WORKSPACE", "/net/spaces/annawoodard/oncotrace/workspaces/khyatt"
-    )
-)
-DEFAULT_RUN = WORKSPACE / "runs" / "2026-10-09_endometrial_glm53"
-ANALYSIS_DIR = WORKSPACE / "analysis" / "issue8"
 
 
 def load_reports(path: Path = REPORTS_PATH) -> dict[str, dict]:
@@ -47,7 +39,7 @@ def load_annotations(directory: Path = ANNOTATIONS_DIR) -> dict[str, dict]:
     }
 
 
-def load_run(run_dir: Path = DEFAULT_RUN) -> dict[str, dict]:
+def load_run(run_dir: Path) -> dict[str, dict]:
     """Return {unit: record} for every finished unit record in a run folder."""
     return {
         path.stem: json.loads(path.read_text())

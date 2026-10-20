@@ -2,8 +2,8 @@
 
 Start TraceView on the run first (see docs/student-setup.md), then run, e.g.:
 
-    python experiments/evidence_following/check_traceview_citations.py --port 8742 \
-        --units TCGA-A5-A2K2 TCGA-A5-A0GQ
+    PYTHONPATH=src python experiments/evidence_following/check_traceview_citations.py \
+        --port 8742 --run-dir <run folder> --units TCGA-A5-A2K2 TCGA-A5-A0GQ
 
 For each unit, the script asks the running viewer for its page, collects the
 highlighted pieces for each citation group, and checks that the text of every
@@ -18,7 +18,7 @@ import re
 import urllib.request
 from pathlib import Path
 
-from records import DEFAULT_RUN, REPORTS_PATH, load_reports, load_run
+from oncotrace_bench.records import REPORTS_PATH, load_reports, load_run
 
 CITATION_GROUPS = [
     "depth_evidence",
@@ -73,7 +73,7 @@ def main() -> None:
     """Check the listed units and print one line per unit."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--port", type=int, default=8742)
-    parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN)
+    parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--reports", type=Path, default=REPORTS_PATH)
     parser.add_argument("--units", nargs="+", required=True)
     args = parser.parse_args()

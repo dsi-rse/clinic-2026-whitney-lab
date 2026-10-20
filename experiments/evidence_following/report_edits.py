@@ -4,7 +4,8 @@ Two steps, so a person writes every replacement by hand:
 
     # 1. Write a spec with the passages to edit and empty replacements
     python experiments/evidence_following/report_edits.py template \
-        --arm flip --units TCGA-A5-A0GI ...
+        --arm flip --inventory results/<timestamp>/evidence_inventory.json \
+        --units TCGA-A5-A0GI ...
 
     # 2. Fill in each "replacement" in the spec, then apply it
     python experiments/evidence_following/report_edits.py apply --arm flip
@@ -21,20 +22,29 @@ only so the person writing `replacement` can see what they are replacing;
 `original_sha256` is what the script checks, so a spec made from a different
 report version is refused.
 
-Applying a spec writes `inputs/<arm>/` with a new report store holding only
+Applying a spec writes `<inputs>/<arm>/` with a new report store holding only
 the edited units, a roster for them, and a text-free manifest (`edits.json`)
 of where each edit landed in the edited text. The original store is never
-written to. Specs and outputs hold report text, so they stay in the private
-analysis folder. The script prints only counts and problems.
+written to. Specs and edited stores hold report text, so they stay in the
+shared workspace (`--inputs`), never in Git. The text-free roster and manifest
+are also copied into this experiment's `inputs/<arm>/`, which is committed and
+read by run_experiment.py. The script prints only counts and problems.
 """
 
 import argparse
 import csv
 import hashlib
 import json
+import shutil
 from pathlib import Path
 
-from records import ANALYSIS_DIR, REPORTS_PATH, load_reports
+from oncotrace_bench.records import REPORTS_PATH, load_reports
+
+EXPERIMENT_DIR = Path(__file__).resolve().parent
+# Where the issue 8 specs and edited stores live. Group-readable, outside Git.
+SHARED_INPUTS = Path(
+    "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue8/inputs"
+)
 
 
 def sha256(text: str) -> str:
@@ -145,7 +155,7 @@ def write_arm(store_path: Path, edits: list[dict], out_dir: Path) -> dict[str, i
     store row (`unit`, `document`, `metadata`) is copied unchanged. Refuses to
     overwrite an existing arm folder.
     """
-    out_dir.mkdir(mode=0o700, parents=True, exist_ok=False)
+    out_dir.mkdir(mode=0o750, parents=True, exist_ok=False)
     units = sorted({edit["unit"] for edit in edits})
     manifest = []
     with store_path.open() as source, (out_dir / store_path.name).open("w") as out:
@@ -164,8 +174,9 @@ def write_arm(store_path: Path, edits: list[dict], out_dir: Path) -> dict[str, i
         writer.writerow(["unit"])
         writer.writerows([unit] for unit in units)
     (out_dir / "edits.json").write_text(json.dumps(manifest, indent=1))
+    # Group-readable so teammates in __oncotrace can rerun the arm.
     for path in out_dir.iterdir():
-        path.chmod(0o600)
+        path.chmod(0o640)
     return {"units": len(units), "edits": len(manifest)}
 
 
@@ -180,21 +191,30 @@ def main() -> None:
     parser.add_argument("--units", nargs="+", help="patients (template step)")
     parser.add_argument("--reports", type=Path, default=REPORTS_PATH)
     parser.add_argument(
-        "--inventory", type=Path, default=ANALYSIS_DIR / "evidence_inventory.json"
+        "--inventory",
+        type=Path,
+        help="evidence_inventory.json from a results folder (template step)",
     )
-    parser.add_argument("--inputs", type=Path, default=ANALYSIS_DIR / "inputs")
+    parser.add_argument(
+        "--inputs",
+        type=Path,
+        default=SHARED_INPUTS,
+        help="text-bearing specs and edited stores (outside Git)",
+    )
     args = parser.parse_args()
 
     spec_path = args.inputs / f"edit_spec_{args.arm}.json"
     reports = load_reports(args.reports)
 
     if args.step == "template":
+        if args.inventory is None or not args.units:
+            parser.error("the template step needs --inventory and --units")
         if spec_path.exists():
             raise SystemExit(f"{spec_path} exists; delete it to start over")
         inventory = json.loads(args.inventory.read_text())
         edits = template_edits(reports, inventory, args.units, args.arm)
         spec_path.write_text(json.dumps(edits, indent=1, ensure_ascii=False))
-        spec_path.chmod(0o600)
+        spec_path.chmod(0o640)
         print(f"wrote {len(edits)} edits for {len(args.units)} units to {spec_path}")
         return
 
@@ -204,6 +224,24 @@ def main() -> None:
         raise SystemExit("not applied:\n" + "\n".join(problems))
     counts = write_arm(args.reports, edits, args.inputs / args.arm)
     print(f"{args.arm}: {counts['edits']} edits in {counts['units']} units written")
+
+    # The roster and manifest are text-free; keep a copy with the experiment.
+    # If a copy is already committed (you are rebuilding an arm), check that
+    # the rebuild matches it instead.
+    committed = EXPERIMENT_DIR / "inputs" / args.arm
+    for name in ("roster.csv", "edits.json"):
+        made = args.inputs / args.arm / name
+        if not (committed / name).exists():
+            committed.mkdir(parents=True, exist_ok=True)
+            shutil.copy(made, committed / name)
+            print(f"copied {name} to {committed}")
+        # Compare lines, not bytes: Git may change the roster's line endings.
+        elif (
+            made.read_text().splitlines() == (committed / name).read_text().splitlines()
+        ):
+            print(f"{name} matches the committed copy in {committed}")
+        else:
+            print(f"WARNING: {name} differs from the committed copy in {committed}")
 
 
 if __name__ == "__main__":

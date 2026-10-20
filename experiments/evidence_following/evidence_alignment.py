@@ -15,26 +15,15 @@ Writes three text-free CSV files (IDs, offsets, labels, numbers only):
 - alignment_spans.csv: one row per annotated span and per run citation.
 - reading_coverage_run.csv: one row per run record (all patients).
 
-Then prints a short summary to the terminal.
-
-Example:
-    python experiments/evidence_following/evidence_alignment.py
+Then prints a short summary. Called by run_experiment.py.
 """
 
-import argparse
-import os
 from pathlib import Path
 
 import pandas as pd
-from records import (
-    ANALYSIS_DIR,
-    ANNOTATIONS_DIR,
-    DEFAULT_RUN,
-    REPORTS_PATH,
+
+from oncotrace_bench.records import (
     covered_fraction,
-    load_annotations,
-    load_reports,
-    load_run,
     overlap,
     read_windows,
 )
@@ -308,18 +297,6 @@ def span_rows(unit: str, record: dict, annotation: dict) -> list[dict]:
 
 # Treat a document as "read in full" at or above this fraction.
 FULL_READ = 0.99
-# Only files the owner can read: outputs sit next to protected data.
-PRIVATE_UMASK = 0o077
-
-
-def parse_args() -> argparse.Namespace:
-    """Read command-line options."""
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN)
-    parser.add_argument("--annotations-dir", type=Path, default=ANNOTATIONS_DIR)
-    parser.add_argument("--reports", type=Path, default=REPORTS_PATH)
-    parser.add_argument("--out-dir", type=Path, default=ANALYSIS_DIR)
-    return parser.parse_args()
 
 
 def ids(table: pd.DataFrame) -> str:
@@ -420,16 +397,13 @@ def print_reading(annotated: pd.DataFrame, coverage: pd.DataFrame) -> None:
     )
 
 
-def main() -> None:
-    """Build the alignment tables, save them, and print a summary."""
-    args = parse_args()
-    os.umask(PRIVATE_UMASK)
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-
-    run = load_run(args.run_dir)
-    annotations = load_annotations(args.annotations_dir)
-    reports = load_reports(args.reports)
-
+def write_tables(
+    run: dict[str, dict],
+    annotations: dict[str, dict],
+    reports: dict[str, dict],
+    out_dir: Path,
+) -> None:
+    """Build the alignment tables, save them in `out_dir`, and print a summary."""
     coverage = pd.DataFrame(
         [
             coverage_row(unit, record, reports[unit]["document"])
@@ -450,15 +424,11 @@ def main() -> None:
         ]
     )
 
-    coverage.to_csv(args.out_dir / "reading_coverage_run.csv", index=False)
-    annotated.to_csv(args.out_dir / "alignment_annotated.csv", index=False)
-    spans.to_csv(args.out_dir / "alignment_spans.csv", index=False)
-    print(f"Wrote 3 CSV files to {args.out_dir}")
+    coverage.to_csv(out_dir / "reading_coverage_run.csv", index=False)
+    annotated.to_csv(out_dir / "alignment_annotated.csv", index=False)
+    spans.to_csv(out_dir / "alignment_spans.csv", index=False)
+    print(f"Wrote 3 CSV files to {out_dir}")
 
     print_agreement(annotated)
     print_citations(annotated)
     print_reading(annotated, coverage)
-
-
-if __name__ == "__main__":
-    main()

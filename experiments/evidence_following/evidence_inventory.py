@@ -2,8 +2,7 @@
 
 The inventory itself is hand-curated: a person read each candidate report and
 recorded every passage about invasion or depth as character offsets plus a
-category and a short tag (`curated_passages.jsonl` in the analysis folder; no
-report text). This script adds what can be computed from those offsets and
+category and a short tag (`inputs/curated_passages.jsonl`; no report text). This script adds what can be computed from those offsets and
 writes two text-free outputs:
 
 - evidence_inventory.json: every invasion/depth passage per candidate patient,
@@ -13,28 +12,15 @@ writes two text-free outputs:
 - edit_candidates.csv: one row per patient with counts, flags and the two
   ranking scores (lower is a better edit candidate).
 
-Then prints the counts per classification and the ranked shortlists.
-
-Example:
-    python experiments/evidence_following/evidence_inventory.py
+Then prints the counts per classification and the ranked shortlists. Called
+by run_experiment.py.
 """
 
-import argparse
 import json
-import os
 import re
 from pathlib import Path
 
 import pandas as pd
-from records import (
-    ANALYSIS_DIR,
-    ANNOTATIONS_DIR,
-    DEFAULT_RUN,
-    REPORTS_PATH,
-    load_annotations,
-    load_reports,
-    load_run,
-)
 
 # A passage "implies" one of these when it settles which half was invaded.
 DEPTH_VALUES = {"less_than_50", "fifty_or_greater"}
@@ -356,22 +342,7 @@ def removal_score(row: dict) -> float:
     )
 
 
-# Only files the owner can read: outputs sit next to protected data.
-PRIVATE_UMASK = 0o077
 SHORTLIST_PER_CLASS = 5
-
-
-def parse_args() -> argparse.Namespace:
-    """Read command-line options."""
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument(
-        "--curated", type=Path, default=ANALYSIS_DIR / "curated_passages.jsonl"
-    )
-    parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN)
-    parser.add_argument("--annotations-dir", type=Path, default=ANNOTATIONS_DIR)
-    parser.add_argument("--reports", type=Path, default=REPORTS_PATH)
-    parser.add_argument("--out-dir", type=Path, default=ANALYSIS_DIR)
-    return parser.parse_args()
 
 
 def candidate_units(annotations: dict, run: dict) -> list[str]:
@@ -406,16 +377,15 @@ def print_shortlist(table: pd.DataFrame, score: str, title: str) -> None:
         )
 
 
-def main() -> None:
-    """Build and save the inventory, then print a summary."""
-    args = parse_args()
-    os.umask(PRIVATE_UMASK)
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-
-    reports = load_reports(args.reports)
-    annotations = load_annotations(args.annotations_dir)
-    run = load_run(args.run_dir)
-    curated = {entry["unit"]: entry for entry in load_curated(args.curated)}
+def write_inventory(
+    run: dict[str, dict],
+    annotations: dict[str, dict],
+    reports: dict[str, dict],
+    curated_path: Path,
+    out_dir: Path,
+) -> None:
+    """Build the inventory, save it in `out_dir`, and print a summary."""
+    curated = {entry["unit"]: entry for entry in load_curated(curated_path)}
 
     candidates = candidate_units(annotations, run)
     missing = sorted(set(candidates) - set(curated))
@@ -433,10 +403,8 @@ def main() -> None:
     table["flip_score"] = table.apply(flip_score, axis=1)
     table["removal_score"] = table.apply(removal_score, axis=1)
 
-    (args.out_dir / "evidence_inventory.json").write_text(
-        json.dumps(inventories, indent=1)
-    )
-    table.to_csv(args.out_dir / "edit_candidates.csv", index=False)
+    (out_dir / "evidence_inventory.json").write_text(json.dumps(inventories, indent=1))
+    table.to_csv(out_dir / "edit_candidates.csv", index=False)
 
     print(f"{len(candidates)} candidates, {len(inventories)} inventoried")
     print(pd.crosstab(table["classification"], table["reference_percent"]))
@@ -448,8 +416,4 @@ def main() -> None:
     )
     print_shortlist(table, "flip_score", "Percent-flip candidates")
     print_shortlist(table, "removal_score", "Remove-all-evidence candidates")
-    print(f"\nWrote evidence_inventory.json and edit_candidates.csv to {args.out_dir}")
-
-
-if __name__ == "__main__":
-    main()
+    print(f"\nWrote evidence_inventory.json and edit_candidates.csv to {out_dir}")

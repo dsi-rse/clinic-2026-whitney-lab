@@ -31,26 +31,14 @@ Writes two text-free CSV files (IDs, counts, labels, numbers only):
   signature and whether the label, percent, or depth basis changed between
   the first submit attempt and the accepted answer.
 
-Then prints a short summary to the terminal.
-
-Example:
-    python experiments/evidence_following/triage_no_answers.py
+Then prints a short summary. Called by run_experiment.py.
 """
 
-import argparse
-import os
 import re
 from collections import Counter
 from pathlib import Path
 
 import pandas as pd
-from records import (
-    ANALYSIS_DIR,
-    ANNOTATIONS_DIR,
-    DEFAULT_RUN,
-    load_annotations,
-    load_run,
-)
 
 # Allowed values of the answer fields the model chooses (from the task yaml).
 FIELD_VALUES = {
@@ -499,19 +487,8 @@ def refusal_row(unit: str, record: dict, annotation: dict | None) -> dict:
     return row
 
 
-# Only files the owner can read: outputs sit next to protected data.
-PRIVATE_UMASK = 0o077
 # Report-length bins (characters) for the no_answer-rate table.
 LENGTH_BINS = [0, 5000, 8000, 12000, 100000]
-
-
-def parse_args() -> argparse.Namespace:
-    """Read command-line options."""
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN)
-    parser.add_argument("--annotations-dir", type=Path, default=ANNOTATIONS_DIR)
-    parser.add_argument("--out-dir", type=Path, default=ANALYSIS_DIR)
-    return parser.parse_args()
 
 
 def print_triage(triage: pd.DataFrame) -> None:
@@ -606,12 +583,10 @@ def print_annotated_gap(refusals: pd.DataFrame) -> None:
     print(by_site.sort_values("size", ascending=False).head(10).to_string())
 
 
-def main() -> None:
-    """Build the two triage tables and print a summary."""
-    args = parse_args()
-    run = load_run(args.run_dir)
-    annotations = load_annotations(args.annotations_dir)
-
+def write_tables(
+    run: dict[str, dict], annotations: dict[str, dict], out_dir: Path
+) -> None:
+    """Build the two triage tables, save them in `out_dir`, and print a summary."""
     triage = pd.DataFrame(
         [
             no_answer_row(unit, record, annotations.get(unit))
@@ -629,18 +604,12 @@ def main() -> None:
     count_columns = [c for c in refusals.columns if c.startswith("n_")]
     refusals[count_columns] = refusals[count_columns].fillna(0).astype(int)
 
-    os.umask(PRIVATE_UMASK)
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-    triage.to_csv(args.out_dir / "no_answer_triage.csv", index=False)
-    refusals.to_csv(args.out_dir / "refusals_run.csv", index=False)
-    print(f"wrote {len(triage)} rows to {args.out_dir / 'no_answer_triage.csv'}")
-    print(f"wrote {len(refusals)} rows to {args.out_dir / 'refusals_run.csv'}")
+    triage.to_csv(out_dir / "no_answer_triage.csv", index=False)
+    refusals.to_csv(out_dir / "refusals_run.csv", index=False)
+    print(f"wrote {len(triage)} rows to {out_dir / 'no_answer_triage.csv'}")
+    print(f"wrote {len(refusals)} rows to {out_dir / 'refusals_run.csv'}")
 
     print_triage(triage)
     print_changes(refusals)
     print_quantified(refusals)
     print_annotated_gap(refusals)
-
-
-if __name__ == "__main__":
-    main()

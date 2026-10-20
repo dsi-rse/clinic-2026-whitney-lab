@@ -24,3 +24,10 @@ endif
 open-ssh-login-node:
 	code --remote ssh-remote+fe.ds ~/oncotrace-bench
 
+
+
+# Run the evidence-following experiment (issue 8) on the original run and its arms.
+# Usage: make evidence-following [LABEL=after-fix] [ARGS="--original <run> ..."]
+# Each run gets a timestamped folder under experiments/evidence_following/results/.
+evidence-following:
+	PYTHONPATH=src python experiments/evidence_following/run_experiment.py $(if $(LABEL),--label $(LABEL)) $(ARGS)

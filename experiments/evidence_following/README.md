@@ -2,62 +2,23 @@
 
 **Question:** when OncoTrace answers the myometrial-invasion task, does the answer come from the report text, or from a prior that it then justifies with citations?
 
-**Short answer:**
+**Why it matters:** if the answer comes from a prior, a correct-looking citation tells us nothing, and fixing OncoTrace's harness would not make the answers more trustworthy. This experiment measures that, and can be re-run after an OncoTrace fix or with more annotations to see whether things improved.
+
+**Short answer (latest results: [`results/2026-10-20_165341/`](results/2026-10-20_165341/README.md)):**
 - **When a report states depth clearly, the answer follows the text.** Flipping every depth statement to the other half flipped the answer in 9 of 9 patients. Rewording the same statements changed nothing in 9 of 9. Unedited reruns changed 1 answer in 67.
 - **The open weakness is ambiguous or missing evidence.** The model almost never answers `cannot_be_determined`, and its stated confidence doesn't reflect when it's unsure.
 
-No report, rationale, or annotation text appears here. Patients are TCGA IDs, and passages are half-open character offsets `[start, end)` into the patient's single report document.
+No report, rationale, or annotation text appears in this folder. Patients are TCGA IDs, and passages are half-open character offsets `[start, end)` into the patient's single report document.
 
-## Setup
+## Design
 
-**Model and harness:**
-- GLM-5.3-Flash, agentic mode, run with oncotrace `e901b3f`.
-- Task contract: [`tasks/endo_myometrial_invasion.yaml`](../../tasks/endo_myometrial_invasion.yaml). Config: `config/endometrial.yaml` with temperature 0.
+The experiment has two parts.
 
-**Runs:**
-- Original run: 376 of the 546 roster patients, including all 50 annotated patients.
-- Experiment runs: 5 more, each on its own server start.
+**Part 1** reads the original OncoTrace run (GLM-5.3-Flash, agentic, oncotrace `e901b3f`, [`config/endometrial.yaml`](../../config/endometrial.yaml), temperature 0) and compares it with the 50 annotated patients in [`annotations/`](../../annotations/endo_myometrial_invasion/): field agreement, cited vs annotated passages, how much was read before answering, why patients ended with no answer, and whether refusals changed answers.
 
-**Reference annotations:**
-- 50 patients in [`annotations/`](../../annotations/endo_myometrial_invasion/), from one annotator and not adjudicated.
-- 45 of the 50 come from one tissue source site (TCGA-A5).
-
-## Part 1: what the existing run shows
-
-1. **Label accuracy says little.**
-   - 45 of 50 annotated patients are `present`. Of the 41 answered annotated patients, the label agrees in 38; answering `present` every time would score 36.
-   - The percent field (`<50` / `≥50`) is the informative one: 30 of 41 agree, against 16 for always guessing the most common half.
-2. **When the model commits to a half, it never contradicts the annotator:** 0 swaps between `less_than_50` and `fifty_or_greater`.
-3. **It almost never says `cannot_be_determined`.**
-   - The annotator used it 13 times (3 for the label, 10 for the percent). The run picked a definite value every time.
-   - Some of these look like conservative annotations, where the report gives numbers. Others look like over-commitment on hedged wording (TCGA-A5-A0GE, -A0GJ).
-4. **Reading is not the bottleneck.** In all 376 records the model read the whole report before its first submit attempt.
-5. **Contract refusals change citations, not answers.** In 221 patients whose first submit was refused, the label and percent never changed before the answer was accepted.
-6. **It cites more broadly than the annotator.**
-   - Median 3 depth citations, against the annotator's 1–2.
-   - Some are lymphovascular-invasion statements, which the contract excludes from depth.
-7. **Depth evidence is usually redundant.** In 24 of 28 reports checked, depth appears in two or more independent places (diagnosis, synoptic, gross, comment, stage). So removing one cited passage rarely removes the support.
-8. **No-answers are a harness problem, not missed evidence.**
-   - 22 of 31 no-answers looped on refused submits until the 24-call budget ran out. The other 9 were cut off at `max_completion_tokens` 8192.
-   - The largest cause is [dsi-rse/oncotrace#5](https://github.com/dsi-rse/oncotrace/issues/5): a citation list sent as a JSON *string* is checked one character at a time. Fix: [dsi-rse/oncotrace#6](https://github.com/dsi-rse/oncotrace/pull/6).
-
-### Five annotated patients
-
-Every citation in all 345 answered records opens at the right words in TraceView (`check_traceview_citations.py`).
-
-| Patient | Field (reference → run) | Run's depth citations | Matches the annotated passage? | Conflicting text |
-|---|---|---|---|---|
-| TCGA-A5-A2K2 | percent `<50` → `<50` | `[957,1107)`; quantified `[1005,1057)` | Yes: covers annotated `[957,1000)` and `[1005,1057)` | Gross `[8980,9158)` and intraoperative `[16390,16438)` show no definite gross invasion. The run cites both as counterevidence. |
-| TCGA-A5-A0GQ | percent `≥50` → `≥50` | stage `[1112,1158)`, gross `[2935,3020)`, `[3025,3064)`, `[1025,1062)` | No: the annotated line `[943,1022)` is the run's *counterevidence* | That diagnosis line uses boundary wording. Stage and gross settle the half. |
-| TCGA-A5-A2K4 | label `cannot_be_determined` → `present`/`≥50` | `[1257,1402)`, `[1405,1469)` | No: the annotated `[5507,5619)` falls inside run counterevidence `[5483,5619)` | The run records 3 counterevidence passages |
-| TCGA-A5-A0GE | percent `cannot_be_determined` → `<50` | `[514,643)`, `[2884,3061)` | Partly: `[514,643)` matches exactly; the quantified passage is not annotated | No counterevidence cited |
-| TCGA-A5-A0GU | percent `<50` → `no_answer` | – | – | One read covered the whole report. The 22 submit attempts were all refused on the quote `[` (the bug in #5). |
-
-## Part 2: does the answer change when the evidence changes?
-
-**Design:**
-- 9 annotated patients where the run matched the annotation on both label and half: 6 `<50`, 3 `≥50`.
-- Each arm reads its own edited copy of the reports, and the originals are untouched. Unit and document IDs are unchanged, so runs pair by patient.
+**Part 2** edits the reports and reruns OncoTrace on them.
+- 9 annotated patients where the original run matched the annotation on both label and half: 6 `<50`, 3 `≥50`.
+- Each arm reads its own edited copy of the reports; the originals are untouched. Unit and document IDs are unchanged, so runs pair by patient.
 
 | Arm | Edit | Expected if the model follows the evidence |
 |---|---|---|
@@ -65,71 +26,114 @@ Every citation in all 345 answered records opens at the right words in TraceView
 | Reword | Same passages, same meaning and half, different wording | Unchanged |
 | Unedited ×3 | None; 24 patients, 3 new server starts | Unchanged (measures run-to-run noise) |
 
-**Results:**
+## Layout
 
-| Arm | Result |
-|---|---|
-| **Flip** | **9 of 9 moved to the other half** (6 `<50`→`≥50`, 3 `≥50`→`<50`). Label stayed `present` and confidence stayed `high`. 23 of 26 depth citations land on edited passages. |
-| **Reword** | **9 of 9 unchanged.** 27 of 29 depth citations land on the reworded passages. |
-| **Unedited reruns** | 23 of 24 patients gave the same answer in every run where they answered. Across all reruns, 1 changed answer in 67 answered units. For the 9 flip patients, 0 changes in 27 rerun comparisons. |
-
-**Checks:**
-- Projection fingerprints match the original run for all 24 unedited patients, and differ for all 9 flip and 9 reword patients, so the edits reached the model.
-- In flipped reports, the unedited gross, intraoperative or frozen-section passages that now disagree (TCGA-A5-A0G1, -A2K2, -A0R6) are cited as counterevidence. The answer follows the edited final diagnosis.
-
-**The one unstable patient: TCGA-A5-A0G2.**
-- It answered `≥50` in 3 runs and percent `cannot_be_determined` in 1, with `high` confidence both ways.
-- That is the only `cannot_be_determined` the model has produced, and it matches the annotation.
-
-**Noise is in completion, not answers.**
-- 5 of 72 rerun units ended `no_answer`, each a different patient.
-- 3 were the bug in #5, 1 was a quote-matching loop on a real quote, and 1 was truncation.
-
-**Limits:**
-- 9 patients, 8 from one site.
-- One run per edit arm.
-- The edits were drafted with Claude and haven't had mentor review.
-- Changing *every* statement consistently is the easiest version of the test.
-
-## What's in this folder
-
-Everything for this experiment lives here. Inputs and outputs that hold report text stay in the private workspace (`$ONCOTRACE_WORKSPACE/analysis/issue8/`), never in Git.
-
-| File | What it does | Writes |
-|---|---|---|
-| `records.py` | Shared loader for runs, annotations and reports, plus span-overlap helpers. Not run directly. | – |
-| `evidence_alignment.py` | Compares a run with the annotations: field agreement, cited vs annotated passages, how much was read before answering | `alignment_annotated.csv`, `alignment_spans.csv`, `reading_coverage_run.csv` |
-| `triage_no_answers.py` | Classifies each `no_answer` and checks whether refusals changed answers | `no_answer_triage.csv`, `refusals_run.csv` |
-| `evidence_inventory.py` | Adds citation and edit-feasibility facts to the hand-curated passage list | `evidence_inventory.json`, `edit_candidates.csv` |
-| `check_traceview_citations.py` | Confirms each citation is highlighted at the right words in a running TraceView | prints only |
-| `report_edits.py` | Builds an edited report copy for one arm from a hand-written spec | `inputs/<arm>/` (private) |
-| `compare_arms.py` | Lines up each patient's answer across the original run, the reruns and the edit arms | `arm_comparison.csv`, `control_noise.csv` |
-
-Run them from the repo root. Each takes `--help`, and its docstring explains the method:
-
-```bash
-P=experiments/evidence_following
-python $P/evidence_alignment.py
-python $P/triage_no_answers.py
-python $P/evidence_inventory.py
-python $P/check_traceview_citations.py --port 8742 --units TCGA-A5-A2K2 TCGA-A5-A0GQ   # TraceView must be running
-python $P/report_edits.py template --arm flip --units TCGA-A5-A0GI TCGA-A5-A0GM       # then fill in replacements
-python $P/report_edits.py apply --arm flip
-python $P/compare_arms.py \
-    --controls runs/2026-10-13_issue8_s1_control runs/2026-10-13_issue8_s2_control runs/2026-10-13_issue8_s3_control \
-    --arm flip=runs/2026-10-13_issue8_flip --arm reword=runs/2026-10-13_issue8_reword
+```text
+run_experiment.py             the one entry point: analyzes the runs, writes results/<timestamp>/
+evidence_alignment.py         Part 1: field agreement, cited vs annotated passages, reading coverage
+triage_no_answers.py          Part 1: why each no_answer happened, and whether refusals changed answers
+evidence_inventory.py         Part 1: depth passages per report, and which patients can be edited
+compare_arms.py               Part 2: each patient's answer across the original run, reruns and edit arms
+report_edits.py               Part 2 setup: builds an arm's edited reports from a hand-written spec
+check_traceview_citations.py  separate check that citations highlight the right words in TraceView
+configs/<arm>.yaml            OncoTrace run configs for the control, flip and reword arms
+inputs/                       text-free inputs: curated passages, rosters, edit manifests, checksums
+results/<timestamp>/          one folder per run of the experiment, with a README of its findings
 ```
 
-Defaults point at the issue 8 workspace. Set `ONCOTRACE_WORKSPACE` to use your own.
+Code other analyses can reuse lives in `src/oncotrace_bench/`: `records.py` (load runs, annotations and reports; span overlap) and `provenance.py` (what a result folder was made from).
 
-**Running an arm:**
-- Use the original run config, changing only `roster:` and, for edit arms, the source `path:` (to `inputs/<arm>/ucec_pathology_report.jsonl`).
-- Give each arm a fresh, empty run folder. OncoTrace skips any patient that already has a record, even when the report was edited.
-- Rosters must not be empty: an empty roster means the whole store.
+### What is not in Git, and where it is
+
+Some inputs hold report text, so they stay on the cluster. Everything below is readable by the `__oncotrace` group.
+
+| What | Where |
+|---|---|
+| Original reports | `/net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl` |
+| Edit specs (`edit_spec_flip.json`, `edit_spec_reword.json`) and edited reports (`<arm>/ucec_pathology_report.jsonl`) | `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue8/inputs/` |
+| The six runs read by `run_experiment.py` | `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/` (`2026-10-09_endometrial_glm53`, `2026-10-13_issue8_{s1,s2,s3}_control`, `2026-10-13_issue8_{flip,reword}`) |
+
+`inputs/shared_inputs.sha256` holds the checksums of the shared files, so you can check you have the same ones.
+
+## Reproduce it
+
+You need to be in the `__oncotrace` group (`id -nG` lists it) and have the clinic environment from [`docs/student-setup.md`](../../docs/student-setup.md). Run every command from the repo root.
+
+### 1. Re-run the analysis on the existing runs (minutes, CPU)
+
+```bash
+make evidence-following
+# or directly:
+PYTHONPATH=src python experiments/evidence_following/run_experiment.py
+```
+
+This writes `results/<timestamp>/`. Its CSV and JSON tables should be byte-identical to the ones in `results/2026-10-20_165341/`:
+
+```bash
+cd experiments/evidence_following/results
+for f in 2026-10-20_165341/*.csv 2026-10-20_165341/*.json; do
+  cmp -s "$f" "<your folder>/$(basename "$f")" && echo "same $f" || echo "DIFF $f"
+done
+```
+
+(`provenance.json` and `summary.txt` will differ: they record when, where and from which commit the folder was made.)
+
+If a run file will not open (`Permission denied`), ask Kaden to run `chmod -R g+rX` on that run folder.
+
+### 2. Rebuild the edited reports (seconds, CPU)
+
+The edited reports are made from the edit specs, so you can check them without trusting the shared copies:
+
+```bash
+CLINIC=$PWD
+mkdir -m 700 /tmp/$USER-edits
+cp /net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue8/inputs/edit_spec_*.json /tmp/$USER-edits/
+for arm in flip reword; do
+  PYTHONPATH=src python experiments/evidence_following/report_edits.py apply --arm $arm --inputs /tmp/$USER-edits
+done
+cd /tmp/$USER-edits && grep -v ' control/' $CLINIC/experiments/evidence_following/inputs/shared_inputs.sha256 | sha256sum -c
+```
+
+Every line should say `OK`, and `report_edits.py` should say the roster and manifest match the committed copies. Delete `/tmp/$USER-edits` afterwards: it holds report text.
+
+### 3. Re-run OncoTrace on the arms (hours, 4 GPUs)
+
+This repeats Part 2 from scratch. For an exact repeat, use an OncoTrace checkout at `e901b3f`.
+
+1. Start a GLM-5.3-Flash server as in OncoTrace's running guide, or copy the `serving:` block from your own `config/endometrial_local.yaml` into a local copy of each arm config. The configs in `configs/` attach to a server with `--base-url`. They match the configs used for the original arm runs except for the personal serving block and the paths to the rosters.
+2. Check each config resolves. It should print `unit_count` 24 (control) or 9 (flip, reword) and contract `940b2a7b...`:
+
+   ```bash
+   CONFIGS=$PWD/experiments/evidence_following/configs
+   cd ~/oncotrace
+   PYTHONPATH=$PWD PYTHONNOUSERSITE=1 python -m oncotrace.runner check --config $CONFIGS/control.yaml --output /tmp/$USER-none
+   ```
+3. Give every arm a fresh, empty run folder in your own workspace, e.g. `$WS/runs/$(date +%F)_issue8_flip`. OncoTrace skips any patient that already has a record, even when the report was edited.
+4. Run each arm against the server (one server start per control repeat; three repeats measure noise):
+
+   ```bash
+   PYTHONPATH=$PWD PYTHONNOUSERSITE=1 python -m oncotrace.runner extract --config $CONFIGS/<arm>.yaml --output <run folder> --base-url <server URL>
+   ```
+5. Make the records readable by the group: `chmod -R g+rX <run folder>`. The configs set `artifacts: group_readable: true`, but OncoTrace's Slurm scripts set `umask 077`, which still leaves the record files owner-only.
+6. Analyze your runs:
+
+   ```bash
+   make evidence-following LABEL=rerun ARGS="--controls <run> <run> <run> --arm flip=<run> --arm reword=<run>"
+   ```
+
+Answers can differ a little from run to run (1 in 67 in our reruns), so compare the counts in the results README, not the CSVs byte for byte.
+
+## Re-run it later
+
+**After an OncoTrace fix** (for example dsi-rse/oncotrace#6): make new runs with the fixed OncoTrace (step 3), then run the analysis on them with a label, e.g. `LABEL=after-fix6`. Compare with the previous results folder: whether the no-answer count in `no_answer_triage.csv` falls, and whether the flip and reword arms still behave as expected. Decide with your mentor what counts as an improvement before the new run.
+
+**With more annotations:** add annotation files under `annotations/` and run the analysis again. Part 1 covers more patients. Part 2 does not change unless you add patients to the arms, which needs new edit specs (`report_edits.py template`, then fill in each replacement by hand) and new runs.
+
+**Every new results folder** gets a `README.md` with what it was made from. Write its key findings in your own words before committing it.
 
 ## Next
 
-1. **Removal experiment:** delete all depth evidence versus delete unrelated text of the same length. The contract's expected answer is `cannot_be_determined`, which directly tests the over-commitment above. Candidates and controls are already chosen.
+1. **Removal experiment:** delete all depth evidence versus delete unrelated text of the same length. The contract's expected answer is `cannot_be_determined`, which directly tests the over-commitment above. Candidates and controls are already chosen (`evidence_inventory.json`).
 2. **Rerun with the #6 fix:** rerun the patients affected by #5 with the fix, and raise `max_completion_tokens` to 16384.
 3. **Open questions for the mentor:**
    - Should a stage that names no edition read pT1b as AJCC 6th (`<50`) or 7th (`≥50`)?
