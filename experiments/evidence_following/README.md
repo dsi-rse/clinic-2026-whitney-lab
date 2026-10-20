@@ -4,7 +4,7 @@
 
 **Why it matters:** if the answer comes from a prior, a correct-looking citation tells us nothing, and fixing OncoTrace's harness would not make the answers more trustworthy. This experiment measures that, and can be re-run after an OncoTrace fix or with more annotations to see whether things improved.
 
-**Short answer (latest results: [`results/2026-10-20_165341/`](results/2026-10-20_165341/README.md)):**
+**Short answer (latest results: [`results/2026-10-20_170241/`](results/2026-10-20_170241/README.md)):**
 - **When a report states depth clearly, the answer follows the text.** Flipping every depth statement to the other half flipped the answer in 9 of 9 patients. Rewording the same statements changed nothing in 9 of 9. Unedited reruns changed 1 answer in 67.
 - **The open weakness is ambiguous or missing evidence.** The model almost never answers `cannot_be_determined`, and its stated confidence doesn't reflect when it's unsure.
 
@@ -67,11 +67,11 @@ make evidence-following
 PYTHONPATH=src python experiments/evidence_following/run_experiment.py
 ```
 
-This writes `results/<timestamp>/`. Its CSV and JSON tables should be byte-identical to the ones in `results/2026-10-20_165341/`:
+This writes `results/<timestamp>/`. Its CSV and JSON tables should be byte-identical to the ones in `results/2026-10-20_170241/`:
 
 ```bash
 cd experiments/evidence_following/results
-for f in 2026-10-20_165341/*.csv 2026-10-20_165341/*.json; do
+for f in 2026-10-20_170241/*.csv 2026-10-20_170241/*.json; do
   cmp -s "$f" "<your folder>/$(basename "$f")" && echo "same $f" || echo "DIFF $f"
 done
 ```

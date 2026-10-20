@@ -1,0 +1,4489 @@
+[
+ {
+  "unit": "TCGA-A5-A0G1",
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C",
+  "document_chars": 9279,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "change final diagnosis descriptor and microscopic fraction; gross not-apparent sentence would sit oddly with deep invasion but is not contradictory per se; no stage to edit"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis bullet, microscopic sentence, gross not-apparent sentence; thickness and adenomyosis remain; no stage"
+  },
+  "passages": [
+   {
+    "start": 439,
+    "end": 490,
+    "category": "final_diagnosis",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 51,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 581,
+    "end": 592,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 11,
+    "cited_by_annotation": [
+     "unresolved_conflicts"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1649,
+    "end": 1820,
+    "category": "microscopic",
+    "states": "fraction",
+    "implies": "less_than_50",
+    "length": 171,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1979,
+    "end": 2043,
+    "category": "microscopic",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 64,
+    "cited_by_annotation": [
+     "unresolved_conflicts"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 6643,
+    "end": 6694,
+    "category": "gross",
+    "states": "invasion_not_apparent_grossly",
+    "implies": "none",
+    "length": 51,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6758,
+    "end": 6812,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 54,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 988,
+    "end": 1121,
+    "matched_to_start": 1649
+   },
+   {
+    "start": 6935,
+    "end": 6984,
+    "matched_to_start": 6643
+   },
+   {
+    "start": 7059,
+    "end": 7110,
+    "matched_to_start": 439
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0G3",
+  "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29",
+  "document_chars": 7881,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "lvi_outer_half_vs_invasion_inner_half (LVI, not a true conflict per contract)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "change diagnosis half wording and gross fraction; stage is pT2b (cervix) so no stage edit needed; LVI-outer-half line stays as built-in distractor"
+  },
+  "removal": {
+   "edits_needed": 2,
+   "stage_remains": true,
+   "coherent": false,
+   "notes": "after removing diagnosis and gross depth, LVI-in-outer-half and leiomyoma-invasion lines remain and imply invasion present; pT2b stage remains; expected answer becomes present/cannot_be_determined rather than label cbd unless LVI and leiomyoma lines also removed"
+  },
+  "passages": [
+   {
+    "start": 609,
+    "end": 656,
+    "category": "final_diagnosis",
+    "states": "half_wording",
+    "implies": "less_than_50",
+    "length": 47,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 659,
+    "end": 758,
+    "category": "final_diagnosis",
+    "states": "lvi_in_outer_half",
+    "implies": "lvi_distractor_outer",
+    "length": 99,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 761,
+    "end": 836,
+    "category": "final_diagnosis",
+    "states": "cervical_stromal_invasion",
+    "implies": "none",
+    "length": 75,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 943,
+    "end": 993,
+    "category": "final_diagnosis",
+    "states": "invasion_of_leiomyoma",
+    "implies": "present",
+    "length": 50,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 1176,
+    "end": 1260,
+    "category": "stage",
+    "states": "pT2b_FIGO_III",
+    "implies": "none",
+    "length": 84,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1367,
+    "end": 1378,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 11,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3896,
+    "end": 3983,
+    "category": "gross",
+    "states": "fraction",
+    "implies": "less_than_50",
+    "length": 87,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 4246,
+    "end": 4317,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 71,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1900,
+    "end": 1947,
+    "matched_to_start": 609
+   },
+   {
+    "start": 4690,
+    "end": 4777,
+    "matched_to_start": 3896
+   },
+   {
+    "start": 5155,
+    "end": 5205,
+    "matched_to_start": 943
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0G5",
+  "document": "C7C6ABB1-32EE-4D2B-898A-91A1F596EC53",
+  "document_chars": 15758,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "conflicting",
+  "conflicts": [
+   "stage given as pT1b under the stated AJCC 2002 (6th ed) edition, where T1b means <50%; every other passage says >=50% (looks like pathologist used FIGO 2009 letters with the old edition label)"
+  ],
+  "ocr_issues": [
+   "final diagnosis depth and thickness numbers have implausible units (decimal point apparently lost); percent statement in same passage is intact"
+  ],
+  "stage_edition": "AJCC6_2002",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis percent and mm numbers, pT1b->pT1a, gross half wording, gross serosa distance (must be made consistent with thickness), intraoperative gross half wording; under the stated edition the stage would need pT1b->pT1c for a consistent >=50 report, so stage is already inconsistent"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "five passages incl. stage sentence in comment; heavy edit"
+  },
+  "passages": [
+   {
+    "start": 1904,
+    "end": 2091,
+    "category": "final_diagnosis",
+    "states": "percent_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 187,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2916,
+    "end": 2983,
+    "category": "final_diagnosis",
+    "states": "lymphovascular_spaces_outer_wall",
+    "implies": "lvi_distractor_outer",
+    "length": 67,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4305,
+    "end": 4381,
+    "category": "stage",
+    "states": "pT1b_AJCC6_2002",
+    "implies": "less_than_50",
+    "length": 76,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 7494,
+    "end": 7560,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 66,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7930,
+    "end": 8012,
+    "category": "gross",
+    "states": "half_wording",
+    "implies": "fifty_or_greater",
+    "length": 82,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 8014,
+    "end": 8097,
+    "category": "gross",
+    "states": "distance_to_serosa",
+    "implies": "fifty_or_greater",
+    "length": 83,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 13095,
+    "end": 13229,
+    "category": "intraoperative_consult",
+    "states": "half_wording",
+    "implies": "fifty_or_greater",
+    "length": 134,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 2413,
+    "end": 2601,
+    "matched_to_start": 1904
+   },
+   {
+    "start": 3621,
+    "end": 3696,
+    "matched_to_start": 4305
+   },
+   {
+    "start": 12980,
+    "end": 13063,
+    "matched_to_start": 8014
+   },
+   {
+    "start": 13728,
+    "end": 13863,
+    "matched_to_start": 13095
+   },
+   {
+    "start": 13864,
+    "end": 13947,
+    "matched_to_start": 7930
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0G9",
+  "document": "32FB682E-B73F-4525-A845-7F240F9F40CE",
+  "document_chars": 14272,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "regional: deepest area >=50 while other regions <50 (not a true conflict; deepest point governs)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 4,
+   "clean": false,
+   "notes": "diagnosis percent, gross deepest-region half, cassette descriptor, intraoperative descriptor; regional <50 statements already present so a <50 flip is plausible but must remove the deep wording everywhere"
+  },
+  "removal": {
+   "edits_needed": 6,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "many passages incl. regional ones and cassette key; adenomyosis-involved line complicates"
+  },
+  "passages": [
+   {
+    "start": 783,
+    "end": 933,
+    "category": "final_diagnosis",
+    "states": "percent",
+    "implies": "fifty_or_greater",
+    "length": 150,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 936,
+    "end": 1061,
+    "category": "final_diagnosis",
+    "states": "regional_superficial",
+    "implies": "regional_less_than_50",
+    "length": 125,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 1112,
+    "end": 1177,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_involved",
+    "implies": "none",
+    "length": 65,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5852,
+    "end": 6061,
+    "category": "gross",
+    "states": "half_wording",
+    "implies": "fifty_or_greater",
+    "length": 209,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 6062,
+    "end": 6211,
+    "category": "gross",
+    "states": "regional_half_wording",
+    "implies": "regional_less_than_50",
+    "length": 149,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 7100,
+    "end": 7258,
+    "category": "gross",
+    "states": "thickness_only_and_adenomyosis",
+    "implies": "none",
+    "length": 158,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7575,
+    "end": 7653,
+    "category": "gross_cassette_key",
+    "states": "descriptive_deep",
+    "implies": "fifty_or_greater",
+    "length": 78,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 13321,
+    "end": 13456,
+    "category": "intraoperative_consult",
+    "states": "half_wording",
+    "implies": "fifty_or_greater",
+    "length": 135,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1307,
+    "end": 1468,
+    "matched_to_start": 783
+   },
+   {
+    "start": 1699,
+    "end": 1811,
+    "matched_to_start": 936
+   },
+   {
+    "start": 2040,
+    "end": 2259,
+    "matched_to_start": 5852
+   },
+   {
+    "start": 3432,
+    "end": 3564,
+    "matched_to_start": 6062
+   },
+   {
+    "start": 7899,
+    "end": 8012,
+    "matched_to_start": 13321
+   },
+   {
+    "start": 8911,
+    "end": 8989,
+    "matched_to_start": 7575
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GB",
+  "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6",
+  "document_chars": 12607,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "regional: lower segment superficial-half vs corpus deep (deepest governs)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 2,
+   "clean": false,
+   "notes": "diagnosis threshold and gross fraction plus its serosa distance must change together with the gross thickness; stage pT2b needs no edit; cassette full-thickness label is a section descriptor (lexical trap)"
+  },
+  "removal": {
+   "edits_needed": 2,
+   "stage_remains": true,
+   "coherent": false,
+   "notes": "presence-only line, regional superficial-half gross, deepest-invasion cassette label and pT2b remain, so expected becomes present/percent cbd unless more is removed"
+  },
+  "passages": [
+   {
+    "start": 940,
+    "end": 972,
+    "category": "final_diagnosis",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 32,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 973,
+    "end": 1020,
+    "category": "final_diagnosis",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 47,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1021,
+    "end": 1096,
+    "category": "final_diagnosis",
+    "states": "lower_segment_cervix_extension",
+    "implies": "none",
+    "length": 75,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1097,
+    "end": 1181,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 84,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1511,
+    "end": 1523,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 12,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3845,
+    "end": 3898,
+    "category": "stage",
+    "states": "pT2b",
+    "implies": "none",
+    "length": 53,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5845,
+    "end": 5895,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 50,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 6234,
+    "end": 6346,
+    "category": "gross",
+    "states": "regional_half_wording_with_serosa_distance",
+    "implies": "regional_less_than_50",
+    "length": 112,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6351,
+    "end": 6552,
+    "category": "gross",
+    "states": "fraction_plus_distance_to_serosa",
+    "implies": "fifty_or_greater",
+    "length": 201,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7322,
+    "end": 7402,
+    "category": "gross_cassette_key",
+    "states": "deepest_invasion_label",
+    "implies": "present",
+    "length": 80,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 7454,
+    "end": 7514,
+    "category": "gross_cassette_key",
+    "states": "full_thickness_section_label_not_invasion",
+    "implies": "none",
+    "length": 60,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 4041,
+    "end": 4123,
+    "matched_to_start": 7322
+   },
+   {
+    "start": 7110,
+    "end": 7222,
+    "matched_to_start": 6234
+   },
+   {
+    "start": 7515,
+    "end": 7719,
+    "matched_to_start": 6351
+   },
+   {
+    "start": 8186,
+    "end": 8218,
+    "matched_to_start": 940
+   },
+   {
+    "start": 9742,
+    "end": 9789,
+    "matched_to_start": 973
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81",
+  "document_chars": 11243,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 1,
+   "clean": true,
+   "notes": "one final-diagnosis passage carries the percent; frozen-section superficial impression can be left as a superseded preliminary (tests contract check 6) or edited for a fully consistent 2-edit flip; no stage"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis invasion bullet, frozen bullet, gross not-evident sentence; thickness remains; no stage"
+  },
+  "passages": [
+   {
+    "start": 1112,
+    "end": 1238,
+    "category": "final_diagnosis",
+    "states": "percent_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 126,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5897,
+    "end": 5964,
+    "category": "gross",
+    "states": "invasion_not_apparent_grossly",
+    "implies": "none",
+    "length": 67,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 5965,
+    "end": 6035,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 70,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 10492,
+    "end": 10534,
+    "category": "frozen_section",
+    "states": "descriptive_superficial_probable",
+    "implies": "less_than_50",
+    "length": 42,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1477,
+    "end": 1603,
+    "matched_to_start": 1112
+   },
+   {
+    "start": 2098,
+    "end": 2163,
+    "matched_to_start": 5897
+   },
+   {
+    "start": 8081,
+    "end": 8125,
+    "matched_to_start": 10492
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "document": "8E29A939-5581-4176-B19E-14076F17726B",
+  "document_chars": 8095,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 4,
+   "clean": false,
+   "notes": "diagnosis half wording, diagnosis mm depth vs thickness pair, gross half wording, intraoperative fraction; gross thickness consistent with diagnosis thickness so only depth number need change"
+  },
+  "removal": {
+   "edits_needed": 4,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove two diagnosis bullets, gross sentence, intraoperative line; no stage"
+  },
+  "passages": [
+   {
+    "start": 539,
+    "end": 586,
+    "category": "final_diagnosis",
+    "states": "half_wording",
+    "implies": "less_than_50",
+    "length": 47,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 587,
+    "end": 720,
+    "category": "final_diagnosis",
+    "states": "mm_depth_and_thickness",
+    "implies": "less_than_50",
+    "length": 133,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 761,
+    "end": 826,
+    "category": "final_diagnosis",
+    "states": "lvi_suspicious",
+    "implies": "none",
+    "length": 65,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 867,
+    "end": 927,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 60,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 2443,
+    "end": 2551,
+    "category": "gross",
+    "states": "half_wording",
+    "implies": "less_than_50",
+    "length": 108,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2663,
+    "end": 2694,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 31,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7401,
+    "end": 7501,
+    "category": "intraoperative_consult",
+    "states": "fraction",
+    "implies": "less_than_50",
+    "length": 100,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 827,
+    "end": 866,
+    "matched_to_start": 539
+   },
+   {
+    "start": 928,
+    "end": 1038,
+    "matched_to_start": 2443
+   },
+   {
+    "start": 1229,
+    "end": 1308,
+    "matched_to_start": 7401
+   },
+   {
+    "start": 3954,
+    "end": 4077,
+    "matched_to_start": 587
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE",
+  "document_chars": 12436,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "diagnosis and gross carry the same percent-plus-descriptor; change both consistently; no stage, no mm"
+  },
+  "removal": {
+   "edits_needed": 2,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis bullet and gross sentence; thickness and exophytic intraoperative note remain; no stage"
+  },
+  "passages": [
+   {
+    "start": 867,
+    "end": 971,
+    "category": "final_diagnosis",
+    "states": "percent_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 104,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5726,
+    "end": 5855,
+    "category": "gross",
+    "states": "percent_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 129,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 6471,
+    "end": 6580,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 109,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 11433,
+    "end": 11486,
+    "category": "intraoperative_consult",
+    "states": "exophytic_tumor_no_depth",
+    "implies": "none",
+    "length": 53,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 7745,
+    "end": 7874,
+    "matched_to_start": 5726
+   },
+   {
+    "start": 8046,
+    "end": 8151,
+    "matched_to_start": 867
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A",
+  "document_chars": 10819,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [
+   "diagnosis passage has an unbalanced parenthesis (OCR), number intact"
+  ],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "diagnosis threshold-plus-fraction and gross fraction; no stage; no mm"
+  },
+  "removal": {
+   "edits_needed": 2,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove one diagnosis bullet and one gross sentence; thickness remains"
+  },
+  "passages": [
+   {
+    "start": 1620,
+    "end": 1732,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_fraction",
+    "implies": "less_than_50",
+    "length": 112,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 6678,
+    "end": 6815,
+    "category": "gross",
+    "states": "fraction_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 137,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 6868,
+    "end": 6934,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 66,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 2074,
+    "end": 2211,
+    "matched_to_start": 6678
+   },
+   {
+    "start": 7534,
+    "end": 7646,
+    "matched_to_start": 1620
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GN",
+  "document": "7A76BDC7-62D9-4A8D-AAEF-CECF9F819D58",
+  "document_chars": 10982,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "conflicting",
+  "conflicts": [
+   "final diagnosis percent and pT1c imply >=50 while gross (two passages) and frozen section say superficial/inner half"
+  ],
+  "ocr_issues": [
+   "stage letter 1 rendered as l (pTlc)"
+  ],
+  "stage_edition": "AJCC6_2002",
+  "flip": {
+   "edits_needed": 3,
+   "clean": false,
+   "notes": "already conflicting; a <50 flip would only need diagnosis percent, stage and comment since gross/frozen already say <50 - but that makes the edit asymmetric; better used as a natural conflict exemplar"
+  },
+  "removal": {
+   "edits_needed": 6,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "too many passages"
+  },
+  "passages": [
+   {
+    "start": 789,
+    "end": 834,
+    "category": "final_diagnosis",
+    "states": "percent",
+    "implies": "fifty_or_greater",
+    "length": 45,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1830,
+    "end": 1854,
+    "category": "stage",
+    "states": "pT1c_AJCC6_style",
+    "implies": "fifty_or_greater",
+    "length": 24,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1944,
+    "end": 2016,
+    "category": "comment",
+    "states": "descriptive_extensive",
+    "implies": "ambiguous_suggests_deep",
+    "length": 72,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 5403,
+    "end": 5492,
+    "category": "gross",
+    "states": "half_wording",
+    "implies": "less_than_50",
+    "length": 89,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6033,
+    "end": 6084,
+    "category": "gross",
+    "states": "half_wording_second_lesion",
+    "implies": "less_than_50",
+    "length": 51,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6085,
+    "end": 6240,
+    "category": "gross",
+    "states": "thickness_only_with_and_without_tumor",
+    "implies": "none",
+    "length": 155,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7048,
+    "end": 7150,
+    "category": "gross_cassette_key",
+    "states": "deepest_invasion_label",
+    "implies": "present",
+    "length": 102,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 10263,
+    "end": 10314,
+    "category": "frozen_section",
+    "states": "half_wording",
+    "implies": "less_than_50",
+    "length": 51,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1027,
+    "end": 1078,
+    "matched_to_start": 6033
+   },
+   {
+    "start": 1134,
+    "end": 1185,
+    "matched_to_start": 10263
+   },
+   {
+    "start": 1297,
+    "end": 1321,
+    "matched_to_start": 1830
+   },
+   {
+    "start": 1509,
+    "end": 1612,
+    "matched_to_start": 7048
+   },
+   {
+    "start": 6644,
+    "end": 6733,
+    "matched_to_start": 5403
+   },
+   {
+    "start": 7366,
+    "end": 7411,
+    "matched_to_start": 789
+   },
+   {
+    "start": 9806,
+    "end": 9882,
+    "matched_to_start": 1944
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59",
+  "document_chars": 5182,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "AJCC6_2002",
+  "flip": {
+   "edits_needed": 4,
+   "clean": false,
+   "notes": "diagnosis fraction, stage (6th-ed pT1b->pT1c), comment superficial description, frozen; run cited the 6th-ed pT1b as counterevidence, suggesting it reads pT1b with FIGO-2009 meaning"
+  },
+  "removal": {
+   "edits_needed": 4,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "removing diagnosis line, comment sentence, frozen quote and stage; short report so remaining text is mostly gross and specimen"
+  },
+  "passages": [
+   {
+    "start": 612,
+    "end": 724,
+    "category": "final_diagnosis",
+    "states": "fraction_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 112,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1013,
+    "end": 1059,
+    "category": "stage",
+    "states": "pT1b_AJCC6_2002",
+    "implies": "less_than_50",
+    "length": 46,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1179,
+    "end": 1305,
+    "category": "comment",
+    "states": "descriptive_superficial_within_papillary_cores",
+    "implies": "less_than_50",
+    "length": 126,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2550,
+    "end": 2632,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 82,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4457,
+    "end": 4516,
+    "category": "frozen_section",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 59,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 440,
+    "end": 484,
+    "matched_to_start": 1013
+   },
+   {
+    "start": 853,
+    "end": 964,
+    "matched_to_start": 612
+   },
+   {
+    "start": 1306,
+    "end": 1432,
+    "matched_to_start": 1179
+   },
+   {
+    "start": 3064,
+    "end": 3122,
+    "matched_to_start": 4457
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065",
+  "document_chars": 4544,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "final diagnosis states approximately one-half (boundary), run treated it as counterevidence; stage and gross settle >=50"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "AJCC6_2002",
+  "flip": {
+   "edits_needed": 3,
+   "clean": true,
+   "notes": "short report; diagnosis boundary fraction, stage pT1c->pT1b (6th ed), gross percent; thickness needs no change"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis line, stage line, gross sentence; adenomyosis line remains"
+  },
+  "passages": [
+   {
+    "start": 943,
+    "end": 1022,
+    "category": "final_diagnosis",
+    "states": "fraction_approximately_one_half",
+    "implies": "ambiguous_boundary",
+    "length": 79,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 1063,
+    "end": 1076,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 13,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1112,
+    "end": 1158,
+    "category": "stage",
+    "states": "pT1c_AJCC6_2002",
+    "implies": "fifty_or_greater",
+    "length": 46,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2935,
+    "end": 3020,
+    "category": "gross",
+    "states": "percent",
+    "implies": "fifty_or_greater",
+    "length": 85,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3025,
+    "end": 3064,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 39,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth",
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 457,
+    "end": 503,
+    "matched_to_start": 1112
+   },
+   {
+    "start": 1196,
+    "end": 1276,
+    "matched_to_start": 943
+   },
+   {
+    "start": 3189,
+    "end": 3276,
+    "matched_to_start": 2935
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0GV",
+  "document": "0E6417D3-6E95-4EEF-AE93-40D69D4F6525",
+  "document_chars": 8319,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "stage pT1b without edition: <50 under AJCC 6th, >=50 under AJCC 7th/FIGO 2009; run cited it as counterevidence"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis, gross descriptor, two frozen lines, plus stage whose edition is unknown"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "five passages including stage; frozen lines could be kept to test superseded-frozen handling"
+  },
+  "passages": [
+   {
+    "start": 590,
+    "end": 679,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 89,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 682,
+    "end": 853,
+    "category": "final_diagnosis",
+    "states": "intravascular_tumor_favored_artifact",
+    "implies": "none",
+    "length": 171,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1398,
+    "end": 1409,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_mentioned",
+    "implies": "none",
+    "length": 11,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 2339,
+    "end": 2395,
+    "category": "stage",
+    "states": "pT1b_edition_not_stated",
+    "implies": "ambiguous_edition",
+    "length": 56,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3395,
+    "end": 3466,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 71,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3951,
+    "end": 4071,
+    "category": "gross",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 120,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7441,
+    "end": 7490,
+    "category": "frozen_section",
+    "states": "descriptive_superficial_possible",
+    "implies": "less_than_50",
+    "length": 49,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7493,
+    "end": 7525,
+    "category": "frozen_section",
+    "states": "no_deep_invasion",
+    "implies": "less_than_50",
+    "length": 32,
+    "cited_by_annotation": [
+     "unresolved_conflicts"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1790,
+    "end": 1910,
+    "matched_to_start": 3951
+   },
+   {
+    "start": 2453,
+    "end": 2510,
+    "matched_to_start": 2339
+   },
+   {
+    "start": 2526,
+    "end": 2614,
+    "matched_to_start": 590
+   },
+   {
+    "start": 5739,
+    "end": 5771,
+    "matched_to_start": 7493
+   },
+   {
+    "start": 6712,
+    "end": 6761,
+    "matched_to_start": 7441
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F",
+  "document_chars": 5718,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "gross thickness differs slightly from the thickness in the diagnosis fraction (same half either way)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "one diagnosis line (threshold plus depth number; total-thickness phrase is a lexical full-thickness trap that must stay) and stage pT1b->pT1a assuming 7th-ed meaning; frozen says presence only"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis depth line, frozen presence line and stage; if stage kept, contract says stage-only -> cbd (good stage-only probe)"
+  },
+  "passages": [
+   {
+    "start": 556,
+    "end": 592,
+    "category": "final_diagnosis",
+    "states": "histotype_no_depth",
+    "implies": "none",
+    "length": 36,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 593,
+    "end": 666,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 73,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 815,
+    "end": 855,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 40,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1500,
+    "end": 1514,
+    "category": "stage",
+    "states": "pT1b_edition_not_stated",
+    "implies": "ambiguous_edition",
+    "length": 14,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1785,
+    "end": 1840,
+    "category": "frozen_section",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 55,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 3218,
+    "end": 3292,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 74,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 296,
+    "end": 370,
+    "matched_to_start": 593
+   },
+   {
+    "start": 1665,
+    "end": 1684,
+    "matched_to_start": 1500
+   },
+   {
+    "start": 3609,
+    "end": 3668,
+    "matched_to_start": 1785
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0R8",
+  "document": "CA537524-B83F-4AC5-B721-38570E5B21BB",
+  "document_chars": 9127,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "synoptic, diagnosis and gross give different depth/thickness numbers (all >=50)"
+  ],
+  "ocr_issues": [
+   "synoptic depth and thickness off by a factor of ten vs diagnosis (decimal shift); ratio unchanged"
+  ],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 6,
+   "clean": false,
+   "notes": "synoptic numbers and threshold, synoptic stage with its definition, diagnosis mm pair, gross percent and mm pair, intraoperative half wording"
+  },
+  "removal": {
+   "edits_needed": 8,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "synoptic block would be left with empty headings; poor removal candidate"
+  },
+  "passages": [
+   {
+    "start": 553,
+    "end": 569,
+    "category": "synoptic",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 16,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 570,
+    "end": 624,
+    "category": "synoptic",
+    "states": "depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 54,
+    "cited_by_annotation": [
+     "depth_basis"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 625,
+    "end": 661,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 850,
+    "end": 927,
+    "category": "stage",
+    "states": "pT1b_AJCC7_with_definition",
+    "implies": "fifty_or_greater",
+    "length": 77,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1268,
+    "end": 1382,
+    "category": "final_diagnosis",
+    "states": "mm_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 114,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1385,
+    "end": 1417,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 32,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 2640,
+    "end": 2705,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 65,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3385,
+    "end": 3597,
+    "category": "gross",
+    "states": "percent_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 212,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3950,
+    "end": 4090,
+    "category": "gross",
+    "states": "intramyometrial_lesions_depth_unclear_nature",
+    "implies": "ambiguous",
+    "length": 140,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 5119,
+    "end": 5199,
+    "category": "gross_cassette_key",
+    "states": "deepest_invasion_label",
+    "implies": "present",
+    "length": 80,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 8496,
+    "end": 8581,
+    "category": "intraoperative_consult",
+    "states": "half_wording",
+    "implies": "fifty_or_greater",
+    "length": 85,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 8630,
+    "end": 8665,
+    "category": "frozen_section",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 35,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 955,
+    "end": 1073,
+    "matched_to_start": 1268
+   },
+   {
+    "start": 1603,
+    "end": 1690,
+    "matched_to_start": 8496
+   },
+   {
+    "start": 4531,
+    "end": 4762,
+    "matched_to_start": 3385
+   },
+   {
+    "start": 5040,
+    "end": 5118,
+    "matched_to_start": 850
+   },
+   {
+    "start": 5862,
+    "end": 6005,
+    "matched_to_start": 3950
+   },
+   {
+    "start": 6027,
+    "end": 6107,
+    "matched_to_start": 5119
+   },
+   {
+    "start": 6598,
+    "end": 6631,
+    "matched_to_start": 8630
+   },
+   {
+    "start": 7072,
+    "end": 7109,
+    "matched_to_start": 625
+   },
+   {
+    "start": 7704,
+    "end": 7758,
+    "matched_to_start": 570
+   },
+   {
+    "start": 8480,
+    "end": 8495,
+    "matched_to_start": 553
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0RA",
+  "document": "EB6E4309-9CE1-468A-A94B-907874BDE9DE",
+  "document_chars": 10036,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "AJCC6_2002",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "synoptic, stage with definition (6th ed pT1c->pT1b), diagnosis percent, gross percent, frozen"
+  },
+  "removal": {
+   "edits_needed": 6,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "synoptic headings left empty; MELF line implies invasion present"
+  },
+  "passages": [
+   {
+    "start": 764,
+    "end": 800,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1033,
+    "end": 1092,
+    "category": "stage",
+    "states": "pT1c_AJCC6_with_definition",
+    "implies": "fifty_or_greater",
+    "length": 59,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1806,
+    "end": 1911,
+    "category": "final_diagnosis",
+    "states": "percent",
+    "implies": "fifty_or_greater",
+    "length": 105,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1914,
+    "end": 2004,
+    "category": "final_diagnosis",
+    "states": "melf_pattern",
+    "implies": "present",
+    "length": 90,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 2007,
+    "end": 2209,
+    "category": "final_diagnosis",
+    "states": "lvi_and_intravascular_tumor",
+    "implies": "none",
+    "length": 202,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5170,
+    "end": 5233,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 63,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5900,
+    "end": 5984,
+    "category": "gross",
+    "states": "percent",
+    "implies": "fifty_or_greater",
+    "length": 84,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 9181,
+    "end": 9250,
+    "category": "frozen_section",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 69,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1413,
+    "end": 1481,
+    "matched_to_start": 9181
+   },
+   {
+    "start": 2377,
+    "end": 2466,
+    "matched_to_start": 1914
+   },
+   {
+    "start": 2467,
+    "end": 2503,
+    "matched_to_start": 764
+   },
+   {
+    "start": 6667,
+    "end": 6771,
+    "matched_to_start": 1806
+   },
+   {
+    "start": 7173,
+    "end": 7232,
+    "matched_to_start": 1033
+   },
+   {
+    "start": 7702,
+    "end": 7787,
+    "matched_to_start": 5900
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0VO",
+  "document": "6ABBA2C9-8920-4785-BFAB-40E560D2DBE6",
+  "document_chars": 11481,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "gross states approximately 50% while its own numbers give >50%"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 6,
+   "clean": false,
+   "notes": "synoptic numbers and threshold, stage with definition, diagnosis numbers, gross numbers, intraoperative threshold"
+  },
+  "removal": {
+   "edits_needed": 7,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "synoptic headings left empty"
+  },
+  "passages": [
+   {
+    "start": 1209,
+    "end": 1225,
+    "category": "synoptic",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 16,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 1226,
+    "end": 1278,
+    "category": "synoptic",
+    "states": "depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 52,
+    "cited_by_annotation": [
+     "depth_basis"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1279,
+    "end": 1315,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1536,
+    "end": 1613,
+    "category": "stage",
+    "states": "pT1b_AJCC7_with_definition",
+    "implies": "fifty_or_greater",
+    "length": 77,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2385,
+    "end": 2461,
+    "category": "final_diagnosis",
+    "states": "depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 76,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2551,
+    "end": 2579,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 28,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4359,
+    "end": 4401,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 42,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5060,
+    "end": 5258,
+    "category": "gross",
+    "states": "boundary_percent_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 198,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 10610,
+    "end": 10646,
+    "category": "intraoperative_consult",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 612,
+    "end": 690,
+    "matched_to_start": 2385
+   },
+   {
+    "start": 2643,
+    "end": 2678,
+    "matched_to_start": 10610
+   },
+   {
+    "start": 3510,
+    "end": 3546,
+    "matched_to_start": 1279
+   },
+   {
+    "start": 3750,
+    "end": 3766,
+    "matched_to_start": 1209
+   },
+   {
+    "start": 3767,
+    "end": 3820,
+    "matched_to_start": 1226
+   },
+   {
+    "start": 6311,
+    "end": 6485,
+    "matched_to_start": 5060
+   },
+   {
+    "start": 10781,
+    "end": 10858,
+    "matched_to_start": 1536
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0VP",
+  "document": "960B26D6-F9BA-4099-B6F4-6D1DEA6C0F0F",
+  "document_chars": 11036,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 4,
+   "clean": false,
+   "notes": "synoptic threshold, synoptic comment (superficial plus sub-mm depth), two stage passages (pT1a in diagnosis and synoptic with definition); adenomyosis fraction and full-thickness cassette labels are built-in lexical distractors"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "synoptic myometrial-invasion block emptied; good stage-only probe if both stage passages kept"
+  },
+  "passages": [
+   {
+    "start": 633,
+    "end": 658,
+    "category": "stage",
+    "states": "pT1a_in_final_diagnosis",
+    "implies": "less_than_50",
+    "length": 25,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2061,
+    "end": 2077,
+    "category": "synoptic",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 16,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 2078,
+    "end": 2111,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 33,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2112,
+    "end": 2168,
+    "category": "synoptic",
+    "states": "mm_depth_only_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 56,
+    "cited_by_annotation": [
+     "unresolved_conflicts"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2408,
+    "end": 2495,
+    "category": "stage",
+    "states": "pT1a_AJCC7_with_definition",
+    "implies": "less_than_50",
+    "length": 87,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2897,
+    "end": 2968,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_with_its_own_depth_fraction",
+    "implies": "adenomyosis_distractor",
+    "length": 71,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4442,
+    "end": 4506,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 64,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4856,
+    "end": 4915,
+    "category": "gross",
+    "states": "invasion_not_apparent_grossly",
+    "implies": "none",
+    "length": 59,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6432,
+    "end": 6474,
+    "category": "gross_cassette_key",
+    "states": "full_thickness_section_label_not_invasion",
+    "implies": "none",
+    "length": 42,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 6929,
+    "end": 6991,
+    "category": "gross_cassette_key",
+    "states": "full_thickness_section_label_not_invasion",
+    "implies": "none",
+    "length": 62,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 751,
+    "end": 776,
+    "matched_to_start": 633
+   },
+   {
+    "start": 1326,
+    "end": 1385,
+    "matched_to_start": 4856
+   },
+   {
+    "start": 1412,
+    "end": 1468,
+    "matched_to_start": 2112
+   },
+   {
+    "start": 2601,
+    "end": 2689,
+    "matched_to_start": 2408
+   },
+   {
+    "start": 3291,
+    "end": 3307,
+    "matched_to_start": 2061
+   },
+   {
+    "start": 8700,
+    "end": 8731,
+    "matched_to_start": 2078
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A0VQ",
+  "document": "6FE81DF0-D9DF-420F-8A91-40421175A12F",
+  "document_chars": 8943,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "final diagnosis depth unit typo corrected by addendum (addendum repeated on a duplicated page)"
+  ],
+  "ocr_issues": [
+   "frozen-section upper percent bound garbled (digit read as letter/number)"
+  ],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis percent and numbers, two addendum copies, frozen percent, gross numbers"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "removing addenda leaves addendum header text; heavy"
+  },
+  "passages": [
+   {
+    "start": 858,
+    "end": 1007,
+    "category": "addendum",
+    "states": "corrected_depth_number",
+    "implies": "less_than_50",
+    "length": 149,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1699,
+    "end": 1812,
+    "category": "final_diagnosis",
+    "states": "percent_plus_depth_and_thickness_with_unit_typo",
+    "implies": "less_than_50",
+    "length": 113,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1944,
+    "end": 1980,
+    "category": "final_diagnosis",
+    "states": "serosa_negative",
+    "implies": "none",
+    "length": 36,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3962,
+    "end": 4036,
+    "category": "frozen_section",
+    "states": "percent_range",
+    "implies": "less_than_50",
+    "length": 74,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5171,
+    "end": 5332,
+    "category": "gross",
+    "states": "depth_and_average_thickness",
+    "implies": "less_than_50",
+    "length": 161,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 8574,
+    "end": 8626,
+    "category": "addendum",
+    "states": "corrected_depth_number_duplicate_page",
+    "implies": "less_than_50",
+    "length": 52,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 606,
+    "end": 719,
+    "matched_to_start": 1699
+   },
+   {
+    "start": 2482,
+    "end": 2534,
+    "matched_to_start": 8574
+   },
+   {
+    "start": 3496,
+    "end": 3639,
+    "matched_to_start": 5171
+   },
+   {
+    "start": 6896,
+    "end": 7027,
+    "matched_to_start": 858
+   },
+   {
+    "start": 8263,
+    "end": 8339,
+    "matched_to_start": 3962
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A1OF",
+  "document": "C0A753A3-5202-4DD2-948E-2921AFBCB3BC",
+  "document_chars": 6080,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [
+   "stage digit 1 rendered as l (pTla)"
+  ],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "synoptic mm depth, serosa distance (must stay consistent with thickness), stage with definition, frozen and gross superficial descriptors"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "synoptic-style final diagnosis; removing depth rows and stage leaves a short synoptic"
+  },
+  "passages": [
+   {
+    "start": 917,
+    "end": 944,
+    "category": "synoptic",
+    "states": "presence_only",
+    "implies": "present",
+    "length": 27,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 945,
+    "end": 995,
+    "category": "synoptic",
+    "states": "mm_depth_and_thickness",
+    "implies": "less_than_50",
+    "length": 50,
+    "cited_by_annotation": [
+     "depth_basis"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1165,
+    "end": 1249,
+    "category": "synoptic",
+    "states": "distance_to_serosa",
+    "implies": "consistent_with_less_than_50",
+    "length": 84,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1309,
+    "end": 1397,
+    "category": "stage",
+    "states": "pT1a_with_definition",
+    "implies": "less_than_50",
+    "length": 88,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2439,
+    "end": 2471,
+    "category": "frozen_section",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 32,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3357,
+    "end": 3441,
+    "category": "gross",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 84,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 463,
+    "end": 546,
+    "matched_to_start": 3357
+   },
+   {
+    "start": 1758,
+    "end": 1792,
+    "matched_to_start": 2439
+   },
+   {
+    "start": 1793,
+    "end": 1877,
+    "matched_to_start": 1165
+   },
+   {
+    "start": 1947,
+    "end": 1974,
+    "matched_to_start": 917
+   },
+   {
+    "start": 4090,
+    "end": 4179,
+    "matched_to_start": 1309
+   },
+   {
+    "start": 5740,
+    "end": 5788,
+    "matched_to_start": 945
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A1OG",
+  "document": "7BE01FDF-C4CF-471E-B395-8D7C4531CD6F",
+  "document_chars": 10740,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "conflicting",
+  "conflicts": [
+   "gross says superficial invasion while final diagnosis and synoptic say >50% (micro supersedes gross)",
+   "diagnosis thickness differs from gross thickness"
+  ],
+  "ocr_issues": [
+   "synoptic depth row displaced under tumor-size heading by OCR layout"
+  ],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 2,
+   "clean": false,
+   "notes": "only diagnosis and synoptic carry >=50; gross already says superficial; stage pT3a does not encode depth. A <50 flip needs 2 edits but LVI near serosa stays as a distractor"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": true,
+   "coherent": false,
+   "notes": "pT3a stage, LVI and superficial gross remain; expected answer muddy"
+  },
+  "passages": [
+   {
+    "start": 628,
+    "end": 743,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 115,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 746,
+    "end": 831,
+    "category": "final_diagnosis",
+    "states": "lvi_near_serosa",
+    "implies": "lvi_distractor_outer",
+    "length": 85,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1068,
+    "end": 1127,
+    "category": "stage",
+    "states": "pT3a_FIGO_IIIC2",
+    "implies": "none",
+    "length": 59,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3251,
+    "end": 3287,
+    "category": "synoptic",
+    "states": "percent_threshold_misplaced_under_size_heading",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3672,
+    "end": 3753,
+    "category": "stage",
+    "states": "pT3a_AJCC7_with_definition",
+    "implies": "none",
+    "length": 81,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 6255,
+    "end": 6327,
+    "category": "gross",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 72,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 6387,
+    "end": 6430,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 43,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7012,
+    "end": 7167,
+    "category": "gross_cassette_key",
+    "states": "deepest_invasion_label",
+    "implies": "present",
+    "length": 155,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 9899,
+    "end": 10003,
+    "category": "intraoperative_consult",
+    "states": "at_least_superficial",
+    "implies": "present",
+    "length": 104,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1780,
+    "end": 1896,
+    "matched_to_start": 628
+   },
+   {
+    "start": 2572,
+    "end": 2728,
+    "matched_to_start": 7012
+   },
+   {
+    "start": 2870,
+    "end": 2975,
+    "matched_to_start": 9899
+   },
+   {
+    "start": 4178,
+    "end": 4215,
+    "matched_to_start": 3251
+   },
+   {
+    "start": 7259,
+    "end": 7331,
+    "matched_to_start": 6255
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A1OJ",
+  "document": "F696BCE9-707C-4825-8A53-EFED20EBF656",
+  "document_chars": 13111,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "frozen section found no definitive invasion (superseded by final)",
+   "carcinoma in adenomyosis in outer half (contract: not invasion)"
+  ],
+  "ocr_issues": [
+   "frozen line has a letter substitution in myometrial"
+  ],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 3,
+   "clean": true,
+   "notes": "diagnosis percent, synoptic threshold, stage pT1a->pT1b with definition; adenomyosis outer-half line is a strong built-in distractor for a >=50 prior"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "after removal, gross and frozen negative statements and adenomyosis involvement remain: expected answer drifts toward not_identified rather than cbd"
+  },
+  "passages": [
+   {
+    "start": 1190,
+    "end": 1307,
+    "category": "final_diagnosis",
+    "states": "percent_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 117,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1310,
+    "end": 1443,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_involved_in_outer_half_with_serosa_distance",
+    "implies": "adenomyosis_distractor",
+    "length": 133,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1446,
+    "end": 1507,
+    "category": "final_diagnosis",
+    "states": "lvi_not_identified",
+    "implies": "none",
+    "length": 61,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4070,
+    "end": 4103,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 33,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 4372,
+    "end": 4459,
+    "category": "stage",
+    "states": "pT1a_AJCC7_with_definition",
+    "implies": "less_than_50",
+    "length": 87,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7526,
+    "end": 7596,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 70,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 8178,
+    "end": 8244,
+    "category": "gross",
+    "states": "invasion_not_apparent_grossly",
+    "implies": "none",
+    "length": 66,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 11698,
+    "end": 11769,
+    "category": "frozen_section",
+    "states": "no_definitive_invasion",
+    "implies": "not_identified_preliminary",
+    "length": 71,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 3126,
+    "end": 3196,
+    "matched_to_start": 11698
+   },
+   {
+    "start": 3225,
+    "end": 3258,
+    "matched_to_start": 4070
+   },
+   {
+    "start": 4724,
+    "end": 4811,
+    "matched_to_start": 4372
+   },
+   {
+    "start": 6141,
+    "end": 6257,
+    "matched_to_start": 1190
+   },
+   {
+    "start": 9152,
+    "end": 9218,
+    "matched_to_start": 8178
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C",
+  "document_chars": 17130,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "single_decisive",
+  "conflicts": [
+   "intraoperative and gross report no definite gross invasion (superseded by microscopic diagnosis)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "no_stage",
+  "flip": {
+   "edits_needed": 1,
+   "clean": true,
+   "notes": "one diagnosis line carries depth; no stage, no numbers; gross suspicion-of-superficial line is a lower bound only, compatible with either half"
+  },
+  "removal": {
+   "edits_needed": 2,
+   "stage_remains": false,
+   "coherent": true,
+   "notes": "remove diagnosis line (and optionally the gross suspicious-superficial sentence); remaining gross/intraop negatives and adenomyosis-involved lines push toward not_identified or adenomyosis-only, so expected answer needs care (cbd vs not_identified)"
+  },
+  "passages": [
+   {
+    "start": 837,
+    "end": 891,
+    "category": "final_diagnosis",
+    "states": "invasion_of_polyp_stroma",
+    "implies": "none",
+    "length": 54,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 894,
+    "end": 954,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_involved",
+    "implies": "adenomyosis_distractor",
+    "length": 60,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "specimen_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 957,
+    "end": 1057,
+    "category": "final_diagnosis",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 100,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1060,
+    "end": 1107,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 47,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1751,
+    "end": 1816,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_involved",
+    "implies": "adenomyosis_distractor",
+    "length": 65,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 8661,
+    "end": 8820,
+    "category": "gross",
+    "states": "suspicious_at_least_superficial",
+    "implies": "ambiguous_presence",
+    "length": 159,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 8980,
+    "end": 9158,
+    "category": "gross",
+    "states": "no_definite_invasion_second_lesion",
+    "implies": "none",
+    "length": 178,
+    "cited_by_annotation": [
+     "unresolved_conflicts"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 9159,
+    "end": 9217,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 58,
+    "cited_by_annotation": [
+     "depth_basis"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 16390,
+    "end": 16438,
+    "category": "intraoperative_consult",
+    "states": "no_gross_invasion",
+    "implies": "none",
+    "length": 48,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 4497,
+    "end": 4659,
+    "matched_to_start": 8661
+   },
+   {
+    "start": 4972,
+    "end": 5020,
+    "matched_to_start": 16390
+   },
+   {
+    "start": 11561,
+    "end": 11662,
+    "matched_to_start": 957
+   },
+   {
+    "start": 11707,
+    "end": 11887,
+    "matched_to_start": 8980
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A2K5",
+  "document": "FF305857-5814-4815-90D3-B54BAA0DACB4",
+  "document_chars": 14921,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "frozen section states exactly the boundary value (superseded)"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis, gross, synoptic threshold, pT with definition, FIGO stage"
+  },
+  "removal": {
+   "edits_needed": 6,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "synoptic addendum block emptied; frozen boundary line"
+  },
+  "passages": [
+   {
+    "start": 3045,
+    "end": 3145,
+    "category": "final_diagnosis",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 100,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3148,
+    "end": 3195,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_involved",
+    "implies": "adenomyosis_distractor",
+    "length": 47,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3198,
+    "end": 3245,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 47,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 8448,
+    "end": 8509,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 61,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 8724,
+    "end": 8821,
+    "category": "gross",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 97,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 12157,
+    "end": 12182,
+    "category": "frozen_section",
+    "states": "boundary_percent",
+    "implies": "ambiguous_boundary",
+    "length": 25,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 13353,
+    "end": 13386,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 33,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 13667,
+    "end": 13770,
+    "category": "stage",
+    "states": "pT1a_AJCC7_with_definition",
+    "implies": "less_than_50",
+    "length": 103,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 14013,
+    "end": 14027,
+    "category": "stage",
+    "states": "FIGO_IA",
+    "implies": "less_than_50",
+    "length": 14,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 990,
+    "end": 1093,
+    "matched_to_start": 13667
+   },
+   {
+    "start": 2858,
+    "end": 2954,
+    "matched_to_start": 8724
+   },
+   {
+    "start": 3960,
+    "end": 3986,
+    "matched_to_start": 12157
+   },
+   {
+    "start": 5703,
+    "end": 5736,
+    "matched_to_start": 13353
+   },
+   {
+    "start": 12063,
+    "end": 12077,
+    "matched_to_start": 14013
+   },
+   {
+    "start": 12845,
+    "end": 12945,
+    "matched_to_start": 3045
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A3LP",
+  "document": "A20CDB07-D90C-42B7-AE0A-254E27C6153B",
+  "document_chars": 9490,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [
+   "second smaller mass invades <50% (regional; deepest governs)"
+  ],
+  "ocr_issues": [
+   "stage edition text missing after AJCC"
+  ],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis, synoptic, stage with definition, gross percent and serosa distance, cassette label"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "second-mass gross fraction remains (implies present, <50 regionally)"
+  },
+  "passages": [
+   {
+    "start": 1302,
+    "end": 1424,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_near_serosa",
+    "implies": "fifty_or_greater",
+    "length": 122,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1476,
+    "end": 1568,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 92,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 2689,
+    "end": 2725,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "fifty_or_greater",
+    "length": 36,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 2978,
+    "end": 3050,
+    "category": "stage",
+    "states": "pT1b_with_definition_edition_garbled",
+    "implies": "fifty_or_greater",
+    "length": 72,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 6850,
+    "end": 6885,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 35,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7159,
+    "end": 7255,
+    "category": "gross",
+    "states": "percent_plus_distance_to_serosa",
+    "implies": "fifty_or_greater",
+    "length": 96,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7502,
+    "end": 7644,
+    "category": "gross",
+    "states": "second_lesion_percent",
+    "implies": "regional_less_than_50",
+    "length": 142,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 8485,
+    "end": 8550,
+    "category": "gross_cassette_key",
+    "states": "closest_approach_to_serosa_label",
+    "implies": "consistent_with_fifty_or_greater",
+    "length": 65,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 766,
+    "end": 831,
+    "matched_to_start": 8485
+   },
+   {
+    "start": 2186,
+    "end": 2328,
+    "matched_to_start": 7502
+   },
+   {
+    "start": 3078,
+    "end": 3149,
+    "matched_to_start": 2978
+   },
+   {
+    "start": 3828,
+    "end": 3864,
+    "matched_to_start": 2689
+   },
+   {
+    "start": 8226,
+    "end": 8348,
+    "matched_to_start": 1302
+   },
+   {
+    "start": 8551,
+    "end": 8646,
+    "matched_to_start": 7159
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-A7WK",
+  "document": "9101DD17-9216-4526-9A87-8C4E94B1F435",
+  "document_chars": 13792,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [
+   "correction comment records that FIGO IB was a typo for IA"
+  ],
+  "ocr_issues": [],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 5,
+   "clean": false,
+   "notes": "diagnosis, synoptic, pT with definition, FIGO, plus the correction comment (which names both stages)"
+  },
+  "removal": {
+   "edits_needed": 5,
+   "stage_remains": false,
+   "coherent": false,
+   "notes": "correction comment would become meaningless; adenomyosis outer-half line remains as distractor"
+  },
+  "passages": [
+   {
+    "start": 899,
+    "end": 1024,
+    "category": "final_diagnosis",
+    "states": "percent_threshold_plus_descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 125,
+    "cited_by_annotation": [
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1210,
+    "end": 1296,
+    "category": "final_diagnosis",
+    "states": "adenomyosis_spanning_both_halves",
+    "implies": "adenomyosis_distractor",
+    "length": 86,
+    "cited_by_annotation": [
+     "adenomyosis_relation"
+    ],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4095,
+    "end": 4274,
+    "category": "comment",
+    "states": "stage_correction_IB_to_IA",
+    "implies": "less_than_50",
+    "length": 179,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5161,
+    "end": 5194,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 33,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5430,
+    "end": 5513,
+    "category": "stage",
+    "states": "pT1a_AJCC7_with_definition",
+    "implies": "less_than_50",
+    "length": 83,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 5565,
+    "end": 5579,
+    "category": "stage",
+    "states": "FIGO_IA",
+    "implies": "less_than_50",
+    "length": 14,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 7149,
+    "end": 7236,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 87,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 7733,
+    "end": 7787,
+    "category": "gross",
+    "states": "questionable_superficial",
+    "implies": "ambiguous_presence",
+    "length": 54,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1362,
+    "end": 1532,
+    "matched_to_start": 4095
+   },
+   {
+    "start": 4292,
+    "end": 4375,
+    "matched_to_start": 5430
+   },
+   {
+    "start": 4436,
+    "end": 4450,
+    "matched_to_start": 5565
+   },
+   {
+    "start": 9103,
+    "end": 9136,
+    "matched_to_start": 5161
+   },
+   {
+    "start": 10977,
+    "end": 11031,
+    "matched_to_start": 7733
+   },
+   {
+    "start": 11331,
+    "end": 11455,
+    "matched_to_start": 899
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-A5-AB3J",
+  "document": "41CDFB48-33A6-4FCD-97CA-30C73A9E6FED",
+  "document_chars": 17507,
+  "reference_percent": "less_than_50",
+  "run_percent": "less_than_50",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "AJCC7_2010",
+  "flip": {
+   "edits_needed": 3,
+   "clean": true,
+   "notes": "diagnosis superficial descriptor, uterine synoptic threshold, gross synoptic threshold; uterine stage is pT2/FIGO II (cervix) so no stage edit; separate ovarian pT1a/FIGO IA synoptic is a built-in other-organ trap"
+  },
+  "removal": {
+   "edits_needed": 3,
+   "stage_remains": true,
+   "coherent": true,
+   "notes": "remove three lines; pT2/FIGO II remains (does not encode depth) so expected label cbd per stage-only rule; ovarian staging remains as trap"
+  },
+  "passages": [
+   {
+    "start": 1095,
+    "end": 1168,
+    "category": "final_diagnosis",
+    "states": "cervical_stromal_invasion",
+    "implies": "none",
+    "length": 73,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1183,
+    "end": 1222,
+    "category": "final_diagnosis",
+    "states": "descriptive_superficial",
+    "implies": "less_than_50",
+    "length": 39,
+    "cited_by_annotation": [
+     "myometrial_invasion"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1225,
+    "end": 1278,
+    "category": "final_diagnosis",
+    "states": "intravascular_tumor_cells",
+    "implies": "none",
+    "length": 53,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4209,
+    "end": 4242,
+    "category": "synoptic",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 33,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 4506,
+    "end": 4600,
+    "category": "stage",
+    "states": "pT2_AJCC7_with_definition",
+    "implies": "none",
+    "length": 94,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 4935,
+    "end": 4949,
+    "category": "stage",
+    "states": "FIGO_II",
+    "implies": "none",
+    "length": 14,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 5809,
+    "end": 5887,
+    "category": "stage",
+    "states": "ovarian_pT1a_other_organ",
+    "implies": "other_organ_distractor",
+    "length": 78,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 6025,
+    "end": 6039,
+    "category": "stage",
+    "states": "ovarian_FIGO_IA_other_organ",
+    "implies": "other_organ_distractor",
+    "length": 14,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 10026,
+    "end": 10060,
+    "category": "gross",
+    "states": "thickness_only",
+    "implies": "none",
+    "length": 34,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 10313,
+    "end": 10380,
+    "category": "gross",
+    "states": "percent_threshold",
+    "implies": "less_than_50",
+    "length": 67,
+    "cited_by_annotation": [
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 11586,
+    "end": 11649,
+    "category": "gross_cassette_key",
+    "states": "full_thickness_section_label_not_invasion",
+    "implies": "none",
+    "length": 63,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 1279,
+    "end": 1318,
+    "matched_to_start": 1183
+   },
+   {
+    "start": 6226,
+    "end": 6293,
+    "matched_to_start": 10313
+   },
+   {
+    "start": 6499,
+    "end": 6532,
+    "matched_to_start": 4209
+   }
+  ]
+ },
+ {
+  "unit": "TCGA-AJ-A23M",
+  "document": "B9651546-290B-405B-8275-24C8A53A10A3",
+  "document_chars": 5454,
+  "reference_percent": "fifty_or_greater",
+  "run_percent": "fifty_or_greater",
+  "classification": "redundant",
+  "conflicts": [],
+  "ocr_issues": [],
+  "stage_edition": "edition_not_named",
+  "flip": {
+   "edits_needed": 2,
+   "clean": true,
+   "notes": "short report; diagnosis fraction plus mm pair and gross near-full-thickness plus cm pair; stage pT2 needs no edit"
+  },
+  "removal": {
+   "edits_needed": 4,
+   "stage_remains": true,
+   "coherent": true,
+   "notes": "remove diagnosis sentence, gross sentence, lower-segment wall-extension phrase and deepest-invasion cassette label; pT2 remains (stage-only -> cbd)"
+  },
+  "passages": [
+   {
+    "start": 1187,
+    "end": 1332,
+    "category": "final_diagnosis",
+    "states": "fraction_plus_mm_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 145,
+    "cited_by_annotation": [
+     "depth_basis",
+     "myometrial_invasion",
+     "myometrial_invasion_percent"
+    ],
+    "cited_by_run": [
+     "depth_evidence",
+     "quantified_depth"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 1333,
+    "end": 1420,
+    "category": "final_diagnosis",
+    "states": "cervical_stromal_invasion",
+    "implies": "none",
+    "length": 87,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1421,
+    "end": 1459,
+    "category": "final_diagnosis",
+    "states": "lvi_present",
+    "implies": "none",
+    "length": 38,
+    "cited_by_annotation": [],
+    "cited_by_run": [
+     "counterevidence"
+    ],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 1790,
+    "end": 1832,
+    "category": "stage",
+    "states": "pT2_FIGO_II",
+    "implies": "none",
+    "length": 42,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   },
+   {
+    "start": 3110,
+    "end": 3219,
+    "category": "gross",
+    "states": "lower_segment_wall_extension_depth_without_thickness",
+    "implies": "ambiguous_presence",
+    "length": 109,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 3292,
+    "end": 3440,
+    "category": "gross",
+    "states": "near_full_thickness_plus_depth_and_thickness",
+    "implies": "fifty_or_greater",
+    "length": 148,
+    "cited_by_annotation": [
+     "depth_basis"
+    ],
+    "cited_by_run": [
+     "depth_evidence"
+    ],
+    "flip_edit": true,
+    "removal_edit": true
+   },
+   {
+    "start": 3652,
+    "end": 3706,
+    "category": "gross_cassette_key",
+    "states": "deepest_invasion_label",
+    "implies": "present",
+    "length": 54,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": true
+   },
+   {
+    "start": 3707,
+    "end": 3767,
+    "category": "gross_cassette_key",
+    "states": "full_thickness_section_label_not_invasion",
+    "implies": "none",
+    "length": 60,
+    "cited_by_annotation": [],
+    "cited_by_run": [],
+    "flip_edit": false,
+    "removal_edit": false
+   }
+  ],
+  "removal_controls": [
+   {
+    "start": 907,
+    "end": 961,
+    "matched_to_start": 3652
+   },
+   {
+    "start": 1519,
+    "end": 1650,
+    "matched_to_start": 3292
+   },
+   {
+    "start": 1936,
+    "end": 2062,
+    "matched_to_start": 1187
+   },
+   {
+    "start": 4710,
+    "end": 4824,
+    "matched_to_start": 3110
+   }
+  ]
+ }
+]
