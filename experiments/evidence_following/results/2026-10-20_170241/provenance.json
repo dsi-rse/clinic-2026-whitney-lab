@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-10-20T22:02:41+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": "/home/khyatt/clinic-2026-whitney-lab",
+    "commit": "c78b7d14096871ad97479e5cf1e1a4f8c5379b0f",
+    "branch": "issue8-evidence-following",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "reports": {
+      "path": "/net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl",
+      "sha256": "d0f547d43adc8076e11a821244734c8adb3f4fc0570c0d6d884821b0a220087f"
+    },
+    "curated_passages": {
+      "path": "/home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/inputs/curated_passages.jsonl",
+      "sha256": "0b7087b307fc8a1095d8622200cd21c60524056a10caed0b48333f09d1ef35fb"
+    },
+    "flip_edits": {
+      "path": "/home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/inputs/flip/edits.json",
+      "sha256": "e8fa283e18579f7a2654ecb7586152f67c9d1578e8e89673c6adb722f3c67ffe"
+    },
+    "reword_edits": {
+      "path": "/home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/inputs/reword/edits.json",
+      "sha256": "d4cffb97048eba652be236bfa7484eca0ad5e1071bb8b63716e24c0f6a0ed7c1"
+    }
+  },
+  "runs": {
+    "original": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-09_endometrial_glm53",
+      "records": 376,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false
+    },
+    "control_1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s1_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    },
+    "control_2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s2_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    },
+    "control_3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s3_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    },
+    "flip": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_flip",
+      "records": 9,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "a76778315501bc951a77212b726b812986e58c39f904c20f6d116a3625f30f67",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "a76778315501bc951a77212b726b812986e58c39f904c20f6d116a3625f30f67"
+    },
+    "reword": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_reword",
+      "records": 9,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "99cc2694f56829aa00482269c742c1ff0990bb3b85692da0495b9045370fce95",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "99cc2694f56829aa00482269c742c1ff0990bb3b85692da0495b9045370fce95"
+    }
+  },
+  "command": "experiments/evidence_following/run_experiment.py",
+  "annotations": {
+    "path": "/home/khyatt/clinic-2026-whitney-lab/annotations/endo_myometrial_invasion",
+    "files": 50
+  }
+}
