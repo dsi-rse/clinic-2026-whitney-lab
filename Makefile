@@ -36,3 +36,10 @@ ifndef LABEL
 	$(error LABEL must be set to a new name for this result set)
 endif
 	PYTHONPATH=src python experiments/endometrial_failure_modes/run_experiment.py --run $(RUN) --label $(LABEL)
+
+
+# Run the evidence-following experiment (issue 8) on the original run and its arms.
+# Usage: make evidence-following [LABEL=after-fix] [ARGS="--original <run> ..."]
+# Each run gets a timestamped folder under experiments/evidence_following/results/.
+evidence-following:
+	PYTHONPATH=src python experiments/evidence_following/run_experiment.py $(if $(LABEL),--label $(LABEL)) $(ARGS)

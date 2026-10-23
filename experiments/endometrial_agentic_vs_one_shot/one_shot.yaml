@@ -1,0 +1,39 @@
+# The one_shot arm of the agentic-vs-one_shot experiment.
+#
+# This is config/endometrial.yaml (the agentic arm) with exactly two changes:
+# `mode: one_shot`, and the `one_shot` block. Everything else, including the
+# model, temperature, limits and the 546-patient roster, is identical, so a
+# difference between the two runs comes from the mode and nothing else.
+# Run from the clinic repo root, with OncoTrace on PYTHONPATH.
+# This client config attaches to an existing GLM server with --base-url.
+task: ../../tasks/endo_myometrial_invasion.yaml
+mode: one_shot
+one_shot:
+  # Largest report (in characters) the prompt may carry. The longest report on
+  # the roster is 17,875 characters, and the server's context allows about
+  # 125,000, so 120000 excludes no patient.
+  max_source_chars: 120000
+roster: /net/spaces/annawoodard/oncotrace/data/endometrial/roster_ucec.csv
+roster_column: unit
+
+sources:
+  - name: pathology_report
+    path: /net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
+
+model:
+  served_name: glm-5.3-flash
+  temperature: 0.0
+  top_p: 1.0
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: true
+      reasoning_effort: max
+
+limits:
+  model_calls: 24
+  completion_passes: 2
+  max_completion_tokens: 8192
+  request_timeout_seconds: 1800
+
+retrieval:
+  max_read_chars: 18000

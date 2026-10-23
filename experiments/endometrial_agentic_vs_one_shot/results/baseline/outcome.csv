@@ -1,0 +1,5 @@
+group,patients
+both answered,466
+only agentic answered,37
+only one_shot answered,30
+neither answered,13

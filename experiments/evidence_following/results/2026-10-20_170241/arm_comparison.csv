@@ -1,0 +1,10 @@
+unit,original,control_1,control_2,control_3,control_changes,flip,flip_as_expected,flip_depth_cites_on_edits,reword,reword_as_expected,reword_depth_cites_on_edits
+TCGA-A5-A0G1,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,3/3,answered/present/less_than_50,True,3/4
+TCGA-A5-A0G3,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,3/3,answered/present/less_than_50,True,3/3
+TCGA-A5-A0GB,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,0,answered/present/less_than_50,True,4/4,answered/present/fifty_or_greater,True,3/3
+TCGA-A5-A0GG,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,2/3,answered/present/less_than_50,True,3/4
+TCGA-A5-A0GI,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,3/3,answered/present/less_than_50,True,3/3
+TCGA-A5-A0GM,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,2/3,answered/present/less_than_50,True,4/4
+TCGA-A5-A0R6,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,0,answered/present/less_than_50,True,2/2,answered/present/fifty_or_greater,True,3/3
+TCGA-A5-A2K2,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,answered/present/less_than_50,0,answered/present/fifty_or_greater,True,2/3,answered/present/less_than_50,True,2/2
+TCGA-AJ-A23M,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,answered/present/fifty_or_greater,0,answered/present/less_than_50,True,2/2,answered/present/fifty_or_greater,True,3/3

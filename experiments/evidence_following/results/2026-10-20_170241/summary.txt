@@ -1,0 +1,195 @@
+# Part 1a: answers and citations against the annotations
+Wrote 3 CSV files to /home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/results/2026-10-20_170241
+
+## Field agreement (41 answered of 50)
+                      field  agree  of                  majority_value  majority_baseline
+        myometrial_invasion     38  41                         present                 36
+myometrial_invasion_percent     30  41                    less_than_50                 16
+                depth_basis     21  41 explicit_fraction_or_percentage                 17
+              specimen_type     40  41                    hysterectomy                 40
+       adenomyosis_relation     29  41                   not_mentioned                 26
+
+Percent field where annotation label is present: 28/36
+
+Percent field, annotation (rows) vs run (columns):
+run_myometrial_invasion_percent  (no answer)  fifty_or_greater  less_than_50  not_applicable
+ann_myometrial_invasion_percent                                                             
+cannot_be_determined                       1                 4             6               0
+fifty_or_greater                           1                12             0               0
+less_than_50                               7                 0            16               0
+not_applicable                             0                 0             1               2
+Percent disagreements: TCGA-2E-A9G8, TCGA-5B-A90C, TCGA-5S-A9Q8, TCGA-A5-A0G2, TCGA-A5-A0GA, TCGA-A5-A0GE, TCGA-A5-A0GJ, TCGA-A5-A0GW, TCGA-A5-A1OH, TCGA-A5-A2K4, TCGA-A5-A2K7
+
+## Citation alignment (run depth_evidence/quantified_depth)
+Cites every annotated decisive span: 31/41
+Cites at least one annotated decisive span: 39/41
+Cites none of them (entirely different passages): TCGA-A5-A0GQ, TCGA-A5-A2K4
+Has depth_evidence touching no annotated span of any field: 36/41 patients, 72 of 123 spans
+Annotated decisive span cited as counterevidence: TCGA-A5-A0GQ, TCGA-A5-A0R6, TCGA-A5-A2K4
+Distinct depth_evidence spans per patient: median 3, range 1-5
+Cited any counterevidence: 32/41
+
+## Read before answering (annotated patients)
+Answered without fully reading every decisive span: (none)
+Answered with some decisive span entirely unread: (none)
+
+## Whole-document reading (all run records)
+frac_read_before_first_submit: n=370, median 1.00, min 1.00, read in full 370
+frac_read_total: n=376, median 1.00, min 1.00, read in full 376
+Reads per record: {1: 368, 2: 5, 3: 1, 4: 2}
+Records using search: 17
+Status: {'answered': 345, 'no_answer': 31}
+No-answer annotated patients: TCGA-A5-A0GD, TCGA-A5-A0GR, TCGA-A5-A0GU, TCGA-A5-A0GX, TCGA-A5-A0R7, TCGA-A5-A0R9, TCGA-A5-A1OK, TCGA-A5-A3LO, TCGA-A5-A7WJ
+
+# Part 1b: no-answer triage and refusals
+wrote 31 rows to /home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/results/2026-10-20_170241/no_answer_triage.csv
+wrote 376 rows to /home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/results/2026-10-20_170241/refusals_run.csv
+
+== no_answer triage (31 patients) ==
+triage_class  triage_subtype   
+b             argument_garbled     12
+              blank_list_entry      1
+              citation              4
+              citations_missing     3
+              contract              2
+d             truncation            9
+        unit triage_class    triage_subtype confidence  annotated                                                                                                                    why
+TCGA-A5-A0GD            b citations_missing     medium       True              evidence_citations_missing loop: calls 5-24 (20 calls, 6 distinct token counts); all groups arrived empty
+TCGA-A5-A0GR            d        truncation       high       True                                                                3 tool-less replies at the token cap, before any submit
+TCGA-A5-A0GU            b  argument_garbled       high       True               citation_quote_not_found loop: calls 3-24 (22 calls, 4 distinct token counts); refused quotes are 1 char
+TCGA-A5-A0GX            b citations_missing     medium       True              evidence_citations_missing loop: calls 3-24 (22 calls, 4 distinct token counts); all groups arrived empty
+TCGA-A5-A0R7            b  blank_list_entry     medium       True              empty_unresolved_conflicts loop: calls 4-24 (21 calls, 6 distinct token counts); blank list entry refused
+TCGA-A5-A0R9            b citations_missing     medium       True              evidence_citations_missing loop: calls 9-24 (16 calls, 2 distinct token counts); all groups arrived empty
+TCGA-A5-A1OK            b  argument_garbled       high       True            citation_document_ambiguous loop: calls 7-24 (18 calls, 3 distinct token counts); refused quotes are 1 char
+TCGA-A5-A3LO            b          citation       high       True                                          citation_quote_not_found loop: calls 4-24 (21 calls, 6 distinct token counts)
+TCGA-A5-A7WJ            b  argument_garbled       high       True               citation_quote_not_found loop: calls 6-24 (19 calls, 2 distinct token counts); refused quotes are 1 char
+TCGA-AP-A05H            b          citation       high      False                                          citation_quote_not_found loop: calls 4-24 (21 calls, 4 distinct token counts)
+TCGA-AP-A0LV            b  argument_garbled       high      False               citation_quote_not_found loop: calls 3-24 (22 calls, 6 distinct token counts); refused quotes are 1 char
+TCGA-AP-A1E1            d        truncation       high      False                                                                3 tool-less replies at the token cap, before any submit
+TCGA-AP-A3K1            b  argument_garbled       high      False               citation_quote_not_found loop: calls 5-24 (20 calls, 2 distinct token counts); refused quotes are 1 char
+TCGA-AX-A06J            b          contract       high      False                                         quantified_basis_uncited loop: calls 14-24 (11 calls, 2 distinct token counts)
+TCGA-AX-A0J0            d        truncation       high      False                                                                3 tool-less replies at the token cap, before any submit
+TCGA-AX-A0J1            b  argument_garbled       high      False specimen_type_not_allowed loop: calls 3-24 (22 calls, 4 distinct token counts); reasoning states a valid specimen_type
+TCGA-AX-A1C4            d        truncation       high      False                                                            3 tool-less replies at the token cap, after refused submits
+TCGA-AX-A1C7            d        truncation       high      False                                                                3 tool-less replies at the token cap, before any submit
+TCGA-AX-A1C8            d        truncation       high      False                                                            3 tool-less replies at the token cap, after refused submits
+TCGA-AX-A1C9            b  argument_garbled       high      False               citation_quote_not_found loop: calls 3-24 (22 calls, 3 distinct token counts); refused quotes are 1 char
+TCGA-AX-A1CA            d        truncation       high      False                                                                3 tool-less replies at the token cap, before any submit
+TCGA-AX-A1CI            b  argument_garbled       high      False               citation_quote_not_found loop: calls 6-24 (19 calls, 2 distinct token counts); refused quotes are 1 char
+TCGA-AX-A1CK            b  argument_garbled       high      False               citation_quote_not_found loop: calls 8-24 (17 calls, 2 distinct token counts); refused quotes are 1 char
+TCGA-B5-A0K4            b          citation       high      False                                         citation_quote_ambiguous loop: calls 11-24 (14 calls, 1 distinct token counts)
+TCGA-B5-A1MV            b          citation       high      False                                         citation_quote_not_found loop: calls 13-24 (12 calls, 1 distinct token counts)
+TCGA-BG-A0M8            b          contract       high      False                                  quantified_depth_not_classified loop: calls 13-24 (12 calls, 2 distinct token counts)
+TCGA-BG-A0VT            b  argument_garbled       high      False              citation_quote_not_found loop: calls 11-24 (14 calls, 1 distinct token counts); refused quotes are 1 char
+TCGA-BS-A0TG            d        truncation       high      False                                                                3 tool-less replies at the token cap, before any submit
+TCGA-BS-A0TI            b  argument_garbled       high      False               citation_quote_not_found loop: calls 3-24 (22 calls, 5 distinct token counts); refused quotes are 1 char
+TCGA-D1-A165            b  argument_garbled       high      False               citation_quote_not_found loop: calls 6-24 (19 calls, 2 distinct token counts); refused quotes are 1 char
+TCGA-D1-A168            d        truncation       high      False                                                            3 tool-less replies at the token cap, after refused submits
+
+== answer changes: 221 answered patients had their first submit refused ==
+myometrial_invasion: changed in 0 of 193 with a stated first value (none)
+myometrial_invasion_percent: changed in 0 of 204 with a stated first value (none)
+depth_basis: changed in 0 of 204 with a stated first value (none)
+  check, first submit accepted: stated myometrial_invasion differs from the answer in 0 of 106 (extraction error rate)
+  check, first submit accepted: stated myometrial_invasion_percent differs from the answer in 0 of 114 (extraction error rate)
+  check, first submit accepted: stated depth_basis differs from the answer in 1 of 115 (extraction error rate)
+
+== quantified_depth_not_classified (qdnc) ==
+patients refused at least once: 196 of 376
+          patients  final_quantified_empty  final_explicit_basis
+hit_qdnc                                                        
+False          157                      38                   115
+True           188                       2                   175
+
+== annotated vs other patients ==
+           patients  no_answer  median_chars  median_calls
+annotated                                                 
+False           326         22        5385.5           4.0
+True             50          9        9479.5           4.0
+
+no_answer by report length:
+                           size  sum
+length_bin      annotated           
+(0, 5000]       False       148   11
+                True          1    0
+(5000, 8000]    False       112    5
+                True         14    2
+(8000, 12000]   False        55    4
+                True         20    3
+(12000, 100000] False        11    2
+                True         15    4
+
+no_answer by tissue source site (first ID block):
+      size  sum
+site           
+AX      67   10
+B5      59    2
+A5      45    9
+AP      45    4
+BG      44    2
+D1      39    2
+AJ      36    0
+BS      25    2
+BK      11    0
+4E       1    0
+
+# Part 1c: depth-evidence inventory and edit candidates
+28 candidates, 28 inventoried
+reference_percent  fifty_or_greater  less_than_50
+classification                                   
+conflicting                       3             0
+redundant                         9            15
+single_decisive                   0             1
+stage is the only redundant source: 3 | stage present: 20
+
+Percent-flip candidates (lower score is better)
+  fifty_or_greater: TCGA-A5-A0GQ (2.5), TCGA-AJ-A23M (2.5), TCGA-A5-A0R6 (2.6), TCGA-A5-A0GB (4.3), TCGA-A5-A0G9 (5.4)
+  less_than_50: TCGA-A5-A0GG (2.1), TCGA-A5-A2K2 (2.7), TCGA-A5-A0G3 (2.8), TCGA-A5-A0G1 (2.9), TCGA-A5-A0GI (3.2)
+
+Remove-all-evidence candidates (lower score is better)
+  fifty_or_greater: TCGA-A5-A0GQ (3.5), TCGA-A5-A0R6 (3.6), TCGA-AJ-A23M (4.5), TCGA-A5-A0GB (9.3), TCGA-A5-A0G5 (9.6)
+  less_than_50: TCGA-A5-A0GI (3.2), TCGA-A5-A0G1 (3.9), TCGA-A5-A0GM (4.1), TCGA-A5-A0GG (4.1), TCGA-A5-A0GP (4.5)
+
+Wrote evidence_inventory.json and edit_candidates.csv to /home/khyatt/clinic-2026-whitney-lab/experiments/evidence_following/results/2026-10-20_170241
+
+# Part 2: original run vs reruns vs edit arms
+        unit                          original                             control_1                         control_2                         control_3  distinct_answers  n_answered
+TCGA-2E-A9G8     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-5B-A90C     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-5S-A9Q8     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0G1     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0G2 answered/present/fifty_or_greater answered/present/cannot_be_determined answered/present/fifty_or_greater answered/present/fifty_or_greater                 2           4
+TCGA-A5-A0G3     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0GA     answered/present/less_than_50                   no_answer/None/None     answered/present/less_than_50     answered/present/less_than_50                 1           3
+TCGA-A5-A0GB answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+TCGA-A5-A0GE     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50               no_answer/None/None                 1           3
+TCGA-A5-A0GG     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0GH     answered/present/less_than_50         answered/present/less_than_50               no_answer/None/None     answered/present/less_than_50                 1           3
+TCGA-A5-A0GI     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0GJ     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0GM     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0GP     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50               no_answer/None/None                 1           3
+TCGA-A5-A0GQ answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+TCGA-A5-A0GW     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A0R6 answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+TCGA-A5-A1OH answered/present/fifty_or_greater     answered/present/fifty_or_greater               no_answer/None/None answered/present/fifty_or_greater                 1           3
+TCGA-A5-A2K2     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-A5-A2K4 answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+TCGA-A5-A2K7 answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+TCGA-A5-AB3J     answered/present/less_than_50         answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                 1           4
+TCGA-AJ-A23M answered/present/fifty_or_greater     answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                 1           4
+
+patients with more than one distinct answer: 1 of 24
+
+        unit                          original                         control_1                         control_2                         control_3  control_changes                              flip  flip_as_expected flip_depth_cites_on_edits                            reword  reword_as_expected reword_depth_cites_on_edits
+TCGA-A5-A0G1     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       3/3     answered/present/less_than_50                True                         3/4
+TCGA-A5-A0G3     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       3/3     answered/present/less_than_50                True                         3/3
+TCGA-A5-A0GB answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                0     answered/present/less_than_50              True                       4/4 answered/present/fifty_or_greater                True                         3/3
+TCGA-A5-A0GG     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       2/3     answered/present/less_than_50                True                         3/4
+TCGA-A5-A0GI     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       3/3     answered/present/less_than_50                True                         3/3
+TCGA-A5-A0GM     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       2/3     answered/present/less_than_50                True                         4/4
+TCGA-A5-A0R6 answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                0     answered/present/less_than_50              True                       2/2 answered/present/fifty_or_greater                True                         3/3
+TCGA-A5-A2K2     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50     answered/present/less_than_50                0 answered/present/fifty_or_greater              True                       2/3     answered/present/less_than_50                True                         2/2
+TCGA-AJ-A23M answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater answered/present/fifty_or_greater                0     answered/present/less_than_50              True                       2/2 answered/present/fifty_or_greater                True                         3/3
+flip: 9 of 9 patients answered as expected
+reword: 9 of 9 patients answered as expected
