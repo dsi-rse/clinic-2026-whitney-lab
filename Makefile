@@ -43,3 +43,8 @@ endif
 # Each run gets a timestamped folder under experiments/evidence_following/results/.
 evidence-following:
 	PYTHONPATH=src python experiments/evidence_following/run_experiment.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
+
+# Build the annotation-only tables for the unresolved_conflicts investigation (issue 15).
+# Usage: make unresolved-conflicts
+unresolved-conflicts:
+	PYTHONPATH=src python experiments/unresolved_conflicts/annotation_tables.py
