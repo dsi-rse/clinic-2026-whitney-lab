@@ -1,0 +1,5 @@
+arm,scored,correct,wrong,over_committed,abstained,coverage,accuracy,accuracy_if_answered
+agentic,50,37,0,12,1,0.980,0.740,0.755
+one_shot,50,34,0,12,4,0.920,0.680,0.739
+always 'less_than_50',50,23,27,0,0,1.000,0.460,0.460
+only agentic correct / only one_shot correct,4,1,,,,,,McNemar exact p=0.375
