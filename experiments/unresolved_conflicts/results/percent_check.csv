@@ -1,0 +1,16 @@
+patient,percents_found,worst_case_bucket,percent,matches_worst_case,has_note
+TCGA-A5-A0G5,80,fifty_or_greater,fifty_or_greater,True,False
+TCGA-A5-A0G9,70;70;70,fifty_or_greater,fifty_or_greater,True,False
+TCGA-A5-A0GA,46;46,less_than_50,cannot_be_determined,False,True
+TCGA-A5-A0GD,25,less_than_50,less_than_50,True,False
+TCGA-A5-A0GM,50,fifty_or_greater,less_than_50,False,False
+TCGA-A5-A0GN,56;56,fifty_or_greater,fifty_or_greater,True,False
+TCGA-A5-A0GP,33;33;33,less_than_50,less_than_50,True,False
+TCGA-A5-A0GW,7;7,less_than_50,cannot_be_determined,False,True
+TCGA-A5-A0R7,40,less_than_50,less_than_50,True,False
+TCGA-A5-A0RA,80;80,fifty_or_greater,fifty_or_greater,True,False
+TCGA-A5-A0VQ,36,less_than_50,less_than_50,True,False
+TCGA-A5-A1OG,70,fifty_or_greater,fifty_or_greater,True,False
+TCGA-A5-A2K7,50;50;100;100,fifty_or_greater,cannot_be_determined,False,False
+TCGA-A5-A3LO,75,fifty_or_greater,fifty_or_greater,True,False
+TCGA-AJ-A23M,91,fifty_or_greater,fifty_or_greater,True,True

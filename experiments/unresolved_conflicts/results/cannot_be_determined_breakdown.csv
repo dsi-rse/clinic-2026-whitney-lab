@@ -1,0 +1,8 @@
+depth_basis,n_percents_found,patients,ids
+descriptive_full_thickness,0,2,"TCGA-A5-A1OH, TCGA-A5-A1OK"
+descriptive_other,0,1,TCGA-A5-A2K4
+descriptive_other,2,1,TCGA-A5-A0GW
+explicit_fraction_or_percentage,0,4,"TCGA-2E-A9G8, TCGA-5B-A90C, TCGA-5S-A9Q8, TCGA-A5-A0G2"
+explicit_fraction_or_percentage,2,1,TCGA-A5-A0GA
+explicit_fraction_or_percentage,4,1,TCGA-A5-A2K7
+none_stated,0,1,TCGA-A5-A0GE
