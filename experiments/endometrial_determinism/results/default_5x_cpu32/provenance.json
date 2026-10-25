@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-25T20:47:48+00:00",
+  "runs": [
+    "/net/spaces/scratch/yuxuang-oncotrace/runs/determinism_cpu32/rep1",
+    "/net/spaces/scratch/yuxuang-oncotrace/runs/determinism_cpu32/rep2",
+    "/net/spaces/scratch/yuxuang-oncotrace/runs/determinism_cpu32/rep3",
+    "/net/spaces/scratch/yuxuang-oncotrace/runs/determinism_cpu32/rep4",
+    "/net/spaces/scratch/yuxuang-oncotrace/runs/determinism_cpu32/rep5"
+  ],
+  "patients_compared": 50,
+  "oncotrace_commit": "f99cefd3e3c30adcffd421cee33e2e1eb27947b1",
+  "clinic_commit": "7210a16e05399c8ed3f28efc832be04a87d5c6ce"
+}
