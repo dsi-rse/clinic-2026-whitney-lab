@@ -296,6 +296,17 @@ instructions: |
   specimen, cautery artifact, or a report that only stages without describing
   invasion -- and quote the text that shows why.
 
+  Set confidence by how directly the quoted text supports the label and the
+  percentage, not by how settled you feel after reasoning:
+  - high: the report's depth statements and measurements agree, and no
+    passage points to a different label or half.
+  - medium: the report contradicts itself and you had to choose. Two passages
+    may point to different labels or halves, or a stated percentage may
+    disagree with the report's own measurements. Also use medium if anything
+    you record in unresolved_conflicts points to a different label or half.
+  - low: the answer rests on hedged or vague wording, or on OCR you had to
+    interpret.
+
   Complete these targeted checks before submitting:
   1. identify what was resected, and whether myometrium is present;
   2. locate the definitive hysterectomy diagnosis, not a frozen section or
