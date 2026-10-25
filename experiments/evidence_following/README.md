@@ -36,7 +36,9 @@ evidence_inventory.py         Part 1: depth passages per report, and which patie
 compare_arms.py               Part 2: each patient's answer across the original run, reruns and edit arms
 report_edits.py               Part 2 setup: builds an arm's edited reports from a hand-written spec
 check_traceview_citations.py  separate check that citations highlight the right words in TraceView
-configs/<arm>.yaml            OncoTrace run configs for the control, flip and reword arms
+compare_contracts.py          issue 13: compares two task contracts on the original and edited reports
+configs/<arm>.yaml            OncoTrace run configs for the control, flip and reword arms (issue13_*: issue 13)
+tasks/                        issue 13: the test copy of the task contract with a confidence rubric
 inputs/                       text-free inputs: curated passages, rosters, edit manifests, checksums
 results/<timestamp>/          one folder per run of the experiment, with a README of its findings
 ```
@@ -131,10 +133,23 @@ Answers can differ a little from run to run (1 in 67 in our reruns), so compare 
 
 **Every new results folder** gets a `README.md` with what it was made from. Write its key findings in your own words before committing it.
 
+## Issue 13 follow-up: is the model overconfident?
+
+Results: [`results/2026-10-24_issue13/`](results/2026-10-24_issue13/README.md).
+
+The same 24 control patients were run under two prompts on one server (oncotrace `fc3dadc`, with the #6 fix). B is the shared task, and C is [`tasks/endo_myometrial_invasion_calibrated.yaml`](tasks/endo_myometrial_invasion_calibrated.yaml). C adds a `cannot_be_determined` rule and a definition of each confidence level. Three edit sets of 9 patients were also run: every depth statement deleted (`remove`), unrelated text deleted (`remove_control`), and depth rewritten as boundary or vague wording (`hedge`). Expected answers were written before the runs, in [`inputs/expected_issue13.csv`](inputs/expected_issue13.csv).
+
+The edited reports are built the same way as the flip arm, with `report_edits.py apply --arm remove|remove_control|hedge --inputs /net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs`. The specs and edited reports are in `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/`. To analyse the runs:
+
+```bash
+PYTHONPATH=src python experiments/evidence_following/compare_contracts.py \
+    --out experiments/evidence_following/results/<folder>
+```
+
 ## Next
 
-1. **Removal experiment:** delete all depth evidence versus delete unrelated text of the same length. The contract's expected answer is `cannot_be_determined`, which directly tests the over-commitment above. Candidates and controls are already chosen (`evidence_inventory.json`).
-2. **Rerun with the #6 fix:** rerun the patients affected by #5 with the fix, and raise `max_completion_tokens` to 16384.
+1. **Removal experiment:** done in the issue 13 follow-up above.
+2. **Rerun with the #6 fix:** the issue 13 runs use the fix and `max_completion_tokens` 16384 (102/102 answered); the full roster has not been rerun.
 3. **Open questions for the mentor:**
    - Should a stage that names no edition read pT1b as AJCC 6th (`<50`) or 7th (`≥50`)?
    - Is a stage-only report `cannot_be_determined`, including when only pT2 remains?

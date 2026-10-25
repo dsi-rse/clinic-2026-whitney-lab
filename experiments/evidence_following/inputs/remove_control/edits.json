@@ -1,0 +1,282 @@
+[
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 988,
+  "end": 1121,
+  "new_start": 988,
+  "new_end": 988,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 6935,
+  "end": 6984,
+  "new_start": 6802,
+  "new_end": 6802,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 7059,
+  "end": 7110,
+  "new_start": 6877,
+  "new_end": 6877,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 1477,
+  "end": 1603,
+  "new_start": 1477,
+  "new_end": 1477,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 2098,
+  "end": 2163,
+  "new_start": 1972,
+  "new_end": 1972,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 8081,
+  "end": 8125,
+  "new_start": 7890,
+  "new_end": 7890,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 827,
+  "end": 866,
+  "new_start": 827,
+  "new_end": 827,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 928,
+  "end": 1038,
+  "new_start": 889,
+  "new_end": 889,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 1229,
+  "end": 1308,
+  "new_start": 1080,
+  "new_end": 1080,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 3954,
+  "end": 4077,
+  "new_start": 3726,
+  "new_end": 3726,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 7745,
+  "end": 7874,
+  "new_start": 7745,
+  "new_end": 7745,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 8046,
+  "end": 8151,
+  "new_start": 7917,
+  "new_end": 7917,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 2074,
+  "end": 2211,
+  "new_start": 2074,
+  "new_end": 2074,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 7534,
+  "end": 7646,
+  "new_start": 7397,
+  "new_end": 7397,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 440,
+  "end": 484,
+  "new_start": 440,
+  "new_end": 440,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 853,
+  "end": 964,
+  "new_start": 809,
+  "new_end": 809,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 1306,
+  "end": 1432,
+  "new_start": 1151,
+  "new_end": 1151,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 3064,
+  "end": 3122,
+  "new_start": 2783,
+  "new_end": 2783,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 457,
+  "end": 503,
+  "new_start": 457,
+  "new_end": 457,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 1196,
+  "end": 1276,
+  "new_start": 1150,
+  "new_end": 1150,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 3189,
+  "end": 3276,
+  "new_start": 3063,
+  "new_end": 3063,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 296,
+  "end": 370,
+  "new_start": 296,
+  "new_end": 296,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 1665,
+  "end": 1684,
+  "new_start": 1591,
+  "new_end": 1591,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 3609,
+  "end": 3668,
+  "new_start": 3516,
+  "new_end": 3516,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 4497,
+  "end": 4659,
+  "new_start": 4497,
+  "new_end": 4497,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 4972,
+  "end": 5020,
+  "new_start": 4810,
+  "new_end": 4810,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 11561,
+  "end": 11662,
+  "new_start": 11351,
+  "new_end": 11351,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove_control",
+  "category": "unrelated_control",
+  "start": 11707,
+  "end": 11887,
+  "new_start": 11396,
+  "new_end": 11396,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ }
+]
