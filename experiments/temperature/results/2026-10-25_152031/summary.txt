@@ -1,0 +1,14 @@
+## Per run (50 annotated patients)
+  run  records  answered  invasion_agree  depth_agree  depth_cbd  calls_mean  calls_median  calls_max  calls_8plus  tokens_mean  tokens_per_call  high  medium  low
+   t0       50        50              47           38          0         4.1           4.0         11            1         7005             1692    47       3    0
+t1_r1       50        50              47           37          0         5.2           4.0         22            8        10838             2084    46       4    0
+t1_r2       50        50              47           38          0         4.8           4.0         15            5        10158             2116    48       2    0
+t1_r3       50        50              47           38          0         4.7           4.0         17            6        10333             2217    49       1    0
+
+## Answer changes between repeats
+setting  repeats  patients_in_all  answer_changed  answered_sometimes  changed_ids
+     t1        3               50               1                   0 TCGA-A5-A0GR
+
+## Calls and tokens against t0, per patient
+setting  patients  more_calls  fewer_calls  same_calls  more_tokens  median_token_ratio
+     t1        50          30           13           7           36                1.21

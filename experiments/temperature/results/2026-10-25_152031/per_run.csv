@@ -1,0 +1,5 @@
+run,records,answered,invasion_agree,depth_agree,depth_cbd,calls_mean,calls_median,calls_max,calls_8plus,tokens_mean,tokens_per_call,high,medium,low
+t0,50,50,47,38,0,4.1,4.0,11,1,7005,1692,47,3,0
+t1_r1,50,50,47,37,0,5.2,4.0,22,8,10838,2084,46,4,0
+t1_r2,50,50,47,38,0,4.8,4.0,15,5,10158,2116,48,2,0
+t1_r3,50,50,47,38,0,4.7,4.0,17,6,10333,2217,49,1,0

@@ -4,7 +4,7 @@
 
 **Why it matters:** if temperature 1.0 were more accurate, or made the model abstain on ambiguous reports (#13), every experiment should move to it. If it changes nothing, temperature 0 stays the default, and over-commitment has to be fixed some other way.
 
-**Short answer (results: [`results/<timestamp>/`](results/)):**
+**Short answer (results: [`results/2026-10-25_152031/`](results/2026-10-25_152031/README.md)):**
 - **Accuracy and confidence did not change.** Invasion agreed with the annotations in 47/50 patients in every run, and depth in 38/50 (37 in one T1 repeat). Confidence was `high` in 46–49 of 50 at both settings.
 - **Temperature 1.0 costs more.** The median stays at 4 model calls, but the mean rises from 4.1 to 4.7–5.2, and the longest patient goes from 11 to 15–22 calls. Completion tokens rise about 20% per patient (median).
 - **Over-commitment is not a sampling effect.** The 11 #13 patients the annotations leave undetermined got the same definite depth answer in all 4 runs. T1 never answered `cannot_be_determined` (0 of 150).

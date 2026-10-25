@@ -1,0 +1,87 @@
+{
+  "created_utc": "2026-10-25T20:20:42+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": "/home/khyatt/clinic-2026-whitney-lab",
+    "commit": "bc02dc936bdb8f78603e82fdd2e370afde2a291e",
+    "branch": "temperature-test",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "roster": {
+      "path": "/home/khyatt/clinic-2026-whitney-lab/experiments/temperature/inputs/roster.csv",
+      "sha256": "b9ea644bd89d866f2a5755ce3eda699a23d8d70539499b8731a8d22e1d27b447"
+    }
+  },
+  "runs": {
+    "t0": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_temperature_t0",
+      "records": 50,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "c0be2b02d7566656617109f105ddc27db67772870f6d23a97e473173b458c7ba",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "c0be2b02d7566656617109f105ddc27db67772870f6d23a97e473173b458c7ba"
+    },
+    "t1_r1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_temperature_t1_r1",
+      "records": 50,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 1.0,
+      "run_config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0"
+    },
+    "t1_r2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_temperature_t1_r2",
+      "records": 50,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 1.0,
+      "run_config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0"
+    },
+    "t1_r3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_temperature_t1_r3",
+      "records": 50,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 1.0,
+      "run_config_sha256": "878b18e6760088e1b7e921772c5475af60bb0fdbe754c6f99adc7f5449f872a0"
+    }
+  },
+  "command": "experiments/temperature/compare_temperature.py",
+  "annotations": {
+    "path": "/home/khyatt/clinic-2026-whitney-lab/annotations/endo_myometrial_invasion",
+    "files": 50
+  }
+}
