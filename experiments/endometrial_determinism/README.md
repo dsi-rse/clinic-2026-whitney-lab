@@ -74,6 +74,38 @@ share one server.
   `cannot_be_determined`; this is not read as model error.
 - **Not tested yet:** the controls below, so the source of the variation is not identified.
 
+**Per run** (50 patients each; `results/default_5x_cpu32/runs.csv`)
+
+| run | answered | model calls | completion tokens | rejected submissions | cut-off replies (patients) |
+|---|---|---|---|---|---|
+| rep1 | 50 / 50 | 266 | 565,024 | 120 | 26 (21) |
+| rep2 | 50 / 50 | 226 | 408,548 | 72 | 11 (8) |
+| rep3 | 50 / 50 | 224 | 373,984 | 78 | 11 (8) |
+| rep4 | 50 / 50 | 206 | 363,849 | 59 | 7 (5) |
+| rep5 | 50 / 50 | 221 | 383,190 | 82 | 14 (11) |
+
+**Per patient, over the five runs** (`spread.csv`, `divergence.csv`)
+
+| measure | identical in all 5 runs | mean SD per patient | largest range |
+|---|---|---|---|
+| invasion and depth outcome | 49 / 50 | | |
+| model calls | 6 / 50 | 1.3 | 15 |
+| completion tokens | 0 / 50 | 4,138 | 50,831 |
+| rejected submissions | 7 / 50 | 1.5 | 14 |
+| first reply (usually a short tool call) | 20 / 50 | | |
+| first long reasoning reply (over 1000 tokens) | 0 / 50 | | |
+
+**Agreement with the annotations** (`annotation_agreement.csv`)
+
+| field | rep1 | rep2 | rep3 | rep4 | rep5 |
+|---|---|---|---|---|---|
+| invasion, agrees (of 50) | 47 | 47 | 47 | 47 | 47 |
+| depth, agrees (of 50) | 38 | 37 | 38 | 38 | 38 |
+| depth, over-committed (of 50) | 12 | 12 | 12 | 12 | 12 |
+
+"Over-committed" means an answer where the annotation is `not_applicable` or `cannot_be_determined`.
+There is no figure; every number comes from the tables in `results/default_5x_cpu32/`.
+
 ## Known pitfalls
 
 - **Keep 32 CPUs.** With 16 the server generated 25 to 50 tokens/s, against about 127 with 32
