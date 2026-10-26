@@ -1,0 +1,6 @@
+run,patients,no_answer,"A: reply cut off at the token cap, no submission",B: stuck resending the same reply after the same rejection,C: call limit used up without a clear loop,D: other
+rep1,50,0,0,0,0,0
+rep2,50,0,0,0,0,0
+rep3,50,0,0,0,0,0
+rep4,50,0,0,0,0,0
+rep5,50,0,0,0,0,0
