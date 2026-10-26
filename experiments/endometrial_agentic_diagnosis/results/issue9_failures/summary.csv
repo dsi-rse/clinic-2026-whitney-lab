@@ -1,0 +1,3 @@
+run,patients,no_answer,"A: reply cut off at the token cap, no submission",B: stuck resending the same reply after the same rejection,C: call limit used up without a clear loop,D: other
+agentic,546,43,17,26,0,0
+one_shot,546,50,31,19,0,0
