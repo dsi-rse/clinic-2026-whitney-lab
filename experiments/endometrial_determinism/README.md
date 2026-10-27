@@ -42,6 +42,46 @@ python experiments/endometrial_determinism/analyze_repeats.py \
 and OncoTrace reason codes are written, never report text. Use `--runs A B ...` to compare
 any runs instead of `rep*` folders.
 
+## Rerun the tables from the five runs in this PR
+
+The five runs (records, job logs and the server log of the second server start) are in the
+shared workspace, readable by the `__oncotrace` group:
+
+`/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/`
+
+They contain protected report text, so they stay there and are not committed. The tables
+in `results/default_5x_cpu32/` were made with:
+
+```bash
+RUNS=/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x
+python experiments/endometrial_determinism/analyze_repeats.py \
+  --reps-dir $RUNS --label default_5x_rerun \
+  --job 2239457 --job 2244400 \
+  --job-log $RUNS/job_logs/determinism-2239457.out \
+  --job-log $RUNS/job_logs/determinism-2244400.out \
+  --server-log $RUNS/server.log \
+  --oncotrace /path/to/oncotrace-checkout-at-f99cefd
+```
+
+**Requirements.** Python 3.12 with `httpx`, `pyyaml` and `pydantic` installed (the scoring code
+of OncoTrace imports them). The script imports TraceView's `viewer/scoring.py` from the
+OncoTrace checkout you pass, so use OncoTrace commit
+`f99cefd3e3c30adcffd421cee33e2e1eb27947b1`, the commit the five runs used.
+
+**What `provenance.json` records.**
+- `code_that_ran`: the OncoTrace commit and task contract digest that the 250 records say they
+  ran with (this is the code that ran, read from the records).
+- `analysis_oncotrace_checkout` and `analysis_clinic_checkout`: the checkouts the analysis was
+  run from, with a flag for uncommitted changes. They are not what the jobs ran.
+- `slurm_jobs`: job ids, state, time window and node (from `sacct`), and how many records of
+  each repeat a job wrote. Repeat 2 was written by both jobs (12 patients by the first, 38 by
+  the second), because the first job reached its time limit. A record does not name its job,
+  so this is read from the record file times.
+- `logged_by_jobs`: the config digest, task digest and serving image fingerprint each job
+  wrote in its own log.
+- `server_log`: checkpoint, seed, precision and caching from the server log. Only the second
+  server start has a log; the first one was overwritten when the second job started.
+
 ## What the tables measure
 
 - **Unstable patients:** patients whose outcome (invasion and depth, or no answer) is not
@@ -49,6 +89,8 @@ any runs instead of `rep*` folders.
   patient was only answered in some runs.
 - **Spread:** for the same patient, how much calls, completion tokens and rejected
   submissions differ between runs.
+- **Cut-off replies:** replies the server stopped at the reply token cap (finish reason
+  `length`), how many patients had one, and their share of the completion tokens (`runs.csv`).
 - **Where the runs first differ:** whether the first reply, and the first long reasoning
   reply, are identical across runs.
 

@@ -16,6 +16,7 @@ Example:
 import argparse
 import csv
 import json
+import re
 import shutil
 import statistics
 import subprocess
@@ -70,6 +71,106 @@ def git_commit(repo: Path) -> str:
     return done.stdout.strip() if done.returncode == 0 else "unknown"
 
 
+def git_state(repo: Path) -> dict[str, Any]:
+    """The commit a repository is at and whether it has uncommitted changes."""
+    git = shutil.which("git")
+    if git is None or not repo.is_dir():
+        return {"commit": "unknown", "uncommitted_changes": None}
+    done = subprocess.run(  # noqa: S603 - fixed read-only git arguments
+        [git, "-C", str(repo), "status", "--porcelain", "--untracked-files=no"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    changed = bool(done.stdout.strip()) if done.returncode == 0 else None
+    return {"commit": git_commit(repo), "uncommitted_changes": changed}
+
+
+def record_contracts(runs: list[dict[str, dict]]) -> list[dict[str, str]]:
+    """The code commit and task digest the records themselves say they ran with."""
+    found = {
+        (r["contract"]["commit"], r["contract"]["digest"])
+        for run in runs
+        for r in run.values()
+    }
+    return [
+        {"oncotrace_commit": c, "task_contract_digest": d} for c, d in sorted(found)
+    ]
+
+
+def slurm_jobs(job_ids: list[str], folders: list[Path]) -> list[dict[str, Any]]:
+    """Each Slurm job's state, time window and node, and how many records it wrote.
+
+    A record belongs to the job whose time window holds the record file's
+    modification time, because a repeat that is resumed by a second job leaves
+    nothing inside the record that names the job.
+    """
+    sacct = shutil.which("sacct")
+    jobs = []
+    for job in job_ids:
+        info: dict[str, Any] = {"job_id": job}
+        done = (
+            subprocess.run(  # noqa: S603 - fixed read-only sacct arguments
+                [sacct, "-j", job, "-X", "-n", "-P", "-o", "State,Start,End,NodeList"],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if sacct
+            else None
+        )
+        if done is not None and done.returncode == 0 and done.stdout.strip():
+            state, start, end, node = done.stdout.strip().splitlines()[0].split("|")
+            info |= {"state": state, "start": start, "end": end, "node": node}
+            first, last = datetime.fromisoformat(start), datetime.fromisoformat(end)
+            info["records_written"] = {
+                folder.name: sum(
+                    first <= datetime.fromtimestamp(p.stat().st_mtime) <= last  # noqa: DTZ006 - sacct times are local
+                    for p in (folder / "units").glob("*.json")
+                )
+                for folder in folders
+            }
+        jobs.append(info)
+    return jobs
+
+
+def logged_by_jobs(logs: list[Path]) -> list[dict[str, str | None]]:
+    """The config digest, task digest and serving image a job wrote in its own log."""
+    patterns = {
+        "config_sha256": r'"config_sha256": "([0-9a-f]+)"',
+        "task_contract_digest": r'"contract": "([0-9a-f]+)"',
+        "serving_image_fingerprint": r"serving image fingerprint: ([0-9a-f]+)",
+    }
+    found = []
+    for log in logs:
+        text = log.read_text(encoding="utf-8", errors="replace")
+        entry: dict[str, str | None] = {"log": log.name}
+        for key, pattern in patterns.items():
+            match = re.search(pattern, text)
+            entry[key] = match.group(1) if match else None
+        found.append(entry)
+    return found
+
+
+def server_settings(log: Path) -> dict[str, str | None]:
+    """Checkpoint and runtime settings that one vLLM server wrote in its start-up log."""
+    text = log.read_text(encoding="utf-8", errors="replace")
+    patterns = {
+        "model_checkpoint": r"'model_tag': '([^']+)'",
+        "seed": r"\bseed=(\d+)",
+        "quantization": r"quantization=(\w+)",
+        "dtype": r"dtype=(torch\.\w+)",
+        "prefix_caching": r"enable_prefix_caching=(\w+)",
+        "chunked_prefill": r"enable_chunked_prefill=(\w+)",
+        "first_log_line_time": r"(\d\d-\d\d \d\d:\d\d:\d\d)",
+    }
+    out: dict[str, str | None] = {"log": log.name}
+    for key, pattern in patterns.items():
+        match = re.search(pattern, text)
+        out[key] = match.group(1) if match else None
+    return out
+
+
 def load_run(run_dir: Path) -> dict[str, dict[str, Any]]:
     """Read every finished unit record of one run, by patient."""
     records = {}
@@ -94,6 +195,14 @@ def replies(record: dict[str, Any]) -> list[dict[str, Any]]:
 def completion_tokens(record: dict[str, Any]) -> int:
     """Completion tokens the server reported, summed over every reply."""
     return sum(e.get("completion_tokens") or 0 for e in replies(record))
+
+
+CUT_OFF_REASON = "length"  # the server stopped the reply at the reply token cap
+
+
+def cut_off_replies(record: dict[str, Any]) -> list[dict[str, Any]]:
+    """The replies the server stopped at the reply token cap."""
+    return [e for e in replies(record) if e.get("finish_reason") == CUT_OFF_REASON]
 
 
 def refusal_signatures(record: dict[str, Any]) -> list[str]:
@@ -137,6 +246,12 @@ def run_rows(
     rows = []
     for name, run in zip(names, runs, strict=True):
         outcomes = [outcome(run[u]) for u in units]
+        tokens = sum(completion_tokens(run[u]) for u in units)
+        cut_off_tokens = sum(
+            e.get("completion_tokens") or 0
+            for u in units
+            for e in cut_off_replies(run[u])
+        )
         rows.append(
             [
                 name,
@@ -144,8 +259,11 @@ def run_rows(
                 sum(o != NO_ANSWER for o in outcomes),
                 sum(o == NO_ANSWER for o in outcomes),
                 sum(run[u]["model_calls"] for u in units),
-                sum(completion_tokens(run[u]) for u in units),
+                tokens,
                 sum(len(refusal_signatures(run[u])) for u in units),
+                sum(len(cut_off_replies(run[u])) for u in units),
+                sum(bool(cut_off_replies(run[u])) for u in units),
+                round(cut_off_tokens / tokens, 3) if tokens else 0.0,
             ]
         )
     return rows
@@ -311,6 +429,24 @@ def main() -> None:
     parser.add_argument(
         "--no-annotations", action="store_true", help="skip the annotation table"
     )
+    parser.add_argument(
+        "--job",
+        action="append",
+        default=[],
+        help="a Slurm job id that wrote these runs (repeat for each job)",
+    )
+    parser.add_argument(
+        "--job-log",
+        type=Path,
+        action="append",
+        default=[],
+        help="the output file of one of those jobs (config and image digests)",
+    )
+    parser.add_argument(
+        "--server-log",
+        type=Path,
+        help="a vLLM server log (checkpoint, seed, precision, caching)",
+    )
     arguments = parser.parse_args()
 
     folders = list(arguments.runs or [])
@@ -341,6 +477,9 @@ def main() -> None:
             "model_calls",
             "completion_tokens",
             "rejected_submissions",
+            "cut_off_replies",
+            "patients_with_cut_off_reply",
+            "cut_off_token_share",
         ],
         run_rows(names, runs, units),
     )
@@ -391,9 +530,14 @@ def main() -> None:
                 "calls",
                 "completion tokens",
                 "rejected submissions",
+                "cut-off replies",
+                "patients with a cut-off reply",
+                "share of tokens in cut-off replies",
             ],
             run_rows(names, runs, units),
         ),
+        "A cut-off reply is one the server stopped at the reply token cap "
+        f"(finish reason `{CUT_OFF_REASON}`).",
         f"## Patients with the same outcome in every run: "
         f"{len(units) - len(unstable)} of {len(units)} "
         f"(unstable: {len(unstable)}, {100 * len(unstable) / len(units):.0f}%)",
@@ -443,8 +587,16 @@ def main() -> None:
         "created_utc": datetime.now(UTC).isoformat(timespec="seconds"),
         "runs": [str(folder) for folder in folders],
         "patients_compared": len(units),
-        "oncotrace_commit": git_commit(arguments.oncotrace),
-        "clinic_commit": git_commit(REPO_ROOT),
+        # What the records themselves say they ran with; this is the code that ran.
+        "code_that_ran": record_contracts(runs),
+        # The checkouts this analysis ran from; they are not what the jobs ran.
+        "analysis_oncotrace_checkout": git_state(arguments.oncotrace),
+        "analysis_clinic_checkout": git_state(REPO_ROOT),
+        "slurm_jobs": slurm_jobs(arguments.job, folders),
+        "logged_by_jobs": logged_by_jobs(arguments.job_log),
+        "server_log": server_settings(arguments.server_log)
+        if arguments.server_log
+        else None,
     }
     (out / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"

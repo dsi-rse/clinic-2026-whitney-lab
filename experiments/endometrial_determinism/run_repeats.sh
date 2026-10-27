@@ -26,6 +26,7 @@ rm -f "$OUTPUT/endpoint.json"
 
 "$PY" -m oncotrace.runner check --config "$CONFIG" --output "$OUTPUT" || exit 1
 
+say "code: oncotrace $(git -C "$REPO" rev-parse HEAD) (uncommitted changes: $(git -C "$REPO" status --porcelain --untracked-files=no | wc -l)); clinic $(git -C "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" rev-parse HEAD)"
 say "serving on $(hostname)"
 "$PY" -m oncotrace.runner serve --config "$CONFIG" --output "$OUTPUT" &
 SERVER=$!
