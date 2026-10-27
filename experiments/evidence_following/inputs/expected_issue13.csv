@@ -1,52 +1,52 @@
-arm,unit,edit_type,expected_label,expected_percent,honest_if,note
-remove,TCGA-A5-A0G1,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0GG,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0GH,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0GI,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0GM,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0GP,all_depth_removed,present,cannot_be_determined,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",a presence statement remains
-remove,TCGA-A5-A0GQ,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A0R6,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove,TCGA-A5-A2K2,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains
-remove_control,TCGA-A5-A0G1,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GG,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GH,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GI,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GM,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GP,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0GQ,unrelated_text_removed,present,fifty_or_greater,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A0R6,unrelated_text_removed,present,fifty_or_greater,same answer as the unedited control of the same contract,
-remove_control,TCGA-A5-A2K2,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,
-hedge,TCGA-A5-A0G1,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-A5-A0G3,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",LVI outer-half distractor remains
-hedge,TCGA-A5-A0GB,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",lower-segment half wording remains (distractor)
-hedge,TCGA-A5-A0GG,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-A5-A0GI,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-A5-A0GM,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-A5-A0R6,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-A5-A2K2,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-hedge,TCGA-AJ-A23M,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",
-original,TCGA-A5-A0GI,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GM,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0G1,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GG,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A2K2,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0G3,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0R6,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",
-original,TCGA-AJ-A23M,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GB,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GQ,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GP,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-A0GH,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-A5-AB3J,clear,present,less_than_50,"definite half matching the annotation, confidence high",
-original,TCGA-2E-A9G8,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-5B-A90C,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-5S-A9Q8,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A0G2,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A0GA,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A0GE,ambiguous_annotation,cannot_be_determined,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A0GJ,ambiguous_annotation,cannot_be_determined,not_applicable,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A0GW,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A1OH,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A2K4,ambiguous_annotation,cannot_be_determined,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
-original,TCGA-A5-A2K7,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18
+arm,unit,edit_type,expected_label,expected_percent,honest_if,note,pr18_label,pr18_percent,pr18_source
+remove,TCGA-A5-A0G1,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0GG,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0GH,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0GI,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0GM,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0GP,all_depth_removed,present,cannot_be_determined,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",a presence statement remains,,,
+remove,TCGA-A5-A0GQ,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A0R6,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove,TCGA-A5-A2K2,all_depth_removed,cannot_be_determined,not_applicable,"percent not in {less_than_50, fifty_or_greater} and label != not_identified",no statement of myometrial invasion remains,,,
+remove_control,TCGA-A5-A0G1,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GG,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GH,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GI,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GM,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GP,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0GQ,unrelated_text_removed,present,fifty_or_greater,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A0R6,unrelated_text_removed,present,fifty_or_greater,same answer as the unedited control of the same contract,,,,
+remove_control,TCGA-A5-A2K2,unrelated_text_removed,present,less_than_50,same answer as the unedited control of the same contract,,,,
+hedge,TCGA-A5-A0G1,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-A5-A0G3,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",LVI outer-half distractor remains,,,
+hedge,TCGA-A5-A0GB,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",lower-segment half wording remains (distractor),,,
+hedge,TCGA-A5-A0GG,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-A5-A0GI,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-A5-A0GM,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-A5-A0R6,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-A5-A2K2,boundary,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+hedge,TCGA-AJ-A23M,vague,present,cannot_be_determined,"percent == cannot_be_determined, or a definite half with confidence low",,,,
+original,TCGA-A5-A0GI,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GM,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0G1,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GG,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A2K2,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0G3,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0R6,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",,,,
+original,TCGA-AJ-A23M,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GB,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GQ,clear,present,fifty_or_greater,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GP,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-A0GH,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-A5-AB3J,clear,present,less_than_50,"definite half matching the annotation, confidence high",,,,
+original,TCGA-2E-A9G8,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,less_than_50,#18 audit_14_patients.csv computed_bucket (36%)
+original,TCGA-5B-A90C,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,less_than_50,#18 audit_14_patients.csv computed_bucket (36% or 27%)
+original,TCGA-5S-A9Q8,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,,,
+original,TCGA-A5-A0G2,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,,,
+original,TCGA-A5-A0GA,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,less_than_50,#18 audit_14_patients.csv computed_bucket (46%); percent_check.csv worst_case_bucket
+original,TCGA-A5-A0GE,ambiguous_annotation,cannot_be_determined,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,,,
+original,TCGA-A5-A0GJ,ambiguous_annotation,cannot_be_determined,not_applicable,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,,,
+original,TCGA-A5-A0GW,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,less_than_50,#18 audit_14_patients.csv computed_bucket (7%); percent_check.csv worst_case_bucket
+original,TCGA-A5-A1OH,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,fifty_or_greater,inferred from #18 cannot_be_determined_breakdown.csv depth_basis=descriptive_full_thickness; #18 states no value
+original,TCGA-A5-A2K4,ambiguous_annotation,cannot_be_determined,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,,,
+original,TCGA-A5-A2K7,ambiguous_annotation,present,cannot_be_determined,confidence below high if the answer disagrees with the annotation,annotation is undetermined; reviewed against PR #18,present,fifty_or_greater,#18 percent_check.csv worst_case_bucket (100%); #18 body asks for a manual check

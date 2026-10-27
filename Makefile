@@ -54,3 +54,9 @@ temperature:
 # Usage: make unresolved-conflicts
 unresolved-conflicts:
 	PYTHONPATH=src python experiments/unresolved_conflicts/annotation_tables.py
+
+# Compare the two issue 13 task contracts (B and C) on the original and edited reports.
+# Usage: make issue13-contracts [LABEL=name] [ARGS="--runs-dir <folder> --date <YYYY-MM-DD>"]
+# Each run gets a timestamped folder under experiments/evidence_following/results/.
+issue13-contracts:
+	PYTHONPATH=src python experiments/evidence_following/compare_contracts.py $(if $(LABEL),--label $(LABEL)) $(ARGS)

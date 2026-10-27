@@ -135,16 +135,55 @@ Answers can differ a little from run to run (1 in 67 in our reruns), so compare 
 
 ## Issue 13 follow-up: is the model overconfident?
 
-Results: [`results/2026-10-24_issue13/`](results/2026-10-24_issue13/README.md).
+Results: the newest `results/<timestamp>_issue13/` folder; its README is the write-up.
 
 The same 24 control patients were run under two prompts on one server (oncotrace `fc3dadc`, with the #6 fix). B is the shared task, and C is [`tasks/endo_myometrial_invasion_calibrated.yaml`](tasks/endo_myometrial_invasion_calibrated.yaml). C adds a `cannot_be_determined` rule and a definition of each confidence level. Three edit sets of 9 patients were also run: every depth statement deleted (`remove`), unrelated text deleted (`remove_control`), and depth rewritten as boundary or vague wording (`hedge`). Expected answers were written before the runs, in [`inputs/expected_issue13.csv`](inputs/expected_issue13.csv).
 
-The edited reports are built the same way as the flip arm, with `report_edits.py apply --arm remove|remove_control|hedge --inputs /net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs`. The specs and edited reports are in `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/`. To analyse the runs:
+**Two sets of expectations for the 11 ambiguous patients.** `expected_label` and `expected_percent` are Mariam's raw annotations. `pr18_label` and `pr18_percent` are the revised depth values from Helena's PR #18, with the #18 table each one comes from in `pr18_source`; a blank means #18 revised nothing for that patient. The analysis scores both, as `honest` and `honest_pr18`, so the two can be compared rather than chosen between. Note that two of the six revised values are inferences from #18's tables rather than values #18 states: `TCGA-A5-A2K7` (flagged in the #18 body for a manual check) and `TCGA-A5-A1OH` (read off `depth_basis = descriptive_full_thickness`).
+
+To analyse the runs, from the repo root:
 
 ```bash
+make issue13-contracts LABEL=issue13
+# or, for other runs:
 PYTHONPATH=src python experiments/evidence_following/compare_contracts.py \
-    --out experiments/evidence_following/results/<folder>
+    --runs-dir <folder> --date <YYYY-MM-DD> --label <name>
 ```
+
+Each call writes a new `results/<timestamp>[_label]/` holding `contract_comparison.csv` (one row per patient, report set and contract), `contract_summary.csv` (the counts), `confidence_by_run.csv` (the stated-confidence mix of the 6 earlier GLM-5.3-Flash runs on real reports, which is what "the confidence label is uninformative" rests on; the two 2026-10-09 smoke runs are excluded because their units are synthetic), `summary.txt`, `provenance.json` and a README. Nothing is overwritten. `provenance.json` records the clinic commit and any uncommitted files, the SHA-256 of every input, and each run's OncoTrace commit and contract digest, so the folder says what it was made from instead of relying on a typed table.
+
+### Where the edited reports live
+
+An edit spec holds each passage's original report text next to its replacement, so neither the specs nor the edited report stores can go in Git. They are in:
+
+```
+/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/
+```
+
+owned by `khyatt` and readable by the `__oncotrace` group (files `0640`, folders `2750`), so any teammate in that group can read them and rerun the arms. That folder's `SHA256SUMS` lists all twelve files, and `sha256sum -c SHA256SUMS` passed there on 2026-10-27. The six that cannot be committed:
+
+| File | SHA-256 |
+|---|---|
+| `edit_spec_remove.json` | `543564756ef85f9e31ff2213df1b9d06a52f6081b69b1cc43bcca5fd8b8b153f` |
+| `edit_spec_remove_control.json` | `42cec2d570ceb6cb7015e48d0dfe89b7b243b966986993f385e0540fffd4b54f` |
+| `edit_spec_hedge.json` | `e4f0e4d4a9bf89aec92ba5177578ad880de4b43fdc492055e5de9d8612b4c581` |
+| `remove/ucec_pathology_report.jsonl` | `757cb338f7b7ae808e50f4376c67af0e27ab136cceb1fccfee37a0d6d0cff51e` |
+| `remove_control/ucec_pathology_report.jsonl` | `fca094c2da4139d35d994714eb45e55ab9c2ee1448970d9ef8eae54c6df6805d` |
+| `hedge/ucec_pathology_report.jsonl` | `9d98fe9d7d6c6e4b2a5ee0f6360057ccbd5da2b3f03b088bd5582653b6518026` |
+
+The same hashes are recorded in each results folder's `provenance.json`, so a results folder can be checked against the files it was made from.
+
+What **is** committed is each arm's text-free manifest, [`inputs/<arm>/edits.json`](inputs/): the offsets in the original report, the SHA-256 of each original passage, and where the edit landed in the edited text. Those three files are byte-identical to the copies in the shared folder, so the edits can be located and checked without the text. (The committed `inputs/<arm>/roster.csv` is not byte-identical to the shared copy; it is the same patients in this experiment's roster format.)
+
+Rebuilding an edited store from the original reports needs the spec:
+
+```bash
+PYTHONPATH=src python experiments/evidence_following/report_edits.py apply \
+    --arm remove|remove_control|hedge \
+    --inputs /net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs
+```
+
+**Open question for the mentor.** The specs could be committed with the `original` field stripped, leaving offsets, hashes and the hand-written `replacement` phrases, which would make the three arms rebuildable from the repo alone. That needs the mentor to confirm the replacement phrases are not protected text. Until then the specs stay in the shared workspace.
 
 ## Next
 
