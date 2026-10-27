@@ -135,7 +135,7 @@ Answers can differ a little from run to run (1 in 67 in our reruns), so compare 
 
 ## Issue 13 follow-up: is the model overconfident?
 
-Results: the newest `results/<timestamp>_issue13/` folder; its README is the write-up.
+Results: [`results/2026-10-27_182156_issue13/`](results/2026-10-27_182156_issue13/README.md).
 
 The same 24 control patients were run under two prompts on one server (oncotrace `fc3dadc`, with the #6 fix). B is the shared task, and C is [`tasks/endo_myometrial_invasion_calibrated.yaml`](tasks/endo_myometrial_invasion_calibrated.yaml). C adds a `cannot_be_determined` rule and a definition of each confidence level. Three edit sets of 9 patients were also run: every depth statement deleted (`remove`), unrelated text deleted (`remove_control`), and depth rewritten as boundary or vague wording (`hedge`). Expected answers were written before the runs, in [`inputs/expected_issue13.csv`](inputs/expected_issue13.csv).
 
