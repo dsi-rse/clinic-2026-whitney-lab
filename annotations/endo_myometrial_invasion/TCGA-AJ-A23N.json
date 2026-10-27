@@ -1,0 +1,66 @@
+{
+ "created": "2026-10-19T15:55:42+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "38EB6233-9777-4640-A896-26D16A9DBD8E",
+     "end": 902,
+     "source": "pathology_report",
+     "start": 842,
+     "text": "Tumor focally extends 0.3 cm Into a 1.1 cm thick myometrium."
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "38EB6233-9777-4640-A896-26D16A9DBD8E",
+     "end": 902,
+     "source": "pathology_report",
+     "start": 842,
+     "text": "Tumor focally extends 0.3 cm Into a 1.1 cm thick myometrium."
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "38EB6233-9777-4640-A896-26D16A9DBD8E",
+     "end": 902,
+     "source": "pathology_report",
+     "start": 842,
+     "text": "Tumor focally extends 0.3 cm Into a 1.1 cm thick myometrium."
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "38EB6233-9777-4640-A896-26D16A9DBD8E",
+     "end": 558,
+     "source": "pathology_report",
+     "start": 524,
+     "text": "Uterus, right adnexa, hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A23N",
+ "updated": "2026-10-27T04:22:17+00:00"
+}
