@@ -60,7 +60,7 @@
  },
  "project": "endo_myometrial_invasion",
  "schema": "traceview_annotation_v2",
- "status": "in_progress",
+ "status": "complete",
  "unit": "TCGA-AJ-A23N",
- "updated": "2026-10-19T16:05:49+00:00"
+ "updated": "2026-10-27T04:22:17+00:00"
 }
