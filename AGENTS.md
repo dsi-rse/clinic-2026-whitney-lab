@@ -32,6 +32,12 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 - If a number changes, regenerate the tables and update the text. Don't edit one without the other.
 - Prefer a generated results README (as `experiments/temperature/compare_temperature.py` writes) over typed tables.
 
+### 3. A teammate can rerun the analysis from a fresh clone
+- The README gives the exact commands, starting from `git clone`: required environment variables, `PYTHONPATH`, and Python dependencies, which must be declared in `pyproject.toml` or listed in the README.
+- Scripts take paths as arguments. No `/home/<user>` or personal scratch paths as defaults.
+- The README says which output should reproduce exactly (tables, CSVs) and how long the rerun takes.
+- The reviewer's test: reading only the README, the analysis reruns in about 10 minutes without special access, and the output matches the committed tables.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
