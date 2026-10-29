@@ -21,7 +21,7 @@
 #SBATCH --mem=200G
 #SBATCH --time=12:00:00
 #SBATCH --open-mode=append
-#SBATCH --output=/net/spaces/scratch/yuxuang-oncotrace/runs/determinism/determinism-%j.out
+#SBATCH --output=/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/job_logs/determinism-%j.out
 #
 # Why these values, on this cluster (measured 2026-09-10, see
 # docs/dsi-cluster.md):
@@ -72,7 +72,7 @@ umask 077
 SCRATCH=/net/spaces/scratch/yuxuang-oncotrace
 REPO=${ONCOTRACE_REPO:-/home/yuxuang/oncotrace}
 CONFIG=${ONCOTRACE_CONFIG:-../clinic-2026-whitney-lab/experiments/endometrial_determinism/default.yaml}
-OUTPUT=${ONCOTRACE_OUTPUT:-$SCRATCH/runs/determinism}
+OUTPUT=${ONCOTRACE_OUTPUT:-/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/$(date +%F)_determinism}
 DRIVER=${DETERMINISM_DRIVER:-/home/yuxuang/clinic-2026-whitney-lab/experiments/endometrial_determinism/run_repeats.sh}
 PY=${ONCOTRACE_PYTHON:-$SCRATCH/envs/oncotrace-client/bin/python}
 IMAGE=${ONCOTRACE_SERVING_IMAGE:-$SCRATCH/envs/vllm-glm53.sqfs}
