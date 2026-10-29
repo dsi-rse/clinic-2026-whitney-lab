@@ -38,6 +38,11 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 - The README says which output should reproduce exactly (tables, CSVs) and how long the rerun takes.
 - The reviewer's test: reading only the README, the analysis reruns in about 10 minutes without special access, and the output matches the committed tables.
 
+### 4. Say what can't be rerun
+- GPU/Slurm runs and model outputs can't be reproduced bit for bit. State that, keep the run folders, and make sure the analysis from those folders is rerunnable (item 3).
+- Note where a run was resumed or split across servers or code versions.
+- If the PR depends on another unmerged PR or branch, say which one. No results that can't be remade without it.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
