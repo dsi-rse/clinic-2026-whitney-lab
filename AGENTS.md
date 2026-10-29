@@ -26,6 +26,12 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 - If a file cannot be committed (protected report text, large runs), the README must say where it is, who can read it, and its SHA-256. Also commit the spec or script that regenerates it from the protected source.
 - Before opening the PR, check access as someone else: ask a teammate or TA to `ls` and open the paths, or run `namei -l <path>`.
 
+### 2. Every number comes from a table in the results folder
+- Each figure in the PR body, README, or comments cites the file it comes from (e.g. `results/…/summary.csv`).
+- Counts, percentages, "N of M" claims, and qualitative claims ("the same 11 patients in all runs") are computed by committed code. If something was checked by hand, say so, say how, and list the patient IDs.
+- If a number changes, regenerate the tables and update the text. Don't edit one without the other.
+- Prefer a generated results README (as `experiments/temperature/compare_temperature.py` writes) over typed tables.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
