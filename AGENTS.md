@@ -16,6 +16,16 @@ Other instructions:
 - Sign your commits as Claude
 - If you post on GitHub (issues, comments, etc), put your comment in a collapsed block like: <details><summary>Claude: {one-line summary of comment}</summary>{your comment}</details>
 
+## Reproducibility
+
+Experiment results must be reproducible by teammates and reviewers (see issue #32; provenance is covered in #31).
+
+### 1. Everything a result depends on is readable by the team
+- Put runs, edited inputs, and intermediate files under `/net/spaces/annawoodard/oncotrace/workspaces/<name>/` (or another shared path the mentor names), group-readable. Do not leave them in a home directory, `/tmp`, or personal scratch.
+- Commit every script and config that produced a table, figure, or input in the PR. No private `analysis/` folders.
+- If a file cannot be committed (protected report text, large runs), the README must say where it is, who can read it, and its SHA-256. Also commit the spec or script that regenerates it from the protected source.
+- Before opening the PR, check access as someone else: ask a teammate or TA to `ls` and open the paths, or run `namei -l <path>`.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
