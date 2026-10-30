@@ -60,3 +60,9 @@ unresolved-conflicts:
 # Each run gets a timestamped folder under experiments/evidence_following/results/.
 issue13-contracts:
 	PYTHONPATH=src python experiments/evidence_following/compare_contracts.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
+
+# Review the two rows where OncoTrace disagrees with a definite annotation (issue 26).
+# Usage: make definite-disagreements [LABEL=name] [ARGS="--run t0=<run> ..."]
+# Each run gets a timestamped folder under experiments/definite_disagreements/results/.
+definite-disagreements:
+	PYTHONPATH=src python experiments/definite_disagreements/review_disagreements.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
