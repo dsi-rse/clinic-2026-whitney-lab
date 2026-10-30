@@ -1,0 +1,38 @@
+patient,source,group,start,end,chars,page,n_measurements,measurements_mm,wording_classes
+TCGA-A5-A0GJ,annotation,specimen_type,479,499,20,1,0,,
+TCGA-A5-A0GJ,t0,depth_evidence,1642,1726,84,1,0,,endometrium_token
+TCGA-A5-A0GJ,t1_r2,depth_evidence,1642,1798,156,1,0,,endometrium_token
+TCGA-A5-A0GJ,t1_r3,depth_evidence,1642,1798,156,1,0,,endometrium_token
+TCGA-A5-A0GJ,annotation,myometrial_invasion,1801,1868,67,1,0,,confined_statement endometrium_token myometrium_token unquantified_extent
+TCGA-A5-A0GJ,t0,depth_evidence,1801,1868,67,1,0,,confined_statement endometrium_token myometrium_token unquantified_extent
+TCGA-A5-A0GJ,t1_r1,depth_evidence,1801,1868,67,1,0,,confined_statement endometrium_token myometrium_token unquantified_extent
+TCGA-A5-A0GJ,t1_r2,depth_evidence,1801,1868,67,1,0,,confined_statement endometrium_token myometrium_token unquantified_extent
+TCGA-A5-A0GJ,t1_r3,depth_evidence,1801,1868,67,1,0,,confined_statement endometrium_token myometrium_token unquantified_extent
+TCGA-A5-A0GJ,t0,counterevidence,2060,2083,23,1,0,,myometrium_token
+TCGA-A5-A0GJ,t1_r1,counterevidence,2060,2083,23,1,0,,myometrium_token
+TCGA-A5-A0GJ,t1_r2,counterevidence,2060,2083,23,1,0,,myometrium_token
+TCGA-A5-A0GJ,t1_r3,counterevidence,2060,2083,23,1,0,,myometrium_token
+TCGA-A5-A0GR,t1_r2,depth_evidence,410,607,197,1,1,1.0,depth_statement endometrium_token invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,t1_r3,depth_evidence,410,607,197,1,1,1.0,depth_statement endometrium_token invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,annotation,myometrial_invasion,522,593,71,1,1,1.0,depth_statement invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,t0,depth_evidence,523,607,84,1,1,1.0,depth_statement invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,t1_r1,depth_evidence,523,607,84,1,1,1.0,depth_statement invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,annotation,myometrial_invasion_percent,532,560,28,1,0,,invasion_word unquantified_extent
+TCGA-A5-A0GR,t1_r2,quantified_depth,532,593,61,1,1,1.0,depth_statement invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,annotation,depth_basis,540,593,53,1,1,1.0,depth_statement invasion_word myometrium_token unquantified_extent
+TCGA-A5-A0GR,t1_r1,quantified_depth,552,593,41,1,1,1.0,depth_statement invasion_word myometrium_token
+TCGA-A5-A0GR,t0,quantified_depth,579,607,28,1,1,1.0,depth_statement
+TCGA-A5-A0GR,annotation,adenomyosis_relation,610,670,60,1,0,,negation
+TCGA-A5-A0GR,t1_r3,depth_evidence,610,683,73,1,0,,negation
+TCGA-A5-A0GR,t0,counterevidence,1390,1431,41,1,0,,negation staging_line
+TCGA-A5-A0GR,t1_r1,depth_evidence,1390,1431,41,1,0,,negation staging_line
+TCGA-A5-A0GR,t1_r2,counterevidence,1390,1431,41,1,0,,negation staging_line
+TCGA-A5-A0GR,annotation,specimen_type,1693,1881,188,2,0,,
+TCGA-A5-A0GR,t1_r1,depth_evidence,2093,2128,35,2,1,2.0,myometrium_token thickness_statement
+TCGA-A5-A0GR,t1_r1,quantified_depth,2093,2128,35,2,1,2.0,myometrium_token thickness_statement
+TCGA-A5-A0GR,t1_r2,counterevidence,2093,2128,35,2,1,2.0,myometrium_token thickness_statement
+TCGA-A5-A0GR,t1_r2,counterevidence,7146,7247,101,4,0,,gross_examination invasion_word myometrium_token negation staging_line
+TCGA-A5-A0GR,annotation,unresolved_conflicts,7196,7247,51,4,0,,gross_examination invasion_word myometrium_token negation
+TCGA-A5-A0GR,t0,counterevidence,7196,7247,51,4,0,,gross_examination invasion_word myometrium_token negation
+TCGA-A5-A0GR,t1_r1,counterevidence,7196,7247,51,4,0,,gross_examination invasion_word myometrium_token negation
+TCGA-A5-A0GR,t1_r3,depth_evidence,7741,7802,61,4,0,,endometrium_token invasion_word negation

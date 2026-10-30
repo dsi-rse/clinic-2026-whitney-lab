@@ -1,0 +1,38 @@
+runs compared, in order: t0, t1_r1, t1_r2, t1_r3
+rows in scope: 2
+
+== the two rows ==
+     patient     annotation                                                   run_answers               run_confidences  runs_agreeing_with_annotation                   verdict              failure_mode              deciding_offsets
+TCGA-A5-A0GJ not_applicable     less_than_50 / less_than_50 / less_than_50 / less_than_50   high / medium / high / high                              0 task contract doesn't say                                    1801-1868; 2060-2083
+TCGA-A5-A0GR   less_than_50 less_than_50 / fifty_or_greater / less_than_50 / less_than_50 medium / medium / high / high                              3               model wrong fraction arithmetic wrong 552-593; 2093-2128; 7196-7247
+
+== depth_basis each run claimed, for the same report ==
+     patient                                                                                                  run_depth_basis
+TCGA-A5-A0GJ        estimated_without_number / estimated_without_number / estimated_without_number / estimated_without_number
+TCGA-A5-A0GR estimated_without_number / explicit_fraction_or_percentage / explicit_fraction_or_percentage / descriptive_other
+
+== how each run got there ==
+     patient   run myometrial_invasion myometrial_invasion_percent confidence                     depth_basis  model_calls  doc_fraction_read  truncated_replies                        refusals  unresolved_conflicts_recorded  n_quantified_depth  n_counterevidence
+TCGA-A5-A0GJ    t0             present                less_than_50       high        estimated_without_number            3                1.0                  0                                                              1                   0                  1
+TCGA-A5-A0GJ t1_r1             present                less_than_50     medium        estimated_without_number            3                1.0                  0                                                              3                   0                  1
+TCGA-A5-A0GJ t1_r2             present                less_than_50       high        estimated_without_number            3                1.0                  0                                                              1                   0                  1
+TCGA-A5-A0GJ t1_r3             present                less_than_50       high        estimated_without_number            3                1.0                  0                                                              1                   0                  1
+TCGA-A5-A0GR    t0             present                less_than_50     medium        estimated_without_number            5                1.0                  3 quantified_depth_not_classified                              1                   1                  2
+TCGA-A5-A0GR t1_r1             present            fifty_or_greater     medium explicit_fraction_or_percentage            5                1.0                  2 quantified_depth_not_classified                              0                   2                  1
+TCGA-A5-A0GR t1_r2             present                less_than_50       high explicit_fraction_or_percentage            4                1.0                  2                   answer_exists                              0                   1                  3
+TCGA-A5-A0GR t1_r3             present                less_than_50       high               descriptive_other            3                1.0                  1                                                              0                   0                  0
+
+== boundary arithmetic ==
+     patient               numerator_label  numerator_start  numerator_end  numerator_mm  numerator_page           denominator_label  denominator_start  denominator_end  denominator_mm  denominator_page  percent   label_it_gives                                                                                            note
+TCGA-A5-A0GR microscopic_depth_of_invasion              586            592           1.0               1  gross_myometrial_thickness               2121             2127             2.0                 2     50.0 fifty_or_greater        the only myometrial-thickness number in the report; t1_r1 cited both as quantified_depth
+TCGA-A5-A0GR microscopic_depth_of_invasion              586            592           1.0               1 gross_endometrial_thickness               2085             2091            17.0                 2      5.9     less_than_50 the adjacent gross thickness figure; shown to test whether the two gross figures are transposed
+
+== scope check: every disagreement in PR 21's 200 patient-runs ==
+                      field           annotation       run_answer  run_rows                                                                      patients                  owner
+        myometrial_invasion cannot_be_determined          present        12                                        TCGA-A5-A0GE TCGA-A5-A0GJ TCGA-A5-A2K4       issue 13 / PR 22
+myometrial_invasion_percent cannot_be_determined fifty_or_greater        20              TCGA-A5-A0G2 TCGA-A5-A1OH TCGA-A5-A1OK TCGA-A5-A2K4 TCGA-A5-A2K7       issue 13 / PR 22
+myometrial_invasion_percent cannot_be_determined     less_than_50        24 TCGA-2E-A9G8 TCGA-5B-A90C TCGA-5S-A9Q8 TCGA-A5-A0GA TCGA-A5-A0GE TCGA-A5-A0GW       issue 13 / PR 22
+myometrial_invasion_percent         less_than_50 fifty_or_greater         1                                                                  TCGA-A5-A0GR issue 26 (this folder)
+myometrial_invasion_percent       not_applicable     less_than_50         4                                                                  TCGA-A5-A0GJ issue 26 (this folder)
+
+leak check (7-word runs against the two reports): see leak_check.csv

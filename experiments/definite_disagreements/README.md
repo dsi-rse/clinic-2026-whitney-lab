@@ -21,9 +21,9 @@ correction before any future run is scored against it.
 `TCGA-A5-A0GJ`'s *invasion* field also disagrees (annotation `cannot_be_determined`,
 run `present` ×4), but a `cannot_be_determined` annotation belongs to #13 / PR #22,
 so it is out of scope here. No third row meets "annotation is definite and the run
-disagrees" — see [the results README](results/2026-10-30_001418/README.md#scope-check).
+disagrees" — see [the results README](results/2026-10-30_002011/README.md#scope-check).
 
-**Short answer (results: [`results/2026-10-30_001418/`](results/2026-10-30_001418/README.md)):**
+**Short answer (results: [`results/2026-10-30_002011/`](results/2026-10-30_002011/README.md)):**
 
 | Patient | Verdict |
 |---|---|
@@ -32,7 +32,7 @@ disagrees" — see [the results README](results/2026-10-30_001418/README.md#scop
 
 No report, rationale or annotation text appears in this folder. Patients are TCGA
 IDs, passages are character offsets, and a 7-word leak check against the report
-store runs over every file written ([`leak_check.csv`](results/2026-10-30_001418/leak_check.csv)).
+store runs over every file written ([`leak_check.csv`](results/2026-10-30_002011/leak_check.csv)).
 
 ## Design
 

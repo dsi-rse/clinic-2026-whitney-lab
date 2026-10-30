@@ -1,0 +1,6 @@
+field,annotation,run_answer,run_rows,patients,owner
+myometrial_invasion,cannot_be_determined,present,12,TCGA-A5-A0GE TCGA-A5-A0GJ TCGA-A5-A2K4,issue 13 / PR 22
+myometrial_invasion_percent,cannot_be_determined,fifty_or_greater,20,TCGA-A5-A0G2 TCGA-A5-A1OH TCGA-A5-A1OK TCGA-A5-A2K4 TCGA-A5-A2K7,issue 13 / PR 22
+myometrial_invasion_percent,cannot_be_determined,less_than_50,24,TCGA-2E-A9G8 TCGA-5B-A90C TCGA-5S-A9Q8 TCGA-A5-A0GA TCGA-A5-A0GE TCGA-A5-A0GW,issue 13 / PR 22
+myometrial_invasion_percent,less_than_50,fifty_or_greater,1,TCGA-A5-A0GR,issue 26 (this folder)
+myometrial_invasion_percent,not_applicable,less_than_50,4,TCGA-A5-A0GJ,issue 26 (this folder)
