@@ -1,0 +1,2 @@
+patient,kind,outcome_per_run,calls_per_run
+TCGA-A5-A0GR,label differs,present/less_than_50 | present/fifty_or_greater | present/less_than_50 | present/less_than_50 | present/less_than_50,4 | 5 | 5 | 4 | 4

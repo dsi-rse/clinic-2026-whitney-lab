@@ -1,0 +1,12 @@
+reason,rep1,rep2,rep3,rep4,rep5
+quantified_depth_not_classified,32,30,28,37,42
+argument_not_a_list,28,30,17,12,11
+citation_quote_not_found,19,5,14,3,3
+answer_exists,13,0,13,1,9
+evidence_citations_missing,5,3,0,2,13
+citation_quote_ambiguous,10,2,4,2,2
+submission_fields_missing,10,2,0,2,1
+overlapping_citations,1,0,1,0,1
+quantified_basis_uncited,1,0,0,0,0
+citation_malformed,1,0,0,0,0
+duplicate_citations,0,0,1,0,0

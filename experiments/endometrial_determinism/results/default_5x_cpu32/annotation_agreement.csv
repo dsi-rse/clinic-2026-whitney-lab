@@ -1,0 +1,11 @@
+field,run,annotated patients,correct,wrong,over_committed,abstained
+invasion,rep1,50,47,0,3,0
+invasion,rep2,50,47,0,3,0
+invasion,rep3,50,47,0,3,0
+invasion,rep4,50,47,0,3,0
+invasion,rep5,50,47,0,3,0
+depth,rep1,50,38,0,12,0
+depth,rep2,50,37,1,12,0
+depth,rep3,50,38,0,12,0
+depth,rep4,50,38,0,12,0
+depth,rep5,50,38,0,12,0
