@@ -10,7 +10,7 @@ Two steps, so a person writes every replacement by hand:
     # 2. Fill in each "replacement" in the spec, then apply it
     python experiments/evidence_following/report_edits.py apply --arm flip
 
-Arms: flip, reword (same passages as flip), remove, remove_control.
+Arms: flip, reword and hedge (same passages as flip), remove, remove_control.
 
 The spec is a JSON list of edits, one per passage:
 
@@ -58,7 +58,7 @@ def template_edits(
     """Return an edit spec with an empty `replacement` for each passage to edit.
 
     The passages come from the evidence inventory: those marked `flip_edit` for
-    the `flip` and `reword` arms, `removal_edit` for `remove`, and the matched
+    the `flip`, `reword` and `hedge` arms, `removal_edit` for `remove`, and the matched
     unrelated passages for `remove_control`. Removal arms start with an empty
     replacement, which deletes the passage.
     """
@@ -66,7 +66,7 @@ def template_edits(
     edits = []
     for unit in units:
         patient = by_unit[unit]
-        if arm in ("flip", "reword"):
+        if arm in ("flip", "reword", "hedge"):
             spans = [p for p in patient["passages"] if p["flip_edit"]]
         elif arm == "remove":
             spans = [p for p in patient["passages"] if p["removal_edit"]]
@@ -103,7 +103,7 @@ def check_edits(reports: dict[str, dict], edits: list[dict]) -> list[str]:
         original = reports[unit]["text"][edit["start"] : edit["end"]]
         if sha256(original) != edit["original_sha256"]:
             problems.append(f"edit {i}: {unit} original text does not match its hash")
-        keeps_text = edit["kind"] in ("flip", "reword")
+        keeps_text = edit["kind"] in ("flip", "reword", "hedge")
         if keeps_text and not edit["replacement"].strip():
             problems.append(f"edit {i}: {unit} {edit['kind']} has no replacement")
         if edit["replacement"] == original:
@@ -180,7 +180,7 @@ def write_arm(store_path: Path, edits: list[dict], out_dir: Path) -> dict[str, i
     return {"units": len(units), "edits": len(manifest)}
 
 
-ARMS = ["flip", "reword", "remove", "remove_control"]
+ARMS = ["flip", "reword", "hedge", "remove", "remove_control"]
 
 
 def main() -> None:
