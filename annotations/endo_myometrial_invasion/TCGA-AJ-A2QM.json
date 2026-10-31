@@ -9,10 +9,10 @@
    "spans": [
     {
      "document": "282D10FF-370D-4252-B1CB-3410A43C8F82",
-     "end": 1039,
+     "end": 4459,
      "source": "pathology_report",
-     "start": 988,
-     "text": "Tumor extends 0.6 cm into a 1.4 cm thick myometrium"
+     "start": 4343,
+     "text": "On sectioning, the mass\nextends into the underlying myometrium approximately 0.7 cm into a 1.4 cm thick myometrium. "
     }
    ],
    "value": "explicit_fraction_or_percentage"
@@ -33,13 +33,13 @@
    "spans": [
     {
      "document": "282D10FF-370D-4252-B1CB-3410A43C8F82",
-     "end": 1039,
+     "end": 4459,
      "source": "pathology_report",
-     "start": 988,
-     "text": "Tumor extends 0.6 cm into a 1.4 cm thick myometrium"
+     "start": 4343,
+     "text": "On sectioning, the mass\nextends into the underlying myometrium approximately 0.7 cm into a 1.4 cm thick myometrium. "
     }
    ],
-   "value": "less_than_50"
+   "value": "fifty_or_greater"
   },
   "specimen_type": {
    "spans": [
@@ -62,5 +62,5 @@
  "schema": "traceview_annotation_v2",
  "status": "complete",
  "unit": "TCGA-AJ-A2QM",
- "updated": "2026-10-31T15:20:03+00:00"
+ "updated": "2026-10-31T21:13:17+00:00"
 }
