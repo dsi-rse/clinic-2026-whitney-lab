@@ -57,6 +57,12 @@ scripts go in `scripts/`, and short exploratory notebooks in `notebooks/`. Keep 
 review it with the TA or mentor, and document runnable scripts. General extraction
 improvements belong in OncoTrace; dataset-specific analysis belongs here.
 
+Every result folder records what made it, as `provenance.json` written by
+`oncotrace_bench.provenance.build()`. Before opening a PR, run
+`make check-provenance` ([scripts/check_provenance.py](scripts/check_provenance.py))
+to check those records. See "Experiments and provenance" in
+[AGENTS.md](AGENTS.md).
+
 Read [AGENTS.md](AGENTS.md) before using a coding agent. Copy
 `agents.local.example.md` to ignored `agents.local.md` for personal preferences.
 Student-written code requires permission before an agent changes it.
