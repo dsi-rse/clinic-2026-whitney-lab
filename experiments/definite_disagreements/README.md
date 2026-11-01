@@ -139,12 +139,37 @@ make definite-disagreements ARGS="--run t0=<run> --run t1_r1=<run> --run t1_r2=<
 
 ### Looking at the same spans in TraceView
 
-The offsets in `evidence_spans.csv` are document offsets, so they can be opened
-next to the report in TraceView from an OncoTrace clone:
+The offsets in `evidence_spans.csv` are document offsets, so the same ranges are
+the same words in TraceView. Start it **read-only** from an OncoTrace clone, in
+your own VS Code terminal — that terminal is what forwards the port back to your
+laptop:
 
 ```bash
-PYTHONPATH=~/oncotrace:~/oncotrace/viewer python -m viewer --run /net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_temperature_t1_r1 --task tasks/endo_myometrial_invasion.yaml
+cd ~/oncotrace && PY=$HOME/envs/clinic-client/bin/python \
+  RUNS=/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs \
+  ./viewer/preview.sh --no-manual \
+  --task ~/clinic-issue26/tasks/endo_myometrial_invasion.yaml
 ```
+
+It serves <http://127.0.0.1:8731/> (add `--port 8732` if 8731 is taken — the
+launcher refuses rather than crashing and says so). Forward that port in VS
+Code's **Ports** panel. A patient's page is
+`/unit?r=<run folder name>&u=<TCGA id>`, so the four runs of one patient are:
+
+```text
+/unit?r=2026-10-23_temperature_t0&u=TCGA-A5-A0GR
+/unit?r=2026-10-23_temperature_t1_r1&u=TCGA-A5-A0GR
+/unit?r=2026-10-23_temperature_t1_r2&u=TCGA-A5-A0GR
+/unit?r=2026-10-23_temperature_t1_r3&u=TCGA-A5-A0GR
+```
+
+and `/compare?a=2026-10-23_temperature_t0&b=2026-10-23_temperature_t1_r1` puts
+two runs side by side. The first request for a run returns a "reading this run"
+page that refreshes itself; the second shows the record.
+
+`--no-manual` forces read-only mode, so no annotation can be written. Passing
+`--store`/`--annotations` would turn the writable manual half on — don't, for
+reviewing this.
 
 `src/oncotrace_bench/traceview_summary.py` wraps the same loader for scripts
 (`add_traceview_to_path`, `load_views`, `trajectory_facts`) if you want the
