@@ -613,6 +613,12 @@ def main() -> None:
         if arguments.server_log
         else None,
     )
+    # Result folders are outputs, not inputs: leave them out of the uncommitted list.
+    provenance["clinic_repo"]["uncommitted_files"] = [
+        f
+        for f in provenance["clinic_repo"]["uncommitted_files"]
+        if "/results/" not in f
+    ]
     (out / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
     )

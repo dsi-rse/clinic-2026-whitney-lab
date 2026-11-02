@@ -100,6 +100,10 @@ def main() -> None:
         run_folders,
         Path(os.path.relpath(REPO_ROOT)),
     )
+    # Result folders are outputs, not inputs: leave them out of the uncommitted list.
+    record["clinic_repo"]["uncommitted_files"] = [
+        f for f in record["clinic_repo"]["uncommitted_files"] if "/results/" not in f
+    ]
     (arguments.out / "provenance.json").write_text(
         json.dumps(record, indent=2) + "\n", encoding="utf-8"
     )
