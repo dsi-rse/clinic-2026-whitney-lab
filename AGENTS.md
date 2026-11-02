@@ -43,6 +43,49 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 - Note where a run was resumed or split across servers or code versions.
 - If the PR depends on another unmerged PR or branch, say which one. No results that can't be remade without it.
 
+## Experiment PR descriptions
+
+This applies to experiment PRs: self-contained work that asks a question, runs something, and reports what happened. Annotation files, scaffolding, docs and bug fixes are exempt. See issue #33. It complements issue #31 (provenance) and issue #32 (reproducibility).
+
+A reader who is not doing the runs should be able to say, from the text alone:
+- what the question is;
+- what was compared, and what single thing changed;
+- how the authors would tell yes from no;
+- what was found;
+- how to read each table;
+- what the main limits are.
+
+### Three parts, visible at the top of the body, in this order
+Detail goes below or in the README.
+
+1. **Findings.** A one-sentence takeaway or two to five short bullets. Each is a plain claim with its number (for example, "49 of 50 patients got the same answer in all five runs"). Say what it means for the lab. Say if the result is inconclusive.
+2. **What we did (the experimental design).** About ten lines in plain language:
+   - the question, in one sentence, and why it matters;
+   - what was run: on how many patients, and what was compared. Name the one thing that differs between the groups, and the baseline or control;
+   - what result would count as yes and what as no, written before the runs where possible, with any pass bar;
+   - the main limits (sample size, one annotator, and so on);
+   - terms defined at first use (agentic, one_shot, contract, roster, temperature, and any label the tables use), or in a glossary;
+   - no code identifiers, flags, commit hashes or file paths in this section. They belong in the README and `provenance.json`.
+3. **Results.**
+   - Before each table: one sentence on what a row is, what a column is, and what the numbers count ("patients out of 50").
+   - Under each table: how to read it. Which numbers to compare, what a good value looks like, and the so-what in one sentence. Define every abbreviation and label.
+   - Include the baseline or reference row (such as always guessing "present") so the numbers can be judged.
+   - Every figure comes from a committed table (see "Reproducibility" above, item 2).
+
+Then, collapsed or linked: the file table, how to run, checks, provenance and long tables. Don't repeat the README.
+
+### Placement and length
+- The three parts go at the top of the PR body, **outside any collapsed block**. Detail goes inside a collapsed `<details>` block below.
+- This is an exception to the rule above that agent-written GitHub posts are collapsed. It applies to experiment PR bodies.
+- Findings plus "What we did" should fit on about one screen, with the results tables after them.
+
+### Template
+- Open experiment PRs with `.github/PULL_REQUEST_TEMPLATE/experiment.md`. Add `?template=experiment.md` to the compare URL, or run `gh pr create --template .github/PULL_REQUEST_TEMPLATE/experiment.md`. GitHub does not fill in a named template on its own.
+- Agents: do this for experiment PRs. Other PR types do not use this template.
+
+### Who writes the description
+It is fine to have an agent write the PR description (this may change later). But if a student is not capable of writing Findings and What we did in their own words, they likely do not understand the experiment. That is not good. Agents: do not take this learning opportunity away from the student. Ask the student to explain the question, the comparison and the yes/no bar first, and ask them to correct your draft.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
