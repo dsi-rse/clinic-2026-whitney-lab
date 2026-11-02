@@ -1,172 +1,160 @@
 # Endometrial: are repeated OncoTrace runs the same? (issue 17)
 
 **Question.** With the same model, code, configuration and patients, does OncoTrace give
-the same answers every time? If not, how much does it vary and where does the
-difference start?
+the same answers every time? If not, how much does it vary?
 
 **Why it matters.** Differences between two settings (issue 16) only mean something if
-we know how much two identical runs already differ. The agentic vs one_shot gap in
-`endometrial_agentic_vs_one_shot` (37 vs 34 of 50 on depth) is only three patients wide.
+we know how much two identical runs already differ.
 
-## Files
+## What is in this folder
 
 | File | What it is |
 |---|---|
-| `default.yaml` | The agentic config used for issue 9, with the roster narrowed to the 50 annotated patients. Everything else is identical, and `runner check` gives the same task contract digest. |
-| `roster_annotated50.csv` | The 50 annotated patients, one `unit` per row. Swap this file to run on more patients later. |
-| `run_repeats.sbatch` | Slurm job: starts one server, then runs the same extraction `REPEATS` times (default 5). |
-| `run_repeats.sh` | What the job runs inside the allocation. Each repeat writes to its own folder, `rep1` ... `repN`. |
-| `analyze_repeats.py` | Reads two or more runs and writes the stability tables under `results/<label>/`. |
+| `default.yaml` | Agentic config of issue 9, roster narrowed to the 50 annotated patients. |
+| `roster_annotated50.csv` | The 50 annotated patients (column `unit`). |
+| `followup10.yaml`, `followup10_new_version.yaml` | The same config for 10 patients; the second is the one run with the updated OncoTrace (`0b6f404`). Only the comment lines differ. |
+| `roster_followup10.csv` | The 10 patients of the follow-up runs. |
+| `run_repeats.sbatch`, `run_repeats.sh` | Slurm job: starts one server, then runs the same extraction `REPEATS` times. Every path comes from an environment variable. |
+| `analyze_repeats.py` | Reads the repeats of one setting and writes the stability tables. |
+| `repeat_matrix.py` | Puts two groups of repeats side by side: for each patient, which outcomes appeared and how often. |
+| `run_analysis.sh` | One command that remakes every result folder below. |
+| `results/<time>_agentic_f99cefd_50x5/` | 50 patients, 5 repeats, OncoTrace `f99cefd`. |
+| `results/<time>_agentic_f99cefd_10x10/` | 10 patients, 10 repeats, OncoTrace `f99cefd`. |
+| `results/<time>_agentic_0b6f404_10x20/` | The same 10 patients, 20 repeats, updated OncoTrace `0b6f404`. |
+| `results/<time>_repeat_matrix_old_vs_new_10_patients/` | The last two groups side by side. |
+| `results/unstable_A0GR_rep1` to `rep5` | Step-by-step trace cards of the one unstable patient in the 5-repeat run (no report text). They were made with `trace_cards.py` from the issue 16 PR, which is not merged. |
+
+Each analysis folder has `report.md` (one page), the CSV tables, and `provenance.json`.
+Only counts, patient IDs and OncoTrace reason codes are written, never report text.
+
+## Results
+
+Model: GLM-5.3-Flash (`GLM-5.3-Flash-stripe8`), agentic mode, temperature 0.0. All numbers
+come from the tables in `results/`. Differences are descriptive; none was tested for
+significance.
+
+| Setting | OncoTrace | Patients | Repeats | Same outcome in every repeat | Where |
+|---|---|---|---|---|---|
+| 50 annotated patients | `f99cefd` | 50 | 5 | 49 of 50 | `..._50x5/report.md` |
+| 10 patients | `f99cefd` | 10 | 10 | 9 of 10 | `..._10x10/report.md` |
+| same 10 patients | `0b6f404` | 10 | 20 | 9 of 10 | `..._10x20/report.md` |
+
+An outcome is the invasion answer plus the depth answer, or "no answer". Every repeat
+answered every patient. In all three settings the one unstable patient is `TCGA-A5-A0GR`.
+
+**The one unstable patient** (`..._repeat_matrix_old_vs_new_10_patients/patient_stability.csv`).
+The annotation for this patient is `present` with depth `less_than_50`.
+
+| OncoTrace | Repeats | `less_than_50` | `fifty_or_greater` | `cannot_be_determined` |
+|---|---|---|---|---|
+| `f99cefd` | 10 | 7 | 2 | 1 |
+| `0b6f404` | 20 | 11 | 4 | 5 |
+
+The other 9 patients gave the same outcome in every repeat, in both versions. We do not
+claim the updated version is more or less stable: this is one patient, 10 against 20
+repeats.
+
+**The route to the answer differs even when the answer does not.** Per patient, model calls
+were identical across repeats for 6 of 50 patients (5 repeats), 0 of 10 (10 repeats) and 0
+of 10 (20 repeats). Completion tokens were identical for 0 patients in all three.
+
+**Cost per repeat** (`runs.csv` in each folder)
+
+| Setting | Model calls per repeat | Completion tokens per repeat | Share of tokens in cut-off replies |
+|---|---|---|---|
+| 50 patients, 5 repeats | 206 to 266 | 363,849 to 565,024 | 16 to 38% |
+| 10 patients, 10 repeats, `f99cefd` | 37 to 49 | 54,385 to 116,513 | 13 to 54% |
+| 10 patients, 20 repeats, `0b6f404` | 37 to 51 | 66,843 to 128,029 | 12 to 69% |
+
+A cut-off reply is one the server stopped at the reply token cap (8192; finish reason
+`length`). In the 5-repeat run, rep1 had the most (26 replies, 21 patients) and the highest
+cost; why is not known (chance, or the first server start; the run was split over two
+server starts, so the two cannot be separated).
+
+**Agreement with the annotations** (`annotation_agreement.csv`; a single-annotator
+development reference). Invasion: 47 of 50 in every 5-repeat run, and 10 of 10 in every
+repeat of the 10-patient runs. Depth, 10 patients: 8 or 9 of 10 per repeat in both
+versions; the misses are the repeats where `TCGA-A5-A0GR` did not answer `less_than_50`
+(3 of 10 repeats with `f99cefd`, 9 of 20 with `0b6f404`).
 
 ## Run it
 
-Submit from any directory. The output folder must be new, because a folder that already
-holds records is resumed, not rerun.
+Needs a new, empty output folder (a folder that already holds records is resumed, not
+rerun), a clone of OncoTrace, and its client Python. Nothing is assumed about your home.
 
 ```bash
-sbatch --exclude=r002,o001 --time=08:00:00 --cpus-per-task=32 \
-  --export=ALL,ONCOTRACE_OUTPUT=/path/to/new/run_folder \
+ONCOTRACE_REPO=/path/to/oncotrace ONCOTRACE_PYTHON=/path/to/client/bin/python \
+ONCOTRACE_CONFIG=$PWD/experiments/endometrial_determinism/default.yaml \
+ONCOTRACE_OUTPUT=/path/to/new/run_folder \
+DETERMINISM_DRIVER=$PWD/experiments/endometrial_determinism/run_repeats.sh REPEATS=5 \
+  sbatch --exclude=r001,r002,o001 --time=08:00:00 --cpus-per-task=32 \
+  --output=/path/to/new/run_folder/job_logs/job-%j.out \
   experiments/endometrial_determinism/run_repeats.sbatch
 ```
 
-Then analyse, with a label that has not been used:
+`ONCOTRACE_SERVING_IMAGE` (a squashfs of the serving environment) is optional. The config
+files still contain cluster paths for the model weights, serving environment, caches and
+`rpc_base_path`; edit them for another account.
+
+## Rerun the tables
+
+The runs (records, job logs, the server log of the last server start) are in the shared
+workspace, readable by the `__oncotrace` group. They contain protected report text, so
+they stay there and are not committed.
 
 ```bash
-python experiments/endometrial_determinism/analyze_repeats.py \
-  --reps-dir /path/to/new/run_folder --label default_5x
+git clone https://github.com/dsi-rse/clinic-2026-whitney-lab.git && cd clinic-2026-whitney-lab
+git checkout yuxuang/issue17-determinism
+RUNS=/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs \
+ONCOTRACE_F99CEFD=/path/to/oncotrace_at_f99cefd ONCOTRACE_0B6F404=/path/to/oncotrace_at_0b6f404 \
+PYTHONPATH=src bash experiments/endometrial_determinism/run_analysis.sh <prefix>
 ```
 
-`results/<label>/` gets `report.md` (everything on one page), `runs.csv`, `per_patient.csv`,
-`unstable_patients.csv`, `spread.csv`, `divergence.csv`, `pairwise_agreement.csv`,
-`refusals.csv`, `annotation_agreement.csv` and `provenance.json`. Only counts, patient IDs
-and OncoTrace reason codes are written, never report text. Use `--runs A B ...` to compare
-any runs instead of `rep*` folders.
+`<prefix>` is any name for this rerun, such as `2026-11-03_120000`. Python 3.12 with
+`httpx`, `pyyaml` and `pydantic` is needed, because the analysis imports TraceView's
+`viewer/scoring.py` from the OncoTrace checkout (only that file is read); set `PYTHON` to
+that interpreter if `python3` is not it. The tables reproduce byte for byte;
+`provenance.json` differs only in the time, the Python version, the commit and the folder name.
 
-## Rerun the tables from the five runs in this PR
+Run folders used: `2026-10-25_determinism_5x`, `2026-10-28_followup_10x10`,
+`2026-10-30_followup_10x20_main0b6f404`.
 
-The five runs (records, job logs and the server log of the second server start) are in the
-shared workspace, readable by the `__oncotrace` group:
+## Provenance and what cannot be rerun
 
-`/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/`
+`provenance.json` is made with `oncotrace_bench.provenance.build`. It records the clinic commit,
+the config and roster SHA-256, the OncoTrace commit and task digest each run record names,
+the Slurm jobs (state, time, node, records written), the config digest and serving image
+fingerprint from the job logs, and checkpoint, seed and caching from the server log.
 
-They contain protected report text, so they stay there and are not committed. The tables
-in `results/default_5x_cpu32/` were made with:
-
-```bash
-RUNS=/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x
-python experiments/endometrial_determinism/analyze_repeats.py \
-  --reps-dir $RUNS --label default_5x_rerun \
-  --job 2239457 --job 2244400 \
-  --job-log $RUNS/job_logs/determinism-2239457.out \
-  --job-log $RUNS/job_logs/determinism-2244400.out \
-  --server-log $RUNS/server.log \
-  --oncotrace /path/to/oncotrace-checkout-at-f99cefd
-```
-
-**Requirements.** Python 3.12 with `httpx`, `pyyaml` and `pydantic` installed (the scoring code
-of OncoTrace imports them). The script imports TraceView's `viewer/scoring.py` from the
-OncoTrace checkout you pass, so use OncoTrace commit
-`f99cefd3e3c30adcffd421cee33e2e1eb27947b1`, the commit the five runs used.
-
-**What `provenance.json` records.**
-- `code_that_ran`: the OncoTrace commit and task contract digest that the 250 records say they
-  ran with (this is the code that ran, read from the records).
-- `analysis_oncotrace_checkout` and `analysis_clinic_checkout`: the checkouts the analysis was
-  run from, with a flag for uncommitted changes. They are not what the jobs ran.
-- `slurm_jobs`: job ids, state, time window and node (from `sacct`), and how many records of
-  each repeat a job wrote. Repeat 2 was written by both jobs (12 patients by the first, 38 by
-  the second), because the first job reached its time limit. A record does not name its job,
-  so this is read from the record file times.
-- `logged_by_jobs`: the config digest, task digest and serving image fingerprint each job
-  wrote in its own log.
-- `server_log`: checkpoint, seed, precision and caching from the server log. Only the second
-  server start has a log; the first one was overwritten when the second job started.
-
-## What the tables measure
-
-- **Unstable patients:** patients whose outcome (invasion and depth, or no answer) is not
-  the same in every run. `unstable_patients.csv` says whether the label changed or the
-  patient was only answered in some runs.
-- **Spread:** for the same patient, how much calls, completion tokens and rejected
-  submissions differ between runs.
-- **Cut-off replies:** replies the server stopped at the reply token cap (finish reason
-  `length`), how many patients had one, and their share of the completion tokens (`runs.csv`).
-- **Where the runs first differ:** whether the first reply, and the first long reasoning
-  reply, are identical across runs.
-
-## Results (5 repeats, 50 annotated patients, OncoTrace `f99cefd`, GLM-5.3-Flash)
-
-Tables: `results/default_5x_cpu32/`. The run was split over two server starts (the first Slurm
-job hit its time limit during repeat 2 and a second job resumed it), so the repeats did not all
-share one server.
-
-- **The final answer is nearly repeatable.** 49 of 50 patients had the same invasion and depth
-  answer in all 5 runs; all 250 patient-runs were answered. One patient (`TCGA-A5-A0GR`) got a
-  different depth in one run.
-- **The route to the answer is not.** Model calls were identical across the 5 runs for 6 of
-  50 patients, completion tokens for 0 of 50, and the first long reasoning reply for 0 of 50.
-  Per run, calls ranged 206 to 266 and completion tokens 364k to 565k.
-- **Cut-off replies drive most of the cost spread.** Replies cut off at the 8192-token cap:
-  26 in rep1 (21 patients) against 7 to 14 in the other runs. They hold 16 to 38% of the tokens.
-  Why rep1 had more is not known (chance, or the first server start; the split run cannot
-  separate them).
-- **Agreement with the annotations** (a single-annotator development reference, 50 patients):
-  invasion 47 of 50 in every run; depth 38 of 50 in four runs and 37 of 50 in one. Most of
-  the rest are answers given where the annotation is `not_applicable` or
-  `cannot_be_determined`; this is not read as model error.
-- **Not tested yet:** the controls below, so the source of the variation is not identified.
-
-**Per run** (50 patients each; `results/default_5x_cpu32/runs.csv`)
-
-| run | answered | model calls | completion tokens | rejected submissions | cut-off replies (patients) |
-|---|---|---|---|---|---|
-| rep1 | 50 / 50 | 266 | 565,024 | 120 | 26 (21) |
-| rep2 | 50 / 50 | 226 | 408,548 | 72 | 11 (8) |
-| rep3 | 50 / 50 | 224 | 373,984 | 78 | 11 (8) |
-| rep4 | 50 / 50 | 206 | 363,849 | 59 | 7 (5) |
-| rep5 | 50 / 50 | 221 | 383,190 | 82 | 14 (11) |
-
-**Per patient, over the five runs** (`spread.csv`, `divergence.csv`)
-
-| measure | identical in all 5 runs | mean SD per patient | largest range |
-|---|---|---|---|
-| invasion and depth outcome | 49 / 50 | | |
-| model calls | 6 / 50 | 1.3 | 15 |
-| completion tokens | 0 / 50 | 4,138 | 50,831 |
-| rejected submissions | 7 / 50 | 1.5 | 14 |
-| first reply (usually a short tool call) | 20 / 50 | | |
-| first long reasoning reply (over 1000 tokens) | 0 / 50 | | |
-
-**Agreement with the annotations** (`annotation_agreement.csv`)
-
-| field | rep1 | rep2 | rep3 | rep4 | rep5 |
-|---|---|---|---|---|---|
-| invasion, agrees (of 50) | 47 | 47 | 47 | 47 | 47 |
-| depth, agrees (of 50) | 38 | 37 | 38 | 38 | 38 |
-| depth, over-committed (of 50) | 12 | 12 | 12 | 12 | 12 |
-
-"Over-committed" means an answer where the annotation is `not_applicable` or `cannot_be_determined`.
-There is no figure; every number comes from the tables in `results/default_5x_cpu32/`.
+- **The runs themselves cannot be rerun to the same records.** Repeats are not identical;
+  that is what this experiment measures.
+- **Resumed runs.** 5 repeats: two jobs (`2239457` timed out during repeat 2, `2244400`
+  finished it). 10 repeats, `f99cefd`: two jobs (`2260881`, `2267023`). 20 repeats,
+  `0b6f404`: four jobs, each with its own server start (`2284447` and `2286351` timed out,
+  `2287510` failed after 39 minutes when the vLLM engine died, `2287759` finished).
+  So the repeats do not all share one server.
+- **Server logs.** Only the last server start of each run has a log; earlier ones were
+  overwritten when the next job started.
+- **Job script.** The runs were started with the earlier version of `run_repeats.sbatch`,
+  which had personal paths as defaults. The version here only removes those defaults; it
+  has not been submitted as a job.
+- **Dependencies on unmerged PRs.** `trace_cards.py` (issue 16 PR) made the trace cards.
+  Nothing else here needs an unmerged PR.
 
 ## Known pitfalls
 
-- **Keep 32 CPUs.** With 16 the server generated 25 to 50 tokens/s, against about 127 with 32
-  (roughly 3 to 5 times slower; measured once; the four model workers use about 3 cores each),
-  and could not finish in the time limit.
-- **One repeat takes about 1 to 1.5 hours,** so five repeats need 5 to 7 hours. Set
-  `--time=08:00:00`, not 2 hours; a job that times out is resumed by submitting again to the
+- **Keep 32 CPUs.** With 16 the server generated 25 to 50 tokens/s, against about 127 with
+  32, and could not finish in the time limit (measured once).
+- **One repeat of 50 patients takes about 1 to 1.5 hours,** so five repeats need 5 to 7
+  hours. Set `--time=08:00:00`. A job that times out is resumed by submitting again to the
   same output folder.
-- **Pin the code version.** The job reads OncoTrace from `~/oncotrace` when it starts, so
-  do not change that checkout while a job is queued. Record the commit; the analysis writes
-  it to `provenance.json`. The issue 9 runs used `e901b3f`.
-- **Repeats on one server measure stability within that server**, not across server
-  starts. Run a second job to compare server starts.
+- **Pin the code version.** The job reads OncoTrace from `ONCOTRACE_REPO` when it starts,
+  so do not change that checkout while a job is queued.
+- **Repeats on one server measure stability within that server**, not across server starts.
 
 ## Still to do for issue 17
 
-Candidate sources, from the serving config: requests batched together (3 client workers,
-`max_num_seqs` 8), speculative decoding (MTP, 5 tokens), prefix caching and chunked
-prefill, and retry loops that amplify a small difference. Controls to compare against the
-default: one client at a time, MTP off, prefix caching off, and a second fresh server
-start. The per-request seed is not sent by the client and the server seed is already 0, so
-it is unlikely to matter at temperature 0.
+The controls the issue asks for: one client at a time, speculative decoding (MTP) off,
+prefix caching off, and a second fresh server start. Until then the source of the
+variation is not identified. The per-request seed is not sent by the client and the server
+seed is already 0.
