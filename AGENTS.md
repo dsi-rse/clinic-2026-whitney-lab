@@ -83,9 +83,6 @@ Then, collapsed or linked: the file table, how to run, checks, provenance and lo
 - Open experiment PRs with `.github/PULL_REQUEST_TEMPLATE/experiment.md`. Add `?template=experiment.md` to the compare URL, or run `gh pr create --template .github/PULL_REQUEST_TEMPLATE/experiment.md`. GitHub does not fill in a named template on its own.
 - Agents: do this for experiment PRs. Other PR types do not use this template.
 
-### Who writes the description
-It is fine to have an agent write the PR description (this may change later). But if a student is not capable of writing Findings and What we did in their own words, they likely do not understand the experiment. That is not good. Agents: do not take this learning opportunity away from the student. Ask the student to explain the question, the comparison and the yes/no bar first, and ask them to correct your draft.
-
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
