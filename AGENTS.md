@@ -48,20 +48,23 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 Every result folder must say what made it, so a reader months later can tell what produced the numbers and whether two results are comparable (see issue #31). Shared paths, sourced numbers, and rerunning from a fresh clone are covered by `## Reproducibility` above.
 
 ### 1. One helper
-- Call `oncotrace_bench.provenance.build(inputs, runs, repo_root, ...)` and save the result as `provenance.json` next to the outputs. Don't write a second version of it: if a field is missing, add it to `build()`.
-- Run `make check-provenance` before opening the PR. It checks items 2 and 3 below.
+- Call `oncotrace_bench.provenance.build(inputs, runs, repo_root, ...)` and save the result as `provenance.json` next to the outputs. Don't write a second version of it: if a field is missing, add it to `build()`. Read runs with `oncotrace_bench.records.load_run`, not your own loader.
+- Pass **every** input the result depends on: `inputs=` for rosters, edit manifests and configs, `task=` for the task contract. `build(inputs={}, ...)` records nothing to check.
+- Call `build()` *before* writing your output folder, or the new folder itself shows up as uncommitted. `experiments/temperature/compare_temperature.py` is the example.
+- Run `make check-provenance` before opening the PR. With no arguments it checks the records your branch adds or changes, and those must pass. `make check-provenance ARGS=experiments` audits everything, including older records that predate this helper; those are known (issue #31) and are not yours to fix.
 
 ### 2. Record the run, not the machine you are analysing on
-- Facts about a run (OncoTrace commit, contract digest, model, temperature, Slurm job) come from what OncoTrace wrote into the run folder. `run_state()` reads them. Never take them from `git rev-parse HEAD` of whatever checkout is open while you analyse: that was fixed days later and is a different thing.
+- Facts about a run (OncoTrace commit, contract digest, model, temperature, Slurm job) come from what OncoTrace wrote into the run folder. `run_state()` reads them. Never take them from `git rev-parse HEAD` of whatever checkout is open while you analyse: that checkout may have moved since the run, so its HEAD is not what the run used.
 - If your analysis imports code from a checkout (OncoTrace's `viewer/`, say), pass it as `analysis_repos=`. It is an input of the analysis, not the commit that made the run.
 
 ### 3. A clean, pushed commit
-- Make results from a clean checkout: commit the code first, then the results. `clinic_repo.uncommitted_files` must be empty, or the results README must explain why not.
-- Every recorded commit must exist on GitHub. A commit that is only in your checkout pins nothing.
+- Make results from a clean checkout: commit the code first, then the results. `clinic_repo.uncommitted_files` must be empty.
+- If a dirty tree was genuinely unavoidable, pass `dirty_reason="..."` to `build()` and say the same thing in the results README. The check reports the reason instead of failing; a reason in prose alone cannot be checked.
+- Every recorded commit must exist on GitHub, including the OncoTrace commit the run used. A commit that is only in your checkout pins nothing.
 
 ### 4. A new timestamped results folder each time
-- `results/<YYYY-MM-DD_HHMMSS>[_label]/`, holding the tables, a summary, `provenance.json`, and a README saying how to remake it.
-- Never overwrite a results folder. Earlier attempts are evidence, including the ones that went wrong.
+- `results/<YYYY-MM-DD_HHMMSS>[_label]/`, holding the tables, a summary, `provenance.json`, and a README saying how to remake it. Name run folders `<date>_<experiment>_<arm>`.
+- Never overwrite a results folder. When `## Reproducibility` item 2 says to regenerate the tables, regenerate them into a **new** folder and update the text to cite it. Earlier attempts are evidence, including the ones that went wrong.
 
 ## Local Preferences
 
