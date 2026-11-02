@@ -43,6 +43,26 @@ Experiment results must be reproducible by teammates and reviewers (see issue #3
 - Note where a run was resumed or split across servers or code versions.
 - If the PR depends on another unmerged PR or branch, say which one. No results that can't be remade without it.
 
+## Experiments and provenance
+
+Every result folder must say what made it, so a reader months later can tell what produced the numbers and whether two results are comparable (see issue #31). Shared paths, sourced numbers, and rerunning from a fresh clone are covered by `## Reproducibility` above.
+
+### 1. One helper
+- Call `oncotrace_bench.provenance.build(inputs, runs, repo_root, ...)` and save the result as `provenance.json` next to the outputs. Don't write a second version of it: if a field is missing, add it to `build()`.
+- Run `make check-provenance` before opening the PR. It checks items 2 and 3 below.
+
+### 2. Record the run, not the machine you are analysing on
+- Facts about a run (OncoTrace commit, contract digest, model, temperature, Slurm job) come from what OncoTrace wrote into the run folder. `run_state()` reads them. Never take them from `git rev-parse HEAD` of whatever checkout is open while you analyse: that was fixed days later and is a different thing.
+- If your analysis imports code from a checkout (OncoTrace's `viewer/`, say), pass it as `analysis_repos=`. It is an input of the analysis, not the commit that made the run.
+
+### 3. A clean, pushed commit
+- Make results from a clean checkout: commit the code first, then the results. `clinic_repo.uncommitted_files` must be empty, or the results README must explain why not.
+- Every recorded commit must exist on GitHub. A commit that is only in your checkout pins nothing.
+
+### 4. A new timestamped results folder each time
+- `results/<YYYY-MM-DD_HHMMSS>[_label]/`, holding the tables, a summary, `provenance.json`, and a README saying how to remake it.
+- Never overwrite a results folder. Earlier attempts are evidence, including the ones that went wrong.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
