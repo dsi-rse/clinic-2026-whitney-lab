@@ -1,0 +1,13 @@
+patient,run,outcome,calls,rejected_submissions,top_rejection,cut_off_replies,no_answer_reason
+TCGA-AX-A1C8,agentic_new,NO_ANSWER,24,29,quantified_depth_not_classified,1,model_call_budget_exhausted
+TCGA-AX-A1C8,one_shot_new,present/less_than_50,10,7,citation_quote_not_found,3,
+TCGA-AX-A1C8,agentic_issue9,NO_ANSWER,8,3,citation_quote_ambiguous,4,truncated_without_tool_call
+TCGA-AX-A1C8,one_shot_issue9,NO_ANSWER,6,3,citation_absent,3,truncated_without_tool_call
+TCGA-FI-A2EX,agentic_new,NO_ANSWER,24,22,argument_not_a_list,0,model_call_budget_exhausted
+TCGA-FI-A2EX,one_shot_new,present/less_than_50,2,1,quantified_depth_not_classified,0,
+TCGA-FI-A2EX,agentic_issue9,present/less_than_50,4,1,quantified_depth_not_classified,0,
+TCGA-FI-A2EX,one_shot_issue9,NO_ANSWER,24,38,citation_quote_not_found,1,model_call_budget_exhausted
+TCGA-DI-A0WH,agentic_new,NO_ANSWER,6,1,citation_quote_ambiguous,3,truncated_without_tool_call
+TCGA-DI-A0WH,one_shot_new,present/less_than_50,8,6,citation_quote_ambiguous,2,
+TCGA-DI-A0WH,agentic_issue9,NO_ANSWER,7,2,myometrial_invasion_percent_not_allowed,4,truncated_without_tool_call
+TCGA-DI-A0WH,one_shot_issue9,NO_ANSWER,5,2,evidence_citations_missing,4,truncated_without_tool_call

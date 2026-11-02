@@ -1,0 +1,6 @@
+run,patient,reason,calls,rejected_submissions,cut_off_replies
+agentic_issue9,TCGA-A5-A0VQ,model_call_budget_exhausted,24,26,3
+one_shot_issue9,TCGA-A5-A0GR,truncated_without_tool_call,3,0,3
+one_shot_issue9,TCGA-A5-A0R7,truncated_without_tool_call,5,2,3
+one_shot_issue9,TCGA-A5-A0VO,truncated_without_tool_call,4,1,3
+one_shot_issue9,TCGA-A5-A3LO,truncated_without_tool_call,3,0,3
