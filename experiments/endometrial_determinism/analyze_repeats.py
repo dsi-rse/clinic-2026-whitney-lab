@@ -365,7 +365,7 @@ def refusal_rows(
         Counter(s for u in units for s in refusal_signatures(run[u])) for run in runs
     ]
     reasons = sorted(
-        {s for c in counts for s in c}, key=lambda s: -sum(c[s] for c in counts)
+        {s for c in counts for s in c}, key=lambda s: (-sum(c[s] for c in counts), s)
     )
     return [[reason] + [c[reason] for c in counts] for reason in reasons], [
         "reason",
