@@ -60,35 +60,6 @@ def markdown_table(header: list[str], rows: list[list[Any]]) -> str:
     return "\n".join(lines)
 
 
-def git_commit(repo: Path) -> str:
-    """The commit a repository is at, or 'unknown'."""
-    git = shutil.which("git")
-    if git is None or not repo.is_dir():
-        return "unknown"
-    done = subprocess.run(  # noqa: S603 - fixed read-only git arguments
-        [git, "-C", str(repo), "rev-parse", "HEAD"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    return done.stdout.strip() if done.returncode == 0 else "unknown"
-
-
-def git_state(repo: Path) -> dict[str, Any]:
-    """The commit a repository is at and whether it has uncommitted changes."""
-    git = shutil.which("git")
-    if git is None or not repo.is_dir():
-        return {"commit": "unknown", "uncommitted_changes": None}
-    done = subprocess.run(  # noqa: S603 - fixed read-only git arguments
-        [git, "-C", str(repo), "status", "--porcelain", "--untracked-files=no"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    changed = bool(done.stdout.strip()) if done.returncode == 0 else None
-    return {"commit": git_commit(repo), "uncommitted_changes": changed}
-
-
 def record_contracts(runs: list[dict[str, dict]]) -> list[dict[str, str]]:
     """The code commit and task digest the records themselves say they ran with."""
     found = {
@@ -602,11 +573,13 @@ def main() -> None:
         inputs,
         {folder.name: folder for folder in folders},
         Path(os.path.relpath(REPO_ROOT)),
+        # The OncoTrace checkout used for scoring; it is not what the jobs ran.
+        analysis_repos={
+            "oncotrace_scoring": Path(os.path.relpath(arguments.oncotrace))
+        },
         patients_compared=len(units),
         # What the records themselves say they ran with; this is the code that ran.
         code_that_ran=record_contracts(runs),
-        # The OncoTrace checkout used for scoring; it is not what the jobs ran.
-        analysis_oncotrace_checkout=git_state(arguments.oncotrace),
         slurm_jobs=slurm_jobs(arguments.job, folders),
         logged_by_jobs=logged_by_jobs(arguments.job_log),
         server_log=server_settings(arguments.server_log)
