@@ -1,0 +1,156 @@
+{
+  "created_utc": "2026-11-02T15:53:48+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": ".",
+    "commit": "e1373516dd745eff74421cb2577b8c156ba7aa4c",
+    "branch": "yuxuang/issue17-determinism",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "config": {
+      "path": "experiments/endometrial_determinism/default.yaml",
+      "sha256": "96e2dec318bcc2a5e22eb1d31b3b548546cc169e4f75480d39160a8a79dca618"
+    },
+    "roster": {
+      "path": "experiments/endometrial_determinism/roster_annotated50.csv",
+      "sha256": "b9ea644bd89d866f2a5755ce3eda699a23d8d70539499b8731a8d22e1d27b447"
+    }
+  },
+  "runs": {
+    "rep1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep1",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "group_readable": true
+    },
+    "rep2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep2",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "group_readable": true
+    },
+    "rep3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep3",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "group_readable": true
+    },
+    "rep4": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep4",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "group_readable": true
+    },
+    "rep5": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep5",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "group_readable": true
+    }
+  },
+  "analysis_repos": {
+    "oncotrace_scoring": {
+      "path": "../../../net/spaces/annawoodard/oncotrace/workspaces/yuxuang/oncotrace_at_f99cefd",
+      "commit": "f99cefd3e3c30adcffd421cee33e2e1eb27947b1",
+      "branch": "HEAD",
+      "uncommitted_files": []
+    }
+  },
+  "patients_compared": 50,
+  "code_that_ran": [
+    {
+      "oncotrace_commit": "f99cefd3e3c30adcffd421cee33e2e1eb27947b1",
+      "task_contract_digest": "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+    }
+  ],
+  "slurm_jobs": [
+    {
+      "job_id": "2239457",
+      "state": "TIMEOUT",
+      "start": "2026-10-25T00:19:24",
+      "end": "2026-10-25T02:19:32",
+      "node": "r003",
+      "records_written": {
+        "rep1": 50,
+        "rep2": 12,
+        "rep3": 0,
+        "rep4": 0,
+        "rep5": 0
+      }
+    },
+    {
+      "job_id": "2244400",
+      "state": "COMPLETED",
+      "start": "2026-10-25T11:18:13",
+      "end": "2026-10-25T15:46:54",
+      "node": "q001",
+      "records_written": {
+        "rep1": 0,
+        "rep2": 38,
+        "rep3": 50,
+        "rep4": 50,
+        "rep5": 50
+      }
+    }
+  ],
+  "logged_by_jobs": [
+    {
+      "log": "determinism-2239457.out",
+      "config_sha256": "96e2dec318bcc2a5e22eb1d31b3b548546cc169e4f75480d39160a8a79dca618",
+      "task_contract_digest": "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629",
+      "serving_image_fingerprint": "cb236ea842cc8cbacb3d78da8a0983f84f1570f8d5c5d732c84bb809b8d8c9c9"
+    },
+    {
+      "log": "determinism-2244400.out",
+      "config_sha256": "96e2dec318bcc2a5e22eb1d31b3b548546cc169e4f75480d39160a8a79dca618",
+      "task_contract_digest": "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629",
+      "serving_image_fingerprint": "cb236ea842cc8cbacb3d78da8a0983f84f1570f8d5c5d732c84bb809b8d8c9c9"
+    }
+  ],
+  "server_log": {
+    "log": "server.log",
+    "model_checkpoint": "/net/spaces/annawoodard/oncotrace/weights/GLM-5.3-Flash-stripe8",
+    "seed": "0",
+    "quantization": "fp8",
+    "dtype": "torch.bfloat16",
+    "prefix_caching": "True",
+    "chunked_prefill": "True",
+    "first_log_line_time": "10-25 11:18:48"
+  }
+}
