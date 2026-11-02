@@ -4,4 +4,4 @@ This directory contains runnable Python scripts. Each script should use `argpars
 
 | Script | What it does |
 |---|---|
-| `check_provenance.py` | Checks every `provenance.json` under `experiments/` (or the paths given): the clinic checkout was clean, each recorded commit is on GitHub, each run names one OncoTrace commit and one contract digest, ran an unmodified package, is still there and group-readable, and did not span more than one server start. Run it with `make check-provenance` before opening a PR. |
+| `check_provenance.py` | Checks `provenance.json` records: the clinic checkout was clean (or acknowledged why not), each recorded commit is on GitHub in its own repository, each run names one OncoTrace commit and one contract digest, agrees with its own run record, ran an unmodified package, is reachable by the group, and was not served by more than one server start. With no paths it checks the records your branch adds or changes; `make check-provenance ARGS=experiments` audits everything. Run it before opening a PR. |
