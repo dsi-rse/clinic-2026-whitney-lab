@@ -13,6 +13,7 @@ import subprocess
 from pathlib import Path
 
 from oncotrace_bench.provenance import (
+    DIRTY_TAG,
     build,
     check,
     group_access,
@@ -21,6 +22,7 @@ from oncotrace_bench.provenance import (
     repo_state,
     run_state,
     server_starts,
+    server_starts_tag,
 )
 
 SCRIPT = Path(__file__).resolve().parent.parent / "scripts" / "check_provenance.py"
@@ -112,12 +114,43 @@ def test_dirty_checkout_is_a_problem(tmp_path: Path) -> None:
     assert "experiments/" in problems[0]
 
 
-def test_an_explained_dirty_checkout_passes(tmp_path: Path) -> None:
-    """`dirty_reason` is how AGENTS.md's "or explain why not" reaches the tool."""
+def test_an_acknowledged_dirty_checkout_passes(tmp_path: Path) -> None:
+    """`acknowledged` is how AGENTS.md's "or explain why not" reaches the tool."""
     record = record_with(path=str(tmp_path))
     record["clinic_repo"]["uncommitted_files"] = ["experiments/"]
-    record["dirty_reason"] = "the report store cannot be committed"
+    record["acknowledged"] = {DIRTY_TAG: "the report store cannot be committed"}
     assert check(record) == []
+
+
+def test_an_acknowledged_two_server_run_passes(tmp_path: Path) -> None:
+    """A run genuinely served by two starts can be allowed with a reason.
+
+    A check that can only fail on cases the rules permit is one people learn
+    to ignore, so every rule with an "or explain it" has a tag.
+    """
+    record = record_with(
+        path=str(tmp_path),
+        server_starts=[
+            {"job_id": "11", "log": "job-11.out", "published_endpoint": True},
+            {"job_id": "22", "log": "job-22.out", "published_endpoint": True},
+        ],
+    )
+    assert check(record) != []
+    record["acknowledged"] = {server_starts_tag("t0"): "the first server was preempted"}
+    assert check(record) == []
+
+
+def test_acknowledging_one_run_does_not_excuse_another(tmp_path: Path) -> None:
+    """Tags name the run, so an exception cannot leak to a different one."""
+    record = record_with(
+        path=str(tmp_path),
+        server_starts=[
+            {"job_id": "11", "log": "job-11.out", "published_endpoint": True},
+            {"job_id": "22", "log": "job-22.out", "published_endpoint": True},
+        ],
+    )
+    record["acknowledged"] = {server_starts_tag("other_run"): "not this one"}
+    assert any("served by 2 server starts" in problem for problem in check(record))
 
 
 def test_git_failure_is_a_problem_not_a_clean_record(tmp_path: Path) -> None:
@@ -311,6 +344,28 @@ def test_run_state_counts_units_with_no_contract(tmp_path: Path) -> None:
     assert state["records"] == 2  # noqa: PLR2004
     assert state["units_without_contract"] == 1
     assert state["contract_digests"] == [DIGEST]
+
+
+def test_a_run_with_no_job_log_says_so(tmp_path: Path) -> None:
+    """No log means the number of server starts is unknown, not one.
+
+    An arm that attached to another run's server has no log of its own, and a
+    run whose logs were not kept looks identical. Neither is evidence of a
+    single clean start.
+    """
+    contract = {"commit": COMMIT, "digest": DIGEST}
+    fake_run(tmp_path / "run", [{"contract": contract}])
+    state = run_state(tmp_path / "run")
+    assert state["server_starts"] == []
+    assert state["server_starts_known"] is False
+
+
+def test_a_run_with_a_job_log_knows_its_starts(tmp_path: Path) -> None:
+    """A folder that does hold a job log can speak to how many starts served."""
+    contract = {"commit": COMMIT, "digest": DIGEST}
+    run = fake_run(tmp_path / "run", [{"contract": contract}])
+    (run / "job-11.out").write_text("endpoint ready at http://127.0.0.1:1/v1\n")
+    assert run_state(run)["server_starts_known"] is True
 
 
 def test_group_access_follows_the_whole_path(tmp_path: Path) -> None:

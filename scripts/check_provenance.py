@@ -141,6 +141,25 @@ def commit_problems(record: dict, fallback: str) -> tuple[list[str], list[str]]:
     return problems, unknowns
 
 
+def notes(record: dict) -> list[str]:
+    """What the record cannot speak to, and the exceptions it acknowledges.
+
+    These are printed but never counted as problems: an acknowledged exception
+    is allowed by `AGENTS.md`, and an unknown is not evidence of a fault.
+    """
+    lines = [
+        f"acknowledged {tag}: {reason}"
+        for tag, reason in (record.get("acknowledged") or {}).items()
+    ]
+    lines += [
+        f"run {name}: no job log in the run folder, so how many server starts "
+        "served it is unknown, not one"
+        for name, run in (record.get("runs") or {}).items()
+        if run.get("server_starts_known") is False
+    ]
+    return lines
+
+
 def main() -> None:
     """Check each provenance record found, print the problems, and set the status."""
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
@@ -177,7 +196,7 @@ def main() -> None:
         print(f"{shown}{'' if problems else ': ok'}")
         for problem in problems:
             print(f"  - {problem}")
-        for unknown in unknowns:
+        for unknown in unknowns + notes(record):
             print(f"  ? {unknown}")
 
     print(f"\n{len(found)} record(s) checked, {total} problem(s)")

@@ -59,12 +59,18 @@ Every result folder must say what made it, so a reader months later can tell wha
 
 ### 3. A clean, pushed commit
 - Make results from a clean checkout: commit the code first, then the results. `clinic_repo.uncommitted_files` must be empty.
-- If a dirty tree was genuinely unavoidable, pass `dirty_reason="..."` to `build()` and say the same thing in the results README. The check reports the reason instead of failing; a reason in prose alone cannot be checked.
-- Every recorded commit must exist on GitHub, including the OncoTrace commit the run used. A commit that is only in your checkout pins nothing.
+- Every recorded commit must exist on GitHub: the clinic commit in this repo, and the OncoTrace commit each run used in `dsi-rse/oncotrace`. That one is private, so `gh` needs access to it or the check can only say "not checked". A commit that is only in your checkout pins nothing.
+- Where a rule above allows an exception "if you explain it", the explanation goes in `build(acknowledged={"<tag>": "why"})` as well as in the results README: `"dirty"` for uncommitted files, `"<run>:server_starts"` for a run really served by two allocations. The check then reports the reason instead of failing. A reason in prose alone cannot be checked.
 
 ### 4. A new timestamped results folder each time
 - `results/<YYYY-MM-DD_HHMMSS>[_label]/`, holding the tables, a summary, `provenance.json`, and a README saying how to remake it. Name run folders `<date>_<experiment>_<arm>`.
 - Never overwrite a results folder. When `## Reproducibility` item 2 says to regenerate the tables, regenerate them into a **new** folder and update the text to cite it. Earlier attempts are evidence, including the ones that went wrong.
+
+### Don't
+- **Don't make a failing check pass by editing it.** Never edit a `provenance.json`, or loosen `check_provenance.py`, to get a clean result. Fix the cause, or acknowledge the exception as in item 3.
+- **Don't type provenance values by hand.** Copy commit hashes, job IDs and digests out of `provenance.json`; never write one from memory into a README or a PR body.
+- **Don't guess a value that isn't recorded.** If there is no seed or no job ID, write "unknown". Don't infer it from a default or from a similar run.
+- **Don't reuse a run folder.** A folder that already holds records is resumed, not rerun, and its repeats won't mean what a reader assumes. Use a new folder each time, and say when a run was resumed.
 
 ## Local Preferences
 

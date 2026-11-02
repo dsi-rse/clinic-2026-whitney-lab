@@ -53,6 +53,16 @@ RUN_KEYS = (
 # a problem with the result.
 ENDPOINT_MARKERS = ("endpoint ready", "endpoint published")
 
+# Tags an experiment can acknowledge in `build(acknowledged=...)` when the rules
+# allow the exception. A check that can only fail on things the rules permit is
+# a check people learn to ignore.
+DIRTY_TAG = "dirty"
+
+
+def server_starts_tag(run_name: str) -> str:
+    """The acknowledgement tag for a run that really was served by two starts."""
+    return f"{run_name}:server_starts"
+
 
 def _git(repo: Path, *args: str) -> tuple[bool, str]:
     """Run one read-only git command in `repo`.
@@ -233,7 +243,12 @@ def run_state(run_dir: Path) -> dict:
     if config.exists():
         state["run_config_sha256"] = sha256(config)
         state["model_root"] = model_root(config)
-    state["server_starts"] = server_starts(run_dir)
+    starts = server_starts(run_dir)
+    state["server_starts"] = starts
+    # An empty list means no job log was found here, not that there was one
+    # server. An arm that attached to another run's server has no log of its
+    # own, and a run whose logs were not kept looks the same.
+    state["server_starts_known"] = bool(starts)
     state["group_access"] = group_access(run_dir)
     return state
 
@@ -244,7 +259,7 @@ def build(
     repo_root: Path,
     task: Path | None = None,
     analysis_repos: dict | None = None,
-    dirty_reason: str | None = None,
+    acknowledged: dict | None = None,
     **extra: object,
 ) -> dict:
     """Assemble the provenance record for one experiment run.
@@ -263,9 +278,11 @@ def build(
         analysis_repos: name -> a checkout the analysis imports code from (an
             OncoTrace clone it reads `viewer/` from, say). Recorded as an input
             of the analysis, never as the commit that made a run.
-        dirty_reason: why the checkout had uncommitted files, if it did. Set
-            this only when the result genuinely had to be made from a dirty
-            tree; `check()` then reports the reason instead of failing.
+        acknowledged: tag -> why this exception was unavoidable, for the
+            cases `AGENTS.md` allows with an explanation. `"dirty"` covers a
+            checkout with uncommitted files; `server_starts_tag(run)` covers a
+            run genuinely served by more than one allocation. `check()` then
+            stops failing on that tag, and the reason stays in the record.
         **extra: anything else (counts, arguments) is stored as given.
 
     Returns:
@@ -289,8 +306,8 @@ def build(
         record["analysis_repos"] = {
             name: repo_state(Path(path)) for name, path in analysis_repos.items()
         }
-    if dirty_reason:
-        record["dirty_reason"] = dirty_reason
+    if acknowledged:
+        record["acknowledged"] = dict(acknowledged)
     return {**record, **extra}
 
 
@@ -369,13 +386,14 @@ def check(record: dict) -> list[str]:
         One sentence per problem; empty if the record is clean.
     """
     problems = []
+    acknowledged = record.get("acknowledged") or {}
     clinic = record.get("clinic_repo") or {}
     problems += _repo_problems("clinic_repo", clinic, require_commit=True)
     dirty = clinic.get("uncommitted_files") or []
-    if dirty and not record.get("dirty_reason"):
+    if dirty and DIRTY_TAG not in acknowledged:
         problems += [
             f"clinic_repo was dirty: {name} was not committed. If that was "
-            "unavoidable, pass dirty_reason= to build()."
+            f'unavoidable, pass acknowledged={{"{DIRTY_TAG}": "why"}} to build().'
             for name in dirty
         ]
     for name, repo in (record.get("analysis_repos") or {}).items():
@@ -409,11 +427,12 @@ def check(record: dict) -> list[str]:
             for start in run.get("server_starts") or []
             if start.get("published_endpoint")
         ]
-        if len(served) > 1:
+        if len(served) > 1 and server_starts_tag(name) not in acknowledged:
             jobs = ", ".join(start["job_id"] for start in served)
             problems.append(
                 f"run {name} was served by {len(served)} server starts ({jobs}); its "
-                "own provenance names only one. Say so in the README, since the "
-                "repeats may not mean what a reader assumes."
+                "own provenance names only one, and the repeats may not mean what a "
+                "reader assumes. Say so in the README, and pass "
+                f'acknowledged={{"{server_starts_tag(name)}": "why"}} to build().'
             )
     return problems
