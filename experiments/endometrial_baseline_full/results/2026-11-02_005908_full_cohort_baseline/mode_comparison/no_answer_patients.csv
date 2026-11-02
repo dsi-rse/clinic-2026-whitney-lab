@@ -1,0 +1,5 @@
+mode,patient,reason,calls,rejected_submissions,cut_off_replies
+agentic,TCGA-AX-A1C8,model_call_budget_exhausted,24,29,1
+agentic,TCGA-DI-A0WH,truncated_without_tool_call,6,1,3
+agentic,TCGA-FI-A2EX,model_call_budget_exhausted,24,22,0
+one_shot,TCGA-D1-A163,model_call_budget_exhausted,24,24,1

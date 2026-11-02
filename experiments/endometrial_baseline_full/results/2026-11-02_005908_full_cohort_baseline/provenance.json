@@ -1,0 +1,144 @@
+{
+  "created_utc": "2026-11-02T06:59:11+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": ".",
+    "commit": "56915597796bb7d8d2e0458aaab6028a47480adb",
+    "branch": "yuxuang/issue35-full-cohort-baseline",
+    "uncommitted_files": [
+      "experiments/endometrial_baseline_full/results/"
+    ]
+  },
+  "inputs": {
+    "roster_annotated50": {
+      "path": "experiments/endometrial_baseline_full/roster_annotated50.csv",
+      "sha256": "b9ea644bd89d866f2a5755ce3eda699a23d8d70539499b8731a8d22e1d27b447"
+    },
+    "full_agentic.yaml": {
+      "path": "experiments/endometrial_baseline_full/full_agentic.yaml",
+      "sha256": "1f96a153d3a7851352fd45bb315712ced1936e48b56df8546f80478ebe4f759a"
+    },
+    "full_one_shot.yaml": {
+      "path": "experiments/endometrial_baseline_full/full_one_shot.yaml",
+      "sha256": "685283f2c603e9e5b49a18407016786aa9ac6c067a1a786b8e556e8e7df716ae"
+    }
+  },
+  "runs": {
+    "agentic_new": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-29_baseline_full_main0b6f404/rep1",
+      "records": 546,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    },
+    "one_shot_new": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_one_shot_full_main0b6f404/rep1",
+      "records": 546,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false
+    },
+    "agentic_issue9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-12_endometrial_agentic",
+      "records": 546,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "9f602a295c040740242e6d6361cee10936d0bb055ae732de8cb18c5579ddd882",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0
+    },
+    "one_shot_issue9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-16_endometrial_one_shot",
+      "records": 546,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "30ba8acfebf7f14a810a08eed8deeb0a386308c11761220ba1061b4fa8c60a24"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "b214436831460d781ccde7585f879dc8213f476c68200f0d99396d06c9e2bdfb",
+      "model": "glm-5.3-flash",
+      "mode": "one_shot",
+      "temperature": 0.0
+    },
+    "issue17_rep1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep1",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    },
+    "issue17_rep2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep2",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    },
+    "issue17_rep3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep3",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    },
+    "issue17_rep4": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep4",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    },
+    "issue17_rep5": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep5",
+      "records": 50,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false
+    }
+  },
+  "arguments": {
+    "label": "full_cohort_baseline",
+    "cases": [
+      "TCGA-AX-A1C8",
+      "TCGA-FI-A2EX",
+      "TCGA-DI-A0WH"
+    ],
+    "annotations": "annotations/endo_myometrial_invasion"
+  }
+}
