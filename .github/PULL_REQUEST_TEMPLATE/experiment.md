@@ -43,10 +43,10 @@ Findings and this section should fit on about one screen. -->
 <!-- Add the file table, the exact commands from a fresh clone, and the run time. Do not repeat the README. -->
 
 ### Reproducibility checklist (AGENTS.md, section "Reproducibility")
-- [ ] 1. Runs, edited inputs and intermediate files are in a shared, group-readable path. Every script and config behind a table is committed. For protected files, the README says where they are, who can read them, and their SHA-256, and a committed spec regenerates them. I checked access as another person.
-- [ ] 2. Every number cites a results table made by committed code. Hand checks say how they were done and list the patient IDs. Tables were regenerated after every change.
-- [ ] 3. The analysis reruns from a fresh clone. The README has the exact commands. Dependencies and environment variables are declared. Scripts take paths as arguments (no `/home/<user>` defaults). The README says what reproduces exactly and how long the rerun takes.
-- [ ] 4. The PR says what cannot be rerun, which runs were resumed or split, and which unmerged PRs it depends on.
+- [ ] **1. Everything a result depends on is readable by the team.** Shared path, scripts and configs committed, protected files described, access checked as someone else.
+- [ ] **2. Every number comes from a table in the results folder.** Each figure cites its table. Hand checks say how and list patient IDs. Tables were regenerated after any change.
+- [ ] **3. A teammate can rerun the analysis from a fresh clone.** Exact commands, dependencies declared, scripts take paths as arguments, README says what reproduces exactly and how long it takes.
+- [ ] **4. Say what can't be rerun.** Note resumed or split runs, and name any unmerged PR this one depends on.
 
 ### Provenance
 <!-- Link to provenance.json or the results folder (issue #31). -->
