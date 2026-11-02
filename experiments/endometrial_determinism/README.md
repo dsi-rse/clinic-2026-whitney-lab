@@ -112,7 +112,8 @@ PYTHONPATH=src bash experiments/endometrial_determinism/run_analysis.sh <prefix>
 
 `<prefix>` is any name for this rerun, such as `2026-11-03_120000`. Python 3.12 with
 `httpx`, `pyyaml` and `pydantic` is needed, because the analysis imports TraceView's
-`viewer/scoring.py` from the OncoTrace checkout (only that file is read); set `PYTHON` to
+`viewer/scoring.py` from the OncoTrace checkout (only that file is read; use clean checkouts,
+because the provenance check fails on a checkout with uncommitted or untracked files); set `PYTHON` to
 that interpreter if `python3` is not it. The tables reproduce byte for byte;
 `provenance.json` and the first line of `report.md` differ only in the time, the commit and
 the folder name.
@@ -122,7 +123,8 @@ Run folders used: `2026-10-25_determinism_5x`, `2026-10-28_followup_10x10`,
 
 ## Provenance and what cannot be rerun
 
-`provenance.json` is made with `oncotrace_bench.provenance.build`. It records the clinic commit,
+`provenance.json` is made with `oncotrace_bench.provenance.build` (issue 31 format) and passes
+`make check-provenance ARGS="experiments/endometrial_determinism --no-github"`. It records the clinic commit,
 the config and roster SHA-256, the OncoTrace commit and task digest each run record names,
 the Slurm jobs (state, time, node, records written), the config digest and serving image
 fingerprint from the job logs, and checkpoint, seed and caching from the server log.
@@ -139,8 +141,9 @@ fingerprint from the job logs, and checkpoint, seed and caching from the server 
 - **Job script.** The runs were started with the earlier version of `run_repeats.sbatch`,
   which had personal paths as defaults. The version here only removes those defaults; it
   has not been submitted as a job.
-- **Dependencies on unmerged PRs.** `trace_cards.py` (issue 16 PR) made the trace cards.
-  Nothing else here needs an unmerged PR.
+- **Dependencies on unmerged PRs.** `provenance.build` and `scripts/check_provenance.py` come
+  from PR #38 (issue 31), which this branch has merged in; until #38 is merged into main,
+  this PR's diff also shows #38's files. `trace_cards.py` (issue 16 PR) made the trace cards.
 
 ## Known pitfalls
 
