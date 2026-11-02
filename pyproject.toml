@@ -12,6 +12,7 @@ dependencies = [
   "pandas~=2.2",
   
   "python-dotenv~=1.0.0",
+  "pyyaml~=6.0",
   "submitit~=1.4",
   
 ]
@@ -66,3 +67,4 @@ convention = "google"
 
 [tool.pytest.ini_options]
 python_files = "test_*.py"
+pythonpath = ["src"]
