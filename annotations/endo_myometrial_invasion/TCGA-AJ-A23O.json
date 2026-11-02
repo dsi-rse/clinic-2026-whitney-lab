@@ -1,0 +1,66 @@
+{
+ "created": "2026-10-27T04:22:59+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "4D477218-A4D1-4940-AEF5-D8F46931594C",
+     "end": 4661,
+     "source": "pathology_report",
+     "start": 4581,
+     "text": "Maximal thickness of myometrial invasion is 13 mm\ninto a 16 mm thick myometrium."
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "4D477218-A4D1-4940-AEF5-D8F46931594C",
+     "end": 4580,
+     "source": "pathology_report",
+     "start": 4529,
+     "text": "Tumor invades more than one-half of the\nmyometrium."
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "4D477218-A4D1-4940-AEF5-D8F46931594C",
+     "end": 4661,
+     "source": "pathology_report",
+     "start": 4529,
+     "text": "Tumor invades more than one-half of the\nmyometrium. Maximal thickness of myometrial invasion is 13 mm\ninto a 16 mm thick myometrium."
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "4D477218-A4D1-4940-AEF5-D8F46931594C",
+     "end": 4343,
+     "source": "pathology_report",
+     "start": 4330,
+     "text": "Hysterectomy:"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A23O",
+ "updated": "2026-10-27T04:23:57+00:00"
+}

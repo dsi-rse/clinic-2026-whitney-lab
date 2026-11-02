@@ -1,0 +1,172 @@
+[
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 439,
+  "end": 490,
+  "new_start": 439,
+  "new_end": 473,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "hedge",
+  "category": "microscopic",
+  "start": 1649,
+  "end": 1820,
+  "new_start": 1632,
+  "new_end": 1720,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G3",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 609,
+  "end": 656,
+  "new_start": 609,
+  "new_end": 642,
+  "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29"
+ },
+ {
+  "unit": "TCGA-A5-A0G3",
+  "kind": "hedge",
+  "category": "gross",
+  "start": 3896,
+  "end": 3983,
+  "new_start": 3882,
+  "new_end": 3940,
+  "document": "66DEDB33-CA2C-4967-8074-1EFC1FC3CF29"
+ },
+ {
+  "unit": "TCGA-A5-A0GB",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 973,
+  "end": 1020,
+  "new_start": 973,
+  "new_end": 1038,
+  "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6"
+ },
+ {
+  "unit": "TCGA-A5-A0GB",
+  "kind": "hedge",
+  "category": "gross",
+  "start": 6351,
+  "end": 6552,
+  "new_start": 6369,
+  "new_end": 6576,
+  "document": "8AC80DBE-46DE-46D5-B900-C807CBE941A6"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 1112,
+  "end": 1238,
+  "new_start": 1112,
+  "new_end": 1156,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "hedge",
+  "category": "frozen_section",
+  "start": 10492,
+  "end": 10534,
+  "new_start": 10410,
+  "new_end": 10440,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 867,
+  "end": 971,
+  "new_start": 867,
+  "new_end": 976,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "hedge",
+  "category": "gross",
+  "start": 5726,
+  "end": 5855,
+  "new_start": 5731,
+  "new_end": 5857,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 1620,
+  "end": 1732,
+  "new_start": 1620,
+  "new_end": 1724,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "hedge",
+  "category": "gross",
+  "start": 6678,
+  "end": 6815,
+  "new_start": 6670,
+  "new_end": 6786,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 593,
+  "end": 666,
+  "new_start": 593,
+  "new_end": 683,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "hedge",
+  "category": "stage",
+  "start": 1500,
+  "end": 1514,
+  "new_start": 1517,
+  "new_end": 1530,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 957,
+  "end": 1057,
+  "new_start": 957,
+  "new_end": 1066,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-AJ-A23M",
+  "kind": "hedge",
+  "category": "final_diagnosis",
+  "start": 1187,
+  "end": 1332,
+  "new_start": 1187,
+  "new_end": 1251,
+  "document": "B9651546-290B-405B-8275-24C8A53A10A3"
+ },
+ {
+  "unit": "TCGA-AJ-A23M",
+  "kind": "hedge",
+  "category": "gross",
+  "start": 3292,
+  "end": 3440,
+  "new_start": 3211,
+  "new_end": 3276,
+  "document": "B9651546-290B-405B-8275-24C8A53A10A3"
+ }
+]

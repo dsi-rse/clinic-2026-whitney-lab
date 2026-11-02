@@ -1,0 +1,33 @@
+# Temperature experiment, T0 arm: temperature 0.0, top_p 1.0, the 50 annotated
+# patients. Identical to config/endometrial.yaml except `roster:` and `artifacts:`.
+# Attaches to an existing GLM server with --base-url.
+task: ../../../tasks/endo_myometrial_invasion.yaml
+mode: agentic
+roster: ../inputs/roster.csv
+roster_column: unit
+
+sources:
+  - name: pathology_report
+    path: /net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
+
+model:
+  served_name: glm-5.3-flash
+  temperature: 0.0
+  top_p: 1.0
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: true
+      reasoning_effort: max
+
+limits:
+  model_calls: 24
+  completion_passes: 2
+  max_completion_tokens: 8192
+  request_timeout_seconds: 1800
+
+retrieval:
+  max_read_chars: 18000
+
+# Let teammates in __oncotrace read the run records, so they can rerun the analysis.
+artifacts:
+  group_readable: true

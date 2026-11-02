@@ -1,0 +1,34 @@
+# Issue 13, HEDGE reports x calibrated task copy (confidence rubric + abstention wording).
+# Same as config/endometrial.yaml except task:, roster:, the source path:, and
+# max_completion_tokens 16384 (from 8192, to cut truncation no-answers).
+# Attaches to an existing GLM server with --base-url.
+task: ../../../experiments/evidence_following/tasks/endo_myometrial_invasion_calibrated.yaml
+mode: agentic
+roster: ../inputs/hedge/roster.csv
+roster_column: unit
+
+sources:
+  - name: pathology_report
+    path: /net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/hedge/ucec_pathology_report.jsonl
+
+model:
+  served_name: glm-5.3-flash
+  temperature: 0.0
+  top_p: 1.0
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: true
+      reasoning_effort: max
+
+limits:
+  model_calls: 24
+  completion_passes: 2
+  max_completion_tokens: 16384
+  request_timeout_seconds: 1800
+
+retrieval:
+  max_read_chars: 18000
+
+# Let teammates in __oncotrace read the run records, so they can rerun the analysis.
+artifacts:
+  group_readable: true

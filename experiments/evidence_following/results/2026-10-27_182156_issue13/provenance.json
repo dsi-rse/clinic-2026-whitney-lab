@@ -1,0 +1,298 @@
+{
+  "created_utc": "2026-10-27T23:21:57+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": "/home/khyatt/clinic-issue13",
+    "commit": "fd0c6398159c980a831b8eff0161c60ca2e9edca",
+    "branch": "issue13-overconfidence",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "expected": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/expected_issue13.csv",
+      "sha256": "63ce04026b76247b6fc9653a03f309a933ebb79beec3da121a7787604239269f"
+    },
+    "contract_c": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/tasks/endo_myometrial_invasion_calibrated.yaml",
+      "sha256": "e2b8380a1d08c522c6e1647ab6f9981efe9d9f11b72fe07ff019754e4514eec5"
+    },
+    "roster_remove": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/remove/roster.csv",
+      "sha256": "8f158ea4320b95904840e2b8438325a99a77c96265354fa5c3d188f5bbf35336"
+    },
+    "edits_remove": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/remove/edits.json",
+      "sha256": "4ed4a3a918bcc58af343fda7998aeacc6920198ada037189d97249b7e8a695ac"
+    },
+    "roster_remove_control": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/remove_control/roster.csv",
+      "sha256": "8f158ea4320b95904840e2b8438325a99a77c96265354fa5c3d188f5bbf35336"
+    },
+    "edits_remove_control": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/remove_control/edits.json",
+      "sha256": "9b0cd729dd94e2364f416fd18482686a25fb41479e05c6711a1e55f9ae81d26f"
+    },
+    "roster_hedge": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/hedge/roster.csv",
+      "sha256": "e7bec8d4a6433ce87a5dfd9b671839b4ae4b2c8e25a38a0eb539920ee808d030"
+    },
+    "edits_hedge": {
+      "path": "/home/khyatt/clinic-issue13/experiments/evidence_following/inputs/hedge/edits.json",
+      "sha256": "2eee614fe631a070164960bebdb584d76e3e2371101dc2d0338bb8068ab51121"
+    },
+    "spec_remove": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/edit_spec_remove.json",
+      "sha256": "543564756ef85f9e31ff2213df1b9d06a52f6081b69b1cc43bcca5fd8b8b153f"
+    },
+    "reports_remove": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/remove/ucec_pathology_report.jsonl",
+      "sha256": "757cb338f7b7ae808e50f4376c67af0e27ab136cceb1fccfee37a0d6d0cff51e"
+    },
+    "spec_remove_control": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/edit_spec_remove_control.json",
+      "sha256": "42cec2d570ceb6cb7015e48d0dfe89b7b243b966986993f385e0540fffd4b54f"
+    },
+    "reports_remove_control": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/remove_control/ucec_pathology_report.jsonl",
+      "sha256": "fca094c2da4139d35d994714eb45e55ab9c2ee1448970d9ef8eae54c6df6805d"
+    },
+    "spec_hedge": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/edit_spec_hedge.json",
+      "sha256": "e4f0e4d4a9bf89aec92ba5177578ad880de4b43fdc492055e5de9d8612b4c581"
+    },
+    "reports_hedge": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/analysis/issue13/inputs/hedge/ucec_pathology_report.jsonl",
+      "sha256": "9d98fe9d7d6c6e4b2a5ee0f6360057ccbd5da2b3f03b088bd5582653b6518026"
+    }
+  },
+  "runs": {
+    "original_B": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_original_B",
+      "records": 24,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "b52cf2f7cce051e4d2808617019f8a827d6ef4e60308efc5d534c03f2cd83e6a",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "b52cf2f7cce051e4d2808617019f8a827d6ef4e60308efc5d534c03f2cd83e6a"
+    },
+    "original_C": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_original_C",
+      "records": 24,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "c3348a5ba64c9e1ac2767e90e5c292575bdee962c646c31a8ea5f6b35b385426"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "16410fe4225c2ecf7d3a082e76760390104a185fc91f26b4613090d844a31436",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "16410fe4225c2ecf7d3a082e76760390104a185fc91f26b4613090d844a31436"
+    },
+    "remove_B": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_remove_B",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "7b5d660c805f9b091861b1105241171f49820354f45cf6f6818d1d82a579e2d7",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "7b5d660c805f9b091861b1105241171f49820354f45cf6f6818d1d82a579e2d7"
+    },
+    "remove_C": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_remove_C",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "c3348a5ba64c9e1ac2767e90e5c292575bdee962c646c31a8ea5f6b35b385426"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "05972ebb43af3876a2556107af094e4233646903e026ea438ff27ac9ed094298",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "05972ebb43af3876a2556107af094e4233646903e026ea438ff27ac9ed094298"
+    },
+    "remove_control_B": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_remove_control_B",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "2bc27af6f4ff47f94860dcd89f11c973f086c1bd06087c385703381838586b60",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "2bc27af6f4ff47f94860dcd89f11c973f086c1bd06087c385703381838586b60"
+    },
+    "remove_control_C": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_remove_control_C",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "c3348a5ba64c9e1ac2767e90e5c292575bdee962c646c31a8ea5f6b35b385426"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "7fbefe57798e4dae844360b01601c3f86e45350ca9411736db539004bfbc090c",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "7fbefe57798e4dae844360b01601c3f86e45350ca9411736db539004bfbc090c"
+    },
+    "hedge_B": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_hedge_B",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "40ff420321bb28497a3248808969721d1f80b2009a25854f318d7d0262134c28",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "40ff420321bb28497a3248808969721d1f80b2009a25854f318d7d0262134c28"
+    },
+    "hedge_C": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-23_issue13_hedge_C",
+      "records": 9,
+      "oncotrace_commits": [
+        "fc3dadc8995aabb49d283131ea38e272ac31d3e1"
+      ],
+      "contract_digests": [
+        "c3348a5ba64c9e1ac2767e90e5c292575bdee962c646c31a8ea5f6b35b385426"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "63c2bd790e7d9882517021255433e738ee3c824fbbd8ea0fceadd7ca3ac12a43",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "63c2bd790e7d9882517021255433e738ee3c824fbbd8ea0fceadd7ca3ac12a43"
+    },
+    "2026-10-09_endometrial_glm53": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-09_endometrial_glm53",
+      "records": 376,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false
+    },
+    "2026-10-13_issue8_flip": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_flip",
+      "records": 9,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "a76778315501bc951a77212b726b812986e58c39f904c20f6d116a3625f30f67",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "a76778315501bc951a77212b726b812986e58c39f904c20f6d116a3625f30f67"
+    },
+    "2026-10-13_issue8_reword": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_reword",
+      "records": 9,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "99cc2694f56829aa00482269c742c1ff0990bb3b85692da0495b9045370fce95",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "99cc2694f56829aa00482269c742c1ff0990bb3b85692da0495b9045370fce95"
+    },
+    "2026-10-13_issue8_s1_control": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s1_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    },
+    "2026-10-13_issue8_s2_control": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s2_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    },
+    "2026-10-13_issue8_s3_control": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-10-13_issue8_s3_control",
+      "records": 24,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d",
+      "model": "glm-5.3-flash",
+      "mode": "agentic",
+      "temperature": 0.0,
+      "run_config_sha256": "8cb096f64254f822efcf5f1ea48397fcb708d89af96722f718c3da229a03f57d"
+    }
+  },
+  "command": "experiments/evidence_following/compare_contracts.py --label issue13",
+  "earlier_runs": [
+    "2026-10-09_endometrial_glm53",
+    "2026-10-13_issue8_flip",
+    "2026-10-13_issue8_reword",
+    "2026-10-13_issue8_s1_control",
+    "2026-10-13_issue8_s2_control",
+    "2026-10-13_issue8_s3_control"
+  ]
+}

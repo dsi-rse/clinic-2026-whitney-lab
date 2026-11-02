@@ -1,0 +1,282 @@
+[
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 439,
+  "end": 490,
+  "new_start": 439,
+  "new_end": 439,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove",
+  "category": "microscopic",
+  "start": 1649,
+  "end": 1820,
+  "new_start": 1598,
+  "new_end": 1598,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0G1",
+  "kind": "remove",
+  "category": "gross",
+  "start": 6643,
+  "end": 6694,
+  "new_start": 6421,
+  "new_end": 6421,
+  "document": "A2EB7E85-E836-462E-ABBA-65D5110CEB1C"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 1112,
+  "end": 1238,
+  "new_start": 1112,
+  "new_end": 1112,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove",
+  "category": "gross",
+  "start": 5897,
+  "end": 5964,
+  "new_start": 5771,
+  "new_end": 5771,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GG",
+  "kind": "remove",
+  "category": "frozen_section",
+  "start": 10492,
+  "end": 10534,
+  "new_start": 10299,
+  "new_end": 10299,
+  "document": "6867E576-1020-41D7-BC18-25160FE17F81"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 539,
+  "end": 586,
+  "new_start": 539,
+  "new_end": 539,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 587,
+  "end": 720,
+  "new_start": 540,
+  "new_end": 540,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove",
+  "category": "gross",
+  "start": 2443,
+  "end": 2551,
+  "new_start": 2263,
+  "new_end": 2263,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GH",
+  "kind": "remove",
+  "category": "intraoperative_consult",
+  "start": 7401,
+  "end": 7501,
+  "new_start": 7113,
+  "new_end": 7113,
+  "document": "8E29A939-5581-4176-B19E-14076F17726B"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 867,
+  "end": 971,
+  "new_start": 867,
+  "new_end": 867,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GI",
+  "kind": "remove",
+  "category": "gross",
+  "start": 5726,
+  "end": 5855,
+  "new_start": 5622,
+  "new_end": 5622,
+  "document": "F1D23669-8247-4727-8D38-BD444C16FAAE"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 1620,
+  "end": 1732,
+  "new_start": 1620,
+  "new_end": 1620,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0GM",
+  "kind": "remove",
+  "category": "gross",
+  "start": 6678,
+  "end": 6815,
+  "new_start": 6566,
+  "new_end": 6566,
+  "document": "4AAFF034-45D3-4F4F-A283-262BA641D03A"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 612,
+  "end": 724,
+  "new_start": 612,
+  "new_end": 612,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove",
+  "category": "stage",
+  "start": 1013,
+  "end": 1059,
+  "new_start": 901,
+  "new_end": 901,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove",
+  "category": "comment",
+  "start": 1179,
+  "end": 1305,
+  "new_start": 1021,
+  "new_end": 1021,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GP",
+  "kind": "remove",
+  "category": "frozen_section",
+  "start": 4457,
+  "end": 4516,
+  "new_start": 4173,
+  "new_end": 4173,
+  "document": "A730192C-227E-4A86-96B9-8670D3F5EF59"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 943,
+  "end": 1022,
+  "new_start": 943,
+  "new_end": 943,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove",
+  "category": "stage",
+  "start": 1112,
+  "end": 1158,
+  "new_start": 1033,
+  "new_end": 1033,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0GQ",
+  "kind": "remove",
+  "category": "gross",
+  "start": 2935,
+  "end": 3020,
+  "new_start": 2810,
+  "new_end": 2810,
+  "document": "7B57FD81-AA42-4C76-BF65-0BA2B3451065"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 593,
+  "end": 666,
+  "new_start": 593,
+  "new_end": 593,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove",
+  "category": "stage",
+  "start": 1500,
+  "end": 1514,
+  "new_start": 1427,
+  "new_end": 1427,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A0R6",
+  "kind": "remove",
+  "category": "frozen_section",
+  "start": 1785,
+  "end": 1840,
+  "new_start": 1698,
+  "new_end": 1698,
+  "document": "2F8BAD18-8A37-4F1A-A1BA-31494035E05F"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove",
+  "category": "final_diagnosis",
+  "start": 957,
+  "end": 1057,
+  "new_start": 957,
+  "new_end": 957,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove",
+  "category": "gross",
+  "start": 8661,
+  "end": 8820,
+  "new_start": 8561,
+  "new_end": 8561,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove",
+  "category": "gross",
+  "start": 8980,
+  "end": 9158,
+  "new_start": 8721,
+  "new_end": 8721,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ },
+ {
+  "unit": "TCGA-A5-A2K2",
+  "kind": "remove",
+  "category": "intraoperative_consult",
+  "start": 16390,
+  "end": 16438,
+  "new_start": 15953,
+  "new_end": 15953,
+  "document": "D8065FA8-DC0E-4F1C-8FA4-5D8A567AC24C"
+ }
+]

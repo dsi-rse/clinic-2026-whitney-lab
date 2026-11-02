@@ -1,0 +1,8 @@
+run,folder,records,answered,high,medium,low,high_share
+2026-10-09_endometrial_glm53,2026-10-09_endometrial_glm53,376,345,333,12,0,0.965
+2026-10-13_issue8_flip,2026-10-13_issue8_flip,9,9,9,0,0,1.0
+2026-10-13_issue8_reword,2026-10-13_issue8_reword,9,9,9,0,0,1.0
+2026-10-13_issue8_s1_control,2026-10-13_issue8_s1_control,24,23,22,1,0,0.957
+2026-10-13_issue8_s2_control,2026-10-13_issue8_s2_control,24,22,21,1,0,0.955
+2026-10-13_issue8_s3_control,2026-10-13_issue8_s3_control,24,22,22,0,0,1.0
+all,,466,430,416,14,0,0.967

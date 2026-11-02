@@ -44,7 +44,19 @@ endif
 evidence-following:
 	PYTHONPATH=src python experiments/evidence_following/run_experiment.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
 
+# Compare the temperature 0 and 1.0 runs on the annotated patients.
+# Usage: make temperature [LABEL=name] [ARGS="--run t0=<run> --run t1_r1=<run> ..."]
+# Each run gets a timestamped folder under experiments/temperature/results/.
+temperature:
+	PYTHONPATH=src python experiments/temperature/compare_temperature.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
+
 # Build the annotation-only tables for the unresolved_conflicts investigation (issue 15).
 # Usage: make unresolved-conflicts
 unresolved-conflicts:
 	PYTHONPATH=src python experiments/unresolved_conflicts/annotation_tables.py
+
+# Compare the two issue 13 task contracts (B and C) on the original and edited reports.
+# Usage: make issue13-contracts [LABEL=name] [ARGS="--runs-dir <folder> --date <YYYY-MM-DD>"]
+# Each run gets a timestamped folder under experiments/evidence_following/results/.
+issue13-contracts:
+	PYTHONPATH=src python experiments/evidence_following/compare_contracts.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
