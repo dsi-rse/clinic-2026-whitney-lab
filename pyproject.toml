@@ -67,3 +67,4 @@ convention = "google"
 
 [tool.pytest.ini_options]
 python_files = "test_*.py"
+pythonpath = ["src"]
