@@ -95,7 +95,7 @@ def mcnemar_exact(only_a: int, only_b: int) -> float:
 def write_csv(path: Path, header: list[str], rows: list[list[Any]]) -> None:
     """Write one table."""
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(header)
         writer.writerows(rows)
 

@@ -67,7 +67,7 @@ def main() -> None:
     with (arguments.out / "cases_across_runs.csv").open(
         "w", newline="", encoding="utf-8"
     ) as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(HEADER)
         writer.writerows(rows)
     print(f"wrote {len(rows)} rows")
