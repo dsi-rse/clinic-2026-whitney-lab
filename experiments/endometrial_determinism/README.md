@@ -12,7 +12,7 @@ we know how much two identical runs already differ.
 |---|---|
 | `default.yaml` | Agentic config of issue 9, roster narrowed to the 50 annotated patients. |
 | `roster_annotated50.csv` | The 50 annotated patients (column `unit`). |
-| `followup10.yaml`, `followup10_new_version.yaml` | The same config for 10 patients; the second is the one run with the updated OncoTrace (`0b6f404`). Only the comment lines differ. |
+| `followup10.yaml`, `followup10_new_version.yaml` | The same config for 10 patients; the second is the one run with the new OncoTrace (`0b6f404`, 28 Oct). Only the comment lines differ. |
 | `roster_followup10.csv` | The 10 patients of the follow-up runs. |
 | `run_repeats.sbatch`, `run_repeats.sh` | Slurm job: starts one server, then runs the same extraction `REPEATS` times. Every path comes from an environment variable. |
 | `analyze_repeats.py` | Reads the repeats of one setting and writes the stability tables. |
@@ -20,7 +20,7 @@ we know how much two identical runs already differ.
 | `run_analysis.sh` | One command that remakes every result folder below. |
 | `results/<time>_agentic_f99cefd_50x5/` | 50 patients, 5 repeats, OncoTrace `f99cefd`. |
 | `results/<time>_agentic_f99cefd_10x10/` | 10 patients, 10 repeats, OncoTrace `f99cefd`. |
-| `results/<time>_agentic_0b6f404_10x20/` | The same 10 patients, 20 repeats, updated OncoTrace `0b6f404`. |
+| `results/<time>_agentic_0b6f404_10x20/` | The same 10 patients, 20 repeats, new OncoTrace `0b6f404` (28 Oct). |
 | `results/<time>_repeat_matrix_old_vs_new_10_patients/` | The last two groups side by side. |
 | `results/unstable_A0GR_rep1` to `rep5` | Step-by-step trace cards of the one unstable patient in the 5-repeat run (no report text). They were made with `trace_cards.py` from the issue 16 PR, which is not merged. |
 
@@ -28,6 +28,9 @@ Each analysis folder has `report.md` (one page), the CSV tables, and `provenance
 Only counts, patient IDs and OncoTrace reason codes are written, never report text.
 
 ## Results
+
+OncoTrace versions: `f99cefd` is the code of 21 October 2026 (old version); `0b6f404` is the code of
+28 October 2026 (new version, 10 commits later).
 
 Model: GLM-5.3-Flash (`GLM-5.3-Flash-stripe8`), agentic mode, temperature 0.0. All numbers
 come from the tables in `results/`. Differences are descriptive; none was tested for
