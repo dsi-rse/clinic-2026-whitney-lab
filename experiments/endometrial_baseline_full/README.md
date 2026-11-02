@@ -41,7 +41,7 @@ It writes a new folder `results/<date_time>_rerun/` and never overwrites another
 
 - **Reproduces exactly:** every CSV in the new folder equals the committed one in
   `results/`. `provenance.json` differs only in `created_utc`.
-- **Time:** about RERUN_TIME (most of it is reading 546 records per run from the shared disk).
+- **Time:** a few seconds when the run files are in the disk cache (6 s measured); the first read of the shared disk can take several minutes.
 
 ## Rerun the extraction (does not reproduce bit for bit)
 GPU runs cannot be repeated exactly: even at temperature 0, answers can differ
