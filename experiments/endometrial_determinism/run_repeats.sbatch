@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
-# Determinism repeats (clinic issue 17): one server, REPEATS identical extractions.
-# Derived from endometrial_dsi.sbatch; see the comments there for the resource choices.
-# End-to-end smoke test on the UChicago DSI cluster.
+# Repeated extraction (clinic issue 17): one GLM server, REPEATS identical extractions.
+# Derived from OncoTrace's endometrial_dsi.sbatch; read the resource comments below
+# before changing them. Every path comes from the environment, none is personal:
 #
-#   ONCOTRACE_CONFIG=tasks/pcr_endpoint_smoke_glm53_dsi.yaml \
-#   ONCOTRACE_OUTPUT=runs/smoke_glm53 \
-#   ONCOTRACE_SERVING_IMAGE=/path/to/vllm-glm53.sqfs \
-#     sbatch --output=runs/smoke_glm53/smoke-%j.out scripts/smoke_slurm_dsi.sbatch
+#   ONCOTRACE_REPO=/path/to/oncotrace ONCOTRACE_PYTHON=/path/to/client/bin/python \
+#   ONCOTRACE_CONFIG=/path/to/default.yaml ONCOTRACE_OUTPUT=/path/to/new/run_folder \
+#   DETERMINISM_DRIVER=/path/to/run_repeats.sh REPEATS=5 \
+#     sbatch --output=/path/to/new/run_folder/job_logs/job-%j.out \
+#     experiments/endometrial_determinism/run_repeats.sbatch
 #
-# The DSI counterpart of scripts/smoke_slurm.sbatch. It also supports staging a
-# serving-environment image onto DSI's node-local NVMe. Submit from the
-# repository root, and mkdir the --output directory first: Slurm will not create
-# it and a missing one fails the job with nowhere to write why.
+# Create the --output folder first: Slurm will not create it.
 #
-#SBATCH --job-name=determinism-glm
+#SBATCH --job-name=repeats-glm
 #SBATCH --partition=general
 #SBATCH --qos=general
 #SBATCH --gres=gpu:h200:4,local:disk:100G
@@ -21,7 +19,6 @@
 #SBATCH --mem=200G
 #SBATCH --time=12:00:00
 #SBATCH --open-mode=append
-#SBATCH --output=/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/job_logs/determinism-%j.out
 #
 # Why these values, on this cluster (measured 2026-09-10, see
 # docs/dsi-cluster.md):
@@ -68,14 +65,15 @@
 set -uo pipefail
 umask 077
 
-# Defaults make `sbatch` work from any directory. Override with ONCOTRACE_*.
-SCRATCH=/net/spaces/scratch/yuxuang-oncotrace
-REPO=${ONCOTRACE_REPO:-/home/yuxuang/oncotrace}
-CONFIG=${ONCOTRACE_CONFIG:-../clinic-2026-whitney-lab/experiments/endometrial_determinism/default.yaml}
-OUTPUT=${ONCOTRACE_OUTPUT:-/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/$(date +%F)_determinism}
-DRIVER=${DETERMINISM_DRIVER:-/home/yuxuang/clinic-2026-whitney-lab/experiments/endometrial_determinism/run_repeats.sh}
-PY=${ONCOTRACE_PYTHON:-$SCRATCH/envs/oncotrace-client/bin/python}
-IMAGE=${ONCOTRACE_SERVING_IMAGE:-$SCRATCH/envs/vllm-glm53.sqfs}
+# Required: no personal paths as defaults. Optional: ONCOTRACE_SERVING_IMAGE (a
+# squashfs of the serving environment to stage onto node-local NVMe; when it is
+# unset the server starts from serving_root directly).
+REPO=${ONCOTRACE_REPO:?set ONCOTRACE_REPO to your oncotrace checkout}
+CONFIG=${ONCOTRACE_CONFIG:?set ONCOTRACE_CONFIG to the run config}
+OUTPUT=${ONCOTRACE_OUTPUT:?set ONCOTRACE_OUTPUT to the run folder}
+DRIVER=${DETERMINISM_DRIVER:?set DETERMINISM_DRIVER to run_repeats.sh}
+PY=${ONCOTRACE_PYTHON:?set ONCOTRACE_PYTHON to the client python}
+IMAGE=${ONCOTRACE_SERVING_IMAGE:-}
 
 cd "$REPO" || { echo "cannot cd to $REPO" >&2; exit 1; }
 # serve_and_label_slurm.sh reads $REPO/$CONFIG, so the config must be relative

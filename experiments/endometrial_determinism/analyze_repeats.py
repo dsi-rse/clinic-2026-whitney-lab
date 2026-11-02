@@ -16,16 +16,19 @@ Example:
 import argparse
 import csv
 import json
+import os
 import re
 import shutil
 import statistics
 import subprocess
 import sys
 from collections import Counter
-from datetime import UTC, datetime
+from datetime import datetime
 from itertools import combinations
 from pathlib import Path
 from typing import Any
+
+from oncotrace_bench.provenance import build
 
 EXPERIMENT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = EXPERIMENT_DIR.parent.parent
@@ -447,6 +450,13 @@ def main() -> None:
         type=Path,
         help="a vLLM server log (checkpoint, seed, precision, caching)",
     )
+    parser.add_argument(
+        "--input",
+        action="append",
+        default=[],
+        metavar="NAME=FILE",
+        help="a file the runs used (config, roster); its SHA-256 goes to provenance.json",
+    )
     arguments = parser.parse_args()
 
     folders = list(arguments.runs or [])
@@ -583,21 +593,26 @@ def main() -> None:
         ]
     (out / "report.md").write_text("\n\n".join(sections) + "\n", encoding="utf-8")
 
-    provenance = {
-        "created_utc": datetime.now(UTC).isoformat(timespec="seconds"),
-        "runs": [str(folder) for folder in folders],
-        "patients_compared": len(units),
+    inputs = {}
+    for spec in arguments.input:
+        name, _, path = spec.partition("=")
+        # Relative paths, so provenance.json does not carry the analysis machine's home.
+        inputs[name] = Path(os.path.relpath(path))
+    provenance = build(
+        inputs,
+        {folder.name: folder for folder in folders},
+        Path(os.path.relpath(REPO_ROOT)),
+        patients_compared=len(units),
         # What the records themselves say they ran with; this is the code that ran.
-        "code_that_ran": record_contracts(runs),
-        # The checkouts this analysis ran from; they are not what the jobs ran.
-        "analysis_oncotrace_checkout": git_state(arguments.oncotrace),
-        "analysis_clinic_checkout": git_state(REPO_ROOT),
-        "slurm_jobs": slurm_jobs(arguments.job, folders),
-        "logged_by_jobs": logged_by_jobs(arguments.job_log),
-        "server_log": server_settings(arguments.server_log)
+        code_that_ran=record_contracts(runs),
+        # The OncoTrace checkout used for scoring; it is not what the jobs ran.
+        analysis_oncotrace_checkout=git_state(arguments.oncotrace),
+        slurm_jobs=slurm_jobs(arguments.job, folders),
+        logged_by_jobs=logged_by_jobs(arguments.job_log),
+        server_log=server_settings(arguments.server_log)
         if arguments.server_log
         else None,
-    }
+    )
     (out / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
     )
