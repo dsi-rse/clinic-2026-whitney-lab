@@ -15,6 +15,7 @@ Run from the repository root:
 import argparse
 import csv
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime
@@ -136,11 +137,12 @@ def main() -> None:
         out / "no_answer_cases",
     )
 
-    inputs = {"roster_annotated50": ROSTER_50}
+    # Relative paths, so provenance.json does not carry the analysis machine's home.
+    inputs = {"roster_annotated50": Path(os.path.relpath(ROSTER_50))}
     for name in ("full_agentic.yaml", "full_one_shot.yaml"):
-        inputs[name] = HERE / name
+        inputs[name] = Path(os.path.relpath(HERE / name))
     record = build(
-        inputs, named, REPO,
+        inputs, named, Path(os.path.relpath(REPO)),
         arguments={"label": arguments.label, "cases": arguments.cases, "annotations": str(arguments.annotations)},
     )  # fmt: skip
     (out / "provenance.json").write_text(
