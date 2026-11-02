@@ -136,6 +136,14 @@ def main() -> None:
         "--out",
         out / "no_answer_cases",
     )
+    run(
+        "case_steps.py",
+        *new_old,
+        "--patients",
+        *arguments.cases,
+        "--out",
+        out / "no_answer_cases",
+    )
 
     # Relative paths, so provenance.json does not carry the analysis machine's home.
     inputs = {"roster_annotated50": Path(os.path.relpath(ROSTER_50))}
@@ -205,6 +213,14 @@ across every run: outcome, calls, rejected submissions, most common rejection co
 cut-off replies, and OncoTrace's reason for having no answer.
 
 {table(mode / "no_answer_patients.csv")}
+`no_answer_cases/case_steps.csv` has one row per model call (tools asked for, reply
+size, finish reason, rejection codes that followed). The summary below has one row
+per patient and run. `calls_before_first_submit` counts calls that only looked at the
+report; `cut_off_calls` are replies stopped by the token limit;
+`longest_same_rejection_streak` is the longest run of rejections with the same reason
+code in a row. No report text is in these tables.
+
+{table(out / "no_answer_cases" / "case_summary.csv")}
 """
 
 

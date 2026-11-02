@@ -17,7 +17,8 @@ labels are right. The numbers are in `results/<date_time>_<label>/` (written by
 | `summarize_runs.py` | Completion and cost of any runs, side by side. |
 | `compare_modes.py` | Agentic against one_shot: outcomes, differences, agreement with annotations. |
 | `case_across_runs.py` | What every run did on chosen patients. |
-| `run_analysis.py` | Runs the three scripts above, writes `provenance.json` and a results README. |
+| `case_steps.py` | Step by step, what each run did on those patients (codes and counts only). |
+| `run_analysis.py` | Runs the four scripts above, writes `provenance.json` and a results README. |
 
 ## Rerun the analysis from a fresh clone
 You need Python 3.11 or later (standard library only) and read access to the run
