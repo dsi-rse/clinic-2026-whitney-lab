@@ -115,8 +115,8 @@ PYTHONPATH=src bash experiments/endometrial_determinism/run_analysis.sh <prefix>
 `viewer/scoring.py` from the OncoTrace checkout (only that file is read; use clean checkouts,
 because the provenance check fails on a checkout with uncommitted or untracked files); set `PYTHON` to
 that interpreter if `python3` is not it. The tables reproduce byte for byte;
-`provenance.json` and the first line of `report.md` differ only in the time, the commit and
-the folder name.
+`provenance.json` and the first line of `report.md` differ only in the time, the commit,
+the folder name and the relative path to the OncoTrace checkout.
 
 Run folders used: `2026-10-25_determinism_5x`, `2026-10-28_followup_10x10`,
 `2026-10-30_followup_10x20_main0b6f404`.
