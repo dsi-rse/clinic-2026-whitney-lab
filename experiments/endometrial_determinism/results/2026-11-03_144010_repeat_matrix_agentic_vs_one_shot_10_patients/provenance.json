@@ -1,0 +1,2779 @@
+{
+  "created_utc": "2026-11-03T20:40:12+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": ".",
+    "commit": "301093870372e87f157608b899d600303076286f",
+    "branch": "yuxuang/issue17-determinism",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "patients": {
+      "path": "experiments/endometrial_determinism/roster_followup10.csv",
+      "sha256": "f335a0babf9302dde849e71a4f60bfac426739b08a4374a00fa0dbfb972e5efd"
+    }
+  },
+  "runs": {
+    "agentic_0b6f404_10x20/rep1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep1",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep1",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep2",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep2",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep3",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep3",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep4": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep4",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep4",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep5": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep5",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep5",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep6": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep6",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep6",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep7": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep7",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep7",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep8": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep8",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep8",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep9",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep9",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep10": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep10",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep10",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep11": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep11",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep11",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep12": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep12",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep12",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep13": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep13",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep13",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep14": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep14",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep14",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep15": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep15",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep15",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep16": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep16",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep16",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep17": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep17",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep17",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep18": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep18",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep18",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep19": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep19",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep19",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_0b6f404_10x20/rep20": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep20",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_followup_10x20_main0b6f404/rep20",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep1",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep1",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep2",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep2",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep3",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep3",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep4": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep4",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep4",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep5": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep5",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep5",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep6": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep6",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep6",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep7": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep7",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep7",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep8": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep8",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep8",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep9",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep9",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep10": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep10",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep10",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep11": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep11",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep11",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep12": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep12",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep12",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep13": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep13",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep13",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep14": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep14",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep14",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep15": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep15",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep15",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep16": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep16",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep16",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep17": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep17",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep17",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep18": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep18",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep18",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep19": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep19",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep19",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_0b6f404_10x20/rep20": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep20",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-11-02_followup_10x20_one_shot_main0b6f404/rep20",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    }
+  }
+}
