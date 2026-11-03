@@ -26,6 +26,7 @@ from oncotrace_bench.provenance import build
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 ROSTER_50 = HERE / "roster_annotated50.csv"
+ROSTER_ALL = HERE / "roster_annotated59.csv"  # every annotated patient on 2026-11-03
 CASES = ["TCGA-AX-A1C8", "TCGA-FI-A2EX", "TCGA-DI-A0WH"]
 COST_COLUMNS = [
     "mode", "patients", "answered", "no_answer", "calls_mean", "calls_median",
@@ -89,6 +90,12 @@ def main() -> None:
         required=True,
         help="annotations folder (one JSON per patient)",
     )
+    parser.add_argument(
+        "--annotated-roster",
+        type=Path,
+        default=ROSTER_ALL,
+        help="CSV (column unit) of the annotated patients to score in section 3",
+    )
     parser.add_argument("--results-root", type=Path, default=HERE / "results")
     parser.add_argument(
         "--label", default="", help="short name added to the folder name"
@@ -125,8 +132,14 @@ def main() -> None:
     )
     run(
         "compare_modes.py", "--agentic", arguments.agentic, "--one-shot", arguments.one_shot,
-        "--annotations", arguments.annotations, "--annotated-roster", ROSTER_50,
+        "--annotations", arguments.annotations,
+        "--annotated-roster", arguments.annotated_roster,
         "--out", out / "mode_comparison",
+    )  # fmt: skip
+    run(  # the first 50 annotated patients alone, to compare with the earlier result
+        "compare_modes.py", "--agentic", arguments.agentic, "--one-shot", arguments.one_shot,
+        "--annotations", arguments.annotations, "--annotated-roster", ROSTER_50,
+        "--out", out / "mode_comparison_first_50",
     )  # fmt: skip
     run(
         "case_across_runs.py",
@@ -146,7 +159,10 @@ def main() -> None:
     )
 
     # Relative paths, so provenance.json does not carry the analysis machine's home.
-    inputs = {"roster_annotated50": Path(os.path.relpath(ROSTER_50))}
+    inputs = {
+        "roster_annotated50": Path(os.path.relpath(ROSTER_50)),
+        "annotated_roster": Path(os.path.relpath(arguments.annotated_roster)),
+    }
     for name in ("full_agentic.yaml", "full_one_shot.yaml"):
         inputs[name] = Path(os.path.relpath(HERE / name))
     record = build(
@@ -166,6 +182,9 @@ def readme(out: Path, arguments: argparse.Namespace) -> str:
     full = out / "full_cohort"
     same = out / "same_50_patients"
     mode = out / "mode_comparison"
+    first50 = out / "mode_comparison_first_50"
+    with arguments.annotated_roster.open(newline="", encoding="utf-8") as handle:
+        annotated = len(list(csv.DictReader(handle)))
     return f"""# Full-cohort baseline: tables
 
 Made by `run_analysis.py` (see ../../README.md). Only patient IDs, counts and
@@ -196,14 +215,19 @@ manual annotations, so runs made on different cohorts can be compared.
 {table(same / "completion_and_cost.csv", COST_COLUMNS)}
 ## 3. Agentic against one_shot, new version ({mode.name}/)
 Outcome is `invasion/depth` or NO_ANSWER. `outcome_crosstab.csv` has one row per
-pair of outcomes and counts patients. The table below counts patients out of the
-50 annotated ones whose answer equals the annotation; no answer counts as not
-agreeing. `agentic_only` and `one_shot_only` are patients where only that mode
+pair of outcomes and counts patients. The first table below counts patients out of
+the {annotated} annotated ones in the roster whose answer equals the annotation; no
+answer counts as not agreeing. The second table is the same for the first 50
+annotated patients alone ({mode.name}_first_50/), the set of the earlier result.
+The patients added since are the difference between the two tables. `agentic_only` and `one_shot_only` are patients where only that mode
 agrees; `mcnemar_exact_p` tests whether the two differ. These are single runs of
 each mode on short single-document reports and one annotator, so this describes
 the runs and does not show that one mode is better.
 
 {table(mode / "agreement_with_annotations.csv")}
+First 50 annotated patients only:
+
+{table(first50 / "agreement_with_annotations.csv")}
 Patients whose outcome differs between the two modes:
 
 {table(mode / "patients_that_differ.csv")}

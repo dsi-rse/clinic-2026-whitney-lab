@@ -14,6 +14,7 @@ labels are right. The numbers are in `results/<date_time>_<label>/` (written by
 | `run_extraction.sbatch`, `run_extraction.sh` | Slurm job and driver: serve the model, then extract. |
 | `keep_one_protected_job.sh` | Resubmits the job (2 h `protected` queue) until all patients have a record. |
 | `roster_annotated50.csv` | The 50 patients with manual annotations (single annotator). |
+| `roster_annotated59.csv` | Every patient with an annotation on 3 November 2026: the 50 above plus 9 added by Helena. `run_analysis.py` scores section 3 on this roster by default. |
 | `summarize_runs.py` | Completion and cost of any runs, side by side. |
 | `compare_modes.py` | Agentic against one_shot: outcomes, differences, agreement with annotations. |
 | `case_across_runs.py` | What every run did on chosen patients. |
