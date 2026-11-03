@@ -1,0 +1,21 @@
+group,patient,runs,distinct_outcomes,modal_outcome,modal_count,outcomes,calls_min,calls_median,calls_max
+agentic_0b6f404_10x20,TCGA-A5-A0GR,20,3,present/less_than_50,11,present/less_than_50 x11; present/cannot_be_determined x5; present/fifty_or_greater x4,4,5.0,14
+agentic_0b6f404_10x20,TCGA-A5-A0G5,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,3,4.0,7
+agentic_0b6f404_10x20,TCGA-A5-A0GD,20,1,present/less_than_50,20,present/less_than_50 x20,4,5.0,9
+agentic_0b6f404_10x20,TCGA-A5-A0GM,20,1,present/less_than_50,20,present/less_than_50 x20,3,4.0,6
+agentic_0b6f404_10x20,TCGA-A5-A0GN,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,3,4.0,7
+agentic_0b6f404_10x20,TCGA-A5-A0GP,20,1,present/less_than_50,20,present/less_than_50 x20,3,3.5,6
+agentic_0b6f404_10x20,TCGA-A5-A0GW,20,1,present/less_than_50,20,present/less_than_50 x20,3,3.0,8
+agentic_0b6f404_10x20,TCGA-A5-A0R7,20,1,present/less_than_50,20,present/less_than_50 x20,3,4.0,14
+agentic_0b6f404_10x20,TCGA-A5-A1OF,20,1,present/less_than_50,20,present/less_than_50 x20,3,3.0,4
+agentic_0b6f404_10x20,TCGA-A5-A1OG,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,3,4.0,7
+one_shot_0b6f404_10x20,TCGA-A5-A0GR,20,2,present/less_than_50,17,present/less_than_50 x17; present/cannot_be_determined x3,2,2.0,4
+one_shot_0b6f404_10x20,TCGA-A5-A0G5,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,1,2.0,5
+one_shot_0b6f404_10x20,TCGA-A5-A0GD,20,1,present/less_than_50,20,present/less_than_50 x20,1,3.0,7
+one_shot_0b6f404_10x20,TCGA-A5-A0GM,20,1,present/less_than_50,20,present/less_than_50 x20,1,2.0,3
+one_shot_0b6f404_10x20,TCGA-A5-A0GN,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,1,2.0,3
+one_shot_0b6f404_10x20,TCGA-A5-A0GP,20,1,present/less_than_50,20,present/less_than_50 x20,1,2.0,3
+one_shot_0b6f404_10x20,TCGA-A5-A0GW,20,1,present/less_than_50,20,present/less_than_50 x20,1,2.0,2
+one_shot_0b6f404_10x20,TCGA-A5-A0R7,20,2,present/less_than_50,19,present/less_than_50 x19; NO_ANSWER x1,1,2.0,24
+one_shot_0b6f404_10x20,TCGA-A5-A1OF,20,1,present/less_than_50,20,present/less_than_50 x20,1,1.0,2
+one_shot_0b6f404_10x20,TCGA-A5-A1OG,20,1,present/fifty_or_greater,20,present/fifty_or_greater x20,1,1.0,3
