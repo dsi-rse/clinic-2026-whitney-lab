@@ -1,0 +1,66 @@
+{
+ "created": "2026-11-02T06:13:40+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "19B5518D-075F-40BE-A104-75C925F133A4",
+     "end": 999,
+     "source": "pathology_report",
+     "start": 890,
+     "text": "malignancy is confined to the inner one-half of the myometrium (3.0 mm invasion into 20 mm thick myometrium)."
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "19B5518D-075F-40BE-A104-75C925F133A4",
+     "end": 888,
+     "source": "pathology_report",
+     "start": 860,
+     "text": "Myometrial invasion: Present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "19B5518D-075F-40BE-A104-75C925F133A4",
+     "end": 999,
+     "source": "pathology_report",
+     "start": 890,
+     "text": "malignancy is confined to the inner one-half of the myometrium (3.0 mm invasion into 20 mm thick myometrium)."
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "19B5518D-075F-40BE-A104-75C925F133A4",
+     "end": 618,
+     "source": "pathology_report",
+     "start": 606,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3BI",
+ "updated": "2026-11-02T06:14:49+00:00"
+}
