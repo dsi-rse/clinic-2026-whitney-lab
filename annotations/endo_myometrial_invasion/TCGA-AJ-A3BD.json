@@ -1,0 +1,58 @@
+{
+ "created": "2026-10-31T21:09:37+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "8B7CB7C6-86B5-41EA-A6CB-FC496C311888",
+     "end": 731,
+     "source": "pathology_report",
+     "start": 712,
+     "text": "Myometrial invasion"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "8B7CB7C6-86B5-41EA-A6CB-FC496C311888",
+     "end": 883,
+     "source": "pathology_report",
+     "start": 733,
+     "text": "Tumor focally extends throughout the entire myometrial wall focally coming within 0.1 cm of the serosal surface, but not\ndefinitively extending to it."
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "8B7CB7C6-86B5-41EA-A6CB-FC496C311888",
+     "end": 361,
+     "source": "pathology_report",
+     "start": 349,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3BD",
+ "updated": "2026-10-31T21:10:39+00:00"
+}

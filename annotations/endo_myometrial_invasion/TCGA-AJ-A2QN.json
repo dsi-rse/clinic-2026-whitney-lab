@@ -1,0 +1,66 @@
+{
+ "created": "2026-10-31T21:01:52+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "F92EF591-695A-4E48-9ACF-67497880AC20",
+     "end": 1118,
+     "source": "pathology_report",
+     "start": 1016,
+     "text": "Tumor invades almost completely\n9/3/11\nthrough myometrium and is within 0.1 cm of the serosal\nsurface."
+    }
+   ],
+   "value": "estimated_without_number"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "F92EF591-695A-4E48-9ACF-67497880AC20",
+     "end": 1014,
+     "source": "pathology_report",
+     "start": 995,
+     "text": "Myometrial invasion"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "F92EF591-695A-4E48-9ACF-67497880AC20",
+     "end": 1118,
+     "source": "pathology_report",
+     "start": 1016,
+     "text": "Tumor invades almost completely\n9/3/11\nthrough myometrium and is within 0.1 cm of the serosal\nsurface."
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "F92EF591-695A-4E48-9ACF-67497880AC20",
+     "end": 691,
+     "source": "pathology_report",
+     "start": 679,
+     "text": "Hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A2QN",
+ "updated": "2026-10-31T21:05:41+00:00"
+}

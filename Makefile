@@ -61,6 +61,12 @@ unresolved-conflicts:
 issue13-contracts:
 	PYTHONPATH=src python experiments/evidence_following/compare_contracts.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
 
+# Check the provenance records your branch adds or changes (issue 31).
+# Usage: make check-provenance [ARGS="experiments"]   # ARGS=experiments audits all
+# With no ARGS it checks only records added or changed against origin/main.
+check-provenance:
+	PYTHONPATH=src python scripts/check_provenance.py $(ARGS)
+
 # Review the two rows where OncoTrace disagrees with a definite annotation (issue 26).
 # Usage: make definite-disagreements [LABEL=name] [ARGS="--run t0=<run> ..."]
 # Each run gets a timestamped folder under experiments/definite_disagreements/results/.

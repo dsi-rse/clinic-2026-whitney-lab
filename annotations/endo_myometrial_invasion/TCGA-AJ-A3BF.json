@@ -1,0 +1,66 @@
+{
+ "created": "2026-10-31T21:13:32+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "3673A111-6F2E-4374-A0E7-BA436D644F0D",
+     "end": 663,
+     "source": "pathology_report",
+     "start": 623,
+     "text": "5. Myometrial invasion: Not identified.\n"
+    }
+   ],
+   "value": "none_stated"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "3673A111-6F2E-4374-A0E7-BA436D644F0D",
+     "end": 662,
+     "source": "pathology_report",
+     "start": 626,
+     "text": "Myometrial invasion: Not identified."
+    }
+   ],
+   "value": "not_identified"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "3673A111-6F2E-4374-A0E7-BA436D644F0D",
+     "end": 663,
+     "source": "pathology_report",
+     "start": 623,
+     "text": "5. Myometrial invasion: Not identified.\n"
+    }
+   ],
+   "value": "not_applicable"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "3673A111-6F2E-4374-A0E7-BA436D644F0D",
+     "end": 384,
+     "source": "pathology_report",
+     "start": 372,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3BF",
+ "updated": "2026-10-31T21:14:37+00:00"
+}

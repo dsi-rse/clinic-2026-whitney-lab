@@ -16,6 +16,62 @@ Other instructions:
 - Sign your commits as Claude
 - If you post on GitHub (issues, comments, etc), put your comment in a collapsed block like: <details><summary>Claude: {one-line summary of comment}</summary>{your comment}</details>
 
+## Reproducibility
+
+Experiment results must be reproducible by teammates and reviewers (see issue #32; provenance is covered in #31).
+
+### 1. Everything a result depends on is readable by the team
+- Put runs, edited inputs, and intermediate files under `/net/spaces/annawoodard/oncotrace/workspaces/<name>/` (or another shared path the mentor names), group-readable. Do not leave them in a home directory, `/tmp`, or personal scratch.
+- Commit every script and config that produced a table, figure, or input in the PR. No private `analysis/` folders.
+- If a file cannot be committed (protected report text, large runs), the README must say where it is, who can read it, and its SHA-256. Also commit the spec or script that regenerates it from the protected source.
+- Before opening the PR, check access as someone else: ask a teammate or TA to `ls` and open the paths, or run `namei -l <path>`.
+
+### 2. Every number comes from a table in the results folder
+- Each figure in the PR body, README, or comments cites the file it comes from (e.g. `results/…/summary.csv`).
+- Counts, percentages, "N of M" claims, and qualitative claims ("the same 11 patients in all runs") are computed by committed code. If something was checked by hand, say so, say how, and list the patient IDs.
+- If a number changes, regenerate the tables and update the text. Don't edit one without the other.
+- Prefer a generated results README (as `experiments/temperature/compare_temperature.py` writes) over typed tables.
+
+### 3. A teammate can rerun the analysis from a fresh clone
+- The README gives the exact commands, starting from `git clone`: required environment variables, `PYTHONPATH`, and Python dependencies, which must be declared in `pyproject.toml` or listed in the README.
+- Scripts take paths as arguments. No `/home/<user>` or personal scratch paths as defaults.
+- The README says which output should reproduce exactly (tables, CSVs) and how long the rerun takes.
+- The reviewer's test: reading only the README, the analysis reruns in about 10 minutes without special access, and the output matches the committed tables.
+
+### 4. Say what can't be rerun
+- GPU/Slurm runs and model outputs can't be reproduced bit for bit. State that, keep the run folders, and make sure the analysis from those folders is rerunnable (item 3).
+- Note where a run was resumed or split across servers or code versions.
+- If the PR depends on another unmerged PR or branch, say which one. No results that can't be remade without it.
+
+## Experiments and provenance
+
+Every result folder must say what made it, so a reader months later can tell what produced the numbers and whether two results are comparable (see issue #31). Shared paths, sourced numbers, and rerunning from a fresh clone are covered by `## Reproducibility` above.
+
+### 1. One helper
+- Call `oncotrace_bench.provenance.build(inputs, runs, repo_root, ...)` and save the result as `provenance.json` next to the outputs. Don't write a second version of it: if a field is missing, add it to `build()`. Read runs with `oncotrace_bench.records.load_run`, not your own loader.
+- Pass **every** input the result depends on: `inputs=` for rosters, edit manifests and configs, `task=` for the task contract. `build(inputs={}, ...)` records nothing to check.
+- Call `build()` *before* writing your output folder, or the new folder itself shows up as uncommitted. `experiments/temperature/compare_temperature.py` is the example.
+- Run `make check-provenance` before opening the PR. With no arguments it checks the records your branch adds or changes, and those must pass. `make check-provenance ARGS=experiments` audits everything, including older records that predate this helper; those are known (issue #31) and are not yours to fix.
+
+### 2. Record the run, not the machine you are analysing on
+- Facts about a run (OncoTrace commit, contract digest, model, temperature, Slurm job) come from what OncoTrace wrote into the run folder. `run_state()` reads them. Never take them from `git rev-parse HEAD` of whatever checkout is open while you analyse: that checkout may have moved since the run, so its HEAD is not what the run used.
+- If your analysis imports code from a checkout (OncoTrace's `viewer/`, say), pass it as `analysis_repos=`. It is an input of the analysis, not the commit that made the run.
+
+### 3. A clean, pushed commit
+- Make results from a clean checkout: commit the code first, then the results. `clinic_repo.uncommitted_files` must be empty.
+- Every recorded commit must exist on GitHub: the clinic commit in this repo, and the OncoTrace commit each run used in `dsi-rse/oncotrace`. That one is private, so `gh` needs access to it or the check can only say "not checked". A commit that is only in your checkout pins nothing.
+- Where a rule above allows an exception "if you explain it", the explanation goes in `build(acknowledged={"<tag>": "why"})` as well as in the results README: `"dirty"` for uncommitted files, `"<run>:server_starts"` for a run really served by two allocations. The check then reports the reason instead of failing. A reason in prose alone cannot be checked.
+
+### 4. A new timestamped results folder each time
+- `results/<YYYY-MM-DD_HHMMSS>[_label]/`, holding the tables, a summary, `provenance.json`, and a README saying how to remake it. Name run folders `<date>_<experiment>_<arm>`.
+- Never overwrite a results folder. When `## Reproducibility` item 2 says to regenerate the tables, regenerate them into a **new** folder and update the text to cite it. Earlier attempts are evidence, including the ones that went wrong.
+
+### Don't
+- **Don't make a failing check pass by editing it.** Never edit a `provenance.json`, or loosen `check_provenance.py`, to get a clean result. Fix the cause, or acknowledge the exception as in item 3.
+- **Don't type provenance values by hand.** Copy commit hashes, job IDs and digests out of `provenance.json`; never write one from memory into a README or a PR body.
+- **Don't guess a value that isn't recorded.** If there is no seed or no job ID, write "unknown". Don't infer it from a default or from a similar run.
+- **Don't reuse a run folder.** A folder that already holds records is resumed, not rerun, and its repeats won't mean what a reader assumes. Use a new folder each time, and say when a run was resumed.
+
 ## Local Preferences
 
 If `agents.local.md` exists in the repo root, read it after this file.
