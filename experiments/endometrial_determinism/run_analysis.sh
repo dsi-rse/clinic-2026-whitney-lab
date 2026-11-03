@@ -17,6 +17,7 @@ D=experiments/endometrial_determinism
 R5=$RUNS/2026-10-25_determinism_5x
 R10=$RUNS/2026-10-28_followup_10x10
 R20=$RUNS/2026-10-30_followup_10x20_main0b6f404
+R20S=$RUNS/2026-11-02_followup_10x20_one_shot_main0b6f404
 
 "$PYTHON" $D/analyze_repeats.py --reps-dir "$R5" --label "${STAMP}_agentic_f99cefd_50x5" \
   --job 2239457 --job 2244400 \
@@ -34,5 +35,13 @@ R20=$RUNS/2026-10-30_followup_10x20_main0b6f404
   --job-log "$R20/job_logs/baseline_full-2287510.out" --job-log "$R20/job_logs/baseline_full-2287759.out" \
   --server-log "$R20/server.log" --oncotrace "$ONCOTRACE_0B6F404" \
   --input config=$D/followup10_new_version.yaml --input roster=$D/roster_followup10.csv
+"$PYTHON" $D/analyze_repeats.py --reps-dir "$R20S" --label "${STAMP}_one_shot_0b6f404_10x20" \
+  --job 2297402 --job 2297952 --job 2298797 \
+  --job-log "$R20S/job_logs/baseline_full-2297402.out" --job-log "$R20S/job_logs/baseline_full-2297952.out" \
+  --job-log "$R20S/job_logs/baseline_full-2298797.out" \
+  --server-log "$R20S/server.log" --oncotrace "$ONCOTRACE_0B6F404" \
+  --input config=$D/followup10_one_shot_new_version.yaml --input roster=$D/roster_followup10.csv
 "$PYTHON" $D/repeat_matrix.py --group old_f99cefd_10x10="$R10" --group new_0b6f404_10x20="$R20" \
   --patients-csv $D/roster_followup10.csv --out "$D/results/${STAMP}_repeat_matrix_old_vs_new_10_patients"
+"$PYTHON" $D/repeat_matrix.py --group agentic_0b6f404_10x20="$R20" --group one_shot_0b6f404_10x20="$R20S" \
+  --patients-csv $D/roster_followup10.csv --out "$D/results/${STAMP}_repeat_matrix_agentic_vs_one_shot_10_patients"
