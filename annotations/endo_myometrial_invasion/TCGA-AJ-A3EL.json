@@ -1,0 +1,74 @@
+{
+ "created": "2026-11-02T06:26:22+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "CB5EF343-EDD4-46B1-82DD-48C49FF7E778",
+     "end": 5418,
+     "source": "pathology_report",
+     "start": 5407,
+     "text": "Adenomyosis"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "CB5EF343-EDD4-46B1-82DD-48C49FF7E778",
+     "end": 5016,
+     "source": "pathology_report",
+     "start": 4929,
+     "text": "Myometrial invasion: Present, 0.3 cm thickness invasion into a\n1.8 cm thick myometrium."
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "CB5EF343-EDD4-46B1-82DD-48C49FF7E778",
+     "end": 4957,
+     "source": "pathology_report",
+     "start": 4929,
+     "text": "Myometrial invasion: Present"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "CB5EF343-EDD4-46B1-82DD-48C49FF7E778",
+     "end": 5016,
+     "source": "pathology_report",
+     "start": 4929,
+     "text": "Myometrial invasion: Present, 0.3 cm thickness invasion into a\n1.8 cm thick myometrium."
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "CB5EF343-EDD4-46B1-82DD-48C49FF7E778",
+     "end": 4730,
+     "source": "pathology_report",
+     "start": 4718,
+     "text": "Hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3EL",
+ "updated": "2026-11-02T06:27:50+00:00"
+}

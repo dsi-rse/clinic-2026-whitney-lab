@@ -1,0 +1,12 @@
+reason,rep1,rep10,rep11,rep12,rep13,rep14,rep15,rep16,rep17,rep18,rep19,rep2,rep20,rep3,rep4,rep5,rep6,rep7,rep8,rep9
+quantified_depth_not_classified,8,5,6,8,13,4,5,4,4,7,4,7,8,19,5,6,6,6,5,6
+answer_exists,0,0,1,1,10,0,0,0,8,0,0,0,0,27,0,0,0,0,0,0
+citation_quote_not_found,3,1,2,2,0,0,2,2,1,0,2,0,2,9,4,3,1,1,3,4
+argument_not_a_list,3,1,0,6,0,0,4,3,0,2,2,4,1,4,4,0,2,0,2,3
+citation_quote_ambiguous,0,0,0,0,0,0,0,11,0,1,0,1,0,0,0,0,0,0,2,0
+submission_fields_missing,0,0,0,3,2,1,0,1,0,1,1,0,0,2,0,0,1,1,1,0
+evidence_citations_missing,0,0,1,0,0,0,0,0,0,0,2,2,0,1,1,0,2,0,0,0
+quantified_basis_uncited,1,0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0
+overlapping_citations,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0
+read_batch_size,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+read_out_of_range,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

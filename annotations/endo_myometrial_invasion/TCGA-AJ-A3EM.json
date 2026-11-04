@@ -1,0 +1,74 @@
+{
+ "created": "2026-11-02T06:28:33+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "E5CE38FD-DB53-49D9-92B3-BA075BDDC5CF",
+     "end": 6036,
+     "source": "pathology_report",
+     "start": 6025,
+     "text": "Adenomyosis"
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "E5CE38FD-DB53-49D9-92B3-BA075BDDC5CF",
+     "end": 5415,
+     "source": "pathology_report",
+     "start": 5353,
+     "text": "Malignancy extends up to 5 mm into an 18 mm thick myometrium.\n"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "E5CE38FD-DB53-49D9-92B3-BA075BDDC5CF",
+     "end": 5414,
+     "source": "pathology_report",
+     "start": 5353,
+     "text": "Malignancy extends up to 5 mm into an 18 mm thick myometrium."
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "E5CE38FD-DB53-49D9-92B3-BA075BDDC5CF",
+     "end": 5415,
+     "source": "pathology_report",
+     "start": 5353,
+     "text": "Malignancy extends up to 5 mm into an 18 mm thick myometrium.\n"
+    }
+   ],
+   "value": "less_than_50"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "E5CE38FD-DB53-49D9-92B3-BA075BDDC5CF",
+     "end": 5207,
+     "source": "pathology_report",
+     "start": 5195,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3EM",
+ "updated": "2026-11-02T06:30:13+00:00"
+}

@@ -1,0 +1,74 @@
+{
+ "created": "2026-11-02T06:19:58+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [
+    {
+     "document": "026350F0-3203-49E5-8CCC-9DE88B2C8625",
+     "end": 5198,
+     "source": "pathology_report",
+     "start": 5155,
+     "text": "Myometrium:\nAdenomyosis is present focally."
+    }
+   ],
+   "value": "cannot_be_determined"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "026350F0-3203-49E5-8CCC-9DE88B2C8625",
+     "end": 4541,
+     "source": "pathology_report",
+     "start": 4477,
+     "text": "Maximal thickness of myometrial invasion is 12 mm into an 18 mm\n"
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "026350F0-3203-49E5-8CCC-9DE88B2C8625",
+     "end": 4558,
+     "source": "pathology_report",
+     "start": 4477,
+     "text": "Maximal thickness of myometrial invasion is 12 mm into an 18 mm\nthick myometrium."
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "026350F0-3203-49E5-8CCC-9DE88B2C8625",
+     "end": 4541,
+     "source": "pathology_report",
+     "start": 4477,
+     "text": "Maximal thickness of myometrial invasion is 12 mm into an 18 mm\n"
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "026350F0-3203-49E5-8CCC-9DE88B2C8625",
+     "end": 4256,
+     "source": "pathology_report",
+     "start": 4244,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3BK",
+ "updated": "2026-11-02T06:21:47+00:00"
+}

@@ -1,0 +1,4 @@
+measure,identical_in_every_run,mean_sd_per_patient,largest_range
+model calls,0 / 10,1.1,23
+completion tokens,0 / 10,2907.2,18638
+rejected submissions,0 / 10,1.4,24

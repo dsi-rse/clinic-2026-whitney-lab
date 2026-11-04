@@ -1,0 +1,66 @@
+{
+ "created": "2026-11-02T06:21:59+00:00",
+ "fields": {
+  "adenomyosis_relation": {
+   "spans": [],
+   "value": "not_mentioned"
+  },
+  "depth_basis": {
+   "spans": [
+    {
+     "document": "FB99D237-4583-4298-844F-43B2F99F83E3",
+     "end": 845,
+     "source": "pathology_report",
+     "start": 769,
+     "text": "5. Myometrial invasion: Tumor extends 1.7 cm into a 2.0 cm\nthick myometrium."
+    }
+   ],
+   "value": "explicit_fraction_or_percentage"
+  },
+  "myometrial_invasion": {
+   "spans": [
+    {
+     "document": "FB99D237-4583-4298-844F-43B2F99F83E3",
+     "end": 792,
+     "source": "pathology_report",
+     "start": 772,
+     "text": "Myometrial invasion:"
+    }
+   ],
+   "value": "present"
+  },
+  "myometrial_invasion_percent": {
+   "spans": [
+    {
+     "document": "FB99D237-4583-4298-844F-43B2F99F83E3",
+     "end": 845,
+     "source": "pathology_report",
+     "start": 769,
+     "text": "5. Myometrial invasion: Tumor extends 1.7 cm into a 2.0 cm\nthick myometrium."
+    }
+   ],
+   "value": "fifty_or_greater"
+  },
+  "specimen_type": {
+   "spans": [
+    {
+     "document": "FB99D237-4583-4298-844F-43B2F99F83E3",
+     "end": 543,
+     "source": "pathology_report",
+     "start": 531,
+     "text": "hysterectomy"
+    }
+   ],
+   "value": "hysterectomy"
+  },
+  "unresolved_conflicts": {
+   "spans": [],
+   "value": ""
+  }
+ },
+ "project": "endo_myometrial_invasion",
+ "schema": "traceview_annotation_v2",
+ "status": "complete",
+ "unit": "TCGA-AJ-A3EJ",
+ "updated": "2026-11-02T06:22:33+00:00"
+}
