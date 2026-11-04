@@ -110,7 +110,6 @@ def main() -> None:
     out = arguments.results_root / (
         stamp + (f"_{arguments.label}" if arguments.label else "")
     )
-    out.mkdir(parents=True)  # never overwrite: a second call in the same second fails
     repeats = sorted(arguments.issue17_runs.glob("rep*"))
     named = {
         "agentic_new": arguments.agentic,
@@ -119,6 +118,23 @@ def main() -> None:
         "one_shot_issue9": arguments.issue9_one_shot,
         **{f"issue17_{r.name}": r for r in repeats},
     }
+    # Relative paths, so provenance.json does not carry the analysis machine's home.
+    inputs = {
+        "roster_annotated50": Path(os.path.relpath(ROSTER_50)),
+        "annotated_roster": Path(os.path.relpath(arguments.annotated_roster)),
+    }
+    for name in ("full_agentic.yaml", "full_one_shot.yaml"):
+        inputs[name] = Path(os.path.relpath(HERE / name))
+    record = build(
+        inputs, named, Path(os.path.relpath(REPO)),
+        arguments={"label": arguments.label, "cases": arguments.cases, "annotations": str(arguments.annotations)},
+    )  # fmt: skip
+    # build() looks at uncommitted files, so it must run before the folder exists.
+    out.mkdir(parents=True)  # never overwrite: a second call in the same second fails
+    (out / "provenance.json").write_text(
+        json.dumps(record, indent=2) + "\n", encoding="utf-8"
+    )
+
     flags = [f"--run={name}={path}" for name, path in named.items()]
     new_old = [f for f in flags if "issue17" not in f]
 
@@ -157,21 +173,6 @@ def main() -> None:
         *arguments.cases,
         "--out",
         out / "no_answer_cases",
-    )
-
-    # Relative paths, so provenance.json does not carry the analysis machine's home.
-    inputs = {
-        "roster_annotated50": Path(os.path.relpath(ROSTER_50)),
-        "annotated_roster": Path(os.path.relpath(arguments.annotated_roster)),
-    }
-    for name in ("full_agentic.yaml", "full_one_shot.yaml"):
-        inputs[name] = Path(os.path.relpath(HERE / name))
-    record = build(
-        inputs, named, Path(os.path.relpath(REPO)),
-        arguments={"label": arguments.label, "cases": arguments.cases, "annotations": str(arguments.annotations)},
-    )  # fmt: skip
-    (out / "provenance.json").write_text(
-        json.dumps(record, indent=2) + "\n", encoding="utf-8"
     )
 
     (out / "README.md").write_text(readme(out, arguments), encoding="utf-8")
