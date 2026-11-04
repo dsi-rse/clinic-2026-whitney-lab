@@ -1,0 +1,3 @@
+field,annotated_patients,agentic_agrees,one_shot_agrees,agentic_only,one_shot_only,mcnemar_exact_p
+invasion,50,47,47,0,0,1.0
+depth,50,38,38,1,1,1.0

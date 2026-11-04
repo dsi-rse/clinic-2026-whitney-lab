@@ -1,0 +1,775 @@
+{
+  "created_utc": "2026-11-04T17:03:16+00:00",
+  "python": "3.12.15",
+  "clinic_repo": {
+    "path": ".",
+    "commit": "8127215e1aec005c9061f73b34c83594b1164967",
+    "branch": "yuxuang/issue35-full-cohort-baseline",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "roster_annotated50": {
+      "path": "experiments/endometrial_baseline_full/roster_annotated50.csv",
+      "sha256": "b9ea644bd89d866f2a5755ce3eda699a23d8d70539499b8731a8d22e1d27b447"
+    },
+    "annotated_roster": {
+      "path": "experiments/endometrial_baseline_full/roster_annotated66.csv",
+      "sha256": "7d88b468630e244c5e7edf2c40c0d975441114ee155234b496fcfcf002754185"
+    },
+    "full_agentic.yaml": {
+      "path": "experiments/endometrial_baseline_full/full_agentic.yaml",
+      "sha256": "1f96a153d3a7851352fd45bb315712ced1936e48b56df8546f80478ebe4f759a"
+    },
+    "full_one_shot.yaml": {
+      "path": "experiments/endometrial_baseline_full/full_one_shot.yaml",
+      "sha256": "685283f2c603e9e5b49a18407016786aa9ac6c067a1a786b8e556e8e7df716ae"
+    }
+  },
+  "runs": {
+    "agentic_new": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-29_baseline_full_main0b6f404/rep1",
+      "records": 546,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-29_baseline_full_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-29_baseline_full_main0b6f404/rep1",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_new": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_one_shot_full_main0b6f404/rep1",
+      "records": 546,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0b6f4041b97469cf0100318d593504a421b7c4ba"
+      ],
+      "contract_digests": [
+        "ca1524045f0897247c9a75dd5f28f7e1cae1a011be460551db081aeaeb4b9505"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_one_shot_full_main0b6f404",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-30_one_shot_full_main0b6f404/rep1",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "agentic_issue9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-12_endometrial_agentic",
+      "records": 546,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "9f602a295c040740242e6d6361cee10936d0bb055ae732de8cb18c5579ddd882",
+      "contracts": {
+        "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746": 546
+      },
+      "label_counts": {
+        "cannot_be_determined": 6,
+        "no_answer": 43,
+        "not_identified": 48,
+        "present": 449
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "5eaa1cedda5baa0ea6ad1edd714715f7cbf0a5fdffb51e245d44c3ee3dcc916e",
+      "mode": "agentic",
+      "model": "glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v2",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 546,
+      "job_id": "2175608",
+      "node": "r001",
+      "seconds_per_unit": 10.52,
+      "raw": {
+        "commit": "e901b3f572275e755499375551eca6da60f30680",
+        "config_sha256": "9f602a295c040740242e6d6361cee10936d0bb055ae732de8cb18c5579ddd882",
+        "contracts": {
+          "940b2a7bf1702611b09fdd061ec2a8058d50430b2a78f07a3f6019f9b37e6746": 546
+        },
+        "label_counts": {
+          "cannot_be_determined": 6,
+          "no_answer": 43,
+          "not_identified": 48,
+          "present": 449
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "5eaa1cedda5baa0ea6ad1edd714715f7cbf0a5fdffb51e245d44c3ee3dcc916e",
+        "mode": "agentic",
+        "model": "glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v2",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 5742.8,
+          "job_id": "2175608",
+          "model_load_seconds": 125.945424,
+          "node": "r001",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 10.52,
+          "units_completed": 546
+        },
+        "unit_count": 546
+      },
+      "endpoint": {
+        "base_url": "http://127.0.0.1:39249/v1",
+        "config_sha256": "9f602a295c040740242e6d6361cee10936d0bb055ae732de8cb18c5579ddd882",
+        "job_id": "2175608",
+        "node": "r001",
+        "served_name": "glm-5.3-flash"
+      },
+      "server_starts": [
+        {
+          "job_id": "2141392",
+          "log": "server-2141392.log",
+          "published_endpoint": false
+        }
+      ],
+      "server_starts_known": true,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-12_endometrial_agentic",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "one_shot_issue9": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-16_endometrial_one_shot",
+      "records": 546,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "e901b3f572275e755499375551eca6da60f30680"
+      ],
+      "contract_digests": [
+        "30ba8acfebf7f14a810a08eed8deeb0a386308c11761220ba1061b4fa8c60a24"
+      ],
+      "oncotrace_modified": false,
+      "config_sha256": "b214436831460d781ccde7585f879dc8213f476c68200f0d99396d06c9e2bdfb",
+      "contracts": {
+        "30ba8acfebf7f14a810a08eed8deeb0a386308c11761220ba1061b4fa8c60a24": 546
+      },
+      "label_counts": {
+        "cannot_be_determined": 7,
+        "no_answer": 50,
+        "not_identified": 47,
+        "present": 442
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "fe96903aac96024236ee09bcaab164ebbd3ba7036a59f023c9c3b6c167cc2a91",
+      "mode": "one_shot",
+      "model": "glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v2",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 546,
+      "job_id": "2178423",
+      "node": "r003",
+      "seconds_per_unit": 3.94,
+      "raw": {
+        "commit": "e901b3f572275e755499375551eca6da60f30680",
+        "config_sha256": "b214436831460d781ccde7585f879dc8213f476c68200f0d99396d06c9e2bdfb",
+        "contracts": {
+          "30ba8acfebf7f14a810a08eed8deeb0a386308c11761220ba1061b4fa8c60a24": 546
+        },
+        "label_counts": {
+          "cannot_be_determined": 7,
+          "no_answer": 50,
+          "not_identified": 47,
+          "present": 442
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "fe96903aac96024236ee09bcaab164ebbd3ba7036a59f023c9c3b6c167cc2a91",
+        "mode": "one_shot",
+        "model": "glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v2",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 2153.4,
+          "job_id": "2178423",
+          "model_load_seconds": 132.297241,
+          "node": "r003",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 3.94,
+          "units_completed": 546
+        },
+        "unit_count": 546
+      },
+      "endpoint": {
+        "base_url": "http://127.0.0.1:54509/v1",
+        "config_sha256": "b214436831460d781ccde7585f879dc8213f476c68200f0d99396d06c9e2bdfb",
+        "job_id": "2178423",
+        "node": "r003",
+        "served_name": "glm-5.3-flash"
+      },
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-16_endometrial_one_shot",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "issue17_rep1": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep1",
+      "records": 50,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep1",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "issue17_rep2": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep2",
+      "records": 50,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep2",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "issue17_rep3": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep3",
+      "records": 50,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep3",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "issue17_rep4": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep4",
+      "records": 50,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep4",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    },
+    "issue17_rep5": {
+      "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep5",
+      "records": 50,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "f99cefd3e3c30adcffd421cee33e2e1eb27947b1"
+      ],
+      "contract_digests": [
+        "ba27b6ce50ad657b9f1bb287992bc1530111a7a1496e444b8639ed82d36fd629"
+      ],
+      "oncotrace_modified": false,
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": true,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x",
+            "group": "__oncotrace",
+            "group_ok": true
+          },
+          {
+            "path": "/net/spaces/annawoodard/oncotrace/workspaces/yuxuang/runs/2026-10-25_determinism_5x/rep5",
+            "group": "__oncotrace",
+            "group_ok": true
+          }
+        ]
+      }
+    }
+  },
+  "arguments": {
+    "label": "final_66annotated",
+    "cases": [
+      "TCGA-AX-A1C8",
+      "TCGA-FI-A2EX",
+      "TCGA-DI-A0WH"
+    ],
+    "annotations": "annotations/endo_myometrial_invasion"
+  }
+}
