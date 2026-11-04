@@ -191,8 +191,8 @@ def readme(out: Path, arguments: argparse.Namespace) -> str:
 
 Made by `run_analysis.py` (see ../../README.md). Only patient IDs, counts and
 reason codes are in this folder. `provenance.json` records the runs and files used.
-Its `uncommitted_files` lists only this results folder, which was being written
-when the record was made; the code that made it is the commit it names.
+It was made from a clean checkout: the code was committed first, and the record
+was made before this folder existed.
 
 Run names: `agentic_new` and `one_shot_new` are the updated OncoTrace on all 546
 patients; `agentic_issue9` and `one_shot_issue9` are the older full runs of
