@@ -1,0 +1,11 @@
+run,group,patients,median_coverage,read_whole_report,used_search,median_read_calls,median_model_calls
+rep1,answered,50,1.00,50 / 50,0 / 50,1,4
+rep1,all,50,1.00,50 / 50,0 / 50,1,4
+rep2,answered,50,1.00,50 / 50,0 / 50,1,4
+rep2,all,50,1.00,50 / 50,0 / 50,1,4
+rep3,answered,50,1.00,50 / 50,1 / 50,1,4
+rep3,all,50,1.00,50 / 50,1 / 50,1,4
+rep4,answered,50,1.00,50 / 50,1 / 50,1,4
+rep4,all,50,1.00,50 / 50,1 / 50,1,4
+rep5,answered,50,1.00,50 / 50,3 / 50,1,4
+rep5,all,50,1.00,50 / 50,3 / 50,1,4
