@@ -14,7 +14,7 @@ labels are right. The numbers are in `results/<date_time>_<label>/` (written by
 | `run_extraction.sbatch`, `run_extraction.sh` | Slurm job and driver: serve the model, then extract. |
 | `keep_one_protected_job.sh` | Resubmits the job (2 h `protected` queue) until all patients have a record. |
 | `roster_annotated50.csv` | The 50 patients with manual annotations (single annotator). |
-| `roster_annotated59.csv` | Every patient with an annotation on 3 November 2026: the 50 above plus 9 added by Helena. `run_analysis.py` scores section 3 on this roster by default. |
+| `roster_annotated66.csv` | A fixed snapshot: every patient with an annotation on `main` on 4 November 2026 (66): the 50 above plus 16 added later. `run_analysis.py` scores section 3 on this roster by default. New annotations are not picked up unless someone updates this file. |
 | `summarize_runs.py` | Completion and cost of any runs, side by side. |
 | `compare_modes.py` | Agentic against one_shot: outcomes, differences, agreement with annotations. |
 | `case_across_runs.py` | What every run did on chosen patients. |
@@ -93,4 +93,4 @@ record, so one run was made by several jobs (and servers).
   difference cannot be assigned to one change.
 - The task contract digest of the one_shot run (`ca152404…`) differs from the
   agentic run (`ba27b6ce…`); the reason has not been checked.
-- Only 50 patients have annotations, from one annotator.
+- Agreement uses the 66 annotated patients of the 4 November 2026 snapshot (`roster_annotated66.csv`), and also the first 50 alone (`mode_comparison_first_50/`, the set of the earlier results). The first 50 are from one annotator; we did not check who made the 16 added ones. More are being added.

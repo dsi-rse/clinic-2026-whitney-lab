@@ -53,6 +53,11 @@ def replies(record: dict[str, Any]) -> list[dict[str, Any]]:
     return [e for e in record["events"] if e["kind"] == "model_response"]
 
 
+def prompt_tokens(record: dict[str, Any]) -> int:
+    """Prompt tokens over every reply (each call sends the whole conversation again)."""
+    return sum(e.get("prompt_tokens") or 0 for e in replies(record))
+
+
 def tokens(record: dict[str, Any]) -> int:
     """Completion tokens over every reply."""
     return sum(e.get("completion_tokens") or 0 for e in replies(record))
@@ -117,6 +122,7 @@ def summary_rows(runs: dict[str, dict[str, dict]]) -> list[list[Any]]:
         records = list(run.values())
         calls = [r["model_calls"] for r in records]
         used = [tokens(r) for r in records]
+        read = [prompt_tokens(r) for r in records]
         codes = Counter(code for r in records for code in refusals(r))
         rows.append(
             [
@@ -132,6 +138,8 @@ def summary_rows(runs: dict[str, dict[str, dict]]) -> list[list[Any]]:
                 statistics.median(used),
                 percentile(used, 0.9),
                 max(used),
+                sum(read),
+                statistics.median(read),
                 sum(cut_offs(r) for r in records),
                 sum(cut_offs(r) > 0 for r in records),
                 sum(len(refusals(r)) for r in records),
@@ -145,7 +153,8 @@ def summary_rows(runs: dict[str, dict[str, dict]]) -> list[list[Any]]:
 SUMMARY_HEADER = [
     "mode", "patients", "answered", "no_answer", "calls_mean", "calls_median",
     "calls_max", "patients_using_all_24_calls", "completion_tokens_total",
-    "tokens_median", "tokens_p90", "tokens_max", "cut_off_replies",
+    "tokens_median", "tokens_p90", "tokens_max", "prompt_tokens_total",
+    "prompt_tokens_median", "cut_off_replies",
     "patients_with_cut_off", "rejected_submissions", "patients_with_rejection",
     "top_rejection_codes",
 ]  # fmt: skip

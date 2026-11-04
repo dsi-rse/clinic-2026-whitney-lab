@@ -26,12 +26,13 @@ from oncotrace_bench.provenance import build
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 ROSTER_50 = HERE / "roster_annotated50.csv"
-ROSTER_ALL = HERE / "roster_annotated59.csv"  # every annotated patient on 2026-11-03
+ROSTER_ALL = HERE / "roster_annotated66.csv"  # every annotated patient on 2026-11-04
 CASES = ["TCGA-AX-A1C8", "TCGA-FI-A2EX", "TCGA-DI-A0WH"]
 COST_COLUMNS = [
     "mode", "patients", "answered", "no_answer", "calls_mean", "calls_median",
     "calls_max", "patients_using_all_24_calls", "completion_tokens_total",
-    "tokens_median", "cut_off_replies", "patients_with_cut_off",
+    "tokens_median", "prompt_tokens_total", "prompt_tokens_median",
+    "cut_off_replies", "patients_with_cut_off",
     "rejected_submissions", "patients_with_rejection",
 ]  # fmt: skip
 
@@ -199,10 +200,12 @@ Cost columns count what the model did, not patients' labels.
 
 ## 1. All 546 patients: completion and cost ({full.name}/completion_and_cost.csv)
 One row per run. A cell counts patients (answered, no_answer, patients_*), model
-calls, or completion tokens. `patients_using_all_24_calls` is patients who hit the
+calls, or tokens. `completion_tokens_*` is what the model wrote and
+`prompt_tokens_*` is what the server read (summed over calls; each call sends the
+conversation again). `patients_using_all_24_calls` is patients who hit the
 call limit. A cut-off reply is one stopped by the 8,192-token limit. A rejected
 submission is one OncoTrace refused with a reason code. Compare `no_answer`
-(smaller is better) and `calls_mean`/`tokens_median` (smaller is cheaper).
+(smaller is better) and `calls_mean`, `tokens_median` and `prompt_tokens_median` (smaller is cheaper).
 
 {table(full / "completion_and_cost.csv", COST_COLUMNS)}
 Most common rejection codes:
