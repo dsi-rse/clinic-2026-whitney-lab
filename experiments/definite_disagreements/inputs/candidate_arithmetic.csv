@@ -1,0 +1,3 @@
+patient,numerator_label,numerator_start,numerator_end,denominator_label,denominator_start,denominator_end,note
+TCGA-A5-A0GR,microscopic_depth_of_invasion,586,592,gross_myometrial_thickness,2121,2127,"the only myometrial-thickness number in the report; t1_r1 cited both as quantified_depth"
+TCGA-A5-A0GR,microscopic_depth_of_invasion,586,592,gross_endometrial_thickness,2085,2091,"the adjacent gross thickness figure; shown to test whether the two gross figures are transposed"

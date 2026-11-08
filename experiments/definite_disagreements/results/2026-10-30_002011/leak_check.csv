@@ -1,0 +1,10 @@
+file,shared_word_runs,clean
+arithmetic.csv,0,True
+evidence_spans.csv,0,True
+measurements.csv,0,True
+provenance.json,0,True
+report_vocabulary.csv,0,True
+run_answers.csv,0,True
+scope_check.csv,0,True
+summary.txt,0,True
+verdicts.csv,0,True

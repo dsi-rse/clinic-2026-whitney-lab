@@ -1,0 +1,31 @@
+patient,wording_class,occurrences,offsets,pages
+TCGA-A5-A0GJ,invasion_word,0,,
+TCGA-A5-A0GJ,fraction_or_percent,6,64 75 4463 7873 10844 12903,1 2 3 4 5
+TCGA-A5-A0GJ,half_word,0,,
+TCGA-A5-A0GJ,full_thickness_word,0,,
+TCGA-A5-A0GJ,serosa_token,4,3806 4236 5246 5906,2 3
+TCGA-A5-A0GJ,unquantified_extent,8,1255 1846 2690 3706 3853 3965 6238 12060,1 2 3 5
+TCGA-A5-A0GJ,confined_statement,1,1807,1
+TCGA-A5-A0GJ,negation,14,966 2109 2400 2519 2621 2836 3225 4287 5957 7740 8124 8422 12601 12780,1 2 3 4 5
+TCGA-A5-A0GJ,depth_statement,0,,
+TCGA-A5-A0GJ,thickness_statement,0,,
+TCGA-A5-A0GJ,myometrium_token,2,1858 2073,1
+TCGA-A5-A0GJ,endometrium_token,8,1642 1670 1787 1819 1871 1890 1968 6847,1 3
+TCGA-A5-A0GJ,gross_examination,7,2938 5419 6171 7743 8127 8425 11892,2 3 4 5
+TCGA-A5-A0GJ,staging_line,0,,
+TCGA-A5-A0GJ,measurement_mm_or_cm,54,see measurements.csv,
+TCGA-A5-A0GR,invasion_word,4,552 2563 7218 7793,1 2 4
+TCGA-A5-A0GR,fraction_or_percent,5,138 3462 4841 7037 8378,1 2 3 4
+TCGA-A5-A0GR,half_word,0,,
+TCGA-A5-A0GR,full_thickness_word,0,,
+TCGA-A5-A0GR,serosa_token,1,3175,2
+TCGA-A5-A0GR,unquantified_extent,7,532 540 861 2511 4556 5868 6571,1 2 3
+TCGA-A5-A0GR,confined_statement,1,2597,2
+TCGA-A5-A0GR,negation,29,640 712 788 877 896 955 1035 1112 1133 1201 1263 1380 1424 2539 2637 2715 3078 3110 3302 4425,1 2 3 4
+TCGA-A5-A0GR,depth_statement,1,580,1
+TCGA-A5-A0GR,thickness_statement,2,2072 2108,2
+TCGA-A5-A0GR,myometrium_token,4,568 2097 3159 7207,1 2 4
+TCGA-A5-A0GR,endometrium_token,9,410 438 504 1347 1441 1989 2060 7748 7840,1 2 4
+TCGA-A5-A0GR,gross_examination,10,1491 2552 2690 3119 3305 4428 5254 6254 6991 7230,1 2 3 4
+TCGA-A5-A0GR,staging_line,2,1394 7168,1 4
+TCGA-A5-A0GR,measurement_mm_or_cm,29,see measurements.csv,

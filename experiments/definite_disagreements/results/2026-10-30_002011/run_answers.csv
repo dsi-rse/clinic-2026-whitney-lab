@@ -1,0 +1,9 @@
+patient,run,myometrial_invasion,myometrial_invasion_percent,depth_basis,confidence,specimen_type,adenomyosis_relation,model_calls,document_chars,doc_fraction_read,read_windows,refusals,truncated_replies,unresolved_conflicts_recorded,n_depth_evidence,n_quantified_depth,n_counterevidence
+TCGA-A5-A0GJ,t0,present,less_than_50,estimated_without_number,high,hysterectomy,not_mentioned,3,12974,1.0,2,,0,1,2,0,1
+TCGA-A5-A0GJ,t1_r1,present,less_than_50,estimated_without_number,medium,hysterectomy,not_mentioned,3,12974,1.0,2,,0,3,1,0,1
+TCGA-A5-A0GJ,t1_r2,present,less_than_50,estimated_without_number,high,hysterectomy,not_mentioned,3,12974,1.0,1,,0,1,2,0,1
+TCGA-A5-A0GJ,t1_r3,present,less_than_50,estimated_without_number,high,hysterectomy,not_mentioned,3,12974,1.0,3,,0,1,2,0,1
+TCGA-A5-A0GR,t0,present,less_than_50,estimated_without_number,medium,hysterectomy,present_uninvolved_by_carcinoma,5,8524,1.0,2,quantified_depth_not_classified,3,1,1,1,2
+TCGA-A5-A0GR,t1_r1,present,fifty_or_greater,explicit_fraction_or_percentage,medium,hysterectomy,present_uninvolved_by_carcinoma,5,8524,1.0,2,quantified_depth_not_classified,2,0,3,2,1
+TCGA-A5-A0GR,t1_r2,present,less_than_50,explicit_fraction_or_percentage,high,hysterectomy,present_uninvolved_by_carcinoma,4,8524,1.0,2,answer_exists,2,0,1,1,3
+TCGA-A5-A0GR,t1_r3,present,less_than_50,descriptive_other,high,hysterectomy,present_uninvolved_by_carcinoma,3,8524,1.0,1,,1,0,3,0,0
