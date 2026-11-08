@@ -55,35 +55,22 @@ label:
 
 confidence_values: [high, medium, low]
 
-citation_groups:
-  # Quotes that establish depth or absence of invasion.
-  - name: depth_evidence
-  # Quotes that establish what was resected. Without myometrium there is
-  # nothing to measure, so the specimen is part of the contract, not context.
-  - name: specimen_evidence
-  # Quotes that contradict the chosen value, including superseded reports.
-  - name: counterevidence
-  # A labelled view of depth_evidence: the subset that states an actual fraction,
-  # percentage, or "full thickness" rather than describing invasion loosely.
-  # Constrained to be a subset so a quantified claim cannot cite passages that
-  # were never offered as depth evidence at all.
-  - name: quantified_depth
-    must_be_subset_of: [depth_evidence]
-
-# Evidence and counterevidence must be different PASSAGES. They may sit in the
-# same document, and usually do: a citation is a half-open character range into
-# one document's text, and two spans conflict only where they overlap. So a
-# report that says "56%" in one sentence and "superficial half" in another cites
-# both, disjointly, and the contradiction is recorded rather than resolved
-# silently.
+# Every answer carries the quotes behind it (OncoTrace's per-answer quotes,
+# dsi-rse/oncotrace#13). Any answer -- including cannot_be_determined -- must
+# quote what it rests on. The label's quotes establish invasion or its absence;
+# specimen_type's quotes establish what was resected, so the specimen is part of
+# the contract, not context.
 #
-# This constraint is what makes a self-contradicting report visible at all. It
-# needs no configuration: character ranges are how oncotrace addresses evidence.
-disjoint:
-  - [depth_evidence, counterevidence]
-
-# Any answer -- including cannot_be_determined -- must quote what it rests on.
-evidence_groups: [depth_evidence, specimen_evidence]
+# Two values need no quote, because they only say something was absent from the
+# report and absence cannot be quoted. This list is task-wide: a value named here
+# is exempt in every field that has it, which is why `not_applicable` and
+# `cannot_be_determined` are NOT listed -- the label's not_applicable must still
+# quote what was resected.
+#
+# When the report contradicts itself, the answer quotes each side. There is no
+# longer a separate counterevidence group, nor a rule that evidence and
+# counterevidence be different passages: OncoTrace removed both.
+no_quote_values: [not_mentioned, none_stated]
 
 extra_fields:
   - name: specimen_type
@@ -150,13 +137,9 @@ list_fields: [unresolved_conflicts]
 rules:
   # --- Definite depth answers -------------------------------------------------
   # `present` and `not_identified` are the two values that assert the myometrium
-  # was assessed. Both therefore need depth citations and a specimen that had
-  # myometrium in it.
-  - signature: depth_evidence_missing
-    message: a definite myometrial invasion value requires model-visible depth citations
-    when_label: [not_identified, present]
-    require_group: depth_evidence
-
+  # was assessed. Both therefore need depth quotes and a specimen that had
+  # myometrium in it. The depth quotes need no rule: the label carries its own
+  # quotes (formerly `depth_evidence_missing`).
   - signature: depth_requires_hysterectomy
     message: depth of myometrial invasion is only assessable on a hysterectomy specimen
     when_label: [not_identified, present]
@@ -165,17 +148,14 @@ rules:
       values: [hysterectomy]
 
   # --- Not applicable ---------------------------------------------------------
+  # The quotes for what was resected need no rule: specimen_type carries its own
+  # quotes (formerly `not_applicable_specimen_uncited`).
   - signature: not_applicable_requires_nonhysterectomy
     message: not_applicable requires a specimen with no myometrium to assess
     when_label: [not_applicable]
     require_field:
       field: specimen_type
       values: [biopsy_or_curettage_only, other_or_not_stated]
-
-  - signature: not_applicable_specimen_uncited
-    message: not_applicable requires direct citations for what was resected
-    when_label: [not_applicable]
-    require_group: specimen_evidence
 
   # --- The inner/outer half question ------------------------------------------
   # New on this protocol version, and the load-bearing rule of the file. Because
@@ -205,24 +185,12 @@ rules:
       field: specimen_type
       values: [hysterectomy]
 
-  # --- Quantified claims ------------------------------------------------------
-  - signature: quantified_basis_uncited
-    message: an explicit fraction or percentage requires quantified_depth citations
-    when_field:
-      field: depth_basis
-      values: [explicit_fraction_or_percentage]
-    require_group: quantified_depth
-
-  # --- Adenomyosis ------------------------------------------------------------
-  # Note E treats adenomyosis as capable of CHANGING the depth answer, in the
-  # opposite direction from the December 2024 protocol. Either consequential
-  # value has to be grounded in cited rows.
-  - signature: adenomyosis_relation_uncited
-    message: an adenomyosis finding that bears on depth requires depth citations
-    when_field:
-      field: adenomyosis_relation
-      values: [present_involved_by_carcinoma, invasion_within_adenomyosis]
-    require_group: depth_evidence
+  # --- Quantified claims and adenomyosis --------------------------------------
+  # No rules needed. depth_basis and adenomyosis_relation carry their own quotes,
+  # so every value except none_stated / not_mentioned must quote what it rests on
+  # (formerly `quantified_basis_uncited` and `adenomyosis_relation_uncited`).
+  # As before, nothing checks WHAT an explicit_fraction_or_percentage quote says:
+  # a quote of the depth alone, without the thickness, is still accepted (#42).
 
 instructions: |
   Determine the depth of myometrial invasion for this patient's endometrial
@@ -277,9 +245,10 @@ instructions: |
 
   A citation is a verbatim quote from that document, and every quote must be
   inside a range you actually read. Quote the sentence that carries the decisive
-  wording, not the heading above it. Because depth_evidence and counterevidence
-  must be different passages, a report that contradicts itself is recorded by
-  quoting each claim separately.
+  wording, not the heading above it. Each answer carries its own quotes; when
+  one passage supports two answers, quote it under both. A report that
+  contradicts itself is recorded by quoting each claim separately, under the
+  answer it bears on.
 
   These reports are OCR'd scans written between roughly 2000 and 2013, so they
   predate this protocol's wording. Treat "full thickness", "transmural", or

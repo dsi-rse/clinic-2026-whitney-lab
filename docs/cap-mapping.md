@@ -92,8 +92,12 @@ two fields together reconstruct the CAP response.
 CAP marks the whole field **"required only if applicable"**. That conditional is
 what the rules encode, because "applicable" means *myometrium was resected*:
 
+- every answer quotes the text it rests on, except the nothing-found values
+  `not_mentioned` and `none_stated` (OncoTrace's per-answer quotes). So the
+  label always quotes the depth wording, and `specimen_type` always quotes what
+  was resected;
 - a definite value (`not_identified`, `present`) requires
-  `specimen_type: hysterectomy` **and** non-empty `depth_evidence`;
+  `specimen_type: hysterectomy`;
 - `present` additionally requires `myometrial_invasion_percent` to be a half or an
   explicit `cannot_be_determined` — the rule `invasion_percent_unresolved`. This
   rule exists because `present` alone is a strictly weaker answer than the old
@@ -102,11 +106,12 @@ what the rules encode, because "applicable" means *myometrium was resected*:
 - a stated half requires a hysterectomy (`invasion_percent_requires_hysterectomy`),
   which is the closest expressible inverse: oncotrace rules cannot require a
   *label* value from a field condition, only another field;
-- `not_applicable` requires a specimen that is *not* a hysterectomy, plus
-  `specimen_evidence` showing what was resected;
-- an `explicit_fraction_or_percentage` basis requires `quantified_depth`
-  citations, which must themselves be a subset of `depth_evidence`;
-- an adenomyosis finding that bears on depth requires `depth_evidence`.
+- `not_applicable` requires a specimen that is *not* a hysterectomy.
+
+An `explicit_fraction_or_percentage` basis and an adenomyosis finding need no
+rule of their own: like every answer, they must quote what they rest on.
+Nothing checks what that quote says, so a fraction quoting only a depth, without
+the thickness, is accepted (#42).
 
 ### Adenomyosis on this version
 
