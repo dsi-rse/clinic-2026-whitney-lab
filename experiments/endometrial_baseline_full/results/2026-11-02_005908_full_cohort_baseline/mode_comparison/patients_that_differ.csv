@@ -1,0 +1,13 @@
+patient,agentic_outcome,one_shot_outcome,agentic_calls,one_shot_calls
+TCGA-A5-A0GE,present/cannot_be_determined,present/less_than_50,11,1
+TCGA-A5-A0GR,present/fifty_or_greater,present/less_than_50,5,2
+TCGA-AW-A1PO,cannot_be_determined/not_applicable,cannot_be_determined/cannot_be_determined,3,2
+TCGA-AX-A1C8,NO_ANSWER,present/less_than_50,24,10
+TCGA-D1-A163,present/less_than_50,NO_ANSWER,4,24
+TCGA-D1-A16Q,present/cannot_be_determined,present/less_than_50,4,1
+TCGA-DF-A2KU,cannot_be_determined/not_applicable,present/fifty_or_greater,4,2
+TCGA-DF-A2KV,cannot_be_determined/not_applicable,present/fifty_or_greater,4,3
+TCGA-DF-A2KZ,present/fifty_or_greater,cannot_be_determined/not_applicable,5,1
+TCGA-DI-A0WH,NO_ANSWER,present/less_than_50,6,8
+TCGA-EY-A1G7,present/less_than_50,not_identified/not_applicable,3,3
+TCGA-FI-A2EX,NO_ANSWER,present/less_than_50,24,2

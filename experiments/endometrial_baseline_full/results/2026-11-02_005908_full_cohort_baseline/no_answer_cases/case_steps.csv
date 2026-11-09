@@ -1,0 +1,129 @@
+patient,run,call,tools_requested,completion_tokens,finish_reason,rejections_after_call
+TCGA-AX-A1C8,agentic_new,1,inventory,20,tool_calls,
+TCGA-AX-A1C8,agentic_new,2,read,115,tool_calls,
+TCGA-AX-A1C8,agentic_new,3,none,8192,length,
+TCGA-AX-A1C8,agentic_new,4,submit,963,tool_calls,citation_quote_ambiguous x1
+TCGA-AX-A1C8,agentic_new,5,read,231,tool_calls,
+TCGA-AX-A1C8,agentic_new,6,submit,3711,tool_calls,argument_not_a_list x1
+TCGA-AX-A1C8,agentic_new,7,submit,855,tool_calls,argument_not_a_list x1
+TCGA-AX-A1C8,agentic_new,8,submit+read+search+inventory+read+read+read+read+read+read,4372,tool_calls,"argument_not_a_list x9, unknown_source x1"
+TCGA-AX-A1C8,agentic_new,9,submit,2275,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,10,submit,1491,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,11,submit,1117,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,12,submit,1165,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,13,submit,1345,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,14,submit,1471,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,15,submit,1371,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,16,submit,1111,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,17,submit,973,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,18,submit,1449,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,19,submit,1068,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,20,submit,1005,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,21,submit,1199,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,22,submit,1382,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,23,submit,1253,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,agentic_new,24,submit,1141,tool_calls,quantified_depth_not_classified x1
+TCGA-AX-A1C8,one_shot_new,1,none,8192,length,
+TCGA-AX-A1C8,one_shot_new,2,submit,1275,tool_calls,citation_quote_ambiguous x1
+TCGA-AX-A1C8,one_shot_new,3,submit,3108,tool_calls,citation_quote_ambiguous x1
+TCGA-AX-A1C8,one_shot_new,4,submit,2033,tool_calls,citation_quote_not_found x1
+TCGA-AX-A1C8,one_shot_new,5,submit,940,tool_calls,citation_quote_not_found x1
+TCGA-AX-A1C8,one_shot_new,6,submit,1830,tool_calls,citation_quote_not_found x1
+TCGA-AX-A1C8,one_shot_new,7,none,8192,length,
+TCGA-AX-A1C8,one_shot_new,8,submit,8192,length,quantified_depth_not_classified x1
+TCGA-AX-A1C8,one_shot_new,9,submit,582,tool_calls,overlapping_citations x1
+TCGA-AX-A1C8,one_shot_new,10,submit,690,tool_calls,
+TCGA-AX-A1C8,agentic_issue9,1,inventory,18,tool_calls,
+TCGA-AX-A1C8,agentic_issue9,2,read,82,tool_calls,
+TCGA-AX-A1C8,agentic_issue9,3,submit,6706,tool_calls,citation_quote_ambiguous x1
+TCGA-AX-A1C8,agentic_issue9,4,submit,8192,length,empty_rationale x1
+TCGA-AX-A1C8,agentic_issue9,5,submit,806,tool_calls,citation_document_ambiguous x1
+TCGA-AX-A1C8,agentic_issue9,6,none,8192,length,
+TCGA-AX-A1C8,agentic_issue9,7,none,8192,length,
+TCGA-AX-A1C8,agentic_issue9,8,none,8192,length,
+TCGA-AX-A1C8,one_shot_issue9,1,none,8192,length,
+TCGA-AX-A1C8,one_shot_issue9,2,submit,3334,tool_calls,citation_absent x1
+TCGA-AX-A1C8,one_shot_issue9,3,submit,1156,tool_calls,citation_absent x1
+TCGA-AX-A1C8,one_shot_issue9,4,submit,791,tool_calls,citation_document_ambiguous x1
+TCGA-AX-A1C8,one_shot_issue9,5,none,8192,length,
+TCGA-AX-A1C8,one_shot_issue9,6,none,8192,length,
+TCGA-FI-A2EX,agentic_new,1,inventory,19,tool_calls,
+TCGA-FI-A2EX,agentic_new,2,read,253,tool_calls,
+TCGA-FI-A2EX,agentic_new,3,submit,3166,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,agentic_new,4,submit,1720,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,5,submit,983,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,6,submit,2050,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,7,submit,1012,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,8,submit,1010,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,9,submit,1016,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,10,submit,1016,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,11,submit,996,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,12,submit,1000,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,13,submit,997,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,14,submit,1026,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,15,submit,997,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,16,submit,1025,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,17,submit,1029,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,18,submit,999,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,19,submit,950,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,20,submit,1031,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,21,submit,1022,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,22,submit,975,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,23,submit,938,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,agentic_new,24,submit,1151,tool_calls,argument_not_a_list x1
+TCGA-FI-A2EX,one_shot_new,1,submit,2142,tool_calls,quantified_depth_not_classified x1
+TCGA-FI-A2EX,one_shot_new,2,submit,717,tool_calls,
+TCGA-FI-A2EX,agentic_issue9,1,inventory,18,tool_calls,
+TCGA-FI-A2EX,agentic_issue9,2,read,171,tool_calls,
+TCGA-FI-A2EX,agentic_issue9,3,submit,5785,tool_calls,quantified_depth_not_classified x1
+TCGA-FI-A2EX,agentic_issue9,4,submit,859,tool_calls,
+TCGA-FI-A2EX,one_shot_issue9,1,submit+submit+submit+submit+submit+submit+submit+submit+submit+submit+submit+submit+submit+submit+submit,8192,length,"citation_document_ambiguous x1, specimen_type_not_allowed x8, quantified_depth_not_classified x6"
+TCGA-FI-A2EX,one_shot_issue9,2,submit,7448,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,3,submit,2296,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,4,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,5,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,6,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,7,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,8,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,9,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,10,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,11,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,12,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,13,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,14,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,15,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,16,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,17,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,18,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,19,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,20,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,21,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,22,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,23,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-FI-A2EX,one_shot_issue9,24,submit,1022,tool_calls,citation_quote_not_found x1
+TCGA-DI-A0WH,agentic_new,1,inventory,21,tool_calls,
+TCGA-DI-A0WH,agentic_new,2,read,218,tool_calls,
+TCGA-DI-A0WH,agentic_new,3,none,8192,length,
+TCGA-DI-A0WH,agentic_new,4,submit,803,tool_calls,citation_quote_ambiguous x1
+TCGA-DI-A0WH,agentic_new,5,none,8192,length,
+TCGA-DI-A0WH,agentic_new,6,none,8192,length,
+TCGA-DI-A0WH,one_shot_new,1,submit,8192,length,evidence_citations_missing x1
+TCGA-DI-A0WH,one_shot_new,2,submit,685,tool_calls,citation_quote_ambiguous x1
+TCGA-DI-A0WH,one_shot_new,3,none,8192,length,
+TCGA-DI-A0WH,one_shot_new,4,submit,6357,tool_calls,citation_quote_ambiguous x1
+TCGA-DI-A0WH,one_shot_new,5,submit,1186,tool_calls,overlapping_citations x1
+TCGA-DI-A0WH,one_shot_new,6,submit,856,tool_calls,citation_quote_ambiguous x1
+TCGA-DI-A0WH,one_shot_new,7,submit,4332,tool_calls,quantified_depth_not_classified x1
+TCGA-DI-A0WH,one_shot_new,8,submit,908,tool_calls,
+TCGA-DI-A0WH,agentic_issue9,1,inventory,18,tool_calls,
+TCGA-DI-A0WH,agentic_issue9,2,read,85,tool_calls,
+TCGA-DI-A0WH,agentic_issue9,3,submit,8192,length,myometrial_invasion_percent_not_allowed x1
+TCGA-DI-A0WH,agentic_issue9,4,submit,706,tool_calls,citation_document_ambiguous x1
+TCGA-DI-A0WH,agentic_issue9,5,none,8192,length,
+TCGA-DI-A0WH,agentic_issue9,6,none,8192,length,
+TCGA-DI-A0WH,agentic_issue9,7,none,8192,length,
+TCGA-DI-A0WH,one_shot_issue9,1,submit,8192,length,evidence_citations_missing x1
+TCGA-DI-A0WH,one_shot_issue9,2,submit,2083,tool_calls,citation_quote_ambiguous x1
+TCGA-DI-A0WH,one_shot_issue9,3,none,8192,length,
+TCGA-DI-A0WH,one_shot_issue9,4,none,8192,length,
+TCGA-DI-A0WH,one_shot_issue9,5,none,8192,length,

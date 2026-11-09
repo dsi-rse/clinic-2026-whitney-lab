@@ -1,0 +1,3 @@
+mode,patients,answered,no_answer,calls_mean,calls_median,calls_max,patients_using_all_24_calls,completion_tokens_total,tokens_median,tokens_p90,tokens_max,cut_off_replies,patients_with_cut_off,rejected_submissions,patients_with_rejection,top_rejection_codes
+agentic,546,543,3,4.62,4.0,24,3,5099520,7005.0,18386,99057,243,177,1068,355,quantified_depth_not_classified 385; argument_not_a_list 273; answer_exists 138; citation_quote_not_found 72; submission_fields_missing 47
+one_shot,546,545,1,2.02,2.0,24,1,3969827,5867.0,15190,35248,211,159,720,327,quantified_depth_not_classified 291; answer_exists 179; argument_not_a_list 71; citation_quote_not_found 56; citation_quote_ambiguous 42

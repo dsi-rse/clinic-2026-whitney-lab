@@ -1,0 +1,14 @@
+agentic_outcome,one_shot_outcome,patients
+NO_ANSWER,present/less_than_50,3
+cannot_be_determined/not_applicable,cannot_be_determined/cannot_be_determined,1
+cannot_be_determined/not_applicable,cannot_be_determined/not_applicable,4
+cannot_be_determined/not_applicable,present/fifty_or_greater,2
+not_identified/not_applicable,not_identified/not_applicable,48
+present/cannot_be_determined,present/cannot_be_determined,1
+present/cannot_be_determined,present/less_than_50,2
+present/fifty_or_greater,cannot_be_determined/not_applicable,1
+present/fifty_or_greater,present/fifty_or_greater,208
+present/fifty_or_greater,present/less_than_50,1
+present/less_than_50,NO_ANSWER,1
+present/less_than_50,not_identified/not_applicable,1
+present/less_than_50,present/less_than_50,273
