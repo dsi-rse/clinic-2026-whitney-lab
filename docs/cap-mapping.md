@@ -93,9 +93,11 @@ CAP marks the whole field **"required only if applicable"**. That conditional is
 what the rules encode, because "applicable" means *myometrium was resected*:
 
 - every answer quotes the text it rests on, except the nothing-found values
-  `not_mentioned` and `none_stated` (OncoTrace's per-answer quotes). So the
-  label always quotes the depth wording, and `specimen_type` always quotes what
-  was resected;
+  `not_mentioned` and `none_stated` (OncoTrace's per-answer quotes). The label
+  quotes what decides it: the depth wording for `present` or `not_identified`,
+  what was resected for `not_applicable`, the reason for
+  `cannot_be_determined`. `specimen_type` always quotes what was resected, and
+  each `unresolved_conflicts` entry quotes the conflicting passage;
 - a definite value (`not_identified`, `present`) requires
   `specimen_type: hysterectomy`;
 - `present` additionally requires `myometrial_invasion_percent` to be a half or an

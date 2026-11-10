@@ -56,20 +56,24 @@ label:
 confidence_values: [high, medium, low]
 
 # Every answer carries the quotes behind it (OncoTrace's per-answer quotes,
-# dsi-rse/oncotrace#13). Any answer -- including cannot_be_determined -- must
-# quote what it rests on. The label's quotes establish invasion or its absence;
-# specimen_type's quotes establish what was resected, so the specimen is part of
-# the contract, not context.
+# dsi-rse/oncotrace#13). Each of the five categorical answers -- including
+# cannot_be_determined -- must quote what it rests on, and so must
+# unresolved_conflicts whenever it has entries. This is stricter than the
+# citation groups it replaces, which passed if any one of depth_evidence or
+# specimen_evidence had a quote. A label quotes what decides it: the depth
+# wording for present or not_identified, what was resected for not_applicable,
+# the reason for cannot_be_determined.
 #
 # Two values need no quote, because they only say something was absent from the
-# report and absence cannot be quoted. This list is task-wide: a value named here
-# is exempt in every field that has it, which is why `not_applicable` and
-# `cannot_be_determined` are NOT listed -- the label's not_applicable must still
-# quote what was resected.
+# report and absence cannot be quoted. The list matches value strings across
+# every field, so `not_applicable` is NOT listed: that would also exempt the
+# label's not_applicable, which must quote what was resected. The depth field's
+# not_applicable could be exempted by renaming it, but annotations use the
+# current name, so instead it quotes the same passage as the label.
 #
-# When the report contradicts itself, the answer quotes each side. There is no
-# longer a separate counterevidence group, nor a rule that evidence and
-# counterevidence be different passages: OncoTrace removed both.
+# A conflicting passage goes in unresolved_conflicts, with its quote. That list
+# replaces the old counterevidence group. OncoTrace removed the rule that
+# evidence and counterevidence be different passages, and has no replacement.
 no_quote_values: [not_mentioned, none_stated]
 
 extra_fields:
@@ -246,9 +250,15 @@ instructions: |
   A citation is a verbatim quote from that document, and every quote must be
   inside a range you actually read. Quote the sentence that carries the decisive
   wording, not the heading above it. Each answer carries its own quotes; when
-  one passage supports two answers, quote it under both. A report that
-  contradicts itself is recorded by quoting each claim separately, under the
-  answer it bears on.
+  one passage supports two answers, quote it under both. When the label is not
+  present, myometrial_invasion_percent is not_applicable and quotes the same
+  passage as the label.
+
+  When the report contradicts itself, answer from the definitive statement and
+  quote it under that answer. Record each conflicting statement as an entry in
+  unresolved_conflicts, saying briefly what disagrees, and quote the
+  conflicting passage there. Leave unresolved_conflicts empty when nothing
+  conflicts.
 
   These reports are OCR'd scans written between roughly 2000 and 2013, so they
   predate this protocol's wording. Treat "full thickness", "transmural", or
