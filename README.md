@@ -20,6 +20,8 @@ dataset later in the quarter.
 3. Use [config/endometrial.yaml](config/endometrial.yaml) for your endometrial run.
    It points to the [shared report store and roster](docs/student-setup.md#shared-endometrial-data),
    readable by `__oncotrace`, and attaches to the lab's GLM-5.3-Flash server.
+   If the cluster is unavailable, build the same data on your own machine with
+   [local data](docs/local-data.md).
    Update the input paths in older personal configs and obtain the active server's
    endpoint/job details from the mentor. Follow [OncoTrace's running guide](https://github.com/uchicago-dsi/oncotrace/blob/main/docs/running.md)
    for validation, running on the server's compute node, and producing outputs.
