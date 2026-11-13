@@ -40,6 +40,10 @@ remain under
 `/net/spaces/annawoodard/annawoodard/endometrial-project/oncotrace-endometrial-adaptation/data/`,
 where parent directories require the older `annawoodard` group.
 
+To build an identical copy from public data, for example when the cluster is
+unavailable, see [local data](local-data.md). Mariam's preparation scripts are in
+`scripts/endometrial_data/` (copied from her repository at `831622b`).
+
 The store contains 546 documents for 546 patients across 31 tissue source sites.
 Mariam's recorded GDC cohort has 560 cases; missing report delivery accounts for
 the smaller usable set according to her notebook. Preserve the roster and store
