@@ -31,7 +31,7 @@ import re
 import sys
 import tarfile
 from pathlib import Path
-from typing import NoReturn
+from typing import NoReturn, Self
 
 DATA = Path(os.environ.get("DATA_DIR", "data")) / "endometrial"
 
@@ -43,7 +43,7 @@ MEMBER = re.compile(
 class DataOnlyUnpickler(pickle.Unpickler):
     """Load plain data only; refuse any class or function reference."""
 
-    def find_class(self, module: str, name: str) -> NoReturn:
+    def find_class(self: Self, module: str, name: str) -> NoReturn:
         """Refuse every class reference."""
         raise pickle.UnpicklingError(f"refusing to load {module}.{name}")
 
