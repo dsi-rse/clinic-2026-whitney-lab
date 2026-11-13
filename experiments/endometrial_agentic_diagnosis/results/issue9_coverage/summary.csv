@@ -1,0 +1,7 @@
+run,group,patients,median_coverage,read_whole_report,used_search,median_read_calls,median_model_calls
+agentic,answered,503,1.00,503 / 503,28 / 503,1,4
+agentic,no answer,43,1.00,43 / 43,5 / 43,1,24
+agentic,all,546,1.00,546 / 546,33 / 546,1,4
+one_shot,answered,496,1.00,496 / 496,0 / 496,1,2
+one_shot,no answer,50,1.00,50 / 50,0 / 50,1,5
+one_shot,all,546,1.00,546 / 546,0 / 546,1,2
