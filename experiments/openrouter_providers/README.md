@@ -25,12 +25,24 @@ does any provider fail to run it?
   Every provider was chosen because it supports `tool_choice: required`, which
   OncoTrace sends on every request until the model has answered; 27 of the 42
   GLM-5.3-Flash providers on OpenRouter supported it on 16 November 2026.
-  `darkbloom_fp4` refused every request that day, so `open_inference_fp4`, the
-  next cheapest 4-bit provider with that support, was added after it failed.
+  `darkbloom_fp4` rejected every request that day (422), so `open_inference_fp4`,
+  the next cheapest 4-bit provider with that support, was added after it failed.
+  `morph_fp8` was dropped: rate limits held its first repeat at 9 of 10 patients
+  after 38 minutes, so it has no complete repeat and is not in the tables.
 - **Reference:** the cluster's 20 repeats of the same patients
   (`../endometrial_determinism/results/2026-11-02_095348_agentic_0b6f404_10x20/per_patient.csv`).
   Those ran under the task contract from before PR 48, so they show how much the
   cluster's answers vary, not what the cluster would answer today.
+
+## Runs used, and runs set aside
+
+The tables come from the `2026-11-16_openrouter_providers_retry_<arm>` folders,
+made on the OncoTrace commit that resends a refused request instead of
+restarting the patient (see each run in `provenance.json`). The first attempt,
+`2026-11-16_openrouter_providers_<arm>`, ran before that fix; it was stopped part
+way and is kept as evidence only. The concurrency probe's 10-at-a-time run
+crashed on a cut-off reply before the next fix, with 65 of 66 patients done; its
+20-at-a-time run used the fixed code.
 
 ## Rerun
 
@@ -42,7 +54,8 @@ built by `scripts/endometrial_data/download.sh`, and `OPENROUTER_API_KEY` set:
 ```bash
 set -a; source .env; set +a
 RUNS=runs ONCOTRACE_REPO=~/oncotrace PYTHON=python \
-  ARMS="wafer_us darkbloom_fp4 morph_fp8 open_inference_fp4" \
+  NAME=openrouter_providers_retry \
+  ARMS="wafer_us darkbloom_fp4 open_inference_fp4" \
   bash experiments/openrouter_providers/run_providers.sh
 ```
 
@@ -54,20 +67,29 @@ the saved price list:
 
 ```bash
 PYTHONPATH=src python experiments/openrouter_providers/compare_providers.py \
-  --arm wafer_us=runs/2026-11-16_openrouter_providers_wafer_us \
-  --arm darkbloom_fp4=runs/2026-11-16_openrouter_providers_darkbloom_fp4 \
-  --arm open_inference_fp4=runs/2026-11-16_openrouter_providers_open_inference_fp4 \
-  --arm morph_fp8=runs/2026-11-16_openrouter_providers_morph_fp8 \
+  --label providers \
+  --arm wafer_us=runs/2026-11-16_openrouter_providers_retry_wafer_us \
+  --arm open_inference_fp4=runs/2026-11-16_openrouter_providers_retry_open_inference_fp4 \
+  --arm darkbloom_fp4=runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4 \
   --prices experiments/openrouter_providers/results/<folder>/prices.csv \
   --not-shared "<where the run folders are>"
 ```
 
 Without `--prices` it fetches today's prices, so `cost_usd` changes.
 
+The concurrency table, likewise in a few seconds:
+
+```bash
+PYTHONPATH=src python experiments/openrouter_providers/summarize_concurrency.py \
+  --level 10=runs/2026-11-16_openrouter_concurrency_w10 \
+  --level 20=runs/2026-11-16_openrouter_concurrency_w20 \
+  --not-shared "<where the run folders are>"
+```
+
 ## Run folders
 
-The DSI cluster was down, so the 12 run folders were made on CRI, under
-`/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_<arm>/rep1..3`.
+The DSI cluster was down, so every run folder was made on CRI, under
+`/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/`.
 Students cannot read CRI. They will be copied to
 `/net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/` when the
 cluster is back; `provenance.json` acknowledges this for each run.

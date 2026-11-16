@@ -109,6 +109,25 @@ def cluster_tallies(path: Path) -> dict[str, str]:
     }
 
 
+def cluster_most_common(path: Path) -> dict[str, str]:
+    """Patient -> the cluster's most common outcome over its 20 repeats."""
+    with path.open(encoding="utf-8") as handle:
+        return {
+            row["patient"]: Counter(row["outcome_per_run"].split(" | ")).most_common(1)[
+                0
+            ][0]
+            for row in csv.DictReader(handle)
+        }
+
+
+def is_server_error(record: dict) -> bool:
+    """Whether a unit ended because the server failed, not the model."""
+    answer = record.get("answer") or {}
+    return (
+        answer.get("status") == "no_answer" and answer.get("reason") == "server_error"
+    )
+
+
 def write_csv(path: Path, header: list[str], rows: list[list]) -> None:
     """Write one table with LF line ends, so a rerun is byte-identical."""
     with path.open("w", newline="", encoding="utf-8") as handle:
@@ -188,6 +207,8 @@ def main() -> None:
     reference = cluster_tallies(CLUSTER_TABLE)
 
     arm_rows, per_patient = [], {patient: [patient] for patient in patients}
+    # Each answering arm's most common answer per patient. An arm that never
+    # answered is left out, so its failures do not count as disagreement.
     modal = {patient: [] for patient in patients}
     for name, arm in arms.items():
         slug = provider_slug(arm["config"])
@@ -200,15 +221,22 @@ def main() -> None:
             tokens_in * float(price["usd_per_million_input"])
             + tokens_out * float(price["usd_per_million_output"])
         ) / 1e6
+        answered = sum(outcome(r) != NO_ANSWER for r in records)
         same = 0
         for patient in patients:
             outcomes = [
                 outcome(run[patient]) if patient in run else "MISSING"
                 for run in arm["runs"]
             ]
-            same += len(set(outcomes)) == 1
+            # Same answer in every repeat, and an answer: three failures are
+            # not three agreeing answers.
+            same += len(set(outcomes)) == 1 and outcomes[0] not in (
+                NO_ANSWER,
+                "MISSING",
+            )
             per_patient[patient].append(" | ".join(outcomes))
-            modal[patient].append(Counter(outcomes).most_common(1)[0][0])
+            if answered:
+                modal[patient].append(Counter(outcomes).most_common(1)[0][0])
         arm_rows.append(
             [
                 name,
@@ -216,7 +244,8 @@ def main() -> None:
                 price["quantization"],
                 len(arm["runs"]),
                 len(records),
-                sum(outcome(r) != NO_ANSWER for r in records),
+                answered,
+                sum(is_server_error(r) for r in records),
                 same,
                 len(replies),
                 tokens_in,
@@ -236,6 +265,7 @@ def main() -> None:
             "repeats",
             "patient_runs",
             "answered",
+            "server_errors",
             "patients_same_answer_every_repeat",
             "model_calls",
             "input_tokens",
@@ -247,26 +277,36 @@ def main() -> None:
         arm_rows,
     )
     names = list(arms)
+    cluster = cluster_most_common(CLUSTER_TABLE)
+    agree = match_cluster = 0
     for patient in patients:
-        per_patient[patient].append(len(set(modal[patient])) == 1)
-        per_patient[patient].append(reference.get(patient, ""))
+        same_in_arms = bool(modal[patient]) and len(set(modal[patient])) == 1
+        matches = same_in_arms and modal[patient][0] == cluster.get(patient)
+        agree += same_in_arms
+        match_cluster += matches
+        per_patient[patient] += [same_in_arms, reference.get(patient, ""), matches]
     write_csv(
         out / "per_patient.csv",
         [
             "patient",
             *names,
-            "same_most_common_answer_in_every_arm",
+            "same_most_common_answer_in_every_answering_arm",
             "cluster_20_repeats_old_contract",
+            "matches_cluster_most_common_answer",
         ],
         list(per_patient.values()),
     )
-    agree = sum(len(set(modal[p])) == 1 for p in patients)
     write_csv(
         out / "summary.csv",
         ["measure", "value"],
         [
             ["patients", len(patients)],
-            ["patients_whose_most_common_answer_matches_in_every_arm", agree],
+            ["arms_that_answered", sum(1 for row in arm_rows if row[5])],
+            ["patients_whose_most_common_answer_matches_in_every_answering_arm", agree],
+            [
+                "patients_where_that_answer_is_the_cluster_most_common_answer",
+                match_cluster,
+            ],
         ],
     )
     (out / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
@@ -278,7 +318,8 @@ def main() -> None:
         "- `arms.csv`: one row per provider arm.\n"
         "- `per_patient.csv`: each arm's answer in every repeat, and the cluster's "
         "20-repeat tally (old task contract, a reference only).\n"
-        "- `summary.csv`: patients whose most common answer is the same in every arm.\n"
+        "- `summary.csv`: patients whose most common answer is the same in every arm "
+        "that answered, and how many of those match the cluster's most common answer.\n"
         "- `prices.csv`: the prices `cost_usd` uses.\n\n"
         "Remake with the command in `experiments/openrouter_providers/README.md`, "
         "passing `--prices` this folder's `prices.csv`; the tables then match exactly.\n"
