@@ -1,3 +1,0 @@
-patients_at_once,patients,answered,server_errors,requests_refused_and_resent,patient_restarts,wall_minutes,run_finished
-10,65,65,0,1,0,unknown,"no, it crashed"
-20,66,66,0,145,2,13.7,yes
