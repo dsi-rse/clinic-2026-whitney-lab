@@ -1,9 +1,10 @@
 """Summarize the concurrency probe: one row per level of patients run at once.
 
 For each level it counts the patients answered, the patients that ended in a
-server error, and the requests OpenRouter refused (each one is a "request
-failed" line in the run's log, written before OncoTrace retries), and gives the
-wall time from the run's own timings.json. No report text is written.
+server error, the requests OpenRouter refused and OncoTrace resent after a wait
+("request refused" lines in the run's log), and the patients OncoTrace had to
+restart after the resends ran out ("request failed" lines), and gives the wall
+time from the run's own timings.json. No report text is written.
 
 Example, from the clinic repo root:
     PYTHONPATH=src python experiments/openrouter_providers/summarize_concurrency.py \
@@ -82,6 +83,7 @@ def main() -> None:
                 len(records),
                 statuses.count("answered"),
                 statuses.count("server_error"),
+                log.count("request refused"),
                 log.count("request failed"),
                 round(timings["extract_seconds"] / 60, 1),
             ]
@@ -94,7 +96,8 @@ def main() -> None:
                 "patients",
                 "answered",
                 "server_errors",
-                "refused_requests",
+                "requests_refused_and_resent",
+                "patient_restarts",
                 "wall_minutes",
             ]
         )

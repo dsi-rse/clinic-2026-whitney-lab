@@ -2,9 +2,10 @@
 # How many patients can run at once on wafer/us before OpenRouter refuses requests?
 #
 # Runs the 66 annotated patients once per level in LEVELS (patients at a time),
-# each into its own folder <RUNS>/<DATE>_openrouter_concurrency_w<level>. Stops
-# raising the level after the first one where any request was refused (OncoTrace
-# logs "request failed" for every retry) or any patient ended in a server error.
+# each into its own folder <RUNS>/<DATE>_openrouter_concurrency_w<level>. A
+# refused request is resent after a wait ("request refused" in the log); that is
+# counted, not a failure. Stops raising the level after the first one where a
+# patient had to be restarted ("request failed") or ended in a server error.
 #
 # Run from the clinic repo root with OPENROUTER_API_KEY set:
 #   set -a; source .env; set +a
@@ -36,9 +37,10 @@ for level in $LEVELS; do
   "$PY" -m oncotrace.runner extract --config "$CONFIG" --output "$out" \
     --workers "$level" > "$out.log" 2>&1
   rc=$?
-  refused=$(grep -c "request failed" "$out.log")
-  say "level $level: rc=$rc, refused requests logged: $refused"
-  if (( rc != 0 || refused > 0 )); then
+  refused=$(grep -c "request refused" "$out.log")
+  failed=$(grep -c "request failed" "$out.log")
+  say "level $level: rc=$rc, requests refused and resent: $refused, patient restarts: $failed"
+  if (( rc != 0 || failed > 0 )); then
     say "stopping: level $level had failures"
     break
   fi
