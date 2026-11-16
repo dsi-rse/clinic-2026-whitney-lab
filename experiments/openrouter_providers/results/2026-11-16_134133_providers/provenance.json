@@ -1,0 +1,724 @@
+{
+  "created_utc": "2026-11-16T19:41:33+00:00",
+  "python": "3.11.17",
+  "clinic_repo": {
+    "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2",
+    "commit": "cb87618b5e406a08b734698eebe9cc884a60a5f5",
+    "branch": "openrouter-endpoint",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "config_wafer_us": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/openrouter_providers/configs/wafer_us.yaml",
+      "sha256": "ba57f0cd69d647487d2a30499bae4bb73f3c5cdd1d301e579ccfea7d9f4014e8"
+    },
+    "config_open_inference_fp4": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/openrouter_providers/configs/open_inference_fp4.yaml",
+      "sha256": "5d4736629d764cf16d0f0ac9e11cfdf0ac809d356ad7120f601979b3b4283fe8"
+    },
+    "config_darkbloom_fp4": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/openrouter_providers/configs/darkbloom_fp4.yaml",
+      "sha256": "893818a4d5f41007d6726e12075d6b6621cd785f699246eec37ac5d6e22e10a8"
+    },
+    "roster": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/endometrial_determinism/roster_followup10.csv",
+      "sha256": "f335a0babf9302dde849e71a4f60bfac426739b08a4374a00fa0dbfb972e5efd"
+    },
+    "cluster_reference": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/endometrial_determinism/results/2026-11-02_095348_agentic_0b6f404_10x20/per_patient.csv",
+      "sha256": "d66b35cdd65c735e6c2e7d17a40804502899b044e8f29abf7a4f59413889369d"
+    },
+    "prices": {
+      "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/prices_2026-11-16.csv",
+      "sha256": "17b477e2e07165913278abebfff53599d362453a5e115f277c99f6a1fbd8e8ff"
+    }
+  },
+  "runs": {
+    "wafer_us_rep1": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep1",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep1",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "wafer_us_rep2": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep2",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep2",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "wafer_us_rep3": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep3",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_wafer_us/rep3",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "open_inference_fp4_rep1": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep1",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "OpenInference"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep1",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "open_inference_fp4_rep2": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep2",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "OpenInference"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep2",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "open_inference_fp4_rep3": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep3",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "OpenInference"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_open_inference_fp4/rep3",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "darkbloom_fp4_rep1": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep1",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [],
+      "served_models": [],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep1",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "darkbloom_fp4_rep2": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep2",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [],
+      "served_models": [],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep2",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "darkbloom_fp4_rep3": {
+      "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep3",
+      "records": 10,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "0cdc041cd932630704443c885234755f15ec0dad"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [],
+      "served_models": [],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data",
+            "group": "root",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4",
+            "group": "cri-huo_lab",
+            "group_ok": true
+          },
+          {
+            "path": "/gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/2026-11-16_openrouter_providers_retry_darkbloom_fp4/rep3",
+            "group": "cri-huo_lab",
+            "group_ok": false
+          }
+        ]
+      }
+    }
+  },
+  "task": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/tasks/endo_myometrial_invasion.yaml",
+  "task_sha256": "3a1ee704a4a456519147c16ba5462c11a402a6eecab80ff5569f0f2721bc3c88",
+  "acknowledged": {
+    "wafer_us_rep1:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "wafer_us_rep2:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "wafer_us_rep3:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "open_inference_fp4_rep1:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "open_inference_fp4_rep2:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "open_inference_fp4_rep3:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "darkbloom_fp4_rep1:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "darkbloom_fp4_rep2:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back",
+    "darkbloom_fp4_rep3:not_shared": "On CRI at /gpfs/data/huo-lab/Image/annawoodard/clinic-2026-whitney-lab/runs/ while the DSI cluster is down; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/annawoodard/runs/ when it is back"
+  },
+  "arms": {
+    "wafer_us": "wafer/us",
+    "open_inference_fp4": "open-inference/fp4",
+    "darkbloom_fp4": "darkbloom/fp4"
+  },
+  "prices": {
+    "path": "/tmp/claude-788688670/-gpfs-data-huo-lab-Image-annawoodard-clinic-2026-whitney-lab/307da07b-971e-4477-8133-87778cac92f1/scratchpad/clean2/experiments/openrouter_providers/results/2026-11-16_134133_providers/prices.csv",
+    "sha256": "17b477e2e07165913278abebfff53599d362453a5e115f277c99f6a1fbd8e8ff"
+  }
+}

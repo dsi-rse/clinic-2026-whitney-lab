@@ -1,0 +1,5 @@
+measure,value
+patients,10
+arms_that_answered,2
+patients_whose_most_common_answer_matches_in_every_answering_arm,10
+patients_where_that_answer_is_the_cluster_most_common_answer,9
