@@ -76,7 +76,9 @@ def main() -> None:
             for a in answers
         ]
         log = Path(f"{folder}.log").read_text(errors="replace")
-        timings = json.loads((folder / "timings.json").read_text())
+        # A run that crashed wrote no timings.json; its wall time is unknown.
+        timing_file = folder / "timings.json"
+        timings = json.loads(timing_file.read_text()) if timing_file.exists() else {}
         rows.append(
             [
                 level,
@@ -85,7 +87,8 @@ def main() -> None:
                 statuses.count("server_error"),
                 log.count("request refused"),
                 log.count("request failed"),
-                round(timings["extract_seconds"] / 60, 1),
+                round(timings["extract_seconds"] / 60, 1) if timings else "unknown",
+                "yes" if timings else "no, it crashed",
             ]
         )
     with (out / "concurrency.csv").open("w", newline="", encoding="utf-8") as handle:
@@ -99,6 +102,7 @@ def main() -> None:
                 "requests_refused_and_resent",
                 "patient_restarts",
                 "wall_minutes",
+                "run_finished",
             ]
         )
         writer.writerows(rows)
