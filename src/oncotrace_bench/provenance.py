@@ -64,6 +64,15 @@ def server_starts_tag(run_name: str) -> str:
     return f"{run_name}:server_starts"
 
 
+def not_shared_tag(run_name: str) -> str:
+    """The acknowledgement tag for a run folder not yet on the shared cluster.
+
+    A run made on a laptop (on OpenRouter, say) stays there until it can be
+    copied to the team's shared folder. The reason should say where it will go.
+    """
+    return f"{run_name}:not_shared"
+
+
 def _git(repo: Path, *args: str) -> tuple[bool, str]:
     """Run one read-only git command in `repo`.
 
@@ -225,6 +234,25 @@ def run_state(run_dir: Path) -> dict:
         ),
         "contract_digests": sorted({c["digest"] for c in contracts if c.get("digest")}),
         "oncotrace_modified": any(c.get("package_modified") for c in contracts),
+        # Who answered each model request. A local server sends no provider; a
+        # hosted service such as OpenRouter names the one that served the
+        # request, and answers are comparable only if that stays the same.
+        "providers": sorted(
+            {
+                str(event["provider"])
+                for record in records
+                for event in record.get("events") or []
+                if event.get("kind") == "model_response" and event.get("provider")
+            }
+        ),
+        "served_models": sorted(
+            {
+                str(event["served_model"])
+                for record in records
+                for event in record.get("events") or []
+                if event.get("kind") == "model_response" and event.get("served_model")
+            }
+        ),
     }
     finished = run_dir / "provenance.json"
     if finished.exists():
@@ -281,7 +309,9 @@ def build(
         acknowledged: tag -> why this exception was unavoidable, for the
             cases `AGENTS.md` allows with an explanation. `"dirty"` covers a
             checkout with uncommitted files; `server_starts_tag(run)` covers a
-            run genuinely served by more than one allocation. `check()` then
+            run genuinely served by more than one allocation;
+            `not_shared_tag(run)` covers a run folder that is still on a
+            laptop, with where it will be copied. `check()` then
             stops failing on that tag, and the reason stays in the record.
         **extra: anything else (counts, arguments) is stored as given.
 
@@ -420,7 +450,22 @@ def check(record: dict) -> list[str]:
             problems.append(f"run {name} has {missing} unit record(s) with no contract")
         if run.get("oncotrace_modified"):
             problems.append(f"run {name} ran a modified OncoTrace package")
-        problems += _reach_problems(name, run)
+        if not_shared_tag(name) not in acknowledged:
+            reach = _reach_problems(name, run)
+            if reach:
+                reach[-1] += (
+                    ". If the folder is on a laptop until it can be copied to the "
+                    f'shared folder, pass acknowledged={{"{not_shared_tag(name)}": '
+                    '"where it will go"} to build().'
+                )
+            problems += reach
+        providers = run.get("providers") or []
+        if len(providers) > 1:
+            problems.append(
+                f"run {name} was answered by {len(providers)} providers "
+                f"({', '.join(providers)}), so its answers came from different "
+                "copies of the model. Pin one provider in the config."
+            )
         problems += _agreement_problems(name, run)
         served = [
             start

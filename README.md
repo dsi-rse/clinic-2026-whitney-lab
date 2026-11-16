@@ -31,6 +31,48 @@ dataset later in the quarter.
 The clinic config has no serving block: use an existing endpoint rather than
 `--serve`. A different model or dataset path requires a personal config.
 
+## Running on OpenRouter
+
+Use this on your laptop, or whenever the cluster is down. OpenRouter is a paid
+service that hosts GLM-5.3-Flash, the model the cluster runs, so no GPU is
+needed. The TCGA reports are public, so sending them there is allowed.
+
+1. Build the data once: `bash scripts/endometrial_data/download.sh`
+   (see [local data](docs/local-data.md)).
+2. Your mentor sends you your own OpenRouter key. Copy `.env.example` to `.env`,
+   paste the key after `OPENROUTER_API_KEY=`, run `chmod 600 .env`, and delete
+   the message that carried the key. Never commit the key or post it anywhere.
+3. Get an OncoTrace clone at its current `main` (it has to include the
+   `endpoint` setting) and a Python environment with `httpx`, `pydantic` and
+   `pyyaml`, as in OncoTrace's `envs/oncotrace-client.yml`.
+4. From this repo's root:
+
+   ```bash
+   set -a; source .env; set +a
+   PYTHONPATH=~/oncotrace python -m oncotrace.runner extract \
+     --config config/endometrial_openrouter.yaml \
+     --output runs/<YYYY-MM-DD>_<experiment>_<arm>
+   ```
+
+   For a quick try, copy the config and point its `roster` at a CSV with a
+   `unit` column listing a few patients.
+
+[config/endometrial_openrouter.yaml](config/endometrial_openrouter.yaml) is
+[config/endometrial.yaml](config/endometrial.yaml) with the changes marked
+`CHANGED`: the local data paths, OpenRouter's address and key variable, its name
+for the model, and one pinned provider. Every request goes to that one provider
+so all answers come from the same copy of the model; each unit record names the
+provider that answered. A 50-patient agentic run costs about $0.15 there:
+the token counts per patient in
+[the full-cohort baseline](experiments/endometrial_agentic_vs_one_shot/results/baseline/totals.csv)
+times the provider's price on 16 November 2026.
+
+Results from OpenRouter are not the same as results from the cluster: the
+provider runs its own compressed copy of the model on its own software. Say
+which one you used when you compare runs. Run folders stay on your machine, out
+of Git (`runs/` is ignored); copy them to the shared workspace when the cluster
+is back (see "Reproducibility" in [AGENTS.md](AGENTS.md)).
+
 ## Endometrial starting point
 
 [Mariam Hassan](https://github.com/marihassan) developed the initial adaptation
