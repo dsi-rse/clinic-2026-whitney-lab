@@ -10,7 +10,7 @@
 #   RUNS=runs ONCOTRACE_REPO=~/oncotrace PYTHON=python \
 #     bash experiments/openrouter_providers/run_providers.sh
 # Optional: REPEATS (default 3), WORKERS (patients at once per arm, default 5),
-# DATE (default today).
+# DATE (default today), ARMS (config names, default: wafer_us darkbloom_fp4 morph_fp8).
 set -uo pipefail
 umask 027
 
@@ -44,7 +44,7 @@ run_arm() {
 
 mkdir -p "$RUNS"
 status=0
-for arm in wafer_us darkbloom_fp4 morph_fp8; do
+for arm in ${ARMS:-wafer_us darkbloom_fp4 morph_fp8}; do
   run_arm "$arm" &
 done
 for job in $(jobs -p); do
