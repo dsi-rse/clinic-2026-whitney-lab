@@ -1,0 +1,55 @@
+# Provider comparison arm: morph/fp8. Identical to the other two arms in this
+# folder except for the provider line, and to config/endometrial_openrouter.yaml
+# except for the roster (the 10 patients of the cluster's 20-repeat runs).
+# TCGA-UCEC myometrial invasion on GLM-5.3-Flash through OpenRouter, a paid
+# service that hosts the model. Use it on a laptop or whenever the cluster is
+# unavailable. It matches config/endometrial.yaml except where marked CHANGED.
+#
+# TCGA reports are public, so sending them to OpenRouter is allowed. Never use
+# this config, or allow_remote_endpoint, for protected data.
+#
+# Run from the clinic repo root after building the data with
+# scripts/endometrial_data/download.sh (see docs/local-data.md), with
+# OPENROUTER_API_KEY set. See "Running on OpenRouter" in README.md.
+task: ../../../tasks/endo_myometrial_invasion.yaml
+mode: agentic
+# CHANGED: the data built by download.sh, not the cluster copy. The roster path
+# is relative to this file; the report path is relative to the repo root.
+roster: ../../endometrial_determinism/roster_followup10.csv
+roster_column: unit
+
+sources:
+  - name: pathology_report
+    path: data/endometrial/documents/ucec_pathology_report.jsonl
+
+# CHANGED: send requests to OpenRouter. The key is read from the environment
+# variable named here; never write the key itself into a config.
+allow_remote_endpoint: true
+endpoint:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY
+
+model:
+  # CHANGED: OpenRouter's name for the same model.
+  served_name: z-ai/glm-5.3-flash
+  temperature: 0.0
+  top_p: 1.0
+  extra_body:
+    # CHANGED: OpenRouter's form of the cluster's enable_thinking and
+    # reasoning_effort: max.
+    reasoning:
+      effort: max
+    # The one setting that differs between arms. Fallbacks off, so every
+    # answer in this arm comes from this provider or the run stops.
+    provider:
+      order: [morph/fp8]
+      allow_fallbacks: false
+
+limits:
+  model_calls: 24
+  completion_passes: 2
+  max_completion_tokens: 8192
+  request_timeout_seconds: 1800
+
+retrieval:
+  max_read_chars: 18000

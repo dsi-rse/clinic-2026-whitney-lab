@@ -142,6 +142,7 @@ venv.bak/
 
 # data directory
 data/
+runs/
 
 # Personal agent instructions (keep the shared example)
 /agents.local.md

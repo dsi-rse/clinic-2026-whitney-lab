@@ -25,8 +25,10 @@ It finishes with three checks. All three should say `ok`:
 [ok] store SHA-256 matches the shared copy
 ```
 
-Then copy `config/endometrial.yaml` to a personal config and change the two input
-paths to the ones the script prints:
+With the default `DATA_DIR`, [config/endometrial_openrouter.yaml](../config/endometrial_openrouter.yaml)
+already reads these files; see [Running on OpenRouter](../README.md#running-on-openrouter).
+To use them with another config, copy it to a personal config and change the two
+input paths to the ones the script prints:
 
 ```yaml
 roster: <DATA_DIR>/endometrial/roster_ucec.csv
@@ -80,8 +82,10 @@ all 12 patients from one contributing site (TCGA-FL). Step 4 prints them.
 
 - Reports and run outputs stay out of Git. `data/` is already ignored; if you set
   `DATA_DIR` elsewhere, keep it outside the repository.
-- Keep the data on an encrypted disk, as the [clinic data policy](../DataPolicy.md)
-  requires, and delete your copy when the project ends.
+- The reports are public TCGA data, so the clinic data policy's rules for
+  confidential data do not apply to them, and you may send them to OpenRouter
+  (see [Running on OpenRouter](../README.md#running-on-openrouter)). Delete your
+  copy when the project ends.
 - Do not edit the store after building it. Citations point at character positions
   in this exact text, so a single changed character breaks them.
 
