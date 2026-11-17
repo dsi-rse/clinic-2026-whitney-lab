@@ -38,13 +38,20 @@ from oncotrace_bench.records import ANNOTATIONS_DIR, load_annotations, load_run
 EXPERIMENT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = EXPERIMENT_DIR.parent.parent
 
-T0_ARMS = ("old_t0_a", "old_t0_b", "new_t0")
+# old_t0_a ran on rosters/roster_compare.csv and was stopped once its first 66
+# patients (the annotated ones) were done; the 40 unannotated scan patients
+# were then dropped. The other two arms ran on the 66 annotated patients only.
+T0_ARMS = ("old_t0_a", "old_t0ann_b", "new_t0ann")
 REPEATS = 20
 REPEAT_ARMS = {
     contract: [f"{contract}_t1_rep{i:02d}" for i in range(1, REPEATS + 1)]
     for contract in ("old", "new")
 }
-PAIRS = (("old_t0_a", "old_t0_b"), ("old_t0_a", "new_t0"), ("old_t0_b", "new_t0"))
+PAIRS = (
+    ("old_t0_a", "old_t0ann_b"),
+    ("old_t0_a", "new_t0ann"),
+    ("old_t0ann_b", "new_t0ann"),
+)
 
 FIELDS = ("myometrial_invasion", "myometrial_invasion_percent", "depth_basis")
 UNEVALUABLE = {"not_applicable", "cannot_be_determined"}
@@ -191,10 +198,9 @@ def build_agreement(answers: pd.DataFrame) -> pd.DataFrame:
 def build_changes(answers: pd.DataFrame) -> pd.DataFrame:
     """Patients whose invasion or depth answer changed between two arms."""
     subsets = {
-        "all_run": answers.index == answers.index,
         "annotated": answers["annotated"],
         "unambiguous_annotated": answers["unambiguous"],
-        "scan_touched": answers["scan_touched"],
+        "scan_touched_annotated": answers["scan_touched"],
         "held_out_aj": answers["held_out_aj"],
     }
     rows = []
@@ -327,9 +333,12 @@ README = """# Issue #42 contract comparison: {name}
 
 Made {created} by `{command}`.
 
-Temperature-0 arms: `old_t0_a`, `old_t0_b` (the same old contract twice, to
-measure run-to-run noise) and `new_t0`, each on {n_patients} patients
-({n_annotated} annotated, {n_scan_only} more from the extent-wording scan).
+Temperature-0 arms: `old_t0_a`, `old_t0ann_b` (the same old contract twice, to
+measure run-to-run noise) and `new_t0ann`, each on the {n_patients} annotated
+patients, {n_scan} of them flagged by the extent-wording scan. `old_t0_a` was
+started on 106 patients (40 unannotated scan patients after the 66) and stopped
+once the 66 were done, so its folder holds a partial run; those extra records
+are not read.
 A0GR repeats: {repeats} per contract at temperature 1.0. Model and provider are
 in `provenance.json` (`runs.*.served_models`, `runs.*.providers`).
 
@@ -351,7 +360,7 @@ subset here that is not optimistic by construction.
 
 ## Patients whose invasion or depth answer changed
 
-`old_t0_a vs old_t0_b` is the noise floor: the same contract run twice.
+`old_t0_a vs old_t0ann_b` is the noise floor: the same contract run twice.
 `unambiguous_annotated` = annotated with a definite half and not flagged by
 the scan.
 
@@ -426,7 +435,7 @@ def main() -> None:
         for line in f:
             row = json.loads(line)
             reports[row["unit"]] = row["text"]
-    roster = EXPERIMENT_DIR / "rosters" / "roster_compare.csv"
+    roster = REPO_ROOT / "experiments/endometrial_baseline_full/roster_annotated66.csv"
     units = pd.read_csv(roster)["unit"].tolist()
     scan = set(pd.read_csv(args.scan / "extent_patients.csv")["patient"])
 
@@ -438,7 +447,8 @@ def main() -> None:
 
     record = build(
         inputs={
-            "roster_compare": roster,
+            "roster_annotated66": roster,
+            "roster_compare": EXPERIMENT_DIR / "rosters" / "roster_compare.csv",
             "roster_a0gr": EXPERIMENT_DIR / "rosters" / "roster_a0gr.csv",
             "scan_patients": args.scan / "extent_patients.csv",
             "contract_old": EXPERIMENT_DIR / "contracts" / "old.yaml",
@@ -484,8 +494,7 @@ def main() -> None:
             created=stamp,
             command=" ".join(sys.argv),
             n_patients=len(answers),
-            n_annotated=int(answers["annotated"].sum()),
-            n_scan_only=int((answers["scan_touched"] & ~answers["annotated"]).sum()),
+            n_scan=int(answers["scan_touched"].sum()),
             repeats=REPEATS,
             agreement=to_markdown(agreement[agreement["subset"] == "annotated_all"]),
             held_out=to_markdown(agreement[agreement["subset"] == "held_out_aj"]),

@@ -58,8 +58,10 @@ reports:
 - 38 reports (10 annotated) have extent wording with an invasion word and no
   number ("superficial invasion"-type statements).
 
-All 58 reports with either kind of statement are in the comparison roster
-(`extent_patients.csv` lists them with offsets).
+`extent_patients.csv` lists all 58 with offsets. The 18 annotated ones are in
+the comparison. The 40 unannotated ones were in the first run's roster but were
+dropped to save time: with no annotation they could only show whether answers
+moved, not whether they were right.
 
 ## What changed in the contract
 
@@ -113,7 +115,7 @@ A0GJ's pattern, so item 4 cannot be shown to generalise here.
 | `make_rosters.py` | Builds the run rosters from the scan |
 | `contracts/old.yaml`, `contracts/new.yaml` | The two contracts compared |
 | `configs/*.yaml` | OpenRouter run configs, one per contract and temperature |
-| `rosters/roster_compare.csv` | 66 annotated + 40 scan patients (temperature 0) |
+| `rosters/roster_compare.csv` | 66 annotated + 40 scan patients; used only by `old_t0_a`, which was stopped after the 66 |
 | `rosters/roster_a0gr.csv` | TCGA-A5-A0GR alone (temperature-1.0 repeats) |
 | `run_arms.sh` | Runs the extractions, one new run folder per arm |
 | `analyze_runs.py` | Builds the comparison tables and results README |
@@ -134,12 +136,16 @@ python experiments/issue42_depth_rules/make_rosters.py \
 ```
 
 The scan takes seconds and reproduces the committed scan tables exactly. The
-model runs (paid, OpenRouter key needed, about 3–4 hours at 5 workers):
+model runs need an OpenRouter key, cost about $1, and take about 2 hours at 5
+workers. This run used `old_t0_a` (the 106-patient roster, stopped once its
+first 66 patients, the annotated ones, were done) in place of `old_t0ann_a`. A
+rerun should use the 66-patient arm and rename it `old_t0_a` for
+`analyze_runs.py`:
 
 ```bash
 set -a; source .env; set +a
 export ONCOTRACE=<oncotrace checkout> PYTHON=python
-bash experiments/issue42_depth_rules/run_arms.sh runs <date> old_t0_a new_t0 old_t0_b
+bash experiments/issue42_depth_rules/run_arms.sh runs <date> old_t0ann_a new_t0ann old_t0ann_b
 for i in $(seq -w 1 20); do echo old_t1_rep$i; echo new_t1_rep$i; done |
   WORKERS=1 xargs -P 5 -I{} bash experiments/issue42_depth_rules/run_arms.sh runs <date> {}
 python experiments/issue42_depth_rules/analyze_runs.py --runs-dir runs --date <date> \
