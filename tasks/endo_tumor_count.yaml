@@ -105,8 +105,12 @@ instructions: |
     "mass".
   - A mixed carcinoma (one tumor with two cell types, for example endometrioid
     plus serous) is ONE tumor.
-  - Count endometrial carcinoma only. A tumor in another organ, such as an
-    implant on the cervix or a separate ovarian cancer, is not counted.
+  - Other organs: when the report also describes a tumor in another organ, such
+    as an implant on the cervix or a separate ovarian cancer, whether it counts
+    as a second tumor is not decided. Answer unclear, list the locations, and say
+    in unresolved_conflicts that another organ is involved. Do not count it as a
+    second tumor, and do not drop it silently. A metastasis to a lymph node is
+    not a second tumor.
   - Separate tumors do not touch each other and arose independently. Tumor
     tissue that continues from one place to another is one tumor.
   - A label in a report form, such as "additional tumor dimensions", is a
@@ -125,8 +129,8 @@ instructions: |
 
   The report has a gross description (what the pathologist sees by eye) and a
   final diagnosis (the conclusion after the microscope). When they disagree about
-  the number of tumors, the final diagnosis decides the count. Record the
-  disagreement in unresolved_conflicts and quote both passages.
+  the number of tumors, which one decides is not decided. Answer unclear, record
+  the disagreement in unresolved_conflicts, and quote both passages.
 
   This patient's source is ONE document holding their whole report: every page
   of the scan stitched in order, with page boundaries marked as
@@ -139,8 +143,11 @@ instructions: |
   wording. Each answer carries its own quotes; when one passage supports two
   answers, quote it under both.
 
-  When the report contradicts itself about the number of tumors, answer from the
-  definitive statement and quote it under that answer. Record each conflicting
+  When the report contradicts itself about the number of tumors in some other
+  way, such as an amended statement replacing an earlier one, answer from the
+  definitive statement and quote it under that answer. (A disagreement between
+  the gross description and the final diagnosis is the case above: answer
+  unclear.) Record each conflicting
   statement as an entry in unresolved_conflicts, saying briefly what disagrees,
   and quote the conflicting passage there. Leave unresolved_conflicts empty when
   nothing conflicts.
