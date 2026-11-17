@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-17T22:57:07+00:00",
+  "python": "3.12.13",
+  "clinic_repo": {
+    "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue42-depth-rules-95b4f7",
+    "commit": "bfa6d8b7fa8407f081ba9fc322cc4f710dbde0d5",
+    "branch": "claude/issue42-depth-rules-95b4f7",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "reports": {
+      "path": "data/endometrial/documents/ucec_pathology_report.jsonl",
+      "sha256": "d0f547d43adc8076e11a821244734c8adb3f4fc0570c0d6d884821b0a220087f"
+    }
+  },
+  "runs": {},
+  "script": "experiments/issue42_depth_rules/scan_extent_wording.py",
+  "command": "experiments/issue42_depth_rules/scan_extent_wording.py --reports data/endometrial/documents/ucec_pathology_report.jsonl",
+  "annotations_dir": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue42-depth-rules-95b4f7/annotations/endo_myometrial_invasion",
+  "annotation_files": 66
+}

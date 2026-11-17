@@ -1,0 +1,6 @@
+statement_type,ann_invasion,ann_percent,patients,patient_ids
+superficial_no_invasion_word,cannot_be_determined,not_applicable,1,TCGA-A5-A0GJ
+superficial_no_invasion_word,present,cannot_be_determined,2,TCGA-5B-A90C TCGA-A5-A1OK
+superficial_no_invasion_word,present,less_than_50,4,TCGA-A5-A0GP TCGA-A5-A0GV TCGA-AJ-A3BI TCGA-AJ-A3EM
+superficial_with_invasion_word,present,fifty_or_greater,1,TCGA-A5-A1OG
+superficial_with_invasion_word,present,less_than_50,6,TCGA-A5-A0G1 TCGA-A5-A0GD TCGA-A5-A0GP TCGA-A5-A0GX TCGA-A5-A1OF TCGA-A5-AB3J

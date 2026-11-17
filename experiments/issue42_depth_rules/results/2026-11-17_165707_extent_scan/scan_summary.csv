@@ -1,0 +1,8 @@
+group_or_type,patients,annotated
+extent_only_report,1,1
+extent_with_other_depth_wording,22,9
+extent_no_invasion_word,23,10
+extent_with_invasion_word,38,10
+superficial_no_invasion_word,11,7
+superficial_with_invasion_word,29,7
+all_reports,546,66
