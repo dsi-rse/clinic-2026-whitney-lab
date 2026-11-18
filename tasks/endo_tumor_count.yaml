@@ -4,14 +4,14 @@
 # that is a later step, run once per tumor.
 #
 # Why count first: the invasion task gives one answer per patient, so a second
-# tumor is silently dropped (seen on TCGA-AP-A0LT, which has two foci). This
-# count flags the patients that need per-tumor handling.
+# tumor is silently dropped (seen on a patient whose report describes two foci).
+# This count flags the patients that need per-tumor handling.
 #
 # `unclear` is a real answer here. It is the answer whenever the report does not
 # settle the count, and also when the count depends on a rule the project has not
 # decided yet (a tumor in another organ; a gross description that disagrees with
 # the final diagnosis; a "separate" nodule). It is NOT pooled with
-# `no_tumor_described` or with an error (CLAUDE.md § 5).
+# `no_tumor_described` or with an error.
 name: endo_tumor_count
 
 label:
