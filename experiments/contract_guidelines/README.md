@@ -80,3 +80,71 @@ annotation says not applicable or cannot be determined), abstained, and the
 One annotator, not adjudicated. The two revisions may each change several
 things; the question is whether the guidelines lead to a better contract, not
 which edit helps. The known-gap scores are judged by hand.
+
+## Results (added after the runs)
+
+Tables: [`results/2026-11-18_035554_runs/`](results/2026-11-18_035554_runs/).
+(`results/2026-11-18_035415_runs/` is an earlier scoring of the same runs
+without the per-patient tables; its counts are the same.)
+
+**Writing.** `guided` fixed 6 of 6 known gaps and `unguided` 5.5
+(`known_gaps.csv`). Both have no new problems by script, and fewer than `old`:
+no values without a definition, against 5 in `old` (`offline_checks.csv`). The
+3 annotation values all three contracts reject are empty annotations, not
+contract problems. **Passes**, but only by half a gap, on a score made by hand
+and not blind.
+
+**Answers.** Patients correct out of 66, mean of two runs
+(`agreement_by_arm.csv`):
+
+| | invasion correct | invasion over-committed | depth correct | depth over-committed |
+|---|---|---|---|---|
+| always the commonest annotation | 60 | | 31 | |
+| `old` | 63 | 3 | 53 | 12 |
+| `unguided` | 63 | 3 | 53 | 12 |
+| `guided` | 63 | 3 | 52.5 | 10.5 |
+
+- The run-to-run variation is 0 (the config sets temperature 0): both `old` runs give the same outcome for
+  every patient (`outcomes_per_patient.csv`), so the pre-registered minimum of
+  1 patient applies.
+- **No harm: passes.** `guided` is 0.5 below `old` on depth correct and 1.5
+  below it on depth over-committed.
+- **Helps answers: not shown.** `guided` does not beat `old` or `unguided`.
+- Invasion is the same for every patient in all six runs; depth is the same for
+  63 of 66 (`changes_vs_old.csv`). `unguided` gives the same outcome as `old`
+  for every patient. `guided` is worse than `old` in both runs for 1 patient
+  (TCGA-A5-A0GR) and better in both for none.
+- Checked by hand, from the `depth_basis` answer in the run records: for
+  TCGA-A5-A0GR all six runs answer `descriptive_other`; `old` and `unguided`
+  then give `less_than_50` (the annotation) and `guided` gives
+  `cannot_be_determined`. This is guided's rule for invasion described without
+  a half or a number (gap G3), where the two revisions disagree.
+- One `guided` run has 86 `answer_exists` refusals, against at most 1 in any
+  other run (`refusals.csv`). Not looked into.
+
+**What it means.** The guidelines led to a contract with every term defined and
+every known gap addressed, and cost nothing in answers. On these 66 patients,
+neither revision changed answers in a way that helps, so the case for the
+guidelines rests on the writing, not on scores.
+
+## How to rerun
+
+The analysis takes under a minute. The run folders are on kh's laptop until the
+DSI cluster is back, then in `/net/spaces/annawoodard/oncotrace/workspaces/kh/runs/`.
+
+```bash
+git clone https://github.com/dsi-rse/clinic-2026-whitney-lab.git && cd clinic-2026-whitney-lab
+git clone https://github.com/dsi-rse/oncotrace.git ../oncotrace   # private; at d4b7fd3
+bash scripts/endometrial_data/download.sh                          # builds data/
+R=<folder holding the run folders>/2026-11-17_contract_guidelines
+PYTHONPATH=src:../oncotrace python experiments/contract_guidelines/compare_contracts.py \
+  --oncotrace ../oncotrace --label rerun \
+  --run old=${R}_old_r1 --run old=${R}_old_r2 \
+  --run unguided=${R}_unguided_r1 --run unguided=${R}_unguided_r2 \
+  --run guided=${R}_guided_r1 --run guided=${R}_guided_r2
+```
+
+Every CSV in the new folder should match `results/2026-11-18_035554_runs/`.
+Without `--run` the script writes only the offline checks and gap scores. The
+model runs themselves (`run_arms.sh`, 3 hours 11 minutes; estimated at $1.20–1.50 on OpenRouter before the runs, actual cost not recorded)
+will not repeat exactly.
