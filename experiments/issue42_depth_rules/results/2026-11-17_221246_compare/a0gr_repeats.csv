@@ -1,0 +1,3 @@
+contract,repeats,answered,fifty_or_greater,less_than_50,percent_other,basis_explicit_fraction,explicit_fraction_with_one_quote,quotes_gross_thickness,depth_basis_values
+old,20,20,8,10,2,12,3,17,explicit_fraction_or_percentage=12 estimated_without_number=5 descriptive_other=3
+new,20,20,0,19,1,2,1,8,estimated_without_number=17 explicit_fraction_or_percentage=2 descriptive_other=1

@@ -1,0 +1,13 @@
+comparison,subset,patients,changed,changed_ids
+old_t0ann_a vs old_t0ann_b,annotated,66,2,TCGA-A5-A0GR TCGA-A5-A0GU
+old_t0ann_a vs old_t0ann_b,unambiguous_annotated,37,2,TCGA-A5-A0GR TCGA-A5-A0GU
+old_t0ann_a vs old_t0ann_b,scan_touched_annotated,18,0,
+old_t0ann_a vs old_t0ann_b,held_out_aj,17,0,
+old_t0ann_a vs new_t0ann,annotated,66,2,TCGA-A5-A0GJ TCGA-A5-A0GR
+old_t0ann_a vs new_t0ann,unambiguous_annotated,37,1,TCGA-A5-A0GR
+old_t0ann_a vs new_t0ann,scan_touched_annotated,18,1,TCGA-A5-A0GJ
+old_t0ann_a vs new_t0ann,held_out_aj,17,0,
+old_t0ann_b vs new_t0ann,annotated,66,3,TCGA-A5-A0GJ TCGA-A5-A0GR TCGA-A5-A0GU
+old_t0ann_b vs new_t0ann,unambiguous_annotated,37,2,TCGA-A5-A0GR TCGA-A5-A0GU
+old_t0ann_b vs new_t0ann,scan_touched_annotated,18,1,TCGA-A5-A0GJ
+old_t0ann_b vs new_t0ann,held_out_aj,17,0,

@@ -107,6 +107,49 @@ A0GJ's pattern, so item 4 cannot be shown to generalise here.
   held-out AJ patients, against the always-commonest baseline. No pass bar:
   the contract is not expected to move overall agreement much.
 
+## Results against the pass bars
+
+All numbers are from `results/2026-11-17_221246_compare/` (file named in
+brackets). Model, provider and run folders are in its `provenance.json`.
+
+- **A0GJ: met** (`answers.csv`). New contract: `cannot_be_determined`,
+  percent `not_applicable`, as annotated. Old contract, both runs: `present`,
+  `less_than_50`.
+- **A0GR flip: met** (`a0gr_repeats.csv`). `fifty_or_greater` in 8 of 20
+  old-contract repeats, 0 of 20 new. The new contract answered `less_than_50`
+  (the annotation) in 19 of 20. At temperature 0 the flip also showed up once:
+  `old_t0ann_b` answered `fifty_or_greater`, `old_t0ann_a`
+  `cannot_be_determined`, `new_t0ann` `less_than_50` (`answers.csv`).
+- **A0GR gross-thickness quote: not met** (`a0gr_repeats.csv`). The new
+  contract still quoted the gross thickness in 8 of 20 repeats (old: 17 of 20).
+  It built a fraction in 2 of 20 (old: 12 of 20), one of them with only one
+  quote, but never reached `fifty_or_greater`. The table does not say which
+  field the gross quote sat under, so whether it was cited as the rejected
+  thickness is unchecked.
+- **No collateral change: met** (`changes.csv`). On the 37
+  `unambiguous_annotated` patients, old-vs-old changed 2 (A0GR, A0GU) and
+  old-vs-new changed 1 or 2 (A0GR, and A0GU against `old_t0ann_b`). A0GU
+  flipped to `fifty_or_greater` in `old_t0ann_b` only (annotated
+  `less_than_50`); that may be the same depth/thickness mistake but has not
+  been checked.
+- **Legitimate fractions: met** (`fraction_patients.csv`). All four keep
+  `less_than_50` in all three arms. Under the new contract all four quote one
+  section by the proximity heuristic; under the old one, TCGA-5B-A90C also
+  quoted a page-3 passage in both runs. All four are annotated
+  `cannot_be_determined` (#18), so they count as `over_committed` in the
+  agreement table under every contract.
+- **Agreement** (`agreement.csv`, 66 annotated). Correct out of 66, old a /
+  old b / new / always-commonest: invasion 63 / 63 / 64 / 60; percent
+  52 / 51 / 54 / 31; depth basis 37 / 37 / 39 / 32. On the 17 held-out AJ
+  patients all three arms are identical (17, 16 and 15 correct).
+
+**Limits.** One model and provider; one new-contract run at temperature 0, so
+there is no new-vs-new noise floor; 20 repeats per contract. The contract
+edits were written with A0GJ and A0GR in view, so their improvement on those
+two is expected, and A0GJ's instruction cannot be shown to generalise (no other
+report has its pattern). The rulings are Claude's, not the mentor's. The
+same-section check is a proximity heuristic.
+
 ## Files
 
 | File | What it is |

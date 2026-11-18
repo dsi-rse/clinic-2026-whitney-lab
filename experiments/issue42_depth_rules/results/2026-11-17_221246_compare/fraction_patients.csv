@@ -1,0 +1,13 @@
+patient,arm,ann_percent,myometrial_invasion_percent,depth_basis,depth_basis_quotes,quote_pages,same_section
+TCGA-A5-A0GA,old_t0ann_a,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,595-635,1,True
+TCGA-A5-A0GA,old_t0ann_b,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,548-632,1,True
+TCGA-A5-A0GA,new_t0ann,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,548-632,1,True
+TCGA-2E-A9G8,old_t0ann_a,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2531-2556 2557-2585,2,True
+TCGA-2E-A9G8,old_t0ann_b,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2531-2585,2,True
+TCGA-2E-A9G8,new_t0ann,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2510-2585,2,True
+TCGA-5B-A90C,old_t0ann_a,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2415-2448 2449-2485 3247-3333,3,False
+TCGA-5B-A90C,old_t0ann_b,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2415-2485 3247-3333,3,False
+TCGA-5B-A90C,new_t0ann,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,2415-2485,3,True
+TCGA-A5-A0GW,old_t0ann_a,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,651-693,1,True
+TCGA-A5-A0GW,old_t0ann_b,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,591-693,1,True
+TCGA-A5-A0GW,new_t0ann,cannot_be_determined,less_than_50,explicit_fraction_or_percentage,591-693,1,True
