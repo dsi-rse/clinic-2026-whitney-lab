@@ -59,6 +59,23 @@ annotation says not applicable or cannot be determined), abstained, and the
   and `unguided` by more than the run-to-run variation. With 66 patients this
   is unlikely, and an inconclusive result will be reported as such.
 
+## What happened while making the revisions (added after the design above)
+
+- Both agents ran on 2026-11-17. Their contracts and their own change notes are
+  in [`contracts/`](contracts/) (`unguided.yaml`, `guided.yaml`, `*_changes.md`);
+  `old.yaml` is `tasks/endo_myometrial_invasion.yaml` at `ad531ff`.
+- **One difference in procedure.** A Claude Code hook stopped the guided agent
+  writing into its workspace, because the workspace was outside this session's
+  git worktree, so it saved its two files to the session's scratchpad and did
+  not run the load check. The unguided agent wrote into its workspace from the
+  shell and did run the check. Both files were copied here unchanged, and both
+  load (`offline_checks.csv`).
+- **Known-gap scores** are in [`inputs/gap_scores.csv`](inputs/gap_scores.csv),
+  one row per contract and gap with the reason. They were scored by hand by the
+  Claude Code session that wrote the guidelines and this design, reading each
+  contract against the fixed/partly wording in `inputs/known_gaps.csv`. That
+  session knows which revision had the guidelines, so the scores are not blind.
+
 **Limits.** One revision per arm, so this samples one agent's behaviour each.
 One annotator, not adjudicated. The two revisions may each change several
 things; the question is whether the guidelines lead to a better contract, not
