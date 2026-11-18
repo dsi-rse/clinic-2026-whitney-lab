@@ -111,9 +111,18 @@ extra_fields:
   # judgement), which `myometrial_invasion_percent` alone cannot express.
   - name: depth_basis
     values:
-      - explicit_fraction_or_percentage   # CAP "Specify Percentage", or depth+thickness in mm
-      - estimated_without_number          # CAP "Estimated to be less than 50% / 50% or greater"
-      - descriptive_full_thickness        # "full thickness", "transmural", "invades to serosa"
+      # CAP "Specify Percentage", or a depth and a thickness the report gives
+      # together for the same section (#42). Never a depth from one section
+      # divided by a thickness from another.
+      - explicit_fraction_or_percentage
+      # CAP "Estimated to be less than 50% / 50% or greater": words that commit
+      # to a half without a number.
+      - estimated_without_number
+      # "full thickness", "transmural", "invades to serosa"
+      - descriptive_full_thickness
+      # Defined in #42: words that describe invasion of the myometrium but
+      # settle neither a half nor full thickness. Goes with
+      # myometrial_invasion_percent cannot_be_determined.
       - descriptive_other
       - none_stated
 
@@ -193,8 +202,11 @@ rules:
   # No rules needed. depth_basis and adenomyosis_relation carry their own quotes,
   # so every value except none_stated / not_mentioned must quote what it rests on
   # (formerly `quantified_basis_uncited` and `adenomyosis_relation_uncited`).
-  # As before, nothing checks WHAT an explicit_fraction_or_percentage quote says:
-  # a quote of the depth alone, without the thickness, is still accepted (#42).
+  # Nothing checks WHAT an explicit_fraction_or_percentage quote says. #42 asks
+  # a constructed fraction to quote its thickness as well as its depth, and to
+  # take both from the same section. Rules here can only test field values and
+  # list lengths, not quote content or quote counts, so that is an instruction
+  # below, not a rule. Enforcing it needs an OncoTrace change.
 
 instructions: |
   Determine the depth of myometrial invasion for this patient's endometrial
@@ -266,9 +278,30 @@ instructions: |
   descriptive_full_thickness. Treat a stated fraction ("3 of 12 mm", "less than
   one third") as explicit_fraction_or_percentage, and record the half it falls
   in. Treat unquantified wording that still commits to a half ("superficial
-  half", "inner half") as estimated_without_number. Where OCR has plainly
+  half", "inner half"), or that limits the invasion to the superficial part of
+  the myometrium, as estimated_without_number. When the report describes
+  invasion of the myometrium in words that settle neither a half nor full
+  thickness, use depth_basis descriptive_other and set
+  myometrial_invasion_percent to cannot_be_determined. Where OCR has plainly
   garbled a decisive number, prefer cannot_be_determined over a guess, and
   quote the passage that is unreadable.
+
+  You may work out a fraction yourself only from a depth of invasion and a
+  myometrial thickness that the report gives together, for the same section
+  (both in one microscopic description, say, or one synoptic block). Do not
+  divide a depth from one section by a thickness from another, such as a
+  microscopic depth by a wall thickness from the gross description. Do not use
+  a thickness the report itself makes implausible, such as one thinner than the
+  depth, or thinner than the endometrium measured beside it. Without such a
+  pair, answer from the report's descriptive wording, or cannot_be_determined.
+  When you do work out a fraction, quote both the depth and the thickness under
+  depth_basis.
+
+  When one statement says both that the carcinoma is confined to the
+  endometrium and that it involves the myometrium, and nothing else in the
+  report settles whether the myometrium was invaded, neither reading is the
+  definitive one. Answer the label cannot_be_determined, quote that statement,
+  and record the conflict in unresolved_conflicts.
 
   Answer cannot_be_determined at the label when the source cannot settle whether
   the myometrium was invaded on a resected uterus -- for example a fragmented
@@ -279,7 +312,8 @@ instructions: |
   1. identify what was resected, and whether myometrium is present;
   2. locate the definitive hysterectomy diagnosis, not a frozen section or
      prior biopsy;
-  3. find any explicit fraction, percentage, or full-thickness statement;
+  3. find any explicit fraction, percentage, or full-thickness statement, and
+     check that any depth and thickness you divide come from the same section;
   4. confirm the depth statement is not actually describing LVI;
   5. establish whether any invasion is arising within adenomyosis, since that
      changes how depth is measured;
