@@ -1,0 +1,57 @@
+{
+  "created_utc": "2026-11-18T00:34:37+00:00",
+  "python": "3.12.13",
+  "clinic_repo": {
+    "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a",
+    "commit": "b393600119fe353eca4413348124f002d603b7bf",
+    "branch": "claude/issue44-contract-guidelines-d8455a",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "contract_old": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/old.yaml",
+      "sha256": "3a1ee704a4a456519147c16ba5462c11a402a6eecab80ff5569f0f2721bc3c88"
+    },
+    "contract_unguided": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/unguided.yaml",
+      "sha256": "0212370a2d87d6dc692be7c3c2f228fde250eb8fc7fde401ecf92f81c6ddcf03"
+    },
+    "contract_guided": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/guided.yaml",
+      "sha256": "ed16624b3cbf0ac2f201d24a2870c81df043c685a0d5d1eca01fb56de516683f"
+    },
+    "scored_roster": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/endometrial_baseline_full/roster_annotated66.csv",
+      "sha256": "7d88b468630e244c5e7edf2c40c0d975441114ee155234b496fcfcf002754185"
+    },
+    "example_reports": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/example_reports.csv",
+      "sha256": "f192a313f5b93316a801963e3b3f6499f5a4c9027a9ded9d4493c92d7cf8809f"
+    },
+    "known_gaps": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/known_gaps.csv",
+      "sha256": "d157bc45a8cf0be91c9550d6f2d5a7b026c4caf29fe854e01e1a7013a18bf32c"
+    },
+    "gap_scores": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/gap_scores.csv",
+      "sha256": "6e493660b014a31e42069a66577cd55b8964924be1bc76e5d1c97e215263f607"
+    }
+  },
+  "runs": {},
+  "analysis_repos": {
+    "oncotrace": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/oncotrace",
+      "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+      "branch": "main",
+      "remote": "uchicago-dsi/oncotrace",
+      "uncommitted_files": []
+    }
+  },
+  "arguments": [
+    "--oncotrace",
+    "/Users/kadenhyatt/Desktop/Data_Clinic/oncotrace",
+    "--label",
+    "offline"
+  ]
+}
