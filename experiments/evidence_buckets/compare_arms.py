@@ -253,6 +253,84 @@ def flagged_share(categories: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(lines)
 
 
+def pass_bar(
+    categories: pd.DataFrame, four: pd.DataFrame, changes: pd.DataFrame
+) -> pd.DataFrame:
+    """The pass bar set in issue #55 before the runs, one row per test.
+
+    Useful, per evidence run and answer: (a) flagged answers hold a larger share
+    of the disagreements than of all answers; (b) explicit answers agree with the
+    annotations at least as often as the baseline runs' answers do, pooled over
+    both baseline runs. Safe, per pair of runs from different arms: the main
+    answers differ on no more patients than between the two baseline runs,
+    counting cannot_be_determined and uncertain as one answer.
+    """
+    lines = []
+    baseline = four[four["run"].str.startswith("baseline")]
+    for (name, short), group in categories.groupby(["run", "answer"], sort=False):
+        disagree = group["wrong"] + group["over_committed"]
+        flagged_answers = group.loc[group["flagged"], "answers"].sum()
+        share_answers = flagged_answers / group["answers"].sum()
+        share_disagreements = disagree[group["flagged"]].sum() / disagree.sum()
+        explicit = group[group["category"] == "explicit"]
+        explicit_rate = explicit["correct"].sum() / explicit["answers"].sum()
+        base = baseline[baseline["answer"] == short]
+        base_rate = base["correct"].sum() / base["patients"].sum()
+        lines.append(
+            {
+                "test": "useful (a)",
+                "run": name,
+                "answer": short,
+                "measure": "flagged share of disagreements",
+                "value": round(share_disagreements, 3),
+                "reference": "flagged share of all answers",
+                "reference_value": round(share_answers, 3),
+                "passes": bool(share_disagreements > share_answers),
+            }
+        )
+        lines.append(
+            {
+                "test": "useful (b)",
+                "run": name,
+                "answer": short,
+                "measure": "explicit answers that agree",
+                "value": round(explicit_rate, 3),
+                "reference": "baseline answers that agree",
+                "reference_value": round(base_rate, 3),
+                "passes": bool(explicit_rate >= base_rate),
+            }
+        )
+    within = changes[
+        (changes["comparison"] == "within arm")
+        & changes["left"].str.startswith("baseline")
+    ]["changed_beyond_cbd"].max()
+    # Patients that also change between two repeats of the same arm.
+    unstable = set(
+        " ".join(
+            changes.loc[changes["comparison"] == "within arm", "changed_ids"]
+        ).split()
+    )
+    for _, pair in changes[changes["comparison"] == "between arms"].iterrows():
+        ids = pair["changed_ids"].split()
+        lines.append(
+            {
+                "test": "safe",
+                "run": f"{pair['left']} vs {pair['right']}",
+                "answer": "invasion or depth",
+                "measure": "patients whose answer changed",
+                "value": pair["changed_beyond_cbd"],
+                "reference": "patients changed between the baseline runs",
+                "reference_value": within,
+                "passes": bool(pair["changed_beyond_cbd"] <= within),
+                "changed_ids": " ".join(ids),
+                "changed_only_between_arms": " ".join(
+                    i for i in ids if i not in unstable
+                ),
+            }
+        )
+    return pd.DataFrame(lines)
+
+
 def answer_changes(table: pd.DataFrame) -> pd.DataFrame:
     """For every pair of runs: patients whose invasion or depth answer differs.
 
@@ -463,13 +541,16 @@ def main() -> None:
     out.mkdir(parents=True)
 
     categories = by_category(table)
+    four = four_way(table, annotations)
+    changes = answer_changes(table)
     tables = {
         "patients": table,
         "per_run": per_run(table),
-        "four_way": four_way(table, annotations),
+        "four_way": four,
         "categories": categories,
         "flagged_share": flagged_share(categories),
-        "answer_changes": answer_changes(table),
+        "answer_changes": changes,
+        "pass_bar": pass_bar(categories, four, changes),
         "annotated_cbd_split": annotated_cbd_split(table),
         "definite_annotation_model_cbd": new_cbd(table),
         "depth_basis_vs_category": depth_basis_crosstab(table),
