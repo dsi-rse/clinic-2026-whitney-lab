@@ -399,7 +399,7 @@ themselves are model outputs and will not reproduce bit for bit.
 
 def to_markdown(df: pd.DataFrame) -> str:
     """Render a table as GitHub markdown without the tabulate dependency."""
-    header = "| " + " | ".join(df.columns) + " |"
+    header = "| " + " | ".join(str(c) for c in df.columns) + " |"
     rule = "|" + "---|" * len(df.columns)
     body = ["| " + " | ".join(str(v) for v in row) + " |" for row in df.to_numpy()]
     return "\n".join([header, rule, *body])
@@ -499,7 +499,9 @@ def main() -> None:
             held_out=to_markdown(agreement[agreement["subset"] == "held_out_aj"]),
             changes=to_markdown(changes.drop(columns="changed_ids")),
             a0gj=to_markdown(
-                answers[answers["patient"] == A0GJ][a0gj_columns].T.reset_index()
+                answers[answers["patient"] == A0GJ][a0gj_columns]
+                .T.reset_index()
+                .set_axis(["field", "value"], axis=1)
             ),
             gross=f"{A0GR_GROSS_THICKNESS[0]}-{A0GR_GROSS_THICKNESS[1]}",
             a0gr=to_markdown(a0gr),
