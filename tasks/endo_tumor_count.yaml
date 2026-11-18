@@ -3,76 +3,38 @@
 # multiple tumors). This task only COUNTS. It does not extract invasion or depth;
 # that is a later step, run once per tumor.
 #
-# The count is the hard part, because location alone does not give it:
-#   - one tumor can extend from the uterine body into the lower uterine segment
-#     (ICCR 2024, Note 4, page 7), so two locations may still be one tumor;
-#   - a report can name two locations without saying how they relate, and then
-#     the honest answer is `unclear`, not a guess in either direction.
-# So `unclear` is a real answer here. It is NOT pooled with `no_tumor_described`
-# or with an error (CLAUDE.md § 5).
+# Why count first: the invasion task gives one answer per patient, so a second
+# tumor is silently dropped (seen on TCGA-AP-A0LT, which has two foci). This
+# count flags the patients that need per-tumor handling.
 #
-# The four made-up reports in issue #50 map onto the label like this:
-#   two tumors, separate depths           -> multiple_tumors
-#   two tumors, one unassigned depth      -> multiple_tumors
-#   one tumor across two locations        -> one_tumor (both locations listed)
-#   locations given, relation not stated  -> unclear (both locations listed)
+# `unclear` is a real answer here. It is the answer whenever the report does not
+# settle the count, and also when the count depends on a rule the project has not
+# decided yet (a tumor in another organ; a gross description that disagrees with
+# the final diagnosis; a "separate" nodule). It is NOT pooled with
+# `no_tumor_described` or with an error (CLAUDE.md § 5).
 name: endo_tumor_count
 
 label:
   field: tumor_count
   values:
-    # The report describes exactly one tumor, even if it names several locations
-    # for it ("a single tumor extends from the fundus into the lower segment").
+    # The report describes exactly one tumor, even if it names several locations.
     - one_tumor
-    # The report says the tumors are separate: states a number above one, or
-    # describes distinct tumors ("two separate tumors", "a second tumor").
+    # The report says there is more than one tumor.
     - multiple_tumors
-    # The report mentions more than one location or tumor-like area and does not
-    # say whether they are one tumor or several.
+    # The count cannot be settled from the report, or depends on an undecided rule.
     - unclear
-    # The report describes no tumor at all (no carcinoma identified). Absence
-    # cannot be quoted, so this value is in no_quote_values below.
+    # The report describes no tumor at all. Absence cannot be quoted, so this
+    # value is in no_quote_values below.
     - no_tumor_described
 
 confidence_values: [high, medium, low]
 
 # Every answer carries the quotes behind it (OncoTrace's per-answer quotes,
-# dsi-rse/oncotrace#13). one_tumor, multiple_tumors and unclear each quote the
-# wording that decides the count. A value that only says something was absent
-# from the report needs no quote, because absence cannot be quoted.
-no_quote_values: [no_tumor_described, not_stated, none_stated]
-
-extra_fields:
-  # How the count was reached. Kept separate from the label so the metrics can
-  # show whether errors come from reading an explicit statement or from the model
-  # inferring a count from locations. It is recorded only: no rule below forces
-  # it to match the label, because reports almost never say "single tumor".
-  - name: count_basis
-    values:
-      # The report states a number or says "single" / "multiple" outright.
-      - explicit_count_stated
-      # No number, but the report describes distinct tumors one after another.
-      - separate_tumors_described
-      # One tumor is described, with no mention of any other.
-      - single_tumor_described
-      # Locations are named but their relation is not stated. Pairs with unclear.
-      - locations_without_relation
-      - not_stated
+# dsi-rse/oncotrace#13). A value that only says something was absent from the
+# report needs no quote, because absence cannot be quoted.
+no_quote_values: [no_tumor_described]
 
 list_fields: [tumor_locations, unresolved_conflicts]
-
-rules:
-  # The three rules that tied count_basis to the label were removed in v2: the
-  # first trial showed reports almost never state "single tumor", so the rule
-  # for one_tumor forced a basis the report does not give.
-
-  # Keep every location the report names, so a later per-tumor step can use them.
-  - signature: unclear_keeps_locations
-    message: unclear must keep the locations the report names
-    when_label: [unclear]
-    require_list:
-      field: tumor_locations
-      min_items: 1
 
 instructions: |
   Decide how many separate tumors this patient's endometrial carcinoma pathology
@@ -80,57 +42,28 @@ instructions: |
   depth.
 
   Set tumor_count to one of:
-  - one_tumor: the report describes exactly one tumor. A single tumor may extend
-    across more than one location, for example from the uterine body into the
-    lower uterine segment. That is still one tumor, and tumor_locations lists
-    every location.
-  - multiple_tumors: the report says there is more than one tumor. It gives a
-    number above one, or describes distinct tumors ("two separate tumors", "a
-    second tumor").
-  - unclear: the report names more than one location, or more than one
-    tumor-like area, and does not say whether they are one tumor or several.
-    Do not guess: two locations alone do not tell you how many tumors there are.
+  - one_tumor: the report describes exactly one tumor. One tumor may span several
+    locations, for example from the uterine body into the lower uterine segment.
+  - multiple_tumors: the report says there is more than one tumor: it gives a
+    number above one, or describes distinct separate tumors.
+  - unclear: you cannot tell. Use it when the report mentions more than one
+    tumor-like area and does not say whether they are one tumor or several, when
+    a separate tumor in another organ is involved, when the report calls a nodule
+    "separate" without saying it arose independently of the main tumor, or when
+    the gross description and the final diagnosis disagree about the count. Say why in
+    unresolved_conflicts. Do not guess. If you record a disagreement about the
+    count in unresolved_conflicts, the answer is unclear: do not settle it
+    yourself.
   - no_tumor_described: the report describes no tumor.
 
-  Set count_basis to how you reached the count:
-  explicit_count_stated when the report states a number or says "single" or
-  "multiple"; separate_tumors_described when it describes distinct tumors with no
-  number; single_tumor_described when it describes one tumor and mentions no
-  other; locations_without_relation when locations are named and their relation
-  is not stated; not_stated when none of these applies.
-
-  What counts as a tumor:
-  - Count carcinoma only. A leiomyoma (fibroid), a polyp or a cyst is benign and
-    is not a tumor for this count, even when the report calls it a "tumor" or a
-    "mass".
-  - A mixed carcinoma (one tumor with two cell types, for example endometrioid
-    plus serous) is ONE tumor.
-  - Other organs: when the report also describes a tumor in another organ, such
-    as an implant on the cervix or a separate ovarian cancer, whether it counts
-    as a second tumor is not decided. Answer unclear, list the locations, and say
-    in unresolved_conflicts that another organ is involved. Do not count it as a
-    second tumor, and do not drop it silently. A metastasis to a lymph node is
-    not a second tumor.
-  - Separate tumors do not touch each other and arose independently. Tumor
-    tissue that continues from one place to another is one tumor.
-  - A label in a report form, such as "additional tumor dimensions", is a
-    template field and does not mean a second tumor exists.
-  - If the report calls a nodule "separate" (for example deep in the myometrium)
-    without saying that it arose independently of the main tumor, answer
-    unclear.
+  Count carcinoma only. A fibroid (leiomyoma), polyp, cyst, metastasis or
+  lymph-node deposit is not a tumor for this count. A mixed carcinoma (one tumor
+  with two cell types) is one tumor. A form label such as "additional tumor
+  dimensions" is not a second tumor. Anchor on the definitive hysterectomy
+  report, not a frozen section or a prior biopsy.
 
   tumor_locations lists each tumor location the report names, as short phrases
-  in the report's own words ("fundus", "lower uterine segment"). Leave it empty
-  only when the report names none. Quote the wording that gives the locations.
-
-  Anchor on the definitive hysterectomy pathology report, not a frozen section or
-  a prior biopsy. Count tumors in this specimen only. Do not count a metastasis,
-  a lymph-node deposit, or an adenomyosis focus as a separate endometrial tumor.
-
-  The report has a gross description (what the pathologist sees by eye) and a
-  final diagnosis (the conclusion after the microscope). When they disagree about
-  the number of tumors, which one decides is not decided. Answer unclear, record
-  the disagreement in unresolved_conflicts, and quote both passages.
+  in the report's own words. Leave it empty only when the report names none.
 
   This patient's source is ONE document holding their whole report: every page
   of the scan stitched in order, with page boundaries marked as
@@ -143,23 +76,10 @@ instructions: |
   wording. Each answer carries its own quotes; when one passage supports two
   answers, quote it under both.
 
-  When the report contradicts itself about the number of tumors in some other
-  way, such as an amended statement replacing an earlier one, answer from the
-  definitive statement and quote it under that answer. (A disagreement between
-  the gross description and the final diagnosis is the case above: answer
-  unclear.) Record each conflicting
-  statement as an entry in unresolved_conflicts, saying briefly what disagrees,
-  and quote the conflicting passage there. Leave unresolved_conflicts empty when
-  nothing conflicts.
+  Record each statement in the report that disagrees about the count as an entry
+  in unresolved_conflicts, saying briefly what disagrees, and quote the passage.
+  Leave it empty when nothing conflicts.
 
   These reports are OCR'd scans written between roughly 2000 and 2013. Where OCR
   has plainly garbled the wording that decides the count, prefer unclear over a
   guess, and quote the passage that is unreadable.
-
-  Complete these targeted checks before submitting:
-  1. locate the definitive hysterectomy diagnosis;
-  2. look for an explicit number or the words single, multiple, separate,
-     synchronous, or "second tumor";
-  3. list every tumor location the report names;
-  4. decide whether the report says those locations are one tumor or several;
-  5. check for a conflicting or superseded statement of the count.
