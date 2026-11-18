@@ -50,6 +50,12 @@ evidence-following:
 temperature:
 	PYTHONPATH=src python experiments/temperature/compare_temperature.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
 
+# Compare the evidence-buckets arms on the annotated patients (issue 55).
+# Usage: make evidence-buckets [LABEL=name] ARGS="--run baseline_rep1=<run> --run evidence_rep1=<run> ..."
+# Each run gets a timestamped folder under experiments/evidence_buckets/results/.
+evidence-buckets:
+	PYTHONPATH=src python experiments/evidence_buckets/compare_arms.py $(if $(LABEL),--label $(LABEL)) $(ARGS)
+
 # Build the annotation-only tables for the unresolved_conflicts investigation (issue 15).
 # Usage: make unresolved-conflicts
 unresolved-conflicts:

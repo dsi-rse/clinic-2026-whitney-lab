@@ -1,0 +1,516 @@
+{
+  "created_utc": "2026-11-18T03:39:05+00:00",
+  "python": "3.12.13",
+  "clinic_repo": {
+    "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b",
+    "commit": "0f1306bf493dca582c5b0921d1c51a52ebaf4e8d",
+    "branch": "claude/evidence-buckets-40c58b",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "roster": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/experiments/endometrial_baseline_full/roster_annotated66.csv",
+      "sha256": "7d88b468630e244c5e7edf2c40c0d975441114ee155234b496fcfcf002754185"
+    },
+    "baseline_config": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/experiments/evidence_buckets/configs/baseline.yaml",
+      "sha256": "cff0e6e2b32753c041c371c8faf35fc4c637b90bdb5adebc2955d8c588eef372"
+    },
+    "evidence_config": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/experiments/evidence_buckets/configs/evidence.yaml",
+      "sha256": "54b01cc58e01fad730152eb5dda62153ba8ee9c7c5e728c89e621b2c6ae6cba3"
+    },
+    "baseline_contract": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/tasks/endo_myometrial_invasion.yaml",
+      "sha256": "3a1ee704a4a456519147c16ba5462c11a402a6eecab80ff5569f0f2721bc3c88"
+    }
+  },
+  "runs": {
+    "baseline_rep1": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep1",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "config_sha256": "cff0e6e2b32753c041c371c8faf35fc4c637b90bdb5adebc2955d8c588eef372",
+      "contracts": {
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64": 66
+      },
+      "label_counts": {
+        "not_identified": 3,
+        "present": 63
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "34347a9726646a9260748ecb17774f70921f81230a47db96dc8439cad1d75ab7",
+      "mode": "agentic",
+      "model": "z-ai/glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v3",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 66,
+      "job_id": "",
+      "node": "",
+      "seconds_per_unit": 67.71,
+      "raw": {
+        "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+        "config_sha256": "cff0e6e2b32753c041c371c8faf35fc4c637b90bdb5adebc2955d8c588eef372",
+        "contracts": {
+          "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64": 66
+        },
+        "label_counts": {
+          "not_identified": 3,
+          "present": 63
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "34347a9726646a9260748ecb17774f70921f81230a47db96dc8439cad1d75ab7",
+        "mode": "agentic",
+        "model": "z-ai/glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v3",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 4469.1,
+          "job_id": "",
+          "model_load_seconds": null,
+          "node": "",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 67.71,
+          "units_completed": 66
+        },
+        "unit_count": 66
+      },
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep1",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "baseline_rep2": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep2",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "config_sha256": "cff0e6e2b32753c041c371c8faf35fc4c637b90bdb5adebc2955d8c588eef372",
+      "contracts": {
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64": 66
+      },
+      "label_counts": {
+        "not_identified": 3,
+        "present": 63
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "8bf430a4230474558d6d0c49ff8a842572a21750e0dc58ca9bec50111781568b",
+      "mode": "agentic",
+      "model": "z-ai/glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v3",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 66,
+      "job_id": "",
+      "node": "",
+      "seconds_per_unit": 89.02,
+      "raw": {
+        "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+        "config_sha256": "cff0e6e2b32753c041c371c8faf35fc4c637b90bdb5adebc2955d8c588eef372",
+        "contracts": {
+          "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64": 66
+        },
+        "label_counts": {
+          "not_identified": 3,
+          "present": 63
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "8bf430a4230474558d6d0c49ff8a842572a21750e0dc58ca9bec50111781568b",
+        "mode": "agentic",
+        "model": "z-ai/glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v3",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 5875.4,
+          "job_id": "",
+          "model_load_seconds": null,
+          "node": "",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 89.02,
+          "units_completed": 66
+        },
+        "unit_count": 66
+      },
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep2",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "evidence_rep1": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep1",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "config_sha256": "54b01cc58e01fad730152eb5dda62153ba8ee9c7c5e728c89e621b2c6ae6cba3",
+      "contracts": {
+        "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15": 66
+      },
+      "label_counts": {
+        "not_identified": 3,
+        "present": 63
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "3ceb627e8986448a68847cfaf61a4ddc0576d2d39a2cffa6313c8a4502b1003c",
+      "mode": "agentic",
+      "model": "z-ai/glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v3",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 66,
+      "job_id": "",
+      "node": "",
+      "seconds_per_unit": 51.94,
+      "raw": {
+        "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+        "config_sha256": "54b01cc58e01fad730152eb5dda62153ba8ee9c7c5e728c89e621b2c6ae6cba3",
+        "contracts": {
+          "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15": 66
+        },
+        "label_counts": {
+          "not_identified": 3,
+          "present": 63
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "3ceb627e8986448a68847cfaf61a4ddc0576d2d39a2cffa6313c8a4502b1003c",
+        "mode": "agentic",
+        "model": "z-ai/glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v3",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 3427.9,
+          "job_id": "",
+          "model_load_seconds": null,
+          "node": "",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 51.94,
+          "units_completed": 66
+        },
+        "unit_count": 66
+      },
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep1",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "evidence_rep2": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep2",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "config_sha256": "54b01cc58e01fad730152eb5dda62153ba8ee9c7c5e728c89e621b2c6ae6cba3",
+      "contracts": {
+        "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15": 66
+      },
+      "label_counts": {
+        "not_identified": 3,
+        "present": 63
+      },
+      "label_field": "myometrial_invasion",
+      "labels_sha256": "861d88403873277aca0f883493b6ae7a273a6dfc1c3e62ca75e668088d4593b2",
+      "mode": "agentic",
+      "model": "z-ai/glm-5.3-flash",
+      "schema_version": "oncotrace_label_table_v3",
+      "task": "endo_myometrial_invasion",
+      "temperature": 0.0,
+      "unit_count": 66,
+      "job_id": "",
+      "node": "",
+      "seconds_per_unit": 49.87,
+      "raw": {
+        "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+        "config_sha256": "54b01cc58e01fad730152eb5dda62153ba8ee9c7c5e728c89e621b2c6ae6cba3",
+        "contracts": {
+          "4e4fe0ea416f1893048b9ea78e3f75ccf8d1e1edb76521c3e973b74eaae43d15": 66
+        },
+        "label_counts": {
+          "not_identified": 3,
+          "present": 63
+        },
+        "label_field": "myometrial_invasion",
+        "labels_sha256": "861d88403873277aca0f883493b6ae7a273a6dfc1c3e62ca75e668088d4593b2",
+        "mode": "agentic",
+        "model": "z-ai/glm-5.3-flash",
+        "schema_version": "oncotrace_label_table_v3",
+        "task": "endo_myometrial_invasion",
+        "temperature": 0.0,
+        "timings": {
+          "endpoint_seconds": null,
+          "extract_seconds": 3291.7,
+          "job_id": "",
+          "model_load_seconds": null,
+          "node": "",
+          "schema": "oncotrace_timings_v1",
+          "seconds_per_unit": 49.87,
+          "units_completed": 66
+        },
+        "unit_count": 66
+      },
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep2",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    }
+  },
+  "task": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/experiments/evidence_buckets/endo_myometrial_invasion_evidence.yaml",
+  "task_sha256": "351b4cb286f395059d5a83f6d2d2e5569ca32b2f8c4c978bc51a9743e4472776",
+  "acknowledged": {
+    "baseline_rep1:not_shared": "OpenRouter run made on a laptop; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-11-18_evidence_buckets_baseline/rep1 once the cluster is back",
+    "baseline_rep2:not_shared": "OpenRouter run made on a laptop; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-11-18_evidence_buckets_baseline/rep2 once the cluster is back",
+    "evidence_rep1:not_shared": "OpenRouter run made on a laptop; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-11-18_evidence_buckets_evidence/rep1 once the cluster is back",
+    "evidence_rep2:not_shared": "OpenRouter run made on a laptop; to be copied to /net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-11-18_evidence_buckets_evidence/rep2 once the cluster is back"
+  },
+  "command": "experiments/evidence_buckets/compare_arms.py --run baseline_rep1=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep1 --run baseline_rep2=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_baseline/rep2 --run evidence_rep1=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep1 --run evidence_rep2=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-18_evidence_buckets_evidence/rep2",
+  "annotations": {
+    "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/evidence-buckets-40c58b/annotations/endo_myometrial_invasion",
+    "files": 66
+  }
+}
