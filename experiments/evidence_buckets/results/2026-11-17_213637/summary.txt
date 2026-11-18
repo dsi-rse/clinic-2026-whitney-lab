@@ -1,0 +1,101 @@
+66 annotated patients
+
+## per_run
+          run  records  answered  patients_with_refusal  refusals  calls_mean  invasion_cbd  invasion_cbd_with_quotes  invasion_uncertain  depth_cbd  depth_cbd_with_quotes  depth_uncertain
+baseline_rep1       66        66                     36        65         4.3             0                         0                   0          0                      0                0
+baseline_rep2       66        66                     46        87         4.6             0                         0                   0          0                      0                0
+evidence_rep1       66        66                     38        90         4.4             0                         0                   0          0                      0                1
+evidence_rep2       66        66                     35        70         4.2             0                         0                   0          0                      0                1
+
+## four_way
+  answer                 run  patients  correct  wrong  over_committed  abstained
+invasion      always present        66       60      3               3          0
+invasion       baseline_rep1        66       63      0               3          0
+invasion       baseline_rep2        66       63      0               3          0
+invasion       evidence_rep1        66       63      0               3          0
+invasion       evidence_rep2        66       63      0               3          0
+   depth always less_than_50        66       31     20              15          0
+   depth       baseline_rep1        66       53      1              12          0
+   depth       baseline_rep2        66       52      2              12          0
+   depth       evidence_rep1        66       51      2              12          1
+   depth       evidence_rep2        66       52      1              12          1
+
+## categories
+          run   answer       category  flagged  answers  correct  wrong  over_committed  abstained
+evidence_rep1 invasion       explicit    False       66       63      0               3          0
+evidence_rep1    depth       explicit    False       53       45      2               6          0
+evidence_rep1    depth   implied_high     True        9        3      0               6          0
+evidence_rep1    depth      uncertain     True        1        0      0               0          1
+evidence_rep1    depth not_applicable    False        3        3      0               0          0
+evidence_rep2 invasion       explicit    False       65       63      0               2          0
+evidence_rep2 invasion   implied_high     True        1        0      0               1          0
+evidence_rep2    depth       explicit    False       50       42      1               7          0
+evidence_rep2    depth   implied_high     True       12        7      0               5          0
+evidence_rep2    depth      uncertain     True        1        0      0               0          1
+evidence_rep2    depth not_applicable    False        3        3      0               0          0
+
+## flagged_share
+          run   answer  answers  flagged_answers  disagreements  flagged_disagreements
+evidence_rep1 invasion       66                0              3                      0
+evidence_rep1    depth       66               10             14                      6
+evidence_rep2 invasion       66                1              3                      1
+evidence_rep2    depth       66               13             13                      5
+
+## answer_changes
+         left         right   comparison  patients_answered_in_both  changed  changed_beyond_cbd                            changed_ids
+baseline_rep1 baseline_rep2   within arm                         66        1                   1                           TCGA-A5-A0GR
+baseline_rep1 evidence_rep1 between arms                         66        2                   2              TCGA-A5-A0GR TCGA-A5-A0GU
+baseline_rep1 evidence_rep2 between arms                         66        2                   2              TCGA-A5-A0GE TCGA-A5-A0GR
+baseline_rep2 evidence_rep1 between arms                         66        1                   1                           TCGA-A5-A0GU
+baseline_rep2 evidence_rep2 between arms                         66        2                   2              TCGA-A5-A0GE TCGA-A5-A0GR
+evidence_rep1 evidence_rep2   within arm                         66        3                   3 TCGA-A5-A0GE TCGA-A5-A0GR TCGA-A5-A0GU
+
+## annotated_cbd_split
+          run   answer            model  patients
+baseline_rep1 invasion          present         3
+baseline_rep1    depth fifty_or_greater         5
+baseline_rep1    depth     less_than_50         6
+baseline_rep2 invasion          present         3
+baseline_rep2    depth fifty_or_greater         5
+baseline_rep2    depth     less_than_50         6
+evidence_rep1 invasion          present         3
+evidence_rep1    depth fifty_or_greater         5
+evidence_rep1    depth     less_than_50         6
+evidence_rep2 invasion          present         3
+evidence_rep2    depth fifty_or_greater         6
+evidence_rep2    depth     less_than_50         5
+
+## definite_annotation_model_cbd
+(none)
+
+## depth_basis_vs_category
+          run                 depth_basis_ann  explicit  implied_high  uncertain  not_applicable
+evidence_rep1                         (blank)         1             0          0               0
+evidence_rep1      descriptive_full_thickness         0             2          0               0
+evidence_rep1               descriptive_other         2             0          0               0
+evidence_rep1        estimated_without_number        17             2          1               0
+evidence_rep1 explicit_fraction_or_percentage        29             3          0               0
+evidence_rep1                     none_stated         4             2          0               3
+evidence_rep2                         (blank)         0             0          1               0
+evidence_rep2      descriptive_full_thickness         0             2          0               0
+evidence_rep2               descriptive_other         2             0          0               0
+evidence_rep2        estimated_without_number        17             3          0               0
+evidence_rep2 explicit_fraction_or_percentage        27             5          0               0
+evidence_rep2                     none_stated         4             2          0               3
+
+## review_queue
+          run  answered  flagged_patients  flagged_with_a_disagreement  unflagged_with_a_disagreement
+evidence_rep1        66                10                            7                              8
+evidence_rep2        66                13                            6                              8
+
+## watched_patients
+          run         unit         invasion_ann invasion_model invasion_category      depth_ann      depth_model depth_category confidence
+baseline_rep1 TCGA-A5-A0GJ cannot_be_determined        present              None not_applicable     less_than_50           None     medium
+baseline_rep1 TCGA-A5-A0GR              present        present              None   less_than_50     less_than_50           None       high
+baseline_rep2 TCGA-A5-A0GJ cannot_be_determined        present              None not_applicable     less_than_50           None     medium
+baseline_rep2 TCGA-A5-A0GR              present        present              None   less_than_50 fifty_or_greater           None     medium
+evidence_rep1 TCGA-A5-A0GJ cannot_be_determined        present          explicit not_applicable     less_than_50   implied_high       high
+evidence_rep1 TCGA-A5-A0GR              present        present          explicit   less_than_50 fifty_or_greater       explicit       high
+evidence_rep2 TCGA-A5-A0GJ cannot_be_determined        present          explicit not_applicable     less_than_50   implied_high     medium
+evidence_rep2 TCGA-A5-A0GR              present        present          explicit   less_than_50        uncertain      uncertain     medium
+

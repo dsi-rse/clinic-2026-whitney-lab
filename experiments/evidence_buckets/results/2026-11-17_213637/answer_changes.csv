@@ -1,0 +1,7 @@
+left,right,comparison,patients_answered_in_both,changed,changed_beyond_cbd,changed_ids
+baseline_rep1,baseline_rep2,within arm,66,1,1,TCGA-A5-A0GR
+baseline_rep1,evidence_rep1,between arms,66,2,2,TCGA-A5-A0GR TCGA-A5-A0GU
+baseline_rep1,evidence_rep2,between arms,66,2,2,TCGA-A5-A0GE TCGA-A5-A0GR
+baseline_rep2,evidence_rep1,between arms,66,1,1,TCGA-A5-A0GU
+baseline_rep2,evidence_rep2,between arms,66,2,2,TCGA-A5-A0GE TCGA-A5-A0GR
+evidence_rep1,evidence_rep2,within arm,66,3,3,TCGA-A5-A0GE TCGA-A5-A0GR TCGA-A5-A0GU

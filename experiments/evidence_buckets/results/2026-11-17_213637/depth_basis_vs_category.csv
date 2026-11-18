@@ -1,0 +1,13 @@
+run,depth_basis_ann,explicit,implied_high,uncertain,not_applicable
+evidence_rep1,(blank),1,0,0,0
+evidence_rep1,descriptive_full_thickness,0,2,0,0
+evidence_rep1,descriptive_other,2,0,0,0
+evidence_rep1,estimated_without_number,17,2,1,0
+evidence_rep1,explicit_fraction_or_percentage,29,3,0,0
+evidence_rep1,none_stated,4,2,0,3
+evidence_rep2,(blank),0,0,1,0
+evidence_rep2,descriptive_full_thickness,0,2,0,0
+evidence_rep2,descriptive_other,2,0,0,0
+evidence_rep2,estimated_without_number,17,3,0,0
+evidence_rep2,explicit_fraction_or_percentage,27,5,0,0
+evidence_rep2,none_stated,4,2,0,3
