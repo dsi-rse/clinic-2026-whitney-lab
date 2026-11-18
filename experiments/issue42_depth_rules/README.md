@@ -115,7 +115,7 @@ A0GJ's pattern, so item 4 cannot be shown to generalise here.
 | `make_rosters.py` | Builds the run rosters from the scan |
 | `contracts/old.yaml`, `contracts/new.yaml` | The two contracts compared |
 | `configs/*.yaml` | OpenRouter run configs, one per contract and temperature |
-| `rosters/roster_compare.csv` | 66 annotated + 40 scan patients; used only by `old_t0_a`, which was stopped after the 66 |
+| `rosters/roster_compare.csv` | 66 annotated + 40 scan patients; used only by the abandoned arm `old_t0_a` |
 | `rosters/roster_a0gr.csv` | TCGA-A5-A0GR alone (temperature-1.0 repeats) |
 | `run_arms.sh` | Runs the extractions, one new run folder per arm |
 | `analyze_runs.py` | Builds the comparison tables and results README |
@@ -136,18 +136,17 @@ python experiments/issue42_depth_rules/make_rosters.py \
 ```
 
 The scan takes seconds and reproduces the committed scan tables exactly. The
-model runs need an OpenRouter key, cost about $1, and take about 2 hours at 5
-workers. This run used `old_t0_a` (the 106-patient roster, stopped once its
-first 66 patients, the annotated ones, were done) in place of `old_t0ann_a`. A
-rerun should use the 66-patient arm and rename it `old_t0_a` for
-`analyze_runs.py`:
+model runs need an OpenRouter key, cost under $1, and take about 3 hours at 3
+workers. Run them under `caffeinate -i` on a Mac: a first attempt, `old_t0_a`
+on the 106-patient roster, hung after 26 patients when the laptop slept. Its
+folder is kept as a record and is not used.
 
 ```bash
 set -a; source .env; set +a
 export ONCOTRACE=<oncotrace checkout> PYTHON=python
-bash experiments/issue42_depth_rules/run_arms.sh runs <date> old_t0ann_a new_t0ann old_t0ann_b
+WORKERS=3 caffeinate -i bash experiments/issue42_depth_rules/run_arms.sh runs <date> old_t0ann_a new_t0ann old_t0ann_b
 for i in $(seq -w 1 20); do echo old_t1_rep$i; echo new_t1_rep$i; done |
-  WORKERS=1 xargs -P 5 -I{} bash experiments/issue42_depth_rules/run_arms.sh runs <date> {}
+  WORKERS=1 xargs -P 3 -I{} bash experiments/issue42_depth_rules/run_arms.sh runs <date> {}
 python experiments/issue42_depth_rules/analyze_runs.py --runs-dir runs --date <date> \
   --scan experiments/issue42_depth_rules/results/<scan folder>
 ```

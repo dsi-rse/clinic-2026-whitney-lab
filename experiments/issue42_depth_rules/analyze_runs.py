@@ -38,18 +38,18 @@ from oncotrace_bench.records import ANNOTATIONS_DIR, load_annotations, load_run
 EXPERIMENT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = EXPERIMENT_DIR.parent.parent
 
-# old_t0_a ran on rosters/roster_compare.csv and was stopped once its first 66
-# patients (the annotated ones) were done; the 40 unannotated scan patients
-# were then dropped. The other two arms ran on the 66 annotated patients only.
-T0_ARMS = ("old_t0_a", "old_t0ann_b", "new_t0ann")
+# All three arms run on the 66 annotated patients. An earlier old-contract arm,
+# old_t0_a, on the 106-patient rosters/roster_compare.csv, hung when the laptop
+# slept after 26 patients; its folder is kept as a record and not read here.
+T0_ARMS = ("old_t0ann_a", "old_t0ann_b", "new_t0ann")
 REPEATS = 20
 REPEAT_ARMS = {
     contract: [f"{contract}_t1_rep{i:02d}" for i in range(1, REPEATS + 1)]
     for contract in ("old", "new")
 }
 PAIRS = (
-    ("old_t0_a", "old_t0ann_b"),
-    ("old_t0_a", "new_t0ann"),
+    ("old_t0ann_a", "old_t0ann_b"),
+    ("old_t0ann_a", "new_t0ann"),
     ("old_t0ann_b", "new_t0ann"),
 )
 
@@ -333,12 +333,11 @@ README = """# Issue #42 contract comparison: {name}
 
 Made {created} by `{command}`.
 
-Temperature-0 arms: `old_t0_a`, `old_t0ann_b` (the same old contract twice, to
-measure run-to-run noise) and `new_t0ann`, each on the {n_patients} annotated
-patients, {n_scan} of them flagged by the extent-wording scan. `old_t0_a` was
-started on 106 patients (40 unannotated scan patients after the 66) and stopped
-once the 66 were done, so its folder holds a partial run; those extra records
-are not read.
+Temperature-0 arms: `old_t0ann_a`, `old_t0ann_b` (the same old contract twice,
+to measure run-to-run noise) and `new_t0ann`, each on the {n_patients}
+annotated patients, {n_scan} of them flagged by the extent-wording scan. An
+earlier arm, `old_t0_a` (106 patients), hung after 26 when the laptop slept;
+its folder is kept as a record and not used.
 A0GR repeats: {repeats} per contract at temperature 1.0. Model and provider are
 in `provenance.json` (`runs.*.served_models`, `runs.*.providers`).
 
@@ -360,7 +359,7 @@ subset here that is not optimistic by construction.
 
 ## Patients whose invasion or depth answer changed
 
-`old_t0_a vs old_t0ann_b` is the noise floor: the same contract run twice.
+`old_t0ann_a vs old_t0ann_b` is the noise floor: the same contract run twice.
 `unambiguous_annotated` = annotated with a definite half and not flagged by
 the scan.
 
