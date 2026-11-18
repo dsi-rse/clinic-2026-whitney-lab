@@ -249,11 +249,19 @@ def gap_rows() -> tuple[list[list], list[str]]:
 def run_rows(
     runs: list[tuple[str, Path]], annotations: dict, scored: list[str]
 ) -> tuple:
-    """Agreement per run and field, refusals per run, and the commonest baseline."""
+    """Agreement per run and field, refusals per run, and the commonest baseline.
+
+    Also returns each patient's answer and outcome per run, keyed by
+    (field name, patient) and then by run name (arm_1, arm_2, ...).
+    """
     import scoring
 
     per_run, refusals = [], []
+    per_patient = defaultdict(dict)
+    arm_counts = Counter()
     for index, (arm, run_dir) in enumerate(runs):
+        arm_counts[arm] += 1
+        run_name = f"{arm}_{arm_counts[arm]}"
         views, _ = traceview_summary.load_views(run_dir, CONTRACTS[arm])
         views = [view for view in views if view.unit in set(scored)]
         outcomes = Counter(traceview_summary.outcome_of(view) for view in views)
@@ -270,9 +278,15 @@ def run_rows(
             )
             units = sorted(set(predicted) - errors)
             reference = {u: annotations[u]["fields"][field]["value"] for u in units}
-            states = Counter(
-                scoring.agreement_state(predicted[u], reference[u]) for u in units
-            )
+            state_of = {
+                u: scoring.agreement_state(predicted[u], reference[u]) for u in units
+            }
+            states = Counter(state_of.values())
+            for unit in scored:
+                per_patient[(name, unit)][run_name] = (
+                    predicted.get(unit, ""),
+                    state_of.get(unit, "no_score"),
+                )
             per_run.append(
                 [
                     arm,
@@ -294,7 +308,61 @@ def run_rows(
         values = Counter(annotations[u]["fields"][field]["value"] for u in scored)
         value, hits = values.most_common(1)[0]
         baseline.append([name, value, len(scored), hits])
-    return per_run, refusals, baseline
+    return per_run, refusals, baseline, per_patient
+
+
+def patient_rows(
+    per_patient: dict, annotations: dict, run_names: list[str]
+) -> list[list]:
+    """One row per field and patient: the annotation, then answer and outcome per run."""
+    rows = []
+    for (name, unit), by_run in sorted(per_patient.items()):
+        reference = annotations[unit]["fields"][FIELDS[name]]["value"]
+        row = [name, unit, reference]
+        for run_name in run_names:
+            row += list(by_run.get(run_name, ("", "no_score")))
+        rows.append(row)
+    return rows
+
+
+def change_rows(per_patient: dict, run_names: list[str]) -> list[list]:
+    """Per arm and field, patients that moved against old in every run.
+
+    better: correct in each of the arm's runs and in neither old run.
+    worse: correct in each old run and in none of the arm's runs.
+    same_in_all_runs: the outcome is the same in every run of every arm.
+    """
+    rows = []
+    old_runs = [r for r in run_names if r.startswith("old_")]
+    for arm in ARMS:
+        arm_runs = [r for r in run_names if r.startswith(f"{arm}_")]
+        if arm == "old" or not arm_runs or not old_runs:
+            continue
+        for name in FIELDS:
+            better, worse, steady = [], [], 0
+            for (field_name, unit), by_run in sorted(per_patient.items()):
+                if field_name != name:
+                    continue
+                old_ok = [by_run[r][1] == "correct" for r in old_runs]
+                arm_ok = [by_run[r][1] == "correct" for r in arm_runs]
+                if all(arm_ok) and not any(old_ok):
+                    better.append(unit)
+                if all(old_ok) and not any(arm_ok):
+                    worse.append(unit)
+                if len({by_run[r][1] for r in run_names}) == 1:
+                    steady += 1
+            rows.append(
+                [
+                    arm,
+                    name,
+                    len(better),
+                    len(worse),
+                    steady,
+                    " ".join(better),
+                    " ".join(worse),
+                ]
+            )
+    return rows
 
 
 def mean_rows(per_run: list[list]) -> list[list]:
@@ -363,9 +431,10 @@ def main() -> None:
 
     offline = offline_rows(annotations, scored, examples)
     gaps, gap_names = gap_rows()
-    per_run, refusals, baseline = (
-        run_rows(runs, annotations, scored) if runs else ([], [], [])
+    per_run, refusals, baseline, per_patient = (
+        run_rows(runs, annotations, scored) if runs else ([], [], [], {})
     )
+    names = list(run_paths)
 
     stamp = datetime.now(UTC).strftime("%Y-%m-%d_%H%M%S")
     out = args.results / f"{stamp}_{args.label}"
@@ -434,6 +503,25 @@ def main() -> None:
             ["arm", "run_index", "run", "signature", "count"],
             refusals,
         )
+        write_csv(
+            out / "outcomes_per_patient.csv",
+            ["field", "patient", "annotation"]
+            + [f"{r}_{part}" for r in names for part in ("answer", "outcome")],
+            patient_rows(per_patient, annotations, names),
+        )
+        write_csv(
+            out / "changes_vs_old.csv",
+            [
+                "arm",
+                "field",
+                "better",
+                "worse",
+                "same_in_all_runs",
+                "better_patients",
+                "worse_patients",
+            ],
+            change_rows(per_patient, names),
+        )
         readme += [
             "- `agreement_per_run.csv`: per run and field, patients out of the scored "
             "roster: correct, wrong, over-committed (a definite answer where the annotation "
@@ -442,6 +530,12 @@ def main() -> None:
             "the lowest and highest run.",
             "- `baseline_commonest.csv`: what always answering the commonest annotation scores.",
             "- `refusals.csv`: OncoTrace's refusals by rule signature, per run.",
+            "- `outcomes_per_patient.csv`: per field and patient, the annotation, then "
+            "each run's answer and outcome (correct, wrong, over_committed, abstained; "
+            "no_score for a server error).",
+            "- `changes_vs_old.csv`: per arm and field, patients `better` (correct in each "
+            "of the arm's runs, in neither `old` run) and `worse` (the reverse), with their "
+            "IDs; `same_in_all_runs` counts patients with one outcome across all runs.",
         ]
     (out / "README.md").write_text("\n".join(readme) + "\n")
     print(out)
