@@ -106,6 +106,9 @@ in [src/oncotrace_bench/metrics.py](src/oncotrace_bench/metrics.py):
 These are small helper functions. They read no report text: they work on
 character positions, labels and confidence levels only.
 
+How they are implemented, step by step, with a worked example and the code to use
+them on a run: [docs/metrics.md](docs/metrics.md).
+
 ### All the metrics at a glance
 
 Three kinds of check, each answering a different question. An answer can have the
