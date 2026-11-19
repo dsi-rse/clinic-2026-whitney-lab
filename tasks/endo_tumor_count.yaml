@@ -51,9 +51,7 @@ instructions: |
     a separate tumor in another organ is involved, when the report calls a nodule
     "separate" without saying it arose independently of the main tumor, or when
     the gross description and the final diagnosis disagree about the count. Say why in
-    unresolved_conflicts. Do not guess. If you record a disagreement about the
-    count in unresolved_conflicts, the answer is unclear: do not settle it
-    yourself.
+    unresolved_conflicts. Do not guess.
   - no_tumor_described: the report describes no tumor.
 
   Count carcinoma only. A fibroid (leiomyoma), polyp, cyst, metastasis or
