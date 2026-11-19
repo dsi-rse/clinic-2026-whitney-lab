@@ -183,6 +183,52 @@ python3 -m pytest tests/test_metrics.py
 They read no report, run folder or annotation. The repo's lint rules
 (`ruff check`, `ruff format --check`) pass on both files.
 
+## How this would fit into OncoTrace (a proposal)
+
+Nothing here changes OncoTrace. The metrics sit beside it, in this repo. This
+section says what would have to change if OncoTrace's maintainers want them inside
+OncoTrace and TraceView. It is a proposal, written from reading OncoTrace's
+`oncotrace/score.py` and `viewer/` code; the maintainers decide.
+
+### What OncoTrace does today
+
+- `oncotrace.score.summarize` is the one place that works out scored numbers
+  (coverage, agreement, confusion matrix, per-class precision and recall). Its own
+  notes say the command line and TraceView both use it, so they cannot disagree.
+- `viewer/scoring.py` scores one run against the annotations for one field's
+  label. It splits the scored patients into a *prospective* and a *development*
+  scope and never averages them, and it counts everything it leaves out (server
+  errors, annotations in progress, patients nobody annotated).
+- The annotation reference it reads (`AnnotationReference` in `viewer/annotate.py`)
+  holds each patient's **value** and status, but not the marked **spans**.
+
+### What would change
+
+| Place in OncoTrace | What it does today | What would change | Why |
+|---|---|---|---|
+| `AnnotationReference` (`viewer/annotate.py`) | Holds value, status and a blank count per patient | Also hold the marked spans per patient | Span scores need the marked places; today only the value is kept |
+| `score_run` (`viewer/scoring.py`) | Scores one field's label; splits into prospective and development; counts exclusions | Also work out span and confidence scores, over the same patients and with the same exclusions, scope by scope | One rule for who is left out, and prospective and development stay apart |
+| `Row` (`viewer/scoring.py`) | One line per patient: label, state, reason, scope | Add confidence, `any_hit`, `all_hit` and `mean_coverage` | So the Score page can show each patient, not only totals |
+| `summarize` (`oncotrace/score.py`) | Label numbers only | Either a sibling function for span and confidence, or extend it. Its notes say it owns every scored number, so the numbers should be worked out here | Keeps the command line and TraceView on one set of numbers |
+| Score page and export (`viewer/app.py`, `viewer/export.py`) | Show label tables and a spreadsheet | Add span and confidence tables and a sheet | So people can see them without code |
+| Command-line scoring (`oncotrace.score.score`) | Reads reference values from files | Also read marked spans from them | Same numbers on the command line as in TraceView |
+
+### What stays the same
+
+- The task contract: it needs no new key for these metrics.
+- The label metrics: accuracy, precision and recall are already there.
+- The exclusion accounting and the prospective and development split: the new
+  scores follow them, they do not replace them.
+
+### Questions for the maintainers
+
+| Question | Why it matters |
+|---|---|
+| Should span and confidence go into OncoTrace, or stay in this repo? | Inside OncoTrace they show in TraceView; here they need no change to anyone else's code |
+| A sibling function, or extend `summarize`? | `summarize` is the single owner of scored numbers today |
+| Where does "unclear" belong? | OncoTrace keeps a fixed set of labels that mean "the source does not support a call". The tumor count's `unclear` is not in it, so it is scored as an ordinary label |
+| Should annotations store which marked spans are alternatives and which are needed together? | Today one field's spans are a plain list, so the lenient and strict hits are the best the scores can say |
+
 ## Not done yet
 
 - A script that applies these to a run and writes tables, with a provenance
