@@ -19,10 +19,11 @@ Only offsets, labels and scores come out of here. Report text is never read.
 
 from oncotrace_bench.records import covered_fraction, overlap
 
-# Score for (the model's confidence, whether the label was correct). The two
-# end points and the two "mild" cells follow the proposal from Helena Wu;
-# "medium" sits halfway between "high" and "low", a choice the proposal did not
-# cover. Callers can pass their own table to change any value.
+# Score for (the model's confidence, whether the label was correct). The proposal
+# fixed the order (confident and right, unsure and right, unsure and wrong,
+# confident and wrong) but gave no numbers. The numbers and the "medium" level,
+# placed halfway between "high" and "low", are choices made here. Callers can
+# pass their own table to change any value.
 CONFIDENCE_SCORES: dict[tuple[str, bool], float] = {
     ("high", True): 2.0,
     ("medium", True): 1.5,

@@ -195,18 +195,19 @@ own.
 
 ### Choices made here
 
-The metric set was proposed for issue #52. Where the proposal was silent, these
-are the choices made:
+The metric set was proposed for issue #52. The proposal gave the idea of each
+metric but not every detail. This table says what the proposal gave and what was
+chosen here, so a reviewer can change any of it.
 
-- "Medium" confidence sits halfway between high and low.
-- Positions are counted in characters, not words.
-- Several marked spans are scored one by one and averaged; the model's quotes
-  for the field count together.
-- A field with no marked span is skipped for span scores. A patient the model did
-  not answer is skipped for the confidence score.
-- A long quote is not penalized.
+| Metric | What the proposal gave | What was chosen here |
+|---|---|---|
+| Span, yes or no | Do the spans intersect | `any_hit` as given. `all_hit` and `hit_rate` were added because a field can have several marked spans |
+| Span, percent | Intersection divided by the length of the marked span | `mean_coverage`, averaged over the marked spans, in characters rather than words (OncoTrace positions are characters) |
+| Confidence | The order: confident and right, then unsure and right, then unsure and wrong, then confident and wrong | The numbers +2, +1, -1, -2, and a medium level at +1.5 and -1.5 |
+| Missing data | Nothing | A field with no marked span is skipped for span scores. A patient the model did not answer is skipped for the confidence score |
+| Long quotes | Nothing | Not penalized, so `mean_coverage` is read with `any_hit` and `all_hit` |
 
-Each can be changed later; the confidence table is a parameter.
+The confidence table is a parameter; the other choices are one-line changes.
 
 ### Not done yet
 

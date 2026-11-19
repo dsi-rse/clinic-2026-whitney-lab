@@ -5,6 +5,17 @@ works, so you can read it, use it on a run, and change it. The short version, wi
 a table of every metric, is in the "Scoring spans and confidence" section of the
 [README](../README.md). The metric set was proposed for issue #52.
 
+## What OncoTrace has, and what this adds
+
+Checked against OncoTrace commit `d4b7fd3`.
+
+| Metric | In OncoTrace and TraceView today | In this repo |
+|---|---|---|
+| Label: accuracy, precision, recall (and F1, balanced accuracy, MCC, 95% intervals, McNemar, coverage) | Yes, in `oncotrace.score.summarize`; the command line and TraceView share it | Not repeated |
+| Confidence | Recorded and shown (TraceView sorts, filters and exports it). **Not scored** against whether the label was right | **New:** the confidence score |
+| Span, yes or no | **Not there.** Annotations store spans, but `AnnotationReference` keeps only the value | **New:** `any_hit` (and `all_hit`, `hit_rate`) |
+| Span, percent | **Not there** | **New:** `mean_coverage` |
+
 ## What it does, in one picture
 
 ```
@@ -127,7 +138,7 @@ means the model's label equals the person's value.
 | Report `any_hit` and `all_hit` together | The same fact can appear twice in a report, and an answer can need two sentences together. The annotation cannot say which, so the truth is between the lenient and the strict number |
 | Score each marked span, then average | Each marked place counts the same, long or short |
 | Skip fields with no marked span and patients with no answer | There is nothing to compare, or no confidence to judge |
-| The confidence table is a parameter | Medium confidence was not in the original proposal, so the values are a choice that can change without touching the code |
+| The confidence table is a parameter | The proposal fixed only the order, so the numbers and the medium level are choices; they can change without touching the code |
 
 ## Using it on a run
 
