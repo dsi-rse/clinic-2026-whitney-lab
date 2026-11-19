@@ -21,8 +21,8 @@ from oncotrace_bench.records import covered_fraction, overlap
 
 # Score for (the model's confidence, whether the label was correct). The two
 # end points and the two "mild" cells follow the proposal from Helena Wu;
-# "medium" sits halfway between "high" and "low". These values are a proposal
-# to be confirmed, so callers can pass their own table.
+# "medium" sits halfway between "high" and "low", a choice the proposal did not
+# cover. Callers can pass their own table to change any value.
 CONFIDENCE_SCORES: dict[tuple[str, bool], float] = {
     ("high", True): 2.0,
     ("medium", True): 1.5,

@@ -171,10 +171,23 @@ pairs. A patient the model did not answer has no confidence, so leave them out
 and report how many you left out. The table is a parameter, so you can pass your
 own.
 
+### Choices made here
+
+The metric set was proposed for issue #52. Where the proposal was silent, these
+are the choices made:
+
+- "Medium" confidence sits halfway between high and low.
+- Positions are counted in characters, not words.
+- Several marked spans are scored one by one and averaged; the model's quotes
+  for the field count together.
+- A field with no marked span is skipped for span scores. A patient the model did
+  not answer is skipped for the confidence score.
+- A long quote is not penalized.
+
+Each can be changed later; the confidence table is a parameter.
+
 ### Not done yet
 
-- The values above, and the choices to count characters rather than words and
-  to treat "medium" as halfway, are still being confirmed (issue #52).
 - There is no script that applies these to a run, and no result tables yet. They
   need model runs on patients that have annotated spans; the annotations here
   are for the invasion task.
