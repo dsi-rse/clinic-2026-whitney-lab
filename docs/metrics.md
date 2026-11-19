@@ -138,7 +138,7 @@ means the model's label equals the person's value.
 | Report `any_hit` and `all_hit` together | The same fact can appear twice in a report, and an answer can need two sentences together. The annotation cannot say which, so the truth is between the lenient and the strict number |
 | Score each marked span, then average | Each marked place counts the same, long or short |
 | Skip fields with no marked span and patients with no answer | There is nothing to compare, or no confidence to judge |
-| The confidence table is a parameter | The proposal fixed only the order, so the numbers and the medium level are choices; they can change without touching the code |
+| The confidence table is a parameter | Helena's proposal fixed only the order, so the numbers and the medium level are choices; they can change without touching the code |
 
 ## Using it on a run
 

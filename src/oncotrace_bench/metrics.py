@@ -19,7 +19,7 @@ Only offsets, labels and scores come out of here. Report text is never read.
 
 from oncotrace_bench.records import covered_fraction, overlap
 
-# Score for (the model's confidence, whether the label was correct). The proposal
+# Score for (the model's confidence, whether the label was correct). Helena Wu's proposal
 # fixed the order (confident and right, unsure and right, unsure and wrong,
 # confident and wrong) but gave no numbers. The numbers and the "medium" level,
 # placed halfway between "high" and "low", are choices made here. Callers can

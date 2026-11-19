@@ -195,11 +195,11 @@ own.
 
 ### Choices made here
 
-The metric set was proposed for issue #52. The proposal gave the idea of each
-metric but not every detail. This table says what the proposal gave and what was
+The metric set was proposed for issue #52. Helena Wu's proposal gave the idea of each
+metric but not every detail. This table says what Helena's proposal gave and what was
 chosen here, so a reviewer can change any of it.
 
-| Metric | What the proposal gave | What was chosen here |
+| Metric | What Helena's proposal gave | What was chosen here |
 |---|---|---|
 | Span, yes or no | Do the spans intersect | `any_hit` as given. `all_hit` and `hit_rate` were added because a field can have several marked spans |
 | Span, percent | Intersection divided by the length of the marked span | `mean_coverage`, averaged over the marked spans, in characters rather than words (OncoTrace positions are characters) |
