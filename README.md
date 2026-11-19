@@ -93,6 +93,95 @@ reference for development, with 45 from one tissue source site; they are not an
 independently adjudicated test set. Keep invasion, depth, clinical indeterminacy,
 and pipeline noncompletion separate in evaluation.
 
+## Scoring spans and confidence
+
+OncoTrace already scores an answer's **label** against a person's annotation
+(accuracy, precision and recall; see `oncotrace.score`). Two other checks live
+in [src/oncotrace_bench/metrics.py](src/oncotrace_bench/metrics.py):
+
+- **Did the model quote the right place in the report?** (span scores)
+- **Was the model sure when it was right, and unsure when it was wrong?**
+  (confidence score)
+
+These are small helper functions. They read no report text: they work on
+character positions, labels and confidence levels only.
+
+### Span scores
+
+A *span* is a stretch of a report, written as `document`, `start` and `end`
+(character positions). OncoTrace writes the spans the model quoted in each
+answer, and each annotation holds the spans a person marked.
+
+`score_spans(annotated_spans, model_spans)` compares them for one field of one
+patient:
+
+| Result | What it means |
+|---|---|
+| `n_gold` | How many places the person marked. |
+| `any_hit` | The model quoted at least one place the person marked. The lenient check. |
+| `all_hit` | The model quoted every place the person marked. The strict check. |
+| `hit_rate` | The share of marked places the model quoted. |
+| `mean_coverage` | On average, how much of each marked stretch the model's quotes cover (0 to 1). |
+
+```python
+from oncotrace_bench.metrics import score_spans
+
+marked = [
+    {"document": "d1", "start": 100, "end": 200},
+    {"document": "d1", "start": 500, "end": 600},
+]
+quoted = [
+    {"document": "d1", "start": 90, "end": 150},   # covers half of the first
+    {"document": "d1", "start": 700, "end": 800},  # near neither
+]
+score_spans(marked, quoted)
+# {'n_gold': 2, 'any_hit': True, 'all_hit': False,
+#  'hit_rate': 0.5, 'mean_coverage': 0.25}
+```
+
+**How to read it.** Look at `any_hit` and `all_hit` together; the truth is
+between them. A low score means "go and look at this case", not "the model is
+wrong". These scores are approximate, for three reasons:
+
+- The same fact can appear twice in a report. If the model quotes the other
+  copy, it scores as a miss.
+- An answer may need two sentences together. The annotation has no way to say
+  so.
+- A long quote is not penalized: quoting a whole report covers every marked
+  stretch.
+
+Fields with no marked span (for example the annotation says "none stated") are
+skipped; `score_spans` returns `None` for them.
+
+### Confidence score
+
+`confidence_score(confidence, correct)` gives a reward or a penalty for one
+answer, depending on how confident the model said it was and whether its label
+was right.
+
+| Confidence | Label correct | Label wrong |
+|---|---|---|
+| high | +2 | -2 |
+| medium | +1.5 | -1.5 |
+| low | +1 | -1 |
+
+Most rewarded is confident and right; most penalized is confident and wrong.
+`mean_confidence_score` averages this over a list of `(confidence, correct)`
+pairs. A patient the model did not answer has no confidence, so leave them out
+and report how many you left out. The table is a parameter, so you can pass your
+own.
+
+### Not done yet
+
+- The values above, and the choices to count characters rather than words and
+  to treat "medium" as halfway, are still being confirmed (issue #52).
+- There is no script that applies these to a run, and no result tables yet. They
+  need model runs on patients that have annotated spans; the annotations here
+  are for the invasion task.
+- They are not part of OncoTrace or TraceView.
+
+Run the tests with `python3 -m pytest tests/test_metrics.py`.
+
 ## Working here
 
 Each experiment is a self-contained folder in `experiments/<name>/`. Only general
