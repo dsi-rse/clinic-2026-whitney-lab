@@ -106,6 +106,25 @@ in [src/oncotrace_bench/metrics.py](src/oncotrace_bench/metrics.py):
 These are small helper functions. They read no report text: they work on
 character positions, labels and confidence levels only.
 
+### All the metrics at a glance
+
+Three kinds of check, each answering a different question. An answer can have the
+right label and still quote the wrong place, which is worth a look.
+
+| Kind | Metric | Question it answers | How it is worked out | Where it is computed |
+|---|---|---|---|---|
+| Label | Accuracy | How many labels are right? | Right answers divided by all patients | OncoTrace (`oncotrace.score`) |
+| Label | Precision | When the model says "this class", how often is it? | Per class: right divided by all the model put in that class | OncoTrace |
+| Label | Recall | Of the patients really in a class, how many did the model find? | Per class: right divided by all a person put in that class | OncoTrace |
+| Span | `any_hit` | Did the model quote any place the person marked? | A quote overlaps at least one marked span: yes or no | `metrics.py` |
+| Span | `all_hit` | Did it quote every place the person marked? | Quotes overlap every marked span: yes or no | `metrics.py` |
+| Span | `hit_rate` | How many of the marked places did it quote? | Marked spans quoted divided by all marked spans | `metrics.py` |
+| Span | `mean_coverage` | How much of each marked stretch do the quotes cover? | Shared length divided by the marked span's length, averaged | `metrics.py` |
+| Confidence | Reward or penalty | Was the model sure when it was right, and unsure when it was wrong? | Confident and right scores most; confident and wrong scores least | `metrics.py` |
+
+The sections below explain the span and confidence rows, and what each can and
+cannot tell you.
+
 ### Span scores
 
 A *span* is a stretch of a report, written as `document`, `start` and `end`
