@@ -1,0 +1,11 @@
+answer,run,patients,correct,wrong,over_committed,abstained
+invasion,always present,66,60,3,3,0
+invasion,baseline_rep1,66,63,0,3,0
+invasion,baseline_rep2,66,63,0,3,0
+invasion,evidence_rep1,66,63,0,3,0
+invasion,evidence_rep2,66,63,0,3,0
+depth,always less_than_50,66,31,20,15,0
+depth,baseline_rep1,66,53,1,12,0
+depth,baseline_rep2,66,52,2,12,0
+depth,evidence_rep1,66,51,2,12,1
+depth,evidence_rep2,66,52,1,12,1

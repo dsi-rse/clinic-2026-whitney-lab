@@ -1,0 +1,5 @@
+run,records,answered,patients_with_refusal,refusals,calls_mean,invasion_cbd,invasion_cbd_with_quotes,invasion_uncertain,depth_cbd,depth_cbd_with_quotes,depth_uncertain
+baseline_rep1,66,66,36,65,4.3,0,0,0,0,0,0
+baseline_rep2,66,66,46,87,4.6,0,0,0,0,0,0
+evidence_rep1,66,66,38,90,4.4,0,0,0,0,0,1
+evidence_rep2,66,66,35,70,4.2,0,0,0,0,0,1

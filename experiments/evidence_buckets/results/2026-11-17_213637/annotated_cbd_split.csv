@@ -1,0 +1,13 @@
+run,answer,model,patients
+baseline_rep1,invasion,present,3
+baseline_rep1,depth,fifty_or_greater,5
+baseline_rep1,depth,less_than_50,6
+baseline_rep2,invasion,present,3
+baseline_rep2,depth,fifty_or_greater,5
+baseline_rep2,depth,less_than_50,6
+evidence_rep1,invasion,present,3
+evidence_rep1,depth,fifty_or_greater,5
+evidence_rep1,depth,less_than_50,6
+evidence_rep2,invasion,present,3
+evidence_rep2,depth,fifty_or_greater,6
+evidence_rep2,depth,less_than_50,5

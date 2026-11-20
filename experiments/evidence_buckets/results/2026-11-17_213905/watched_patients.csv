@@ -1,0 +1,9 @@
+run,unit,invasion_ann,invasion_model,invasion_category,depth_ann,depth_model,depth_category,confidence
+baseline_rep1,TCGA-A5-A0GJ,cannot_be_determined,present,,not_applicable,less_than_50,,medium
+baseline_rep1,TCGA-A5-A0GR,present,present,,less_than_50,less_than_50,,high
+baseline_rep2,TCGA-A5-A0GJ,cannot_be_determined,present,,not_applicable,less_than_50,,medium
+baseline_rep2,TCGA-A5-A0GR,present,present,,less_than_50,fifty_or_greater,,medium
+evidence_rep1,TCGA-A5-A0GJ,cannot_be_determined,present,explicit,not_applicable,less_than_50,implied_high,high
+evidence_rep1,TCGA-A5-A0GR,present,present,explicit,less_than_50,fifty_or_greater,explicit,high
+evidence_rep2,TCGA-A5-A0GJ,cannot_be_determined,present,explicit,not_applicable,less_than_50,implied_high,medium
+evidence_rep2,TCGA-A5-A0GR,present,present,explicit,less_than_50,uncertain,uncertain,medium

@@ -1,0 +1,13 @@
+test,run,answer,measure,value,reference,reference_value,passes,changed_ids,changed_only_between_arms
+useful (a),evidence_rep1,invasion,flagged share of disagreements,0.0,flagged share of all answers,0.0,False,,
+useful (b),evidence_rep1,invasion,explicit answers that agree,0.955,baseline answers that agree,0.955,True,,
+useful (a),evidence_rep1,depth,flagged share of disagreements,0.429,flagged share of all answers,0.152,True,,
+useful (b),evidence_rep1,depth,explicit answers that agree,0.849,baseline answers that agree,0.795,True,,
+useful (a),evidence_rep2,invasion,flagged share of disagreements,0.333,flagged share of all answers,0.015,True,,
+useful (b),evidence_rep2,invasion,explicit answers that agree,0.969,baseline answers that agree,0.955,True,,
+useful (a),evidence_rep2,depth,flagged share of disagreements,0.385,flagged share of all answers,0.197,True,,
+useful (b),evidence_rep2,depth,explicit answers that agree,0.84,baseline answers that agree,0.795,True,,
+safe,baseline_rep1 vs evidence_rep1,invasion or depth,patients whose answer changed,2.0,patients changed between the baseline runs,1.0,False,TCGA-A5-A0GR TCGA-A5-A0GU,
+safe,baseline_rep1 vs evidence_rep2,invasion or depth,patients whose answer changed,2.0,patients changed between the baseline runs,1.0,False,TCGA-A5-A0GE TCGA-A5-A0GR,
+safe,baseline_rep2 vs evidence_rep1,invasion or depth,patients whose answer changed,1.0,patients changed between the baseline runs,1.0,True,TCGA-A5-A0GU,
+safe,baseline_rep2 vs evidence_rep2,invasion or depth,patients whose answer changed,2.0,patients changed between the baseline runs,1.0,False,TCGA-A5-A0GE TCGA-A5-A0GR,
