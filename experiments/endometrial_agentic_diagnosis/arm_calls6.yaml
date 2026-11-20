@@ -1,0 +1,120 @@
+# TCGA-UCEC myometrial invasion, using Mariam Hassan's task contract.
+# Run from the clinic repo root, with OncoTrace on PYTHONPATH.
+# This client config attaches to an existing GLM server with --base-url.
+task: ../../tasks/endo_myometrial_invasion.yaml
+mode: agentic
+roster: roster_annotated50.csv
+roster_column: unit
+
+sources:
+  - name: pathology_report
+    path: /net/spaces/annawoodard/oncotrace/data/endometrial/documents/ucec_pathology_report.jsonl
+
+model:
+  served_name: glm-5.3-flash
+  temperature: 0.0
+  top_p: 1.0
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: true
+      reasoning_effort: max
+
+limits:
+  model_calls: 6
+  completion_passes: 2
+  max_completion_tokens: 8192
+  request_timeout_seconds: 1800
+
+retrieval:
+  max_read_chars: 18000
+
+serving:
+  serving_root: /net/spaces/scratch/yuxuang-oncotrace/envs/vllm-glm53
+  # This copy was created with stripe_count=8. The original download has one
+  # OST per 5.3 GB shard, which throttles the four concurrent readers here.
+  model_root: /net/spaces/annawoodard/oncotrace/weights/GLM-5.3-Flash-stripe8
+  served_name: glm-5.3-flash
+  server_pythonpath: []
+  toolchain:
+    # The serving environment's own CUDA wheels. There is no CUDA module on
+    # this cluster, so this is not a fallback here -- it is the only toolkit.
+    # envs/build-serving-env.sh creates the two symlinks that make this tree
+    # look like a toolkit to FlashInfer's JIT: lib64 -> lib, and
+    # lib/libcudart.so -> libcudart.so.13. Without them the JIT fails to link
+    # with `cannot find -lcudart`.
+    cuda_home: /net/spaces/scratch/yuxuang-oncotrace/envs/vllm-glm53/lib/python3.12/site-packages/nvidia/cu13
+    # System GCC 13.3.0. /usr/bin/gcc and /usr/bin/g++ both exist, which is all
+    # serve.py needs for CC, CXX and -ccbin.
+    gcc_root: /usr
+    # gcc_runtime and default_runtime are deliberately absent. They are site
+    # shims for a cluster whose compiler needs loose libraries on
+    # LD_LIBRARY_PATH; Ubuntu's gcc is self-contained. serve.py drops the empty
+    # entries rather than joining them.
+  runtime:
+    tensor_parallel_size: 4
+    cpu_offload_gb: 0
+    kv_cache_dtype: auto
+    max_model_len: 49152
+    max_num_seqs: 8
+    max_num_batched_tokens: 32768
+    gpu_memory_utilization: 0.90
+    reasoning_parser: glm45
+    tool_call_parser: glm47
+    extra_server_args:
+    # Parallel loader. Measured on this cluster with GLM-5.3-Flash at TP=4:
+    # a cold start fell from 1753 s of weight load and 2051 s to a published
+    # endpoint, to 72.7 s and 281 s. Same resident memory per rank, so the
+    # weights are fully loaded and not deferred. It is a hard dependency of
+    # the pinned vLLM wheel, so any environment this script builds has it.
+    - --load-format
+    - fastsafetensors
+    # Single braces. These are argv strings handed to `vllm serve` verbatim by
+    # serve.py, not format templates, so a doubled brace reaches vLLM's argparse
+    # as literal text and it rejects the value with "cannot be converted to
+    # <function loads>". That typo cost job 1658383 a 16-minute import on
+    # 2026-09-10 before argparse ran and killed it.
+    #
+    # Speculative decoding via the model's own MTP head. Drop this pair first if
+    # the server crashes during decode rather than during warmup.
+    - --speculative-config
+    - '{"method":"mtp","num_speculative_tokens":5}'
+    # FlashInfer autotune crashes this model on the 2026-09-10 nightly: it runs
+    # dummy forward passes after CUDA graph capture to pick kernels, and one
+    # takes an illegal memory access inside MLA `_v_up_proj`, surfacing as
+    # CUBLAS_STATUS_EXECUTION_FAILED on a strided-batched bf16 GEMM and killing
+    # all four workers. Autotune is a kernel-selection optimisation, not a
+    # correctness requirement, so disabling it is the cheapest fix. Try removing
+    # this on a newer nightly; if the server comes up, the bug is fixed.
+    - --kernel-config
+    - '{"enable_flashinfer_autotune": false}'
+    structured_outputs_config:
+      backend: xgrammar
+      disable_any_whitespace: true
+      enable_in_reasoning: false
+  caches:
+    # On Lustre so a restarted job reuses compiled kernels. Keep the serving
+    # environment visible at its configured prefix when staging it to NVMe:
+    # DeepGEMM includes the toolchain/source identity in its cache key, so
+    # changing that prefix turns a warm start into a cold compile.
+    TORCHINDUCTOR_CACHE_DIR: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/torchinductor
+    DG_JIT_CACHE_DIR: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/deep_gemm
+    FLASHINFER_WORKSPACE_BASE: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/flashinfer
+    CUDA_CACHE_PATH: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/cuda
+    HF_HOME: /net/spaces/scratch/yuxuang-oncotrace/caches/huggingface
+    TILELANG_CACHE_DIR: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/tilelang
+    TILELANG_TMP_DIR: /net/spaces/scratch/yuxuang-oncotrace/caches/glm53/tilelang/tmp
+    # No TMPDIR here, deliberately. On this cluster the right value is the
+    # per-job directory Slurm makes on the node-local NVMe
+    # (/local/scratch/$USER_$SLURM_JOB_ID), which a static config cannot name,
+    # and anything in `caches:` overrides the environment rather than deferring
+    # to it - so setting TMPDIR here would silently beat the submit script's
+    # export and put the JIT workspace on the 98 GB root volume.
+    # scripts/smoke_slurm_dsi.sbatch exports it; serve.py inherits it.
+  # Short by construction: vLLM binds ipc://<dir>/<uuid> and serve.py appends
+  # the job id, against a 108-byte Unix socket limit. The Lustre workspace path
+  # is too long to nest this under.
+  rpc_base_path: /home/yuxuang/.otr/s
+  ready_timeout_seconds: 7200
+
+artifacts:
+  group_readable: true
