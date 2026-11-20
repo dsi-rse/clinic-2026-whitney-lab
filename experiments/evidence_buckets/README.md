@@ -92,12 +92,12 @@ The analysis reuses `src/oncotrace_bench/records.py` and `provenance.py`, and sc
 
 | What | Where |
 |---|---|
-| The four runs read by `compare_arms.py` | kh's laptop: `runs/2026-11-18_evidence_buckets_{baseline,evidence}/rep{1,2}/`. They will be copied to `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/` when the cluster is back. `provenance.json` records this as acknowledged |
-| A stalled first attempt | `runs/2026-11-17_evidence_buckets_{baseline,evidence}/rep1/` on the same laptop. The laptop went to sleep and the runs stopped after 5 (baseline) and 6 (evidence) patients. They are not used in any table and are kept as a record |
+| The four runs read by `compare_arms.py` | `/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/2026-11-18_evidence_buckets_{baseline,evidence}/rep{1,2}/`, readable by the `__oncotrace` group. They were made on kh's laptop through OpenRouter and copied there with rsync on 2026-11-20, so `provenance.json` records the laptop paths and acknowledges that they were not yet shared |
+| A stalled first attempt | `runs/2026-11-17_evidence_buckets_{baseline,evidence}/rep1/` in the same folder. The laptop went to sleep and the runs stopped after 5 (baseline) and 6 (evidence) patients. They are not used in any table and are kept as a record |
 
 ## Reproduce it
 
-You need the clinic environment from [`docs/student-setup.md`](../../docs/student-setup.md), plus the run folders above. Run every command from the repo root.
+You need the clinic environment from [`docs/student-setup.md`](../../docs/student-setup.md), and membership of the `__oncotrace` group (`id -nG` lists it) to read the run folders above. Run every command from the repo root.
 
 ### 1. Re-run the analysis on the existing runs (seconds)
 
