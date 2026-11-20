@@ -129,8 +129,14 @@ guidelines rests on the writing, not on scores.
 
 ## How to rerun
 
-The analysis takes under a minute. The run folders are on kh's laptop until the
-DSI cluster is back, then in `/net/spaces/annawoodard/oncotrace/workspaces/kh/runs/`.
+The analysis takes under a minute. The six run folders
+(`2026-11-17_contract_guidelines_*`, with their `.log` files) were made on a
+laptop and copied on 2026-11-20 to
+`/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/`, group `__oncotrace`,
+group-readable. File counts and checksums matched the laptop copies. The
+`not_shared` acknowledgements in the committed `provenance.json` files name
+`workspaces/kh/runs/`, the folder planned when the results were made; that
+folder does not exist, and the runs are in `workspaces/khyatt/runs/`.
 
 ```bash
 git clone https://github.com/dsi-rse/clinic-2026-whitney-lab.git && cd clinic-2026-whitney-lab
