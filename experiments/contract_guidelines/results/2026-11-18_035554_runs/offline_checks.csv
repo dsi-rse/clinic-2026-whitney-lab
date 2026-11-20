@@ -1,0 +1,22 @@
+contract,check,count,items
+old,fails_to_load,0,
+old,undeclared_rule_values,0,
+old,annotation_values_not_allowed,3,depth_basis='' x1; specimen_type='' x2
+old,undeclared_instruction_names,0,
+old,values_without_definition,5,specimen_type:biopsy_or_curettage_only; specimen_type:other_or_not_stated; depth_basis:descriptive_other; depth_basis:none_stated; adenomyosis_relation:not_mentioned
+old,7word_runs_shared_with_scored_reports,0,
+old,7word_runs_shared_with_example_reports,0,
+unguided,fails_to_load,0,
+unguided,undeclared_rule_values,0,
+unguided,annotation_values_not_allowed,3,depth_basis='' x1; specimen_type='' x2
+unguided,undeclared_instruction_names,0,
+unguided,values_without_definition,0,
+unguided,7word_runs_shared_with_scored_reports,0,
+unguided,7word_runs_shared_with_example_reports,0,
+guided,fails_to_load,0,
+guided,undeclared_rule_values,0,
+guided,annotation_values_not_allowed,3,depth_basis='' x1; specimen_type='' x2
+guided,undeclared_instruction_names,0,
+guided,values_without_definition,0,
+guided,7word_runs_shared_with_scored_reports,0,
+guided,7word_runs_shared_with_example_reports,0,

@@ -1,0 +1,7 @@
+arm,field,runs,correct_mean,correct_min,correct_max,over_committed_mean,over_committed_min,over_committed_max,abstained_mean,abstained_min,abstained_max
+old,invasion,2,63.0,63,63,3.0,3,3,0.0,0,0
+old,depth,2,53.0,53,53,12.0,12,12,0.0,0,0
+unguided,invasion,2,63.0,63,63,3.0,3,3,0.0,0,0
+unguided,depth,2,53.0,53,53,12.0,12,12,0.0,0,0
+guided,invasion,2,63.0,63,63,3.0,3,3,0.0,0,0
+guided,depth,2,52.5,52,53,10.5,10,11,0.0,0,0

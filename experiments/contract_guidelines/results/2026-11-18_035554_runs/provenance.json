@@ -1,0 +1,480 @@
+{
+  "created_utc": "2026-11-18T03:55:53+00:00",
+  "python": "3.12.13",
+  "clinic_repo": {
+    "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a",
+    "commit": "a892c2271f282c7934f85b7c6961cf227c95f066",
+    "branch": "claude/issue44-contract-guidelines-d8455a",
+    "remote": "dsi-rse/clinic-2026-whitney-lab",
+    "uncommitted_files": []
+  },
+  "inputs": {
+    "contract_old": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/old.yaml",
+      "sha256": "3a1ee704a4a456519147c16ba5462c11a402a6eecab80ff5569f0f2721bc3c88"
+    },
+    "contract_unguided": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/unguided.yaml",
+      "sha256": "0212370a2d87d6dc692be7c3c2f228fde250eb8fc7fde401ecf92f81c6ddcf03"
+    },
+    "contract_guided": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/contracts/guided.yaml",
+      "sha256": "ed16624b3cbf0ac2f201d24a2870c81df043c685a0d5d1eca01fb56de516683f"
+    },
+    "scored_roster": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/endometrial_baseline_full/roster_annotated66.csv",
+      "sha256": "7d88b468630e244c5e7edf2c40c0d975441114ee155234b496fcfcf002754185"
+    },
+    "example_reports": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/example_reports.csv",
+      "sha256": "f192a313f5b93316a801963e3b3f6499f5a4c9027a9ded9d4493c92d7cf8809f"
+    },
+    "known_gaps": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/known_gaps.csv",
+      "sha256": "d157bc45a8cf0be91c9550d6f2d5a7b026c4caf29fe854e01e1a7013a18bf32c"
+    },
+    "gap_scores": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/.claude/worktrees/issue44-contract-guidelines-d8455a/experiments/contract_guidelines/inputs/gap_scores.csv",
+      "sha256": "6e493660b014a31e42069a66577cd55b8964924be1bc76e5d1c97e215263f607"
+    }
+  },
+  "runs": {
+    "old_1": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r1",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r1",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "old_2": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r2",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "3d75c05160a75b389185bf60519844b561a83fb70ae724492c146a9a700ffa64"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r2",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "unguided_1": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r1",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "d1ac945dd8702f9d05416ba3fc760de500c7ccd37ff783ef1e49ff7283f4b86d"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r1",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "unguided_2": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r2",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "d1ac945dd8702f9d05416ba3fc760de500c7ccd37ff783ef1e49ff7283f4b86d"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r2",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "guided_1": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r1",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "04d21742a116413c4fd054fb5afd545a571f4aea6b633aa98ed3d13252c965b0"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r1",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    },
+    "guided_2": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r2",
+      "records": 66,
+      "units_without_contract": 0,
+      "oncotrace_commits": [
+        "d4b7fd32c44989d2e68d3c7790c23e33da0544b8"
+      ],
+      "contract_digests": [
+        "04d21742a116413c4fd054fb5afd545a571f4aea6b633aa98ed3d13252c965b0"
+      ],
+      "oncotrace_modified": false,
+      "providers": [
+        "Wafer"
+      ],
+      "served_models": [
+        "z-ai/glm-5.3-flash"
+      ],
+      "server_starts": [],
+      "server_starts_known": false,
+      "group_access": {
+        "reachable": false,
+        "chain": [
+          {
+            "path": "/",
+            "group": "wheel",
+            "group_ok": true
+          },
+          {
+            "path": "/Users",
+            "group": "admin",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop",
+            "group": "staff",
+            "group_ok": false
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs",
+            "group": "staff",
+            "group_ok": true
+          },
+          {
+            "path": "/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r2",
+            "group": "staff",
+            "group_ok": false
+          }
+        ]
+      }
+    }
+  },
+  "analysis_repos": {
+    "oncotrace": {
+      "path": "/Users/kadenhyatt/Desktop/Data_Clinic/oncotrace",
+      "commit": "d4b7fd32c44989d2e68d3c7790c23e33da0544b8",
+      "branch": "main",
+      "remote": "uchicago-dsi/oncotrace",
+      "uncommitted_files": []
+    }
+  },
+  "acknowledged": {
+    "old_1:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "old_2:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "unguided_1:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "unguided_2:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "guided_1:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "guided_2:not_shared": "laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back"
+  },
+  "arguments": [
+    "--oncotrace",
+    "/Users/kadenhyatt/Desktop/Data_Clinic/oncotrace",
+    "--label",
+    "runs",
+    "--run",
+    "old=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r1",
+    "--run",
+    "old=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_old_r2",
+    "--run",
+    "unguided=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r1",
+    "--run",
+    "unguided=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_unguided_r2",
+    "--run",
+    "guided=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r1",
+    "--run",
+    "guided=/Users/kadenhyatt/Desktop/Data_Clinic/clinic-2026-whitney-lab/runs/2026-11-17_contract_guidelines_guided_r2",
+    "--acknowledge",
+    "old_1:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "--acknowledge",
+    "old_2:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "--acknowledge",
+    "unguided_1:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "--acknowledge",
+    "unguided_2:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "--acknowledge",
+    "guided_1:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back",
+    "--acknowledge",
+    "guided_2:not_shared=laptop run (cluster down); will be rsynced to /net/spaces/annawoodard/oncotrace/workspaces/kh/runs/ when the cluster is back"
+  ]
+}

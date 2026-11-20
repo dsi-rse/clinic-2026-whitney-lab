@@ -1,0 +1,407 @@
+# Depth of myometrial invasion in endometrial carcinoma, expressed entirely as
+# configuration. Label values are CAP's response options (CAP Endometrium
+# protocol, posting date June 2022, version 4.3.0.0, Note E), so a reviewer who
+# owns the clinical definition can audit this file without reading any code.
+#
+# This contract follows June 2022 so that it matches the human hand-read
+# template, which is also June 2022. June 2022 asks the depth question in two
+# parts: "Myometrial Invasion" (Not identified / Present / Cannot be determined /
+# Not applicable), and, under Present, "Percentage of Myometrial Invasion"
+# (less than 50% / 50% or greater / specify percentage / cannot be determined).
+# So inner-half versus outer-half is a SUB-ELEMENT here, not a label value: the
+# label answers "is there invasion", `myometrial_invasion_percent` answers "how
+# deep". Both are needed for a FIGO IA/IB call.
+#
+# Field names and values are unchanged from the previous version, because the
+# human annotations used for evaluation hold them. This revision adds
+# definitions, wording-to-value mappings, precedence and quoting instructions,
+# and four consistency rules. See changes.md.
+name: endo_myometrial_invasion
+
+label:
+  field: myometrial_invasion
+  # Three of these look like "no answer"; only `not_identified` is a clinical
+  # negative. Never pool them.
+  values:
+    # CAP "Not applicable": the report shows that no myometrium was removed
+    # (biopsy or curettage only). Never used because the report is silent.
+    - not_applicable
+    # CAP "Not identified": a uterus was removed and the final diagnosis says
+    # the carcinoma does not invade the myometrium (no invasion, confined to
+    # the endometrium, or only involving adenomyosis without myoinvasion).
+    - not_identified
+    # CAP "Present": the final diagnosis says carcinoma invades the myometrium,
+    # at any depth, including a depth given only as a number.
+    - present
+    # CAP "Cannot be determined": a uterus was removed (or the report does not
+    # say what was removed), but the report does not settle whether the
+    # myometrium is invaded: no depth statement at all, a stage code only,
+    # fragmentation or artifact stated, or a decisive word unreadable.
+    - cannot_be_determined
+
+# Defined in the instructions under CONFIDENCE.
+confidence_values: [high, medium, low]
+
+# Values that state something is absent from the report. Absence cannot be
+# quoted, so these need no quote. Each name is used by exactly one field
+# (guideline 12): `none_stated` only in depth_basis, `not_mentioned` only in
+# adenomyosis_relation. `not_applicable` is NOT listed, because that would also
+# exempt the label's not_applicable, which must quote what was resected.
+no_quote_values: [not_mentioned, none_stated]
+
+extra_fields:
+  - name: specimen_type
+    values:
+      # The report states a hysterectomy (any kind: total, simple, radical,
+      # abdominal, vaginal, laparoscopic, supracervical), or lists the uterine
+      # corpus as a removed specimen, or records a surgical resection of a
+      # uterine primary.
+      - hysterectomy
+      # The only uterine tissue is from an endometrial biopsy, curettage or
+      # dilation and curettage; no uterus was removed.
+      - biopsy_or_curettage_only
+      # Any other specimen (no uterine corpus and no endometrial sampling), or
+      # a report that never says what was removed. This merges a quotable
+      # "other" with an unquotable "not stated" (guideline 3); it is kept
+      # because the annotations use it. It still needs a quote: the passage
+      # that names whatever specimen or procedure the report does describe.
+      - other_or_not_stated
+
+  # CAP June 2022 "Percentage of Myometrial Invasion", a sub-element of
+  # "Present". A stated or computed percentage is recorded as the half it falls
+  # in; that a number was given is recorded in depth_basis.
+  - name: myometrial_invasion_percent
+    values:
+      # Deepest invasion is under half of the myometrial thickness (below 50%).
+      # CAP "Estimated to be less than 50%" -> FIGO 2009 IA.
+      - less_than_50
+      # Deepest invasion is half or more of the thickness. Exactly 50% goes
+      # here. CAP "Estimated to be 50% or greater" -> FIGO 2009 IB.
+      - fifty_or_greater
+      # The label is present, but the readable final text does not settle which
+      # half (no depth statement, only descriptive words that name no half,
+      # only the middle third, a depth without a combinable thickness, or an
+      # unreadable decisive number).
+      - cannot_be_determined
+      # The label is not present. CAP omits this sub-element unless the parent
+      # is Present; a task answer must fill every field.
+      - not_applicable
+
+  # How the depth answer is grounded. When several kinds of wording are present,
+  # use the first in this order that the deciding statements give:
+  # explicit_fraction_or_percentage, descriptive_full_thickness,
+  # estimated_without_number, descriptive_other.
+  - name: depth_basis
+    values:
+      # The report gives a percentage or numeric fraction of the myometrium,
+      # or BOTH a depth of invasion AND a myometrial (or wall) thickness as
+      # numbers that may be combined (see instructions). No rule can check that
+      # the quotes hold both numbers; the instructions ask for both.
+      - explicit_fraction_or_percentage
+      # The report says invasion reaches the serosa or the whole thickness of
+      # the myometrial wall, with no usable numbers. Always fifty_or_greater.
+      - descriptive_full_thickness
+      # The report names a half, or the inner or outer third, of the
+      # myometrium in words or symbols, without numbers that can be combined.
+      - estimated_without_number
+      # The report describes invasion only with words that name no half and no
+      # inner or outer third (for example shallow, minor, deep, extensive, or
+      # the middle third), or gives a depth number with no combinable
+      # thickness. Percent is then cannot_be_determined.
+      - descriptive_other
+      # No depth of invasion is stated for this tumor, or the label is not
+      # present. Needs no quote. This merges "not stated" with "doesn't apply"
+      # (guideline 3); it is kept because the annotations use it.
+      - none_stated
+
+  # CAP June 2022 "+Adenomyosis". Kept here because Note E makes it decisive
+  # for how depth is measured.
+  - name: adenomyosis_relation
+    values:
+      # The report does not say adenomyosis is present (not mentioned at all,
+      # or stated to be absent). Needs no quote.
+      - not_mentioned
+      # Adenomyosis is reported, and the report does not say carcinoma involves
+      # it (for example listed as a separate benign finding).
+      - present_uninvolved_by_carcinoma
+      # The report says carcinoma involves adenomyosis, without saying that
+      # invasive carcinoma extends from it. Not myoinvasion (Note E).
+      - present_involved_by_carcinoma
+      # The report says myoinvasive carcinoma is found ONLY extending from foci
+      # of adenomyosis involved by carcinoma; depth is then measured from the
+      # adenomyotic focus (Note E).
+      - invasion_within_adenomyosis
+      # The report mentions adenomyosis but leaves its relation to carcinoma
+      # open (for example says involvement cannot be excluded, or that
+      # invasion and adenomyosis cannot be told apart).
+      - cannot_be_determined
+
+list_fields: [unresolved_conflicts]
+
+rules:
+  # Every answer the instructions allow passes all rules at once. The four new
+  # rules (marked NEW) only refuse combinations the field definitions already
+  # forbid. Before a model run, test each NEW rule with OncoTrace's check_answer
+  # on one made-up submission it should pass and one it should refuse, and
+  # after the run count refusals by signature (guideline 13).
+
+  # `present` and `not_identified` assert the myometrium was assessed, so they
+  # need a specimen with myometrium in it.
+  - signature: depth_requires_hysterectomy
+    message: depth of myometrial invasion is only assessable on a hysterectomy specimen
+    when_label: [not_identified, present]
+    require_field:
+      field: specimen_type
+      values: [hysterectomy]
+
+  # The rule allows other_or_not_stated because that value also covers "other".
+  # It cannot tell "other" from "not stated"; the instructions say a silent
+  # report is cannot_be_determined, not not_applicable. No rule enforces that.
+  - signature: not_applicable_requires_nonhysterectomy
+    message: not_applicable requires a specimen with no myometrium to assess
+    when_label: [not_applicable]
+    require_field:
+      field: specimen_type
+      values: [biopsy_or_curettage_only, other_or_not_stated]
+
+  # Answering `present` forces a half, or an explicit cannot_be_determined.
+  - signature: invasion_percent_unresolved
+    message: invasion recorded as present requires a percentage of myometrial invasion
+    when_label: [present]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [less_than_50, fifty_or_greater, cannot_be_determined]
+
+  # NEW. The inverse: any label other than present means there is no depth to
+  # record. Together with invasion_percent_unresolved this ties the two fields.
+  - signature: invasion_percent_without_invasion
+    message: myometrial_invasion_percent must be not_applicable unless the label is present
+    when_label: [not_identified, not_applicable, cannot_be_determined]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [not_applicable]
+
+  # NEW. A basis that commits to a half must come with a half.
+  - signature: committed_basis_requires_half
+    message: an explicit or estimated depth basis requires less_than_50 or fifty_or_greater
+    when_field:
+      field: depth_basis
+      values: [explicit_fraction_or_percentage, estimated_without_number]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [less_than_50, fifty_or_greater]
+
+  # NEW. Full thickness or serosal extent is the outer half by definition.
+  - signature: full_thickness_requires_outer_half
+    message: descriptive_full_thickness requires fifty_or_greater
+    when_field:
+      field: depth_basis
+      values: [descriptive_full_thickness]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [fifty_or_greater]
+
+  # NEW. A basis that names no half cannot support a half.
+  - signature: uncommitted_basis_has_no_half
+    message: descriptive_other or none_stated cannot support less_than_50 or fifty_or_greater
+    when_field:
+      field: depth_basis
+      values: [descriptive_other, none_stated]
+    require_field:
+      field: myometrial_invasion_percent
+      values: [cannot_be_determined, not_applicable]
+
+  # The old invasion_percent_requires_hysterectomy rule is removed as
+  # redundant: a half now requires label present
+  # (invasion_percent_without_invasion), and present already requires a
+  # hysterectomy (depth_requires_hysterectomy).
+
+instructions: |
+  Determine the depth of myometrial invasion for this patient's endometrial
+  carcinoma, using the CAP June 2022 response options.
+
+  WHAT TO ANSWER
+
+  myometrial_invasion (the label) says whether carcinoma invades the myometrium:
+  - present: the final diagnosis says carcinoma invades the myometrium, at any
+    depth. A depth given only as a number also counts.
+  - not_identified: a uterus was removed and the final diagnosis says there is
+    no myometrial invasion, or that the tumor is confined to the endometrium.
+  - not_applicable: the report shows no myometrium was removed (endometrial
+    biopsy or curettage only). Never use it just because the report is silent.
+  - cannot_be_determined: the report does not settle whether the myometrium is
+    invaded. Use it when a uterus was removed (or the specimen is not stated)
+    but no invasion statement exists; when only a stage code or stage group is
+    given; when the report says fragmentation or artifact prevents assessment;
+    or when the decisive word or number cannot be read.
+
+  myometrial_invasion_percent says how deep, and only when the label is
+  present:
+  - less_than_50: deepest invasion is under half of the myometrial thickness.
+  - fifty_or_greater: deepest invasion is half or more. Exactly half (50%) is
+    fifty_or_greater.
+  - cannot_be_determined: invasion is present but the text does not settle
+    which half.
+  - not_applicable: the label is not_identified, not_applicable or
+    cannot_be_determined. This field then quotes the same passage as the label.
+
+  depth_basis says what the depth answer rests on. If several apply, take the
+  first in this order:
+  1. explicit_fraction_or_percentage: a percentage or numeric fraction of the
+     myometrium, or a depth of invasion and a myometrial (or wall) thickness
+     given as numbers that may be combined (see below). Quote both numbers.
+  2. descriptive_full_thickness: invasion reaches the serosa, or the whole
+     thickness of the myometrial wall, without usable numbers.
+  3. estimated_without_number: a half, or the inner or outer third, of the
+     myometrium named in words or symbols, without combinable numbers.
+  4. descriptive_other: invasion described only with words that name no half
+     and no inner or outer third, or a depth number with no thickness it may
+     be combined with.
+  5. none_stated: no depth is stated, or the label is not present.
+
+  specimen_type says what was removed:
+  - hysterectomy: any hysterectomy, a removed uterine corpus listed as a
+    specimen, or a surgical resection of a uterine primary.
+  - biopsy_or_curettage_only: only endometrial biopsy or curettage material.
+  - other_or_not_stated: any other specimen, or the report never says what was
+    removed. Quote whatever passage names a specimen or procedure.
+
+  adenomyosis_relation:
+  - not_mentioned: the report does not say adenomyosis is present (not
+    mentioned, or stated to be absent). Needs no quote.
+  - present_uninvolved_by_carcinoma: adenomyosis is reported and nothing says
+    carcinoma involves it, for example when it is listed as a separate finding.
+  - present_involved_by_carcinoma: carcinoma is said to involve adenomyosis,
+    without saying invasive carcinoma extends from it.
+  - invasion_within_adenomyosis: myoinvasive carcinoma is found only extending
+    from foci of adenomyosis involved by carcinoma.
+  - cannot_be_determined: adenomyosis is mentioned but its relation to the
+    carcinoma is left open.
+
+  HOW TO MAP REPORT WORDING (examples are made up; real wording varies)
+  - A synoptic or checklist entry that picks a half (for example "under one
+    half") commits to that half. If the same entry also gives depth and
+    thickness numbers, the basis is explicit_fraction_or_percentage.
+  - An older-style category of "half or less" with no numbers is less_than_50;
+    "over half" or "beyond the midpoint" is fifty_or_greater. Both are
+    estimated_without_number.
+  - Thirds: the inner third is less_than_50 and the outer third is
+    fifty_or_greater, both estimated_without_number. The middle third alone
+    does not settle the half: percent cannot_be_determined, basis
+    descriptive_other.
+  - Shallow, minor or deep invasion with no half, third or numbers: label
+    present, percent cannot_be_determined, basis descriptive_other.
+  - A stage code or stage group (pT1a, IB, IC and so on) never decides depth
+    on its own. Stage definitions changed between editions (in older editions
+    IB meant under half; from 2009 IB means half or more), so do not translate
+    a code. A stage line that spells out the depth in words may be used, as
+    estimated_without_number, only when no other depth statement exists in the
+    report.
+  - Mentions of full-thickness tissue sections in the cassette or block list
+    describe how the specimen was sampled, not how deep the tumor goes. Never
+    use them as depth evidence.
+  - Invasion of the cervix, cervical stroma or lower uterine segment stroma is
+    not myometrial invasion. Do not use its depth, fraction or thirds.
+
+  HOW NUMBERS MAY BE COMBINED
+  - You may divide a depth of invasion by a myometrial (or total wall)
+    thickness only when both numbers come from the same statement, or from the
+    same synoptic or checklist block, of one source. Do not pair a depth from
+    one section with a thickness from another, and do not pair a microscopic
+    depth with a gross measurement.
+  - Convert units before dividing (10 mm = 1 cm). Use the deepest depth: if a
+    range is given, use its largest value.
+  - Compare the result with one half; exactly one half is fifty_or_greater.
+    A computed fraction is not a stated one: quote the two numbers it came
+    from, and never present the computed number as if the report said it.
+  - A depth number with no combinable thickness does not settle the half:
+    percent cannot_be_determined and basis descriptive_other, unless the report
+    also names the half (then use that half, estimated_without_number).
+
+  WHICH STATEMENT WINS
+  Answer from the highest source that addresses depth, in this order:
+  1. an amended, corrected or addendum diagnosis that revises depth;
+  2. the final microscopic diagnosis and its synoptic or checklist section;
+  3. the microscopic description or comment;
+  4. the gross description;
+  5. a frozen section or intraoperative impression, a preliminary or original
+     diagnosis that was later revised, and any outside or prior biopsy.
+  Within one source, a stated percentage beats computed numbers, computed
+  numbers beat a named half, and a named half beats descriptive words.
+  Record in unresolved_conflicts each statement anywhere in the report that
+  would give a different value for myometrial_invasion or
+  myometrial_invasion_percent than your answer, with a short note of what
+  disagrees, and quote that statement there. Do not record statements that
+  agree in value but differ in wording or exact numbers. Leave the list empty
+  when nothing disagrees.
+
+  MEASUREMENT RULES FROM CAP NOTE E
+  - Depth is measured from the endomyometrial junction to the deepest point of
+    invasion, relative to the total myometrial thickness at that point. Where
+    the junction is unclear, the report may judge it from compressed
+    non-neoplastic glands at the junction or the tumor base.
+  - Carcinoma involving foci of adenomyosis is NOT invasive carcinoma. If that
+    is the only "invasion" described, the label is not_identified and
+    adenomyosis_relation is present_involved_by_carcinoma.
+  - Where myoinvasive carcinoma is found ONLY extending from foci of adenomyosis
+    involved by carcinoma, depth is measured from the adenomyotic focus, not
+    from the endomyometrial junction (a 2 mm focus extending from deep
+    adenomyosis is still less than 50%). Record adenomyosis_relation as
+    invasion_within_adenomyosis and the label as present.
+  - Lymphatic or vascular invasion is never used to measure depth. A MELF
+    pattern focus is myometrial invasion; an LVI focus is not. In a MELF
+    pattern, depth goes to the deepest malignant cells, not to desmoplasia.
+  - In exophytic or polypoid tumors, exclude the exophytic part when judging
+    myometrial thickness.
+
+  READING THE REPORT
+  This patient's source is ONE document holding their whole report: every page
+  of the scan in order, with page boundaries marked "===== PAGE n =====". The
+  reports are short, so read the whole document before deciding, not just
+  search results. They are OCR'd scans from roughly 2000 to 2013: words and
+  numbers may be misspelled, and some pages appear twice. Read a garbled word
+  for its meaning only when that meaning is beyond doubt. If a decisive number
+  or word cannot be read, answer cannot_be_determined for what it decides,
+  quote the unreadable passage, and choose depth_basis from the wording that
+  can still be read (none_stated if none).
+
+  QUOTING
+  - Copy every quote exactly from the document, including OCR errors and
+    capitalisation. Never correct or paraphrase a quote.
+  - A quote must occur exactly once in the document. If the passage repeats
+    (for example on a duplicated page), lengthen the quote with neighbouring
+    words until it is unique. Keep quotes short, ideally within one line.
+  - Quote the sentence or entry that decides the answer, not the heading above
+    it. When a checklist value sits on the line below its heading, quote the
+    value line.
+  - Each answer carries its own quotes; when one passage supports two answers,
+    quote it under both. The label quotes the invasion statement (for
+    not_applicable, what was removed; for cannot_be_determined, the passage
+    that shows why, such as a stage-only line). depth_basis quotes the numbers
+    or wording it names; for explicit_fraction_or_percentage, quote both the
+    depth and the thickness, or the percentage. specimen_type quotes the
+    procedure or specimen line. adenomyosis_relation quotes the adenomyosis
+    mention.
+
+  CONFIDENCE
+  - high: one final-diagnosis statement decides the answer and nothing
+    disagrees.
+  - medium: the answer needs a computed fraction, a lower-precedence source,
+    or a conflict settled by the order above.
+  - low: the answer rests on OCR-damaged text or on a judgement these
+    instructions do not settle.
+
+  CHECKS BEFORE SUBMITTING
+  1. What was removed, and does it include myometrium?
+  2. Which statement is the final (or amended) diagnosis, as opposed to a
+     frozen section, gross description, prior biopsy or original diagnosis?
+  3. Is there a percentage, a fraction, or a depth and thickness that may be
+     combined? Recompute the half yourself.
+  4. Does the depth statement describe LVI, the cervix or tissue sampling
+     instead of myometrial invasion?
+  5. Does any invasion arise only within adenomyosis?
+  6. Do the label, percent and depth_basis agree? Percent is not_applicable
+     unless the label is present; explicit_fraction_or_percentage and
+     estimated_without_number need a half; descriptive_full_thickness needs
+     fifty_or_greater; descriptive_other and none_stated never give a half.
+  7. Is every quote verbatim and unique in the document?

@@ -1,0 +1,7 @@
+gap,description,fixed_if,partly_if,source
+G1,"depth_basis value descriptive_other has no definition","it is defined (comment or instructions), or removed","",#26 / PR #43; #42
+G2,"explicit_fraction_or_percentage is documented as depth and thickness, but nothing asks for both or says they must come from the same section","the instructions require both numbers and that they come from the same section or measurement, or forbid computing a fraction","only one of: both numbers required; same section required",#26 / PR #43; #42; PR #48
+G3,"report wording that describes extent in the myometrium with no half, no number and no invasion word maps to no value","the instructions name this kind of wording and say which value it gets","the instructions say what to do with wording that fits no listed kind, without naming this kind",#26 / PR #43; #42; #15
+G4,"no value is named for a depth of exactly one-half, or wording such as about one-half","the contract says which value takes exactly 50% or about one-half","",PR #22
+G5,"specimen_type other_or_not_stated mixes a quotable meaning (other) with an unquotable one (not stated)","the two meanings are separated, or the contract says what to quote for each","it is defined, without saying what to quote when nothing is stated",PR #48
+G6,"when two definitive statements give different depths, nothing says which wins","the contract says which statement wins (for example the deepest)","",#15 / PR #18

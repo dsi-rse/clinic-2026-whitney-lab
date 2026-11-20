@@ -1,0 +1,13 @@
+arm,run_index,run,field,patients,server_errors,no_answer,model_calls,correct,wrong,over_committed,abstained
+old,0,2026-11-17_contract_guidelines_old_r1,invasion,66,0,0,274,63,0,3,0
+old,0,2026-11-17_contract_guidelines_old_r1,depth,66,0,0,274,53,1,12,0
+old,1,2026-11-17_contract_guidelines_old_r2,invasion,66,0,0,279,63,0,3,0
+old,1,2026-11-17_contract_guidelines_old_r2,depth,66,0,0,279,53,1,12,0
+unguided,2,2026-11-17_contract_guidelines_unguided_r1,invasion,66,0,0,263,63,0,3,0
+unguided,2,2026-11-17_contract_guidelines_unguided_r1,depth,66,0,0,263,53,1,12,0
+unguided,3,2026-11-17_contract_guidelines_unguided_r2,invasion,66,0,0,298,63,0,3,0
+unguided,3,2026-11-17_contract_guidelines_unguided_r2,depth,66,0,0,298,53,1,12,0
+guided,4,2026-11-17_contract_guidelines_guided_r1,invasion,66,0,0,258,63,0,3,0
+guided,4,2026-11-17_contract_guidelines_guided_r1,depth,66,0,0,258,53,3,10,0
+guided,5,2026-11-17_contract_guidelines_guided_r2,invasion,66,0,0,272,63,0,3,0
+guided,5,2026-11-17_contract_guidelines_guided_r2,depth,66,0,0,272,52,3,11,0

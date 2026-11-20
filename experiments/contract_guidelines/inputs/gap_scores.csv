@@ -1,0 +1,19 @@
+contract,gap,score,reason
+old,G1,0,descriptive_other has no comment and is never named in the instructions
+old,G2,0,the comment says depth+thickness; nothing asks for both or for the same section
+old,G3,0,the instructions cover full thickness; a stated fraction; and wording that commits to a half; nothing else
+old,G4,0,no value is named for exactly one-half
+old,G5,0,other_or_not_stated has no definition
+old,G6,0,"the instructions say answer from the definitive statement, but not which of two definitive statements wins"
+unguided,G1,1,instructions (ANSWER 3) define descriptive_other with examples of the wording it covers
+unguided,G2,1,"method b needs depth and thickness both stated as numbers, the thickness at the site of deepest invasion, not one quoted elsewhere; a depth alone gives cannot_be_determined"
+unguided,G3,1,"method e names superficial or minimal invasion with no number or half and maps it to less_than_50, label present"
+unguided,G4,1,exactly 50% is fifty_or_greater
+unguided,G5,0.5,"defined as anything else or nothing indicates what was removed; does not say what to quote when nothing is stated"
+unguided,G6,1,"a precedence order across sources, a fixed order of kinds of depth statement, and the deepest value of a range"
+guided,G1,1,defined in its comment and in the instructions (depth_basis item 4)
+guided,G2,1,"both numbers required and quoted; only from the same statement or synoptic block; never a gross with a microscopic number; a computed fraction is not a stated one"
+guided,G3,1,"names shallow, minor or deep invasion with no half, third or number and maps it to label present, percent cannot_be_determined, basis descriptive_other"
+guided,G4,1,exactly 50% is fifty_or_greater
+guided,G5,1,"defined in a comment and the instructions, with what to quote in both cases: the passage naming whatever specimen or procedure the report does describe"
+guided,G6,1,"a precedence order across sources, an order of kinds within one source, and the largest value of a range"

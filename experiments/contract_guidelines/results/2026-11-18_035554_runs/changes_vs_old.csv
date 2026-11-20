@@ -1,0 +1,5 @@
+arm,field,better,worse,same_in_all_runs,better_patients,worse_patients
+unguided,invasion,0,0,66,,
+unguided,depth,0,0,63,,
+guided,invasion,0,0,66,,
+guided,depth,0,1,63,,TCGA-A5-A0GR
