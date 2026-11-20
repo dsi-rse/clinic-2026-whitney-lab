@@ -1,0 +1,59 @@
+patient,group,extent_no_invasion_word,extent_with_invasion_word,superficial_with_invasion_word,superficial_no_invasion_word,myometrium_statements,annotated,ann_invasion,ann_percent,ann_basis
+TCGA-5B-A90C,extent_with_other_depth_wording,6773-6918,,,6773-6918,6,True,present,cannot_be_determined,explicit_fraction_or_percentage
+TCGA-A5-A0G1,other,,237-992,237-992,,6,True,present,less_than_50,estimated_without_number
+TCGA-A5-A0GD,other,,2867-3419,2867-3419,,8,True,present,less_than_50,estimated_without_number
+TCGA-A5-A0GJ,extent_only_report,1801-1868,,,1801-1868,2,True,cannot_be_determined,not_applicable,none_stated
+TCGA-A5-A0GN,extent_with_other_depth_wording,6241-6295,1805-2017,,,6,True,present,fifty_or_greater,estimated_without_number
+TCGA-A5-A0GP,extent_with_other_depth_wording,1179-1305,4457-4787,4457-4787,1179-1305,5,True,present,less_than_50,estimated_without_number
+TCGA-A5-A0GV,extent_with_other_depth_wording,3951-4072,,,3951-4072,3,True,present,less_than_50,estimated_without_number
+TCGA-A5-A0GX,other,,6527-6681,6527-6681,,5,True,present,less_than_50,estimated_without_number
+TCGA-A5-A1OF,other,,2439-2471 3357-3441,2439-2471 3357-3441,,4,True,present,less_than_50,explicit_fraction_or_percentage
+TCGA-A5-A1OG,other,,6251-6327,6251-6327,,7,True,present,fifty_or_greater,explicit_fraction_or_percentage
+TCGA-A5-A1OJ,extent_with_other_depth_wording,8507-8590,,,,4,True,present,less_than_50,estimated_without_number
+TCGA-A5-A1OK,extent_with_other_depth_wording,13089-13164,,,13089-13164,5,True,present,cannot_be_determined,descriptive_full_thickness
+TCGA-A5-A2K2,other,,8980-9158,,,4,True,present,less_than_50,none_stated
+TCGA-A5-A2K3,other,,5592-5713,,,3,True,not_identified,not_applicable,none_stated
+TCGA-A5-AB3J,other,,1183-1222,1183-1222,,4,True,present,less_than_50,estimated_without_number
+TCGA-AJ-A3BI,extent_with_other_depth_wording,769-827,,,769-827,8,True,present,less_than_50,explicit_fraction_or_percentage
+TCGA-AJ-A3BK,extent_with_other_depth_wording,5155-5198,,,,8,True,present,fifty_or_greater,explicit_fraction_or_percentage
+TCGA-AJ-A3EM,extent_with_other_depth_wording,5296-5352,,,5296-5352,10,True,present,less_than_50,explicit_fraction_or_percentage
+TCGA-AJ-A3NE,other,,7221-7405,,,10,False,,,
+TCGA-AJ-A3NF,extent_with_other_depth_wording,2983-3048,,,,5,False,,,
+TCGA-AJ-A3NH,extent_with_other_depth_wording,2573-2644,,,,5,False,,,
+TCGA-AJ-A3OJ,extent_with_other_depth_wording,5907-5954,,,,10,False,,,
+TCGA-AX-A05T,other,,1812-1898,1812-1898,,5,False,,,
+TCGA-AX-A05U,extent_with_other_depth_wording,8258-8350,,,,12,False,,,
+TCGA-AX-A06B,other,,1022-1279,1022-1279,,9,False,,,
+TCGA-AX-A0J0,other,,3926-3998,3926-3998,,4,False,,,
+TCGA-AX-A1C9,other,,6573-6717,6573-6717,,7,False,,,
+TCGA-AX-A1CA,other,,1044-1287,1044-1287,,4,False,,,
+TCGA-AX-A1CF,other,,6144-6250,6144-6250,,8,False,,,
+TCGA-AX-A1CI,other,,248-449 1975-2176,248-449 1975-2176,,3,False,,,
+TCGA-AX-A1CK,other,,4509-4599,4509-4599,,8,False,,,
+TCGA-AX-A1CR,other,,3584-3753 3987-4120,3584-3753 3987-4120,,7,False,,,
+TCGA-AX-A2HF,extent_with_other_depth_wording,1023-1077,,,,6,False,,,
+TCGA-B5-A0JS,other,,1307-1379,1307-1379,,8,False,,,
+TCGA-B5-A0K3,other,,8021-8058,8021-8058,,9,False,,,
+TCGA-B5-A0K6,other,,1721-1758,,,6,False,,,
+TCGA-B5-A11F,extent_with_other_depth_wording,772-849,,,772-849,5,False,,,
+TCGA-B5-A11I,other,,1776-1853,,,4,False,,,
+TCGA-B5-A11P,other,,4063-4268,4063-4268,,6,False,,,
+TCGA-B5-A1MS,extent_with_other_depth_wording,4296-4417,,,,5,False,,,
+TCGA-BG-A220,extent_with_other_depth_wording,1245-1284 1317-1462,,,1317-1462,5,False,,,
+TCGA-BK-A6W3,other,,378-780,378-780,,6,False,,,
+TCGA-BS-A0TC,other,,2481-2551,,,3,False,,,
+TCGA-BS-A0TE,other,,5465-5595,,,3,False,,,
+TCGA-BS-A0U5,other,,2845-2947,,,4,False,,,
+TCGA-D1-A16D,extent_with_other_depth_wording,795-840,,,795-840,2,False,,,
+TCGA-D1-A16Q,other,,2460-2541,2460-2541,,5,False,,,
+TCGA-DI-A1C3,other,,2811-2994,2811-2994,,6,False,,,
+TCGA-DI-A2QU,other,,2190-2268,2190-2268,,4,False,,,
+TCGA-EO-A22S,extent_with_other_depth_wording,6438-6518,,,6438-6518,7,False,,,
+TCGA-EY-A1GM,other,,2188-2329 7154-7217,2188-2329 7154-7217,,5,False,,,
+TCGA-EY-A2OM,other,,2582-2812,2582-2812,,6,False,,,
+TCGA-EY-A2OQ,extent_with_other_depth_wording,5496-5535,,,,4,False,,,
+TCGA-FI-A2F8,extent_with_other_depth_wording,4852-4941,,,,9,False,,,
+TCGA-H5-A2HR,other,,3632-3679 6350-6397 9073-9120,3632-3679 6350-6397 9073-9120,,7,False,,,
+TCGA-PG-A917,extent_with_other_depth_wording,5239-5330,6146-6198,6146-6198,,6,False,,,
+TCGA-QF-A5YS,other,,5566-5645,5566-5645,,4,False,,,
+TCGA-QS-A5YQ,other,,3287-3373,3287-3373,,4,False,,,

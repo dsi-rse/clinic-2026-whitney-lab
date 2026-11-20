@@ -1,0 +1,69 @@
+patient,start,end,page,type,classes
+TCGA-5B-A90C,6773,6918,5,extent_no_invasion_word,superficial_word unquantified_extent negation
+TCGA-A5-A0G1,237,992,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-A5-A0GD,2867,3419,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-A5-A0GJ,1801,1868,1,extent_no_invasion_word,superficial_word unquantified_extent confined_statement
+TCGA-A5-A0GN,1805,2017,2,extent_with_invasion_word,invasion_word unquantified_extent negation
+TCGA-A5-A0GN,6241,6295,3,extent_no_invasion_word,unquantified_extent
+TCGA-A5-A0GP,1179,1305,1,extent_no_invasion_word,superficial_word unquantified_extent confined_statement
+TCGA-A5-A0GP,4457,4787,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-A5-A0GV,3951,4072,2,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-A5-A0GX,6527,6681,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-A5-A1OF,2439,2471,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-A5-A1OF,3357,3441,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-A5-A1OG,6251,6327,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-A5-A1OJ,8507,8590,5,extent_no_invasion_word,unquantified_extent
+TCGA-A5-A1OK,13089,13164,7,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-A5-A2K2,8980,9158,4,extent_with_invasion_word,invasion_word unquantified_extent negation
+TCGA-A5-A2K3,5592,5713,3,extent_with_invasion_word,invasion_word unquantified_extent
+TCGA-A5-AB3J,1183,1222,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AJ-A3BI,769,827,1,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-AJ-A3BK,5155,5198,3,extent_no_invasion_word,unquantified_extent
+TCGA-AJ-A3EM,5296,5352,3,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-AJ-A3NE,7221,7405,4,extent_with_invasion_word,invasion_word unquantified_extent
+TCGA-AJ-A3NF,2983,3048,2,extent_no_invasion_word,unquantified_extent
+TCGA-AJ-A3NH,2573,2644,1,extent_no_invasion_word,unquantified_extent
+TCGA-AJ-A3OJ,5907,5954,3,extent_no_invasion_word,unquantified_extent
+TCGA-AX-A05T,1812,1898,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A05U,8258,8350,5,extent_no_invasion_word,unquantified_extent negation
+TCGA-AX-A06B,1022,1279,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-AX-A0J0,3926,3998,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A1C9,6573,6717,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A1CA,1044,1287,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-AX-A1CF,6144,6250,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A1CI,248,449,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-AX-A1CI,1975,2176,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-AX-A1CK,4509,4599,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A1CR,3584,3753,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-AX-A1CR,3987,4120,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-AX-A2HF,1023,1077,1,extent_no_invasion_word,unquantified_extent
+TCGA-B5-A0JS,1307,1379,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-B5-A0K3,8021,8058,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-B5-A0K6,1721,1758,1,extent_with_invasion_word,invasion_word unquantified_extent negation
+TCGA-B5-A11F,772,849,1,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-B5-A11I,1776,1853,1,extent_with_invasion_word,invasion_word unquantified_extent
+TCGA-B5-A11P,4063,4268,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-B5-A1MS,4296,4417,2,extent_no_invasion_word,unquantified_extent
+TCGA-BG-A220,1245,1284,1,extent_no_invasion_word,unquantified_extent
+TCGA-BG-A220,1317,1462,1,extent_no_invasion_word,superficial_word unquantified_extent negation
+TCGA-BK-A6W3,378,780,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-BS-A0TC,2481,2551,2,extent_with_invasion_word,invasion_word unquantified_extent
+TCGA-BS-A0TE,5465,5595,3,extent_with_invasion_word,invasion_word unquantified_extent negation
+TCGA-BS-A0U5,2845,2947,2,extent_with_invasion_word,invasion_word unquantified_extent
+TCGA-D1-A16D,795,840,1,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-D1-A16Q,2460,2541,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-DI-A1C3,2811,2994,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-DI-A2QU,2190,2268,1,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-EO-A22S,6438,6518,4,extent_no_invasion_word,superficial_word unquantified_extent
+TCGA-EY-A1GM,2188,2329,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-EY-A1GM,7154,7217,5,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-EY-A2OM,2582,2812,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-EY-A2OQ,5496,5535,4,extent_no_invasion_word,unquantified_extent
+TCGA-FI-A2F8,4852,4941,3,extent_no_invasion_word,unquantified_extent
+TCGA-H5-A2HR,3632,3679,3,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-H5-A2HR,6350,6397,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-H5-A2HR,9073,9120,6,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-PG-A917,5239,5330,3,extent_no_invasion_word,unquantified_extent
+TCGA-PG-A917,6146,6198,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent
+TCGA-QF-A5YS,5566,5645,4,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
+TCGA-QS-A5YQ,3287,3373,2,extent_with_invasion_word,invasion_word superficial_word unquantified_extent negation
