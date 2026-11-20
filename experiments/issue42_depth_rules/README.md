@@ -196,3 +196,12 @@ python experiments/issue42_depth_rules/analyze_runs.py --runs-dir runs --date <d
 
 Model outputs do not reproduce bit for bit. The analysis of a given set of run
 folders does, in under a minute.
+
+The run folders (`2026-11-17_issue42_*`, with their `.log` files, including
+the unused `old_t0_a`) were made on a laptop and copied on 2026-11-20 to
+`/net/spaces/annawoodard/oncotrace/workspaces/khyatt/runs/`, group
+`__oncotrace`, group-readable. File counts and checksums matched the laptop
+copies. To rerun the analysis from them, pass that folder as `--runs-dir` with
+`--date 2026-11-17`. The `not_shared` acknowledgements in the committed
+`provenance.json` files name this folder. No teammate has yet confirmed they
+can open it.
